@@ -28,11 +28,7 @@ class JoinHomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func didTapSettings(_ sender: Any) {
-        performSegue(withIdentifier: "toSettingsViewController", sender: self)
 
-    }
 
     /*
     // MARK: - Navigation
