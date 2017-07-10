@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
+		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
+		A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */; };
+		A0BEF7F21F14276700CABCFA /* CreateQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E81F14276700CABCFA /* CreateQViewController.swift */; };
+		A0BEF7F31F14276700CABCFA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E91F14276700CABCFA /* HomeViewController.swift */; };
+		A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */; };
+		A0BEF7F51F14276700CABCFA /* JoinQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EB1F14276700CABCFA /* JoinQViewController.swift */; };
+		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
+		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
+		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -36,6 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
+		A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
+		A0BEF7E81F14276700CABCFA /* CreateQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateQViewController.swift; sourceTree = "<group>"; };
+		A0BEF7E91F14276700CABCFA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinHomeViewController.swift; sourceTree = "<group>"; };
+		A0BEF7EB1F14276700CABCFA /* JoinQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinQViewController.swift; sourceTree = "<group>"; };
+		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0BEF7F91F14277200CABCFA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */,
+				A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */,
+				A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */,
+				A0BEF7E81F14276700CABCFA /* CreateQViewController.swift */,
+				A0BEF7E91F14276700CABCFA /* HomeViewController.swift */,
+				A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */,
+				A0BEF7EB1F14276700CABCFA /* JoinQViewController.swift */,
+				A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */,
+				A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */,
+				A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		DFB1985C1F14139000349AAD = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +142,7 @@
 		DFB198671F14139000349AAD /* Kickback */ = {
 			isa = PBXGroup;
 			children = (
+				A0BEF7F91F14277200CABCFA /* View Controllers */,
 				DFB1989D1F1413DC00349AAD /* Spotify Frameworks */,
 				DFB1989E1F14140100349AAD /* Kickback-Bridging-Header.h */,
 				DFB198681F14139000349AAD /* AppDelegate.swift */,
@@ -280,7 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
+				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
+				A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */,
+				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
+				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
+				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
+				A0BEF7F51F14276700CABCFA /* JoinQViewController.swift in Sources */,
+				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
+				A0BEF7F21F14276700CABCFA /* CreateQViewController.swift in Sources */,
+				A0BEF7F31F14276700CABCFA /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

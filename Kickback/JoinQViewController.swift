@@ -10,6 +10,8 @@ import UIKit
 
 class JoinQViewController: UIViewController {
 
+    @IBOutlet weak var accessCodeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,7 @@ class JoinQViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var didTapJoin: UIButton!
 
     /*
     // MARK: - Navigation

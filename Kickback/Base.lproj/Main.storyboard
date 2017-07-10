@@ -12,7 +12,7 @@
         <!--LoginViewController-->
         <scene sceneID="Kah-Dj-D4k">
             <objects>
-                <viewController title="LoginViewController" id="O8L-Ml-Squ" sceneMemberID="viewController">
+                <viewController title="LoginViewController" id="O8L-Ml-Squ" customClass="LoginViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jp0-S7-MjU"/>
                         <viewControllerLayoutGuide type="bottom" id="8Bg-hE-1wT"/>
@@ -25,6 +25,9 @@
                                 <rect key="frame" x="168" y="276" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="O8L-Ml-Squ" eventType="touchUpInside" id="iNq-ik-ChV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,7 +40,7 @@
         <!--HomeViewController-->
         <scene sceneID="W7A-9j-GnE">
             <objects>
-                <viewController title="HomeViewController" id="5To-Vg-COi" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="5To-Vg-COi" customClass="HomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8d-39-Ii0"/>
                         <viewControllerLayoutGuide type="bottom" id="anp-dO-lcM"/>
@@ -50,16 +53,25 @@
                                 <rect key="frame" x="153" y="293" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="Qs1-JG-VBE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ed-XH-lVp">
                                 <rect key="frame" x="161" y="402" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join"/>
+                                <connections>
+                                    <action selector="didTapJoin:" destination="5To-Vg-COi" eventType="touchUpInside" id="FXb-tX-O4N"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-d9-i4U">
                                 <rect key="frame" x="278" y="65" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="5To-Vg-COi" eventType="touchUpInside" id="IFa-K7-vPs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,7 +84,7 @@
         <!--CreateQViewController-->
         <scene sceneID="dLq-7b-Ra1">
             <objects>
-                <viewController title="CreateQViewController" id="bHf-5H-k6g" sceneMemberID="viewController">
+                <viewController title="CreateQViewController" id="bHf-5H-k6g" customClass="CreateQViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rK3-W3-OlE"/>
                         <viewControllerLayoutGuide type="bottom" id="4Hf-n1-1jM"/>
@@ -88,30 +100,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNt-dn-zZS">
-                                <rect key="frame" x="145" y="140" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHl-1C-FXu">
-                                <rect key="frame" x="144" y="246" width="46" height="30"/>
+                                <rect key="frame" x="144" y="246" width="46" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="didTapCreate:" destination="bHf-5H-k6g" eventType="touchUpInside" id="xOl-XR-hlz"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your Q" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-Uw-ifR">
+                                <rect key="frame" x="98" y="144" width="178" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameQTextField" destination="Utp-Uw-ifR" id="Qo6-hz-8zy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chS-KD-qcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-684" y="-385"/>
+            <point key="canvasLocation" x="-684" y="-385.45727136431788"/>
         </scene>
         <!--CreateHomeViewController-->
         <scene sceneID="lbm-vu-cWl">
             <objects>
-                <viewController title="CreateHomeViewController" id="3dT-Bj-TZH" sceneMemberID="viewController">
+                <viewController title="CreateHomeViewController" id="3dT-Bj-TZH" customClass="CreateHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6z6-fq-eI8"/>
                         <viewControllerLayoutGuide type="bottom" id="rlH-h7-N6W"/>
@@ -196,7 +214,7 @@
         <!--ArtistViewController-->
         <scene sceneID="ieg-LZ-VfK">
             <objects>
-                <viewController title="ArtistViewController" id="xAy-2L-Ru3" sceneMemberID="viewController">
+                <viewController title="ArtistViewController" id="xAy-2L-Ru3" customClass="ArtistViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d9R-oO-acy"/>
                         <viewControllerLayoutGuide type="bottom" id="DcD-Ux-7Vh"/>
@@ -249,7 +267,7 @@
         <!--AlbumViewController-->
         <scene sceneID="1nd-pj-RbM">
             <objects>
-                <viewController title="AlbumViewController" id="lhz-Bd-K6e" sceneMemberID="viewController">
+                <viewController title="AlbumViewController" id="lhz-Bd-K6e" customClass="AlbumViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Dd-Gc-1SI"/>
                         <viewControllerLayoutGuide type="bottom" id="4Li-mC-jpQ"/>
@@ -302,7 +320,7 @@
         <!--JoinQViewController-->
         <scene sceneID="wZd-ZR-T79">
             <objects>
-                <viewController title="JoinQViewController" id="q2e-UN-Mv7" sceneMemberID="viewController">
+                <viewController title="JoinQViewController" id="q2e-UN-Mv7" customClass="JoinQViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Twl-i5-7Jj"/>
                         <viewControllerLayoutGuide type="bottom" id="JrZ-fV-Ouz"/>
@@ -333,6 +351,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="accessCodeTextField" destination="14m-3z-OUC" id="uNq-ku-Xce"/>
+                        <outlet property="didTapJoin" destination="ODr-tK-mdv" id="tXb-8C-odv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsJ-gP-2qH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,7 +363,7 @@
         <!--JoinHomeViewController-->
         <scene sceneID="DcG-3A-dtn">
             <objects>
-                <viewController title="JoinHomeViewController" id="I9V-Zq-SfM" sceneMemberID="viewController">
+                <viewController title="JoinHomeViewController" id="I9V-Zq-SfM" customClass="JoinHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lkI-u1-NAP"/>
                         <viewControllerLayoutGuide type="bottom" id="Q6B-1h-Kno"/>
@@ -400,7 +422,7 @@
         <!--Settings-->
         <scene sceneID="6D1-Th-i9U">
             <objects>
-                <viewController title="Settings" id="i34-ip-837" sceneMemberID="viewController">
+                <viewController title="Settings" id="i34-ip-837" customClass="SettingsViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kqa-Lh-mj2"/>
                         <viewControllerLayoutGuide type="bottom" id="qEo-Vp-t5h"/>
@@ -416,21 +438,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Invite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-7b-JWm">
-                                <rect key="frame" x="139" y="263" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f44-dN-yCx">
                                 <rect key="frame" x="145" y="435" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Party's Over"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjy-OR-p80">
+                                <rect key="frame" x="166" y="236" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="renameQTextField" destination="39H-xc-Srk" id="0rd-6W-I64"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnA-sj-777" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

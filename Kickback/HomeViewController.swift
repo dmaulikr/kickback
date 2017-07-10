@@ -21,6 +21,15 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapCreate(_ sender: Any) {
+    }
+    
+    @IBAction func didTapJoin(_ sender: Any) {
+    }
+    
+    @IBAction func didTapLogout(_ sender: Any) {
+        
+    }
 
     /*
     // MARK: - Navigation

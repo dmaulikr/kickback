@@ -10,6 +10,8 @@ import UIKit
 
 class CreateQViewController: UIViewController {
 
+    @IBOutlet weak var nameQTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,8 @@ class CreateQViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapCreate(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation
