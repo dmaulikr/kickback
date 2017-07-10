@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
-		DFB1986B1F14139000349AAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1986A1F14139000349AAD /* ViewController.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
 		DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB198711F14139000349AAD /* LaunchScreen.storyboard */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFB1986A1F14139000349AAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFB1986F1F14139000349AAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB198721F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				DFB1989D1F1413DC00349AAD /* Spotify Frameworks */,
 				DFB1989E1F14140100349AAD /* Kickback-Bridging-Header.h */,
 				DFB198681F14139000349AAD /* AppDelegate.swift */,
-				DFB1986A1F14139000349AAD /* ViewController.swift */,
 				DFB1986C1F14139000349AAD /* Main.storyboard */,
 				DFB1986F1F14139000349AAD /* Assets.xcassets */,
 				DFB198711F14139000349AAD /* LaunchScreen.storyboard */,
@@ -283,7 +280,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB1986B1F14139000349AAD /* ViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,6 +542,7 @@
 				DFB1988F1F14139000349AAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFB198901F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackTests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +551,7 @@
 				DFB198921F14139000349AAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFB198931F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackUITests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +560,7 @@
 				DFB198951F14139000349AAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
