@@ -14,6 +14,9 @@
 		DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB198711F14139000349AAD /* LaunchScreen.storyboard */; };
 		DFB1987E1F14139000349AAD /* KickbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1987D1F14139000349AAD /* KickbackTests.swift */; };
 		DFB198891F14139000349AAD /* KickbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198881F14139000349AAD /* KickbackUITests.swift */; };
+		DFB1989A1F1413D800349AAD /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB198971F1413D800349AAD /* SpotifyAudioPlayback.framework */; };
+		DFB1989B1F1413D800349AAD /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB198981F1413D800349AAD /* SpotifyAuthentication.framework */; };
+		DFB1989C1F1413D800349AAD /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB198991F1413D800349AAD /* SpotifyMetadata.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,10 @@
 		DFB198841F14139000349AAD /* KickbackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickbackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198881F14139000349AAD /* KickbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickbackUITests.swift; sourceTree = "<group>"; };
 		DFB1988A1F14139000349AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFB198971F1413D800349AAD /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		DFB198981F1413D800349AAD /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		DFB198991F1413D800349AAD /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		DFB1989E1F14140100349AAD /* Kickback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kickback-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFB1989A1F1413D800349AAD /* SpotifyAudioPlayback.framework in Frameworks */,
+				DFB1989C1F1413D800349AAD /* SpotifyMetadata.framework in Frameworks */,
+				DFB1989B1F1413D800349AAD /* SpotifyAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +107,8 @@
 		DFB198671F14139000349AAD /* Kickback */ = {
 			isa = PBXGroup;
 			children = (
+				DFB1989D1F1413DC00349AAD /* Spotify Frameworks */,
+				DFB1989E1F14140100349AAD /* Kickback-Bridging-Header.h */,
 				DFB198681F14139000349AAD /* AppDelegate.swift */,
 				DFB1986A1F14139000349AAD /* ViewController.swift */,
 				DFB1986C1F14139000349AAD /* Main.storyboard */,
@@ -123,6 +135,16 @@
 				DFB1988A1F14139000349AAD /* Info.plist */,
 			);
 			path = KickbackUITests;
+			sourceTree = "<group>";
+		};
+		DFB1989D1F1413DC00349AAD /* Spotify Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFB198971F1413D800349AAD /* SpotifyAudioPlayback.framework */,
+				DFB198981F1413D800349AAD /* SpotifyAuthentication.framework */,
+				DFB198991F1413D800349AAD /* SpotifyMetadata.framework */,
+			);
+			name = "Spotify Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +215,8 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = SMV55D92WY;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					DFB198781F14139000349AAD = {
@@ -414,10 +438,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SMV55D92WY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Kickback",
+				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -426,10 +458,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = SMV55D92WY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Kickback",
+				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
