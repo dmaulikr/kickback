@@ -30,6 +30,8 @@ class JoinHomeViewController: UIViewController {
     }
     
     @IBAction func didTapSettings(_ sender: Any) {
+        performSegue(withIdentifier: "toSettingsViewController", sender: self)
+
     }
 
     /*

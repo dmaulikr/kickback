@@ -23,7 +23,9 @@ class JoinQViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var didTapJoin: UIButton!
+    @IBAction func didTapJoin(_ sender: Any) {
+        performSegue(withIdentifier: "toJoinHomeViewController", sender: self)
+    }
 
     /*
     // MARK: - Navigation

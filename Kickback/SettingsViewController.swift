@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func didTapEndParty(_ sender: Any) {
+        performSegue(withIdentifier: "toHomeViewController", sender: self)
     }
 
     /*

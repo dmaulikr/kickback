@@ -32,6 +32,7 @@ class CreateHomeViewController: UIViewController {
     }
     
     @IBAction func didTapSettings(_ sender: Any) {
+        performSegue(withIdentifier: "toSettingsViewController", sender: self)
     }
     
     @IBAction func volumeSlider(_ sender: UISlider) {

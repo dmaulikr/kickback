@@ -261,7 +261,7 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SMV55D92WY;
+						DevelopmentTeam = SBJXS787V3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -495,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = SBJXS787V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
@@ -515,7 +515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = SBJXS787V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
