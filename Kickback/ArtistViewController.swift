@@ -10,6 +10,13 @@ import UIKit
 
 class ArtistViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var artistNameLabel: UILabel!
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

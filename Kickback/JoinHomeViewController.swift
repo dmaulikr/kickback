@@ -10,6 +10,14 @@ import UIKit
 
 class JoinHomeViewController: UIViewController {
 
+    @IBOutlet weak var playlistNameLabel: UILabel!
+    
+    @IBOutlet weak var previousSongImageView: UIImageView!
+    @IBOutlet weak var currentSongImageView: UIImageView!
+    @IBOutlet weak var nextSongImageView: UIImageView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +29,8 @@ class JoinHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapSettings(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation

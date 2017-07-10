@@ -10,6 +10,16 @@ import UIKit
 
 class CreateHomeViewController: UIViewController {
 
+    @IBOutlet weak var playlistNameLabel: UILabel!
+    
+    @IBOutlet weak var previousSongImageView: UIImageView!
+    @IBOutlet weak var currentSongImageView: UIImageView!
+    @IBOutlet weak var nextSongImageView: UIImageView!
+    
+    @IBOutlet weak var volumeLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +31,25 @@ class CreateHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapSettings(_ sender: Any) {
+    }
+    
+    @IBAction func volumeSlider(_ sender: UISlider) {
+        var currentValue = Int(sender.value)
+        
+        volumeLabel.text = "\(currentValue)"
+    }
 
+    @IBAction func didTapNext(_ sender: Any) {
+    }
+    
+    @IBAction func didTapPlay(_ sender: Any) {
+    }
+    
+    @IBAction func didTapRewind(_ sender: Any) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 

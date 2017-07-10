@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var renameQTextField: UITextField!
+    @IBOutlet weak var accessCodeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,8 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapEndParty(_ sender: Any) {
+    }
 
     /*
     // MARK: - Navigation
