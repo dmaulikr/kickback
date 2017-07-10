@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
+		DFB1986B1F14139000349AAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1986A1F14139000349AAD /* ViewController.swift */; };
+		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
+		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
+		DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB198711F14139000349AAD /* LaunchScreen.storyboard */; };
+		DFB1987E1F14139000349AAD /* KickbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB1987D1F14139000349AAD /* KickbackTests.swift */; };
+		DFB198891F14139000349AAD /* KickbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198881F14139000349AAD /* KickbackUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFB1987A1F14139000349AAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFB1985D1F14139000349AAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFB198641F14139000349AAD;
+			remoteInfo = Kickback;
+		};
+		DFB198851F14139000349AAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFB1985D1F14139000349AAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFB198641F14139000349AAD;
+			remoteInfo = Kickback;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFB1986A1F14139000349AAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DFB1986F1F14139000349AAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFB198721F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DFB198741F14139000349AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFB198791F14139000349AAD /* KickbackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickbackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB1987D1F14139000349AAD /* KickbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickbackTests.swift; sourceTree = "<group>"; };
+		DFB1987F1F14139000349AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFB198841F14139000349AAD /* KickbackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KickbackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB198881F14139000349AAD /* KickbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickbackUITests.swift; sourceTree = "<group>"; };
+		DFB1988A1F14139000349AAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFB198621F14139000349AAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198761F14139000349AAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198811F14139000349AAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFB1985C1F14139000349AAD = {
+			isa = PBXGroup;
+			children = (
+				DFB198671F14139000349AAD /* Kickback */,
+				DFB1987C1F14139000349AAD /* KickbackTests */,
+				DFB198871F14139000349AAD /* KickbackUITests */,
+				DFB198661F14139000349AAD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFB198661F14139000349AAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFB198651F14139000349AAD /* Kickback.app */,
+				DFB198791F14139000349AAD /* KickbackTests.xctest */,
+				DFB198841F14139000349AAD /* KickbackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFB198671F14139000349AAD /* Kickback */ = {
+			isa = PBXGroup;
+			children = (
+				DFB198681F14139000349AAD /* AppDelegate.swift */,
+				DFB1986A1F14139000349AAD /* ViewController.swift */,
+				DFB1986C1F14139000349AAD /* Main.storyboard */,
+				DFB1986F1F14139000349AAD /* Assets.xcassets */,
+				DFB198711F14139000349AAD /* LaunchScreen.storyboard */,
+				DFB198741F14139000349AAD /* Info.plist */,
+			);
+			path = Kickback;
+			sourceTree = "<group>";
+		};
+		DFB1987C1F14139000349AAD /* KickbackTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFB1987D1F14139000349AAD /* KickbackTests.swift */,
+				DFB1987F1F14139000349AAD /* Info.plist */,
+			);
+			path = KickbackTests;
+			sourceTree = "<group>";
+		};
+		DFB198871F14139000349AAD /* KickbackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DFB198881F14139000349AAD /* KickbackUITests.swift */,
+				DFB1988A1F14139000349AAD /* Info.plist */,
+			);
+			path = KickbackUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFB198641F14139000349AAD /* Kickback */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFB1988D1F14139000349AAD /* Build configuration list for PBXNativeTarget "Kickback" */;
+			buildPhases = (
+				DFB198611F14139000349AAD /* Sources */,
+				DFB198621F14139000349AAD /* Frameworks */,
+				DFB198631F14139000349AAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kickback;
+			productName = Kickback;
+			productReference = DFB198651F14139000349AAD /* Kickback.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFB198781F14139000349AAD /* KickbackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFB198901F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackTests" */;
+			buildPhases = (
+				DFB198751F14139000349AAD /* Sources */,
+				DFB198761F14139000349AAD /* Frameworks */,
+				DFB198771F14139000349AAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFB1987B1F14139000349AAD /* PBXTargetDependency */,
+			);
+			name = KickbackTests;
+			productName = KickbackTests;
+			productReference = DFB198791F14139000349AAD /* KickbackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DFB198831F14139000349AAD /* KickbackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFB198931F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackUITests" */;
+			buildPhases = (
+				DFB198801F14139000349AAD /* Sources */,
+				DFB198811F14139000349AAD /* Frameworks */,
+				DFB198821F14139000349AAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFB198861F14139000349AAD /* PBXTargetDependency */,
+			);
+			name = KickbackUITests;
+			productName = KickbackUITests;
+			productReference = DFB198841F14139000349AAD /* KickbackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFB1985D1F14139000349AAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = FBU;
+				TargetAttributes = {
+					DFB198641F14139000349AAD = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					DFB198781F14139000349AAD = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DFB198641F14139000349AAD;
+					};
+					DFB198831F14139000349AAD = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DFB198641F14139000349AAD;
+					};
+				};
+			};
+			buildConfigurationList = DFB198601F14139000349AAD /* Build configuration list for PBXProject "Kickback" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFB1985C1F14139000349AAD;
+			productRefGroup = DFB198661F14139000349AAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFB198641F14139000349AAD /* Kickback */,
+				DFB198781F14139000349AAD /* KickbackTests */,
+				DFB198831F14139000349AAD /* KickbackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFB198631F14139000349AAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */,
+				DFB198701F14139000349AAD /* Assets.xcassets in Resources */,
+				DFB1986E1F14139000349AAD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198771F14139000349AAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198821F14139000349AAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFB198611F14139000349AAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB1986B1F14139000349AAD /* ViewController.swift in Sources */,
+				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198751F14139000349AAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB1987E1F14139000349AAD /* KickbackTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB198801F14139000349AAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB198891F14139000349AAD /* KickbackUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFB1987B1F14139000349AAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFB198641F14139000349AAD /* Kickback */;
+			targetProxy = DFB1987A1F14139000349AAD /* PBXContainerItemProxy */;
+		};
+		DFB198861F14139000349AAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFB198641F14139000349AAD /* Kickback */;
+			targetProxy = DFB198851F14139000349AAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DFB1986C1F14139000349AAD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFB1986D1F14139000349AAD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DFB198711F14139000349AAD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFB198721F14139000349AAD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DFB1988B1F14139000349AAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFB1988C1F14139000349AAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DFB1988E1F14139000349AAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Kickback/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DFB1988F1F14139000349AAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Kickback/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DFB198911F14139000349AAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KickbackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kickback.app/Kickback";
+			};
+			name = Debug;
+		};
+		DFB198921F14139000349AAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KickbackTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kickback.app/Kickback";
+			};
+			name = Release;
+		};
+		DFB198941F14139000349AAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = KickbackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Kickback;
+			};
+			name = Debug;
+		};
+		DFB198951F14139000349AAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = KickbackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Kickback;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFB198601F14139000349AAD /* Build configuration list for PBXProject "Kickback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB1988B1F14139000349AAD /* Debug */,
+				DFB1988C1F14139000349AAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFB1988D1F14139000349AAD /* Build configuration list for PBXNativeTarget "Kickback" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB1988E1F14139000349AAD /* Debug */,
+				DFB1988F1F14139000349AAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DFB198901F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB198911F14139000349AAD /* Debug */,
+				DFB198921F14139000349AAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DFB198931F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB198941F14139000349AAD /* Debug */,
+				DFB198951F14139000349AAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFB1985D1F14139000349AAD /* Project object */;
+}
