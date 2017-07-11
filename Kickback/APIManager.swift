@@ -48,7 +48,6 @@ class APIManager {
 //    }
     
     func searchUsers(query: String, user: User?) -> [User] {
-        let editedQuery = query.replacingOccurrences(of: " ", with: "+")
         let searchURL = "https://api.spotify.com/v1/users/ktjiang"
         var results: [User] = []
         Alamofire.request(searchURL).responseJSON { response in
@@ -69,7 +68,8 @@ class APIManager {
                             } else {
                                 premium = false
                             }
-                          
+                            dictionary["premium"] = premium
+
                             let user = User(dictionary)
                             results.append(user)
                             
