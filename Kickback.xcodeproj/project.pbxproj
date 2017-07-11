@@ -33,6 +33,7 @@
 		DFC3C2A71F1548380080DF88 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3C2A61F1548380080DF88 /* User.swift */; };
 		DFC3C2A91F15483D0080DF88 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3C2A81F15483D0080DF88 /* Track.swift */; };
 		DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3C2AA1F1548430080DF88 /* Queue.swift */; };
+		DFC3C2AD1F1554500080DF88 /* SearchAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC3C2AC1F1554500080DF88 /* SearchAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		DFC3C2A61F1548380080DF88 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DFC3C2A81F15483D0080DF88 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		DFC3C2AA1F1548430080DF88 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		DFC3C2AC1F1554500080DF88 /* SearchAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		DFB198671F14139000349AAD /* Kickback */ = {
 			isa = PBXGroup;
 			children = (
+				DFC3C2AC1F1554500080DF88 /* SearchAPIManager.swift */,
 				DFC3C2A51F15482D0080DF88 /* Models */,
 				A0BEF7F91F14277200CABCFA /* View Controllers */,
 				A0BEF7FA1F142B4B00CABCFA /* Views */,
@@ -545,6 +548,7 @@
 				A0BEF7F51F14276700CABCFA /* JoinQViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
 				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
+				DFC3C2AD1F1554500080DF88 /* SearchAPIManager.swift in Sources */,
 				A0BEF7F21F14276700CABCFA /* CreateQViewController.swift in Sources */,
 				A0BEF7F31F14276700CABCFA /* HomeViewController.swift in Sources */,
 				DFC3C2A91F15483D0080DF88 /* Track.swift in Sources */,
