@@ -16,6 +16,8 @@ class CreateQViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
+        nameQTextField.attributedPlaceholder = NSAttributedString(string: "Name your Q",
+                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
         // Do any additional setup after loading the view.
     }
 

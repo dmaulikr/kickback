@@ -16,6 +16,7 @@ class JoinQViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
+        accessCodeTextField.attributedPlaceholder = NSAttributedString(string: "Put in access code",attributes: [NSForegroundColorAttributeName: UIColor.white])
         // Do any additional setup after loading the view.
     }
 
