@@ -29,9 +29,12 @@ class LoginViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
             let sessionsDataObj = sessionObject as! Data
-            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as! SPTSession
-            manager.session = firstTimeSession
-            manager.initializePlayer(authSession: manager.session)
+            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
+                manager.session = firstTimeSession
+                manager.initializePlayer(authSession: manager.session)
+            } else {
+                print("user did not grant access")
+            }
         }
     }
     
