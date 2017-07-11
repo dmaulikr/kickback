@@ -12,7 +12,6 @@ import Alamofire
 class APIManager {
     var auth = SPTAuth.defaultInstance()!
     var session:SPTSession!
-    var player: SPTAudioStreamingController?
     var loginURL: URL?
     
     typealias JSON = [String: Any]
@@ -26,26 +25,6 @@ class APIManager {
         loginURL = auth.spotifyWebAuthenticationURL()
         print("Setup login URL: " + String(describing: loginURL))
     }
-        
-    func initializePlayer(authSession:SPTSession){
-        if self.player == nil {
-            self.player = SPTAudioStreamingController.sharedInstance()
-//            self.player!.playbackDelegate = self as! SPTAudioStreamingPlaybackDelegate
-//            self.player!.delegate = self as! SPTAudioStreamingDelegate
-//            try! player!.start(withClientId: auth.clientID)
-//            self.player!.login(withAccessToken: authSession.accessToken)
-        }
-    }
-    
-//    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-//        // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-//        print("logged in")
-//        self.player?.playSpotifyURI("spotify:track:58s6EuEYJdlb0kO7awm3Vp", startingWith: 0, startingWithPosition: 0, callback: { (error) in
-//            if (error != nil) {
-//                print("playing!")
-//            }
-//        })
-//    }
     
     func createUser() -> User {
         let searchURL = "https://api.spotify.com/v1/me"
@@ -68,6 +47,36 @@ class APIManager {
         }
         return results[0]
     }
-
+    
+    func searchTracks(query: String, user: User?) -> [Track] {
+        let editedQuery = query.replacingOccurrences(of: " ", with: "+")
+        let searchURL = "https://api.spotify.com/v1/search?q=\(editedQuery)&type=track"
+        var results: [Track] = []
+        Alamofire.request(searchURL).responseJSON { response in
+            do {
+                var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let tracks = readableJSON["tracks"] as? JSON {
+                    if let items = tracks["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            let album = dictionary["album"] as! JSON
+                            dictionary["albumID"] = album["id"]
+                            let artist = dictionary["artist"] as! JSON
+                            dictionary["artistID"] = artist["id"]
+                            dictionary["user"] = user
+                            let track = Track(dictionary)
+                            results.append(track)
+                        }
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return results
+    }
     
 }
