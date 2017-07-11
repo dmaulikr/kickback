@@ -43,12 +43,15 @@ class Queue {
     }
     
     func updateFromParse() {
-        parseQueue.fetch()
-        self.tracks = parseQueue["tracks"] as! [Track]
-        self.counts = parseQueue["counts"] as! [String: Int]
-        self.members = parseQueue["members"] as! [String]
-        self.playIndex = parseQueue["playIndex"] as! Int
-        self.currentTrack = parseQueue["currentTrack"] as? Track
+        do {
+            try parseQueue.fetch()
+            self.tracks = parseQueue["tracks"] as! [Track]
+            self.counts = parseQueue["counts"] as! [String: Int]
+            self.members = parseQueue["members"] as! [String]
+            self.playIndex = parseQueue["playIndex"] as! Int
+            self.currentTrack = parseQueue["currentTrack"] as? Track
+        } catch {
+        }
     }
     
     
