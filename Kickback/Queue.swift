@@ -17,20 +17,21 @@ class Queue {
     var accessCode: String
     var tracks: [Track]
     var counts: [String: Int] // user id : number of songs user has played
-    var members: [String] // user ids, might not be necessary with the counts dictionary?
+    var members: Set<String> // user ids, might not be necessary with the counts dictionary?
     var playIndex: Int // index of current playing track
     var currentTrack: Track?
     var parseQueue: PFObject
     
-    // Create initializer with dictionary
+    // Create initializer
     init(owner: User) {
         let queue = PFObject(className: "Queue")
         self.id = queue.objectId!
         self.owner = owner
         self.accessCode = Queue.generateAccessCode()
         self.tracks = []
-        self.counts = [:]
-        self.members = [owner.id]
+        self.counts = [owner.id: 0]
+        self.members = Set<String>()
+        self.members.insert(owner.id)
         self.playIndex = -1
         self.currentTrack = nil
         queue["tracks"] = self.tracks
@@ -47,13 +48,33 @@ class Queue {
             try parseQueue.fetch()
             self.tracks = parseQueue["tracks"] as! [Track]
             self.counts = parseQueue["counts"] as! [String: Int]
-            self.members = parseQueue["members"] as! [String]
+            self.members = parseQueue["members"] as! Set<String>
             self.playIndex = parseQueue["playIndex"] as! Int
             self.currentTrack = parseQueue["currentTrack"] as? Track
         } catch {
+            print(error.localizedDescription)
         }
     }
     
+    func addMember(userId: String) {
+        if !members.contains(userId) {
+            members.insert(userId)
+            counts[userId] = 0
+        }
+    }
+    
+    func removeMember(userId: String) {
+        if members.contains(userId) {
+            members.remove(userId)
+            counts.removeValue(forKey: userId)
+        }
+    }
+    
+    func addTrack(_ track: Track) {
+        tracks.append(track)
+        // reorder the tracks as needed (we might need to use a heap)
+        counts[track.queuedBy!.id]! += 1
+    }
     
     private static func generateAccessCode() -> String {
         var code = ""
@@ -66,4 +87,6 @@ class Queue {
         }
         return code
     }
+    
+    
 }
