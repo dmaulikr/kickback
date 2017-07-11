@@ -25,29 +25,14 @@ class APIManager {
         loginURL = auth.spotifyWebAuthenticationURL()
         print("Setup login URL: " + String(describing: loginURL))
     }
-    
-    func login() {
-        print("Login URL: " + String(describing: loginURL))
-        if UIApplication.shared.openURL(loginURL!) {
-//            if let error = error {
-//                
-//            }
-//            if auth.canHandle(auth.redirectURL) {
-//                success()
-//            } else {
-//                
-//                failure(error)
-//            }
-        }
-    }
         
     func initializePlayer(authSession:SPTSession){
         if self.player == nil {
             self.player = SPTAudioStreamingController.sharedInstance()
-            self.player!.playbackDelegate = self as! SPTAudioStreamingPlaybackDelegate
-            self.player!.delegate = self as! SPTAudioStreamingDelegate
-            try! player!.start(withClientId: auth.clientID)
-            self.player!.login(withAccessToken: authSession.accessToken)
+//            self.player!.playbackDelegate = self as! SPTAudioStreamingPlaybackDelegate
+//            self.player!.delegate = self as! SPTAudioStreamingDelegate
+//            try! player!.start(withClientId: auth.clientID)
+//            self.player!.login(withAccessToken: authSession.accessToken)
         }
     }
     

@@ -36,15 +36,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didTapLogin(_ sender: Any) {
-        manager.login()
-            performSegue(withIdentifier: "toHomeViewController", sender: nil)
-        
-//        
-//        if let error = error {
-//            print("Error: \(error.localizedDescription)")
-//        } else {
-//            performSegue(withIdentifier: "toHomeViewController", sender: self)
-//        }
+        if UIApplication.shared.openURL(manager.loginURL!) {
+            if manager.auth.canHandle(manager.auth.redirectURL) {
+                print("successful")
+                performSegue(withIdentifier: "toHomeViewController", sender: self)
+            }
+        }
     }
     
     /*
