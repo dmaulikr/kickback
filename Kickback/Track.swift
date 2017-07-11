@@ -17,11 +17,11 @@ class Track {
     var artistID: String
     var queuedBy: User?
     
-    init(id: String, name: String, albumID: String, artistID: String, queuedBy: User?) {
-        self.id = id
-        self.name = name
-        self.albumID = albumID
-        self.artistID = artistID
-        self.queuedBy = queuedBy
+    init(_ dictionary: [String: Any]) {
+        self.id = dictionary["id"] as! String
+        self.name = dictionary["name"] as! String
+        self.albumID = dictionary["albumID"] as! String
+        self.artistID = dictionary["artistID"] as! String
+        self.queuedBy = dictionary["queuedBy"] as? User
     }
 }
