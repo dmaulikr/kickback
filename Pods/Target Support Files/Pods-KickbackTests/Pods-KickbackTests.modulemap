@@ -1,0 +1,6 @@
+framework module Pods_KickbackTests {
+  umbrella header "Pods-KickbackTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
