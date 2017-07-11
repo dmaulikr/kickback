@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,16 +21,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-9v-oRX">
-                                <rect key="frame" x="168" y="276" width="38" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kickback2" translatesAutoresizingMaskIntoConstraints="NO" id="oMy-Aq-km2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="undertone copy" translatesAutoresizingMaskIntoConstraints="NO" id="8sE-a6-jcy">
+                                <rect key="frame" x="0.0" y="314" width="375" height="353"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-9v-oRX">
+                                <rect key="frame" x="31" y="280" width="313" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login" image="logbut"/>
                                 <connections>
                                     <action selector="didTapLogin:" destination="O8L-Ml-Squ" eventType="touchUpInside" id="iNq-ik-ChV"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <segue destination="dx2-PG-mSG" kind="presentation" identifier="toHomeViewController" id="lpi-n9-Qpe"/>
@@ -38,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atw-iW-TkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3148" y="-1192"/>
+            <point key="canvasLocation" x="-3148" y="-1192.3538230884558"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="W7A-9j-GnE">
@@ -170,7 +178,7 @@
                                         <rect key="frame" x="0.0" y="28" width="336" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -286,7 +294,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjG-85-Lw7" id="MdT-gf-Liq">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -344,7 +352,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwV-KI-1j9" id="zrd-Aw-E9g">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -447,7 +455,7 @@
                                         <rect key="frame" x="0.0" y="28" width="336" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uDJ-cb-RJp" id="s69-SC-lqU">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="113.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -540,7 +548,6 @@
         <!--Navigation Controller-->
         <scene sceneID="oqc-f6-GFl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jR1-7f-I73" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rx9-CS-8LO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5LV-LN-pC8">
@@ -552,13 +559,13 @@
                         <segue destination="bHf-5H-k6g" kind="relationship" relationship="rootViewController" id="Awj-RV-WlM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jR1-7f-I73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="306.39999999999998" y="-348.57571214392806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gVH-g8-soE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tsk-Zd-iOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ce1-vL-F9y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pat-3U-jmg">
@@ -570,13 +577,13 @@
                         <segue destination="q2e-UN-Mv7" kind="relationship" relationship="rootViewController" id="gbN-CG-u9E"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsk-Zd-iOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2172" y="-349.47526236881561"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JrO-Bi-OaM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0yx-tk-ogA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dx2-PG-mSG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0LX-BF-Vus">
@@ -588,6 +595,7 @@
                         <segue destination="5To-Vg-COi" kind="relationship" relationship="rootViewController" id="QiU-S3-2bM"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yx-tk-ogA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1932" y="-1192"/>
         </scene>
@@ -628,6 +636,11 @@
             <point key="canvasLocation" x="304.80000000000001" y="495.20239880059972"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Kickback2" width="1413" height="525"/>
+        <image name="logbut" width="451" height="170"/>
+        <image name="undertone copy" width="2000" height="2000"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lpi-n9-Qpe"/>
         <segue reference="s1K-F2-yc2"/>
