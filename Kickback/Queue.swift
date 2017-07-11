@@ -28,23 +28,30 @@ class Queue {
         self.id = queue.objectId!
         self.owner = owner
         self.accessCode = Queue.generateAccessCode()
+        self.tracks = []
+        self.counts = [:]
+        self.members = [owner.id]
+        self.playIndex = -1
+        self.currentTrack = nil
         queue["tracks"] = self.tracks
-        queue["counts"] = [:] // add owner id
-        queue["members"] = [] // add owner id
-        queue["playIndex"] = -1
-        queue["currentTrack"] = nil
+        queue["counts"] = self.counts
+        queue["members"] = self.members
+        queue["playIndex"] = self.playIndex
+        queue["currentTrack"] = self.currentTrack
         queue.saveInBackground()
         self.parseQueue = queue
-        updateFromParse()
     }
     
     func updateFromParse() {
-        queue.fetch()
-        self.tracks = queue["tracks"] as! [Track]
-        self.counts = queue["counts"] as! [String: Int]
-        self.members = queue["members"] as! [String]
-        self.playIndex = queue["playIndex"] as! Int
-        self.currentTrack = queue["currentTrack"] as? Track
+        do {
+            try parseQueue.fetch()
+            self.tracks = parseQueue["tracks"] as! [Track]
+            self.counts = parseQueue["counts"] as! [String: Int]
+            self.members = parseQueue["members"] as! [String]
+            self.playIndex = parseQueue["playIndex"] as! Int
+            self.currentTrack = parseQueue["currentTrack"] as? Track
+        } catch {
+        }
     }
     
     
