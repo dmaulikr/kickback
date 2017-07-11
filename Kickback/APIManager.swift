@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import Alamofire
 
 class APIManager {
     var auth = SPTAuth.defaultInstance()!
-    
     var session:SPTSession!
     var player: SPTAudioStreamingController?
-    
     var loginURL: URL?
+    
+    typealias JSON = [String: Any]
     
     func setup() {
         let clientID = "7d5032c6d7294aeb8a4fdc7662062655" // put your client ID here
@@ -45,5 +46,42 @@ class APIManager {
 //            }
 //        })
 //    }
+    
+    func searchUsers(query: String, user: User?) -> [User] {
+        let editedQuery = query.replacingOccurrences(of: " ", with: "+")
+        let searchURL = "https://api.spotify.com/v1/users/ktjiang"
+        var results: [User] = []
+        Alamofire.request(searchURL).responseJSON { response in
+            do {
+                var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let users = readableJSON["users"] as? JSON {
+                    if let items = users["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["spotify_id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            
+                            var status = item["product"] as! String
+                            var premium: Bool
+                            if status == "premium" {
+                                premium = true
+                            } else {
+                                premium = false
+                            }
+                          
+                            let user = User(dictionary)
+                            results.append(user)
+                            
+                        }
+                    }
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return results
+    }
+
     
 }
