@@ -20,9 +20,9 @@ class User {
     var parseUser: PFUser
     
     init() {
-        var user = PFUser()
+        let user = PFUser()
         user.saveInBackground()
-        self.id = user.objectID
+        self.id = user.objectId!
         self.parseUser = user
     }
 }
