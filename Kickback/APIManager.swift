@@ -47,40 +47,26 @@ class APIManager {
 //        })
 //    }
     
-    func searchUsers(query: String, user: User?) -> [User] {
-        let searchURL = "https://api.spotify.com/v1/users/ktjiang"
+    func createUser() -> User {
+        let searchURL = "https://api.spotify.com/v1/me"
         var results: [User] = []
         Alamofire.request(searchURL).responseJSON { response in
             do {
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
-                if let users = readableJSON["users"] as? JSON {
-                    if let items = users["items"] as? [JSON] {
-                        for i in 0..<items.count {
-                            let item = items[i]
-                            var dictionary: [String: Any] = [:]
-                            dictionary["spotify_id"] = item["id"]
-                            dictionary["name"] = item["name"]
-                            
-                            var status = item["product"] as! String
-                            var premium: Bool
-                            if status == "premium" {
-                                premium = true
-                            } else {
-                                premium = false
-                            }
-                            dictionary["premium"] = premium
-
-                            let user = User(dictionary)
-                            results.append(user)
-                            
-                        }
-                    }
+                if let user = readableJSON["user"] as? JSON {
+                    var dictionary: [String: Any] = [:]
+                    dictionary["spotify_id"] = user["id"]
+                    dictionary["name"] = user["display_name"]
+                    let status = user["product"] as! String
+                    dictionary["premium"] = status == "premium"
+                    let user = User(dictionary)
+                    results.append(user)
                 }
             } catch {
                 print(error.localizedDescription)
             }
         }
-        return results
+        return results[0]
     }
 
     
