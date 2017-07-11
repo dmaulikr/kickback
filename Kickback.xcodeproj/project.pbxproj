@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28DEF22FD52A6FD7215EA52C /* Pods_KickbackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */; };
+		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
 		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
 		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
 		A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */; };
@@ -18,6 +20,7 @@
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
 		A0BEF7FC1F142B9600CABCFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7FB1F142B9600CABCFA /* SongCell.swift */; };
+		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -47,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.release.xcconfig"; sourceTree = "<group>"; };
+		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
+		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
+		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +67,9 @@
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A0BEF7FB1F142B9600CABCFA /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
+		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +96,7 @@
 				DFB1989A1F1413D800349AAD /* SpotifyAudioPlayback.framework in Frameworks */,
 				DFB1989C1F1413D800349AAD /* SpotifyMetadata.framework in Frameworks */,
 				DFB1989B1F1413D800349AAD /* SpotifyAuthentication.framework in Frameworks */,
+				91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,12 +112,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DEF22FD52A6FD7215EA52C /* Pods_KickbackUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DE2DE85FAFB98DB287EB8A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */,
+				A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */,
+				DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0BEF7F91F14277200CABCFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +154,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		D83A39A17791AABD99499427 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */,
+				258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */,
+				8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */,
+				78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */,
+				20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */,
+				765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DFB1985C1F14139000349AAD = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +174,8 @@
 				DFB1987C1F14139000349AAD /* KickbackTests */,
 				DFB198871F14139000349AAD /* KickbackUITests */,
 				DFB198661F14139000349AAD /* Products */,
+				D83A39A17791AABD99499427 /* Pods */,
+				4DE2DE85FAFB98DB287EB8A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,9 +240,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFB1988D1F14139000349AAD /* Build configuration list for PBXNativeTarget "Kickback" */;
 			buildPhases = (
+				260F528C6DFEDD23C00DB235 /* [CP] Check Pods Manifest.lock */,
 				DFB198611F14139000349AAD /* Sources */,
 				DFB198621F14139000349AAD /* Frameworks */,
 				DFB198631F14139000349AAD /* Resources */,
+				1A6FB395FBF7245444C6A893 /* [CP] Embed Pods Frameworks */,
+				19C30633E6E7D015F67A091D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,9 +260,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFB198901F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackTests" */;
 			buildPhases = (
+				14ECA75208AEBB7A979E9B55 /* [CP] Check Pods Manifest.lock */,
 				DFB198751F14139000349AAD /* Sources */,
 				DFB198761F14139000349AAD /* Frameworks */,
 				DFB198771F14139000349AAD /* Resources */,
+				44D2DBC0309102D6AD97ACCE /* [CP] Embed Pods Frameworks */,
+				DBCA6EB9308F6215BC8ED552 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,9 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFB198931F14139000349AAD /* Build configuration list for PBXNativeTarget "KickbackUITests" */;
 			buildPhases = (
+				E1598AB920A4279E25E194A7 /* [CP] Check Pods Manifest.lock */,
 				DFB198801F14139000349AAD /* Sources */,
 				DFB198811F14139000349AAD /* Frameworks */,
 				DFB198821F14139000349AAD /* Resources */,
+				6FB7E2EAF7BD6D2230256812 /* [CP] Embed Pods Frameworks */,
+				CAE225AA69C4899FE189B720 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -323,6 +372,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14ECA75208AEBB7A979E9B55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		19C30633E6E7D015F67A091D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kickback/Pods-Kickback-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1A6FB395FBF7245444C6A893 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Kickback/Pods-Kickback-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		260F528C6DFEDD23C00DB235 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		44D2DBC0309102D6AD97ACCE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FB7E2EAF7BD6D2230256812 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAE225AA69C4899FE189B720 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBCA6EB9308F6215BC8ED552 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1598AB920A4279E25E194A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DFB198611F14139000349AAD /* Sources */ = {
@@ -492,6 +679,7 @@
 		};
 		DFB1988E1F14139000349AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -512,6 +700,7 @@
 		};
 		DFB1988F1F14139000349AAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -531,6 +720,7 @@
 		};
 		DFB198911F14139000349AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -545,6 +735,7 @@
 		};
 		DFB198921F14139000349AAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -559,6 +750,7 @@
 		};
 		DFB198941F14139000349AAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = KickbackUITests/Info.plist;
@@ -572,6 +764,7 @@
 		};
 		DFB198951F14139000349AAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = KickbackUITests/Info.plist;
