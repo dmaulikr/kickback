@@ -48,8 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
                 userDefaults.set(sessionData, forKey: "SpotifySession")
                 userDefaults.synchronize()
-                // 6 - Tell notification center login is successful
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+                // 6 - Set current user
+                print("setting current user")
+                APIManager.createUser()
+                // 7 - Tell notification center login is successful
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessful"), object: nil)
             })
             return true
         }

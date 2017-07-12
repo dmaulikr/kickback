@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                print("successful")
+                print("opened spotify safari login")
                 performSegue(withIdentifier: "toHomeViewController", sender: self)
             }
         }

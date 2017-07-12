@@ -26,26 +26,28 @@ class APIManager {
         print("Setup login URL: " + String(describing: loginURL))
     }
     
-    func createUser() -> User {
-        let searchURL = "https://api.spotify.com/v1/me"
-        var results: [User] = []
-        Alamofire.request(searchURL).responseJSON { response in
+    static func createUser() {
+        let url = "https://api.spotify.com/v1/me"
+        print("00000000000")
+        Alamofire.request(url).responseJSON { response in
             do {
+                print("1111111111")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let user = readableJSON["user"] as? JSON {
+                    print("2222222222")
                     var dictionary: [String: Any] = [:]
                     dictionary["spotify_id"] = user["id"]
                     dictionary["name"] = user["display_name"]
                     let status = user["product"] as! String
                     dictionary["premium"] = status == "premium"
                     let user = User(dictionary)
-                    results.append(user)
+                    User.current = user
+                    print("set current user")
                 }
             } catch {
                 print(error.localizedDescription)
             }
         }
-        return results[0]
     }
     
     func searchTracks(query: String, user: User?) -> [Track] {
