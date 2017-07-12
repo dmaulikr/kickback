@@ -31,7 +31,6 @@ class LoginViewController: UIViewController {
             let sessionsDataObj = sessionObject as! Data
             if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
                 manager.session = firstTimeSession
-                manager.initializePlayer(authSession: manager.session)
             } else {
                 print("user did not grant access")
             }
