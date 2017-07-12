@@ -26,24 +26,18 @@ class LoginViewController: UIViewController {
     }
     
     func updateAfterFirstLogin() {
-        let userDefaults = UserDefaults.standard
-        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
-            let sessionsDataObj = sessionObject as! Data
-            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
-                manager.session = firstTimeSession
-                manager.initializePlayer(authSession: manager.session)
-            } else {
-                print("user did not grant access")
-            }
-        }
+       manager.updateAfterFirstLogin()
     }
     
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                print("successful")
-                performSegue(withIdentifier: "toHomeViewController", sender: self)
+                if manager.session != nil {
+                    performSegue(withIdentifier: "toHomeViewController", sender: self)
+                }
             }
+           
+            
         }
     }
     

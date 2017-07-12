@@ -12,7 +12,6 @@ import Alamofire
 class APIManager {
     var auth = SPTAuth.defaultInstance()!
     var session:SPTSession!
-    var player: SPTAudioStreamingController?
     var loginURL: URL?
     
     typealias JSON = [String: Any]
@@ -26,26 +25,22 @@ class APIManager {
         loginURL = auth.spotifyWebAuthenticationURL()
         print("Setup login URL: " + String(describing: loginURL))
     }
-        
-    func initializePlayer(authSession:SPTSession){
-        if self.player == nil {
-            self.player = SPTAudioStreamingController.sharedInstance()
-//            self.player!.playbackDelegate = self as! SPTAudioStreamingPlaybackDelegate
-//            self.player!.delegate = self as! SPTAudioStreamingDelegate
-//            try! player!.start(withClientId: auth.clientID)
-//            self.player!.login(withAccessToken: authSession.accessToken)
+    
+    func updateAfterFirstLogin() {
+        let userDefaults = UserDefaults.standard
+        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
+            let sessionsDataObj = sessionObject as! Data
+            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession
+            session = firstTimeSession
+//            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
+//                session = firstTimeSession
+//            }
         }
     }
     
-//    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-//        // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-//        print("logged in")
-//        self.player?.playSpotifyURI("spotify:track:58s6EuEYJdlb0kO7awm3Vp", startingWith: 0, startingWithPosition: 0, callback: { (error) in
-//            if (error != nil) {
-//                print("playing!")
-//            }
-//        })
-//    }
+    func logout() {
+        session = nil
+    }
     
     func searchUsers(query: String, user: User?) -> [User] {
         let searchURL = "https://api.spotify.com/v1/users/ktjiang"

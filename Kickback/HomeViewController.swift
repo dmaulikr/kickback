@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
+        APIManager().logout()
         performSegue(withIdentifier: "toLoginViewController", sender: self)
         
     }
