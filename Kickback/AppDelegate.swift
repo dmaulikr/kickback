@@ -41,7 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
                 // 4- handle error
                 if error != nil {
-                    print("error!")
+                    print(error?.localizedDescription)
+                    return
                 }
                 // 5- Add session to User Defaults
                 let userDefaults = UserDefaults.standard

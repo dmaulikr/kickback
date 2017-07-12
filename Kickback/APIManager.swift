@@ -25,7 +25,7 @@ class APIManager {
         loginURL = auth.spotifyWebAuthenticationURL()
         print("Setup login URL: " + String(describing: loginURL))
     }
-    
+
     func createUser() -> User {
         let searchURL = "https://api.spotify.com/v1/me"
         var results: [User] = []
