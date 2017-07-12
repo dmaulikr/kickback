@@ -26,18 +26,6 @@ class APIManager {
         print("Setup login URL: " + String(describing: loginURL))
     }
     
-    func updateAfterFirstLogin() {
-        let userDefaults = UserDefaults.standard
-        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
-            let sessionsDataObj = sessionObject as! Data
-            let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession
-            session = firstTimeSession
-//            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
-//                session = firstTimeSession
-//            }
-        }
-    }
-    
     func logout() {
         session = nil
     }

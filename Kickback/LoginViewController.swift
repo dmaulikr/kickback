@@ -26,18 +26,21 @@ class LoginViewController: UIViewController {
     }
     
     func updateAfterFirstLogin() {
-       manager.updateAfterFirstLogin()
+        let userDefaults = UserDefaults.standard
+        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
+            let sessionsDataObj = sessionObject as! Data
+            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
+                manager.session = firstTimeSession
+                performSegue(withIdentifier: "toHomeViewController", sender: self)
+            }
+        }
     }
     
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                if manager.session != nil {
-                    performSegue(withIdentifier: "toHomeViewController", sender: self)
-                }
+
             }
-           
-            
         }
     }
     
