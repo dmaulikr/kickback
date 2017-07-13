@@ -80,10 +80,9 @@ class APIManager {
     }
     
     func searchTracks(query: String, user: User?) -> [Track] {
-        let editedQuery = query.replacingOccurrences(of: " ", with: "+")
-        let searchURL = "https://api.spotify.com/v1/search?q=\(editedQuery)&type=track"
         var results: [Track] = []
-        Alamofire.request(searchURL).responseJSON { response in
+        let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
+        Alamofire.request(urlRequest).responseJSON { (response) in
             do {
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
@@ -93,10 +92,8 @@ class APIManager {
                             var dictionary: [String: Any] = [:]
                             dictionary["id"] = item["id"]
                             dictionary["name"] = item["name"]
-                            let album = dictionary["album"] as! JSON
-                            dictionary["albumID"] = album["id"]
-                            let artist = dictionary["artist"] as! JSON
-                            dictionary["artistID"] = artist["id"]
+                            dictionary["album"] =  item["album"] as! JSON
+                            dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["user"] = user
                             let track = Track(dictionary)
                             results.append(track)
