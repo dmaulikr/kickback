@@ -33,6 +33,9 @@ class Queue {
         self.members = [owner.id]
         self.playIndex = -1
         self.currentTrack = nil
+        queue["id"] = self.id
+        queue["owner"] = self.owner
+        queue["accessCode"] = self.accessCode
         queue["tracks"] = self.tracks
         queue["counts"] = self.counts
         queue["members"] = self.members
@@ -42,9 +45,24 @@ class Queue {
         self.parseQueue = queue
     }
     
+    init(_ parseQueue: PFObject) {
+        self.parseQueue = parseQueue
+        self.id = parseQueue["id"] as! String
+        self.owner = parseQueue["owner"] as! User
+        self.accessCode = parseQueue["accessCode"] as! String
+        self.tracks = parseQueue["tracks"] as! [Track]
+        self.counts = parseQueue["counts"] as! [String: Int]
+        self.members = parseQueue["members"] as! [String]
+        self.playIndex = parseQueue["playIndex"] as! Int
+        self.currentTrack = parseQueue["currentTrack"] as? Track
+    }
+    
     func updateFromParse() {
         do {
             try parseQueue.fetch()
+            self.id = parseQueue["id"] as! String
+            self.owner = parseQueue["owner"] as! User
+            self.accessCode = parseQueue["accessCode"] as! String
             self.tracks = parseQueue["tracks"] as! [Track]
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
