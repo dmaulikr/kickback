@@ -19,7 +19,11 @@ class User {
     var premium: Bool
     var parseUser: PFUser
     
+<<<<<<< HEAD
+    init() {
+=======
     init(_ dictionary: [String: Any]) {
+>>>>>>> 159873acb4377cf97166c2a4ca7d275755cd2b59
         let user = PFUser()
         user.saveInBackground()
         self.id = user.objectId!
