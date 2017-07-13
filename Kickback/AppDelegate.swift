@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
                 // 4- handle error
                 if error != nil {
-                    print("error!")
+                    print(error?.localizedDescription)
                 }
                 // 5- Add session to User Defaults
                 let userDefaults = UserDefaults.standard
@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 userDefaults.set(sessionData, forKey: "SpotifySession")
                 userDefaults.synchronize()
                 // 6 - Set current user
-                print("setting current user")
-                APIManager.createUser()
+                print("current API manager from app delegate: \(APIManager.current)")
+                APIManager.current?.createUser()
                 // 7 - Tell notification center login is successful
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessful"), object: nil)
             })

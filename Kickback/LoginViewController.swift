@@ -14,9 +14,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        manager.setup()
+        APIManager.current = manager
         NotificationCenter.default.addObserver(self, selector: #selector(updateAfterFirstLogin), name: nil, object: nil)
     }
     
