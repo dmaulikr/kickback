@@ -49,6 +49,7 @@ class APIManager {
         self.auth.clientID = "7d5032c6d7294aeb8a4fdc7662062655" // put your client ID here
         self.auth.redirectURL = URL(string: "Kickback://returnAfterLogin") // put your direct URL here
         self.auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistModifyPrivateScope]
+        self.auth.sessionUserDefaultsKey = "currentSPTSession" // user defaults key to automatically save the session when it changes
         self.loginURL = auth.spotifyWebAuthenticationURL()
     }
     
@@ -62,24 +63,21 @@ class APIManager {
     }
     
     func createUser() {
-        let url = "https://api.spotify.com/v1/me"
-        Alamofire.request(url).responseJSON { response in
-            do {
-                var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
-                if let user = readableJSON["user"] as? JSON {
-                    var dictionary: [String: Any] = [:]
-                    dictionary["spotify_id"] = user["id"]
-                    dictionary["name"] = user["display_name"]
-                    let status = user["product"] as! String
-                    dictionary["premium"] = status == "premium"
-                    let user = User(dictionary)
-                    User.current = user
-                    print("set current user")
-                }
-            } catch {
-                print(error.localizedDescription)
+        SPTUser.requestCurrentUser(withAccessToken: session.accessToken, callback: { (error: Error?, response: Any?) in
+            if let error = error {
+                print("Error requesting in createUser(): \(error.localizedDescription)")
+            } else {
+                let spotifyUser = response as! SPTUser
+                var dictionary: [String: Any] = [:]
+                dictionary["id"] = spotifyUser.canonicalUserName
+                dictionary["name"] = spotifyUser.displayName
+                let status = spotifyUser.product
+                dictionary["premium"] = status == SPTProduct.premium
+                print("dictionary: \(dictionary)")
+                let user = User(dictionary)
+                User.current = user 
             }
-        }
+        })
     }
     
     func searchTracks(query: String, user: User?) -> [Track] {

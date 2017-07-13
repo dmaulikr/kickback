@@ -12,12 +12,10 @@ import Parse
 class User {
     
     // Properties
-    var id: String
-    var spotify_id: String
+    var id: String // corresponds to the spotify ID
     var name: String
     var queue: Queue?
     var premium: Bool
-    var parseUser: PFUser
     
     private static var _current: User?
     
@@ -38,28 +36,21 @@ class User {
             if let user = user {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = user.id
-                dictionary["spotify_id"] = user.spotify_id
                 dictionary["name"] = user.name
                 dictionary["queue"] = user.queue
                 dictionary["premium"] = user.premium
-                dictionary["parseUser"] = user.parseUser
                 let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
                 defaults.set(data, forKey: "currentUserData")
             } else {
                 defaults.removeObject(forKey: "currentUserData")
             }
         }
-        
     }
     
     init(_ dictionary: [String: Any]) {
-        let user = PFUser()
-        user.saveInBackground()
-        self.id = user.objectId!
-        self.parseUser = user
-        
-        self.spotify_id = dictionary["spotify_id"] as! String
+        self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
+        // need to update parse user now (in the same way as update queue)
     }
 }
