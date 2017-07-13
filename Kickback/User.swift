@@ -53,4 +53,8 @@ class User {
         self.premium = dictionary["premium"] as! Bool
         // need to update parse user now (in the same way as update queue)
     }
+    
+    func add(queue: Queue) {
+        self.queue = queue
+    }
 }
