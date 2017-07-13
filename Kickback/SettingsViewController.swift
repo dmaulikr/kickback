@@ -23,10 +23,6 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func didTapEndParty(_ sender: Any) {
-        performSegue(withIdentifier: "toHomeViewController", sender: self)
-    }
 
     /*
     // MARK: - Navigation

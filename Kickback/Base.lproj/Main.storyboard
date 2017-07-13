@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,7 +66,6 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="didTapLogout:" destination="5To-Vg-COi" eventType="touchUpInside" id="IFa-K7-vPs"/>
-                                    <segue destination="O8L-Ml-Squ" kind="presentation" identifier="toLoginViewController" id="akJ-LS-CJg"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="undertone copy" translatesAutoresizingMaskIntoConstraints="NO" id="qV7-Er-Qi2">
@@ -79,7 +78,6 @@
                                 <state key="normal" title="Create" image="createbut-1"/>
                                 <connections>
                                     <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="Qs1-JG-VBE"/>
-                                    <segue destination="Rx9-CS-8LO" kind="presentation" identifier="toCreateQViewController" id="jf4-Zv-4BD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ed-XH-lVp">
@@ -88,13 +86,17 @@
                                 <state key="normal" title="Join" image="Joinbut-1"/>
                                 <connections>
                                     <action selector="didTapJoin:" destination="5To-Vg-COi" eventType="touchUpInside" id="FXb-tX-O4N"/>
-                                    <segue destination="ce1-vL-F9y" kind="presentation" identifier="toJoinQViewController" id="ZwY-1E-l9f"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDR-pg-QeX"/>
+                    <connections>
+                        <segue destination="bHf-5H-k6g" kind="presentation" identifier="toCreateQViewController" id="DGf-fL-Lb0"/>
+                        <segue destination="q2e-UN-Mv7" kind="presentation" identifier="toJoinQViewController" id="EmY-vx-6f3"/>
+                        <segue destination="O8L-Ml-Squ" kind="presentation" identifier="toLoginViewController" id="kCx-sN-w17"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nr5-dX-QKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,7 +250,7 @@
                                         <rect key="frame" x="0.0" y="28" width="336" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -306,7 +308,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjG-85-Lw7" id="MdT-gf-Liq">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -364,7 +366,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwV-KI-1j9" id="zrd-Aw-E9g">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -495,7 +497,7 @@
                                         <rect key="frame" x="0.0" y="28" width="336" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uDJ-cb-RJp" id="s69-SC-lqU">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="114"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="113.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -541,7 +543,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Party's Over"/>
                                 <connections>
-                                    <action selector="didTapEndParty:" destination="i34-ip-837" eventType="touchUpInside" id="gjd-QE-y22"/>
                                     <segue destination="dx2-PG-mSG" kind="show" identifier="toHomeViewController" id="w4D-PJ-fjd"/>
                                 </connections>
                             </button>
@@ -665,7 +666,9 @@
         <image name="undertone copy" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lpi-n9-Qpe"/>
+        <segue reference="DGf-fL-Lb0"/>
+        <segue reference="w4D-PJ-fjd"/>
         <segue reference="2ao-6C-bXD"/>
+        <segue reference="EmY-vx-6f3"/>
     </inferredMetricsTieBreakers>
 </document>
