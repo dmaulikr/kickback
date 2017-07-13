@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 4- handle error
                 if error != nil {
                     print(error?.localizedDescription)
+                    return
                 }
                 // 5- Add session to User Defaults
                 let userDefaults = UserDefaults.standard

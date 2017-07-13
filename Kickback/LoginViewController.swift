@@ -29,8 +29,6 @@ class LoginViewController: UIViewController {
             let sessionsDataObj = sessionObject as! Data
             if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
                 manager.session = firstTimeSession
-            } else {
-                print("user did not grant access")
             }
         }
     }
@@ -38,10 +36,13 @@ class LoginViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                print("opened spotify safari login")
-                performSegue(withIdentifier: "toHomeViewController", sender: self)
+                NotificationCenter.default.addObserver(self, selector: #selector(readyforSegue), name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
             }
         }
+    }
+    
+    func readyforSegue() {
+        performSegue(withIdentifier: "toHomeViewController", sender: self)
     }
     
     /*
