@@ -73,7 +73,6 @@ class APIManager {
                 dictionary["name"] = spotifyUser.displayName
                 let status = spotifyUser.product
                 dictionary["premium"] = status == SPTProduct.premium
-                print("dictionary: \(dictionary)")
                 let user = User(dictionary)
                 User.current = user 
             }

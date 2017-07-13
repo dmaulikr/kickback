@@ -54,7 +54,6 @@ class Queue {
         }
     }
     
-    
     private static func generateAccessCode() -> String {
         var code = ""
         let possible : NSString = "abcdefghijklmnopqrstuvwxyz"

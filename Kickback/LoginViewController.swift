@@ -15,22 +15,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         APIManager.current = manager
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAfterFirstLogin), name: nil, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func updateAfterFirstLogin() {
-        let userDefaults = UserDefaults.standard
-        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
-            let sessionsDataObj = sessionObject as! Data
-            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
-                manager.session = firstTimeSession
-            }
-        }
     }
     
     @IBAction func didTapLogin(_ sender: Any) {
