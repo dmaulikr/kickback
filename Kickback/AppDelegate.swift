@@ -11,12 +11,15 @@ import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    var auth = SPTAuth()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        auth.redirectURL = URL(string: "Kickback://returnAfterLogin")
+        auth.sessionUserDefaultsKey = "current session"
         
         // Initialize Parse
         Parse.initialize(
@@ -28,6 +31,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         
         return true
+    }
+    
+    // 1 How to handle the callback URL
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        // 2- check if app can handle redirect URL
+        if auth.canHandle(auth.redirectURL) {
+            // 3 - handle callback in closure
+            auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
+                // 4- handle error
+                if error != nil {
+                    print(error?.localizedDescription)
+                    return
+                }
+                // 5- Add session to User Defaults
+                let userDefaults = UserDefaults.standard
+                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
+                userDefaults.set(sessionData, forKey: "SpotifySession")
+                userDefaults.synchronize()
+                // 6 - Tell notification center login is successful
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+            })
+            return true
+        }
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
