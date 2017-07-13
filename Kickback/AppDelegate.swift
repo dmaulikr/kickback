@@ -47,10 +47,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 5- Add session to User Defaults
                 let userDefaults = UserDefaults.standard
                 let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
-                userDefaults.set(sessionData, forKey: "SpotifySession")
+                userDefaults.set(sessionData, forKey: "currentSPTSession")
                 userDefaults.synchronize()
-                // 6 - Tell notification center login is successful
-                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+                // 6 - Set current user
+                APIManager.current?.session = session
+                APIManager.current?.createUser()
+                // 7 - Tell notification center login is successful
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "loginSuccessful"), object: nil)
             })
             return true
         }

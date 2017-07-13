@@ -14,10 +14,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        manager.setup()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAfterFirstLogin), name: nil, object: nil)
+        APIManager.current = manager
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,20 +22,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateAfterFirstLogin() {
-        let userDefaults = UserDefaults.standard
-        if let sessionObject = userDefaults.object(forKey: "SpotifySession") {
-            let sessionsDataObj = sessionObject as! Data
-            if let firstTimeSession = NSKeyedUnarchiver.unarchiveObject(with: sessionsDataObj) as? SPTSession {
-                manager.session = firstTimeSession
-            }
-        }
-    }
-    
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                NotificationCenter.default.addObserver(self, selector: #selector(readyforSegue), name: Notification.Name(rawValue: "loginSuccessfull"), object: nil)
+                     NotificationCenter.default.addObserver(self, selector: #selector(readyforSegue), name: Notification.Name(rawValue: "loginSuccessful"), object: nil)
             }
         }
     }
