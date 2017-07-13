@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     @IBAction func didTapLogin(_ sender: Any) {
         if UIApplication.shared.openURL(manager.loginURL!) {
             if manager.auth.canHandle(manager.auth.redirectURL) {
-                     NotificationCenter.default.addObserver(self, selector: #selector(readyforSegue), name: Notification.Name(rawValue: "loginSuccessful"), object: nil)
+                     NotificationCenter.default.addObserver(self, selector: #selector(readyforSegue), name: Notification.Name("loginSuccessful"), object: nil)
             }
         }
     }
