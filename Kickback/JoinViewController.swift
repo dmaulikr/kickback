@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JoinQViewController: UIViewController {
+class JoinViewController: UIViewController {
 
     @IBOutlet weak var accessCodeTextField: UITextField!
     
@@ -26,7 +26,7 @@ class JoinQViewController: UIViewController {
     }
     
     @IBAction func didTapJoin(_ sender: Any) {
-        performSegue(withIdentifier: "toJoinHomeViewController", sender: self)
+        performSegue(withIdentifier: "joinSuccessSegue", sender: self)
     }
 
     /*

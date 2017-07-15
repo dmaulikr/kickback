@@ -1,5 +1,5 @@
 //
-//  CreateQViewController.swift
+//  HomeViewController.swift
 //  Kickback
 //
 //  Created by Tavis Thompson on 7/10/17.
@@ -8,16 +8,12 @@
 
 import UIKit
 
-class CreateQViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var nameQTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        nameQTextField.attributedPlaceholder = NSAttributedString(string: "Name your Q",
-                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
         // Do any additional setup after loading the view.
     }
 
@@ -27,8 +23,16 @@ class CreateQViewController: UIViewController {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        performSegue(withIdentifier: "toCreateHomeViewController", sender: self)
-
+        performSegue(withIdentifier: "createSegue", sender: self)
+    }
+    
+    @IBAction func didTapJoin(_ sender: Any) {
+        performSegue(withIdentifier: "joinSegue", sender: self)
+    }
+    
+    @IBAction func didTapLogout(_ sender: Any) {
+        performSegue(withIdentifier: "logoutSegue", sender: self)
+        
     }
 
     /*
