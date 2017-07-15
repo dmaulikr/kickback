@@ -9,16 +9,17 @@
 import UIKit
 
 class CreateViewController: UIViewController {
-
-    @IBOutlet weak var nameQTextField: UITextField!
+    
+    @IBOutlet weak var playlistNameField: UITextField!
+    
+    var user = User.current!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        nameQTextField.attributedPlaceholder = NSAttributedString(string: "Name your Q",
+        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
                                                                      attributes: [NSForegroundColorAttributeName: UIColor.white])
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +28,9 @@ class CreateViewController: UIViewController {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
+        let queue = Queue(owner: user, name: playlistNameField.text!)
+        user.add(queue: queue)
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
-
     }
 
     /*

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class JoinViewController: UIViewController {
 
+    var user = User.current!
     @IBOutlet weak var accessCodeTextField: UITextField!
     
     override func viewDidLoad() {
@@ -26,7 +28,20 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func didTapJoin(_ sender: Any) {
-        performSegue(withIdentifier: "joinSuccessSegue", sender: self)
+        if let code = accessCodeTextField.text {
+            let query = PFQuery(className: "Queue").whereKey("accessCode", equalTo: code)
+            query.getFirstObjectInBackground(block: { (parseQueue: PFObject?, error: Error?) in
+                if let error = error {
+                    // There is no queue with that access code.
+                    print(error.localizedDescription)
+                } else {
+                    let queue = Queue(parseQueue!)
+                    queue.addMember(userId: self.user.id)
+                    self.user.add(queue: queue)
+                    self.performSegue(withIdentifier: "joinSuccessSegue", sender: self)
+                }
+            })
+        }
     }
 
     /*
