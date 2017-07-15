@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 class Track {
     
@@ -15,13 +16,13 @@ class Track {
     var name: String
     var album: [String: Any]
     var artists: [[String: Any]]
-    var queuedBy: User?
+    var userId: String?
     
     init(_ dictionary: [String: Any]) {
         self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.album = dictionary["album"] as! [String: Any]
         self.artists = dictionary["artists"] as! [[String: Any]]
-        self.queuedBy = dictionary["queuedBy"] as? User
+        self.userId = dictionary["userId"] as? String
     }
 }

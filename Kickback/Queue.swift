@@ -15,6 +15,7 @@ class Queue {
     var id: String!
     var ownerId: String
     var accessCode: String
+    var name: String // name of queue
     var tracks: [Track]
     var counts: [String: Int] // user id : number of songs user has played
     var members: [String] // user ids, might not be necessary with the counts dictionary?
@@ -23,16 +24,22 @@ class Queue {
     var parseQueue: PFObject
     
     // Create initializer
-    init(owner: User) {
+    init(owner: User, name: String) {
         let queue = PFObject(className: "Queue")
         self.ownerId = owner.id
         self.accessCode = Queue.generateAccessCode()
+        if name.characters.count == 0 {
+            self.name = "New Playlist"
+        } else {
+            self.name = name
+        }
         self.tracks = []
         self.counts = [owner.id: 0]
         self.members = [owner.id]
         self.playIndex = -1
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
+        queue["name"] = self.name
         queue["tracks"] = self.tracks
         queue["counts"] = self.counts
         queue["members"] = self.members
@@ -52,6 +59,7 @@ class Queue {
         self.id = parseQueue.objectId
         self.ownerId = parseQueue["ownerId"] as! String
         self.accessCode = parseQueue["accessCode"] as! String
+        self.name = parseQueue["name"] as! String
         self.tracks = parseQueue["tracks"] as! [Track]
         self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
@@ -64,6 +72,7 @@ class Queue {
             self.id = parseQueue.objectId
             self.ownerId = parseQueue["ownerId"] as! String
             self.accessCode = parseQueue["accessCode"] as! String
+            self.name = parseQueue["name"] as! String
             self.tracks = parseQueue["tracks"] as! [Track]
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
@@ -96,13 +105,19 @@ class Queue {
     }
     
     func addTrack(_ track: Track, user: User) {
-        track.queuedBy = user
+        track.userId = user.id
         updateFromParse()
         tracks.append(track)
         parseQueue.add(track, forKey: "tracks")
         // reorder the tracks as needed (we might need to use a heap)
-        counts[track.queuedBy!.id]! += 1
+        counts[track.userId!]! += 1
         parseQueue["counts"] = counts
+        parseQueue.saveInBackground()
+    }
+    
+    func renameTo(_ newName: String) {
+        self.name = newName
+        parseQueue["name"] = newName
         parseQueue.saveInBackground()
     }
     
