@@ -12,8 +12,8 @@ import Parse
 class Queue {
     
     // Properties
-    var id: String
-    var owner: User
+    var id: String!
+    var ownerId: String
     var accessCode: String
     var tracks: [Track]
     var counts: [String: Int] // user id : number of songs user has played
@@ -25,49 +25,49 @@ class Queue {
     // Create initializer
     init(owner: User) {
         let queue = PFObject(className: "Queue")
-        self.id = queue.objectId!
-        self.owner = owner
+        self.ownerId = owner.id
         self.accessCode = Queue.generateAccessCode()
         self.tracks = []
         self.counts = [owner.id: 0]
         self.members = [owner.id]
         self.playIndex = -1
-        self.currentTrack = nil
-        queue["id"] = self.id
-        queue["owner"] = self.owner
+        queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["tracks"] = self.tracks
         queue["counts"] = self.counts
         queue["members"] = self.members
         queue["playIndex"] = self.playIndex
-        queue["currentTrack"] = self.currentTrack
-        queue.saveInBackground()
         self.parseQueue = queue
+        queue.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                self.id = self.parseQueue.objectId!
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     init(_ parseQueue: PFObject) {
         self.parseQueue = parseQueue
-        self.id = parseQueue["id"] as! String
-        self.owner = parseQueue["owner"] as! User
+        self.id = parseQueue.objectId
+        self.ownerId = parseQueue["ownerId"] as! String
         self.accessCode = parseQueue["accessCode"] as! String
         self.tracks = parseQueue["tracks"] as! [Track]
         self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
         self.playIndex = parseQueue["playIndex"] as! Int
-        self.currentTrack = parseQueue["currentTrack"] as? Track
     }
     
     func updateFromParse() {
         do {
             try parseQueue.fetch()
-            self.id = parseQueue["id"] as! String
-            self.owner = parseQueue["owner"] as! User
+            self.id = parseQueue.objectId
+            self.ownerId = parseQueue["ownerId"] as! String
             self.accessCode = parseQueue["accessCode"] as! String
             self.tracks = parseQueue["tracks"] as! [Track]
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
-            self.currentTrack = parseQueue["currentTrack"] as? Track
         } catch {
             print(error.localizedDescription)
         }
