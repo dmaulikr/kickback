@@ -51,7 +51,7 @@
         <!--HomeViewController-->
         <scene sceneID="W7A-9j-GnE">
             <objects>
-                <viewController title="HomeViewController" id="5To-Vg-COi" customClass="HomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HomeViewController" id="5To-Vg-COi" customClass="WelcomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8d-39-Ii0"/>
                         <viewControllerLayoutGuide type="bottom" id="anp-dO-lcM"/>
@@ -108,7 +108,7 @@
         <!--CreateQViewController-->
         <scene sceneID="dLq-7b-Ra1">
             <objects>
-                <viewController title="CreateQViewController" id="bHf-5H-k6g" customClass="CreateQViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="CreateQViewController" id="bHf-5H-k6g" customClass="CreateViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rK3-W3-OlE"/>
                         <viewControllerLayoutGuide type="bottom" id="4Hf-n1-1jM"/>
@@ -398,7 +398,7 @@
         <!--JoinQViewController-->
         <scene sceneID="wZd-ZR-T79">
             <objects>
-                <viewController title="JoinQViewController" id="q2e-UN-Mv7" customClass="JoinQViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="JoinQViewController" id="q2e-UN-Mv7" customClass="JoinViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Twl-i5-7Jj"/>
                         <viewControllerLayoutGuide type="bottom" id="JrZ-fV-Ouz"/>

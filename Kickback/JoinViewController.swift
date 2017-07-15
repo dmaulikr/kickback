@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JoinQViewController: UIViewController {
+class JoinViewController: UIViewController {
 
     @IBOutlet weak var accessCodeTextField: UITextField!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateQViewController: UIViewController {
+class CreateViewController: UIViewController {
 
     @IBOutlet weak var nameQTextField: UITextField!
     
