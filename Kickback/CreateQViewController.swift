@@ -27,7 +27,7 @@ class CreateQViewController: UIViewController {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        performSegue(withIdentifier: "toCreateHomeViewController", sender: self)
+        performSegue(withIdentifier: "createSuccessSegue", sender: self)
 
     }
 

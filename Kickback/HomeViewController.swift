@@ -23,15 +23,15 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        performSegue(withIdentifier: "toCreateQViewController", sender: self)
+        performSegue(withIdentifier: "createSegue", sender: self)
     }
     
     @IBAction func didTapJoin(_ sender: Any) {
-        performSegue(withIdentifier: "toJoinQViewController", sender: self)
+        performSegue(withIdentifier: "joinSegue", sender: self)
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
-        performSegue(withIdentifier: "toLoginViewController", sender: self)
+        performSegue(withIdentifier: "logoutSegue", sender: self)
         
     }
 

@@ -26,7 +26,7 @@ class JoinQViewController: UIViewController {
     }
     
     @IBAction func didTapJoin(_ sender: Any) {
-        performSegue(withIdentifier: "toJoinHomeViewController", sender: self)
+        performSegue(withIdentifier: "joinSuccessSegue", sender: self)
     }
 
     /*

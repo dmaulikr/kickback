@@ -24,6 +24,9 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onTapLeave(_ sender: Any) {
+        performSegue(withIdentifier: "leaveSegue", sender: self)
+    }
     /*
     // MARK: - Navigation
 

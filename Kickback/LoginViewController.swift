@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     func readyforSegue() {
-        performSegue(withIdentifier: "toHomeViewController", sender: self)
+        performSegue(withIdentifier: "loginSegue", sender: self)
     }
     
     /*
