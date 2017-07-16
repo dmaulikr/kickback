@@ -7,14 +7,46 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class WelcomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var instructionsLabel: UILabel!
+    
+    @IBOutlet weak var joinPlaylistButton: UIButton!
+    @IBOutlet weak var createPlaylistButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        // Do any additional setup after loading the view.
+
+        // Set up the profile image
+        let url = URL(string: (User.current?.profileImageURL)!)
+        // Set up the profile image to be a perfect circle
+        profileImage.af_setImage(withURL: url!)
+        profileImage.layer.cornerRadius = profileImage.frame.height / 2
+        profileImage.layer.masksToBounds = false
+        profileImage.clipsToBounds = true
+
+//        profileImage.layer.cornerRadius = profileImage.frame.width * 0.40
+//        profileImage.layer.masksToBounds = true
+//        
+        // Set up Join Playlist Button
+        joinPlaylistButton.layer.cornerRadius = joinPlaylistButton.frame.width * 0.10
+        joinPlaylistButton.layer.masksToBounds = true
+        
+        // Set up Create Playlist Button
+        createPlaylistButton.layer.cornerRadius = createPlaylistButton.frame.width * 0.10
+        createPlaylistButton.layer.masksToBounds = true
+    
+        // Set up text for the screen
+        welcomeLabel.text = "Welcome, " + (User.current?.name)!
+        instructionsLabel.text = "Create a playlist and invite others, \nor join a playlist with a playlist code."
     }
 
     override func didReceiveMemoryWarning() {

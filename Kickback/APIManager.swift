@@ -71,6 +71,7 @@ class APIManager {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = spotifyUser.canonicalUserName
                 dictionary["name"] = spotifyUser.displayName
+                dictionary["profileImageURL"] = spotifyUser.smallestImage.imageURL.absoluteString
                 let status = spotifyUser.product
                 dictionary["premium"] = status == SPTProduct.premium
                 let user = User(dictionary)

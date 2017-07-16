@@ -1,18 +1,22 @@
 PODS:
   - Alamofire (4.5.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - Bolts/Tasks (1.8.4)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - AlamofireImage
   - Parse
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
 
-PODFILE CHECKSUM: 8c802dcbf28474799bb522414d97dde8bd3dcde9
+PODFILE CHECKSUM: ba7f16a7217b94b1cd57e7a0abfe7014f7422cf0
 
 COCOAPODS: 1.2.1
