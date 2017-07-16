@@ -32,10 +32,7 @@ class WelcomeViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.layer.masksToBounds = false
         profileImage.clipsToBounds = true
-
-//        profileImage.layer.cornerRadius = profileImage.frame.width * 0.40
-//        profileImage.layer.masksToBounds = true
-//        
+     
         // Set up Join Playlist Button
         joinPlaylistButton.layer.cornerRadius = joinPlaylistButton.frame.width * 0.10
         joinPlaylistButton.layer.masksToBounds = true
@@ -47,6 +44,12 @@ class WelcomeViewController: UIViewController {
         // Set up text for the screen
         welcomeLabel.text = "Welcome, " + (User.current?.name)!
         instructionsLabel.text = "Create a playlist and invite others, \nor join a playlist with a playlist code."
+        
+        // Set up clear navigation bar 
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 
     override func didReceiveMemoryWarning() {

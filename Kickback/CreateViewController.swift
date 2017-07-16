@@ -8,27 +8,50 @@
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var playlistNameField: UITextField!
-    
+    @IBOutlet weak var playlistTextView: UITextView!
     var user = User.current!
     
+    var placeholderLabel : UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
-                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
+//        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
+//                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
+        
+        // placeholder text
+        playlistTextView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Name your playlist..."
+        placeholderLabel.sizeToFit()
+        playlistTextView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (playlistTextView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !playlistTextView.text.isEmpty
+        
+        // change the color of the cursor
+        UITextView.appearance().tintColor = UIColor.purple
+        
+        // change the color of the back button in the navigation bar
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
     }
-
+    
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        let queue = Queue(owner: user, name: playlistNameField.text!)
+        let queue = Queue(owner: user, name: playlistTextView.text!)
         user.add(queue: queue)
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
     }

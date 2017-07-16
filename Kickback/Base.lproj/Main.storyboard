@@ -133,7 +133,9 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MVu-d9-i4U">
                                 <rect key="frame" x="311" y="7" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapLogout:" destination="5To-Vg-COi" eventType="touchUpInside" id="IFa-K7-vPs"/>
                                 </connections>
@@ -174,32 +176,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name your playlist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-Uw-ifR">
-                                <rect key="frame" x="98" y="241" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" red="0.6560099720954895" green="0.21223205327987671" blue="0.89108771085739136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="undertone copy" translatesAutoresizingMaskIntoConstraints="NO" id="Uuw-Lb-x3m">
                                 <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHl-1C-FXu">
-                                <rect key="frame" x="69" y="291" width="249" height="84"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYZ-Eg-oLF">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create" image="createbut-1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I1R-I2-X7b">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Xbp-tc-Dg4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uHl-1C-FXu">
+                                <rect key="frame" x="305" y="5" width="54" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="didTapCreate:" destination="bHf-5H-k6g" eventType="touchUpInside" id="xOl-XR-hlz"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Create" id="I1R-I2-X7b"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="playlistNameField" destination="Utp-Uw-ifR" id="lWR-9H-kln"/>
+                        <outlet property="playlistTextView" destination="oYZ-Eg-oLF" id="jrT-25-eEC"/>
                         <segue destination="iVp-Ia-EQV" kind="show" identifier="createSuccessSegue" id="BBK-1t-kic"/>
                     </connections>
                 </viewController>
@@ -469,28 +474,33 @@
                                 <rect key="frame" x="0.0" y="330" width="375" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODr-tK-mdv">
-                                <rect key="frame" x="67" y="287" width="263" height="92"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x17-xe-vf3">
+                                <rect key="frame" x="63" y="249" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Join" image="Joinbut"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6We-3E-4qb">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iEF-MW-Cwh">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ODr-tK-mdv">
+                                <rect key="frame" x="325" y="5" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Join">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapJoin:" destination="q2e-UN-Mv7" eventType="touchUpInside" id="my0-El-F6z"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter playlist code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14m-3z-OUC">
-                                <rect key="frame" x="95" y="234" width="184" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Join" id="6We-3E-4qb"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="accessCodeTextField" destination="14m-3z-OUC" id="uNq-ku-Xce"/>
+                        <outlet property="accessCodeTextView" destination="x17-xe-vf3" id="iSN-pA-kjT"/>
                         <segue destination="141-5Q-cK0" kind="show" identifier="joinSuccessSegue" id="miv-cC-ggQ"/>
                     </connections>
                 </viewController>
@@ -677,13 +687,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Joinbut" width="451" height="170"/>
-        <image name="createbut-1" width="451" height="170"/>
         <image name="undertone copy" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WmO-7I-fLE"/>
-        <segue reference="Lua-aA-nN6"/>
-        <segue reference="fcr-4b-VfT"/>
+        <segue reference="qy7-0A-kRY"/>
+        <segue reference="cvM-Uw-8jD"/>
+        <segue reference="ch4-KX-gte"/>
     </inferredMetricsTieBreakers>
 </document>

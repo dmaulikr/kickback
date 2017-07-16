@@ -9,17 +9,39 @@
 import UIKit
 import Parse
 
-class JoinViewController: UIViewController {
+class JoinViewController: UIViewController, UITextViewDelegate {
 
-    var user = User.current!
-    @IBOutlet weak var accessCodeTextField: UITextField!
+    @IBOutlet weak var accessCodeTextView: UITextView!
     
+    var user = User.current!
+    
+    var placeholderLabel : UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        accessCodeTextField.attributedPlaceholder = NSAttributedString(string: "Put in access code",attributes: [NSForegroundColorAttributeName: UIColor.white])
-        // Do any additional setup after loading the view.
+        
+        // placeholder text
+        accessCodeTextView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Put in the access code"
+        placeholderLabel.sizeToFit()
+        accessCodeTextView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (accessCodeTextView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !accessCodeTextView.text.isEmpty
+        
+        // change the color of the cursor
+        UITextView.appearance().tintColor = UIColor.purple
+        
+        // change the color of the back button in the navigation bar
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +50,7 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func didTapJoin(_ sender: Any) {
-        if let code = accessCodeTextField.text {
+        if let code = accessCodeTextView.text {
             let query = PFQuery(className: "Queue").whereKey("accessCode", equalTo: code)
             query.getFirstObjectInBackground(block: { (parseQueue: PFObject?, error: Error?) in
                 if let error = error {

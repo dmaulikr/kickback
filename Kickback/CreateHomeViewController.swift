@@ -22,9 +22,16 @@ class CreateHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        // Do any additional setup after loading the view.
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Set up clear navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 
     override func didReceiveMemoryWarning() {
