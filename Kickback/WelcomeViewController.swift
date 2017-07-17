@@ -25,10 +25,10 @@ class WelcomeViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
 
-        // Set up the profile image
-        let url = URL(string: (User.current?.profileImageURL)!)
+        // Internal notification center to check if User.current has been set
+        NotificationCenter.default.addObserver(self, selector: #selector(setupWelcomeViewController), name: Notification.Name("user.currentSetup"), object: nil)
+  
         // Set up the profile image to be a perfect circle
-        profileImage.af_setImage(withURL: url!)
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.layer.masksToBounds = false
         profileImage.clipsToBounds = true
@@ -41,8 +41,7 @@ class WelcomeViewController: UIViewController {
         createPlaylistButton.layer.cornerRadius = createPlaylistButton.frame.width * 0.10
         createPlaylistButton.layer.masksToBounds = true
     
-        // Set up text for the screen
-        welcomeLabel.text = "Welcome, " + (User.current?.name)!
+        // Set up welcome instructions
         instructionsLabel.text = "Create a playlist and invite others, \nor join a playlist with a playlist code."
         
         // Set up clear navigation bar 
@@ -55,6 +54,15 @@ class WelcomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupWelcomeViewController() {
+        // Set up the profile image
+        let url = URL(string: (User.current?.profileImageURL)!)
+        profileImage.af_setImage(withURL: url!)
+        
+        // Set up text for the screen
+        welcomeLabel.text = "Welcome, " + (User.current?.name)!
     }
     
     @IBAction func didTapCreate(_ sender: Any) {

@@ -75,7 +75,8 @@ class APIManager {
                 let status = spotifyUser.product
                 dictionary["premium"] = status == SPTProduct.premium
                 let user = User(dictionary)
-                User.current = user 
+                User.current = user
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "user.currentSetup"), object: nil)
             }
         })
     }

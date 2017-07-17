@@ -26,6 +26,9 @@ class CreateViewController: UIViewController, UITextViewDelegate {
         playlistTextView.delegate = self
         placeholderLabel = UILabel()
         placeholderLabel.text = "Name your playlist..."
+//        placeholderLabel.font = UIFont.
+//            UIFont(fontWithName:@"Arial" size:50)
+
         placeholderLabel.sizeToFit()
         playlistTextView.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (playlistTextView.font?.pointSize)! / 2)
