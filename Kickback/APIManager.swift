@@ -83,8 +83,10 @@ class APIManager {
     func searchTracks(query: String, user: User?) -> [Track] {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
+        print("request went through")
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
+                print("inside alamofire")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
@@ -98,6 +100,8 @@ class APIManager {
                             dictionary["user"] = user
                             let track = Track(dictionary)
                             results.append(track)
+                            print(results)
+                            print("end of alamofire")
                         }
                     }
                 }
@@ -105,7 +109,9 @@ class APIManager {
                 print(error.localizedDescription)
             }
         }
+        print("Results: \(results)")
         return results
+        //print(results)
     }
     
 }

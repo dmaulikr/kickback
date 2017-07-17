@@ -20,8 +20,14 @@ class CreateHomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var addToPlaylistButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up Add to Playlist Button
+        addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
+        addToPlaylistButton.layer.masksToBounds = true
         
        
     }
@@ -39,6 +45,10 @@ class CreateHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapAddtoPlaylist(_ sender: Any) {
+        performSegue(withIdentifier: "searchSegue", sender: self)
+
+    }
     
     @IBAction func volumeSlider(_ sender: UISlider) {
         var currentValue = Int(sender.value)
