@@ -106,13 +106,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVW-xP-wpr">
-                                <rect key="frame" x="22" y="336" width="331" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-Light" family="HK Grotesk" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGJ-5c-aql">
                                 <rect key="frame" x="78" y="418" width="219" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -135,6 +128,13 @@
                                     <action selector="didTapJoin:" destination="5To-Vg-COi" eventType="touchUpInside" id="FXb-tX-O4N"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVW-xP-wpr">
+                                <rect key="frame" x="22" y="336" width="331" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HKGrotesk-Light" family="HK Grotesk" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-LM-mOs">
                                 <rect key="frame" x="128" y="123" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -143,11 +143,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDR-pg-QeX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="0yy-hg-QY9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MVu-d9-i4U">
-                                <rect key="frame" x="311" y="7" width="48" height="30"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="0yy-hg-QY9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MVu-d9-i4U">
+                                <rect key="frame" x="282" y="11" width="77" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout">
+                                <state key="normal" image="log-out">
                                     <color key="titleColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -212,9 +212,9 @@
                     <navigationItem key="navigationItem" id="I1R-I2-X7b">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Xbp-tc-Dg4">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uHl-1C-FXu">
-                                <rect key="frame" x="305" y="5" width="54" height="34"/>
+                                <rect key="frame" x="283" y="11" width="76" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create"/>
+                                <state key="normal" image="plus"/>
                                 <connections>
                                     <action selector="didTapCreate:" destination="bHf-5H-k6g" eventType="touchUpInside" id="xOl-XR-hlz"/>
                                 </connections>
@@ -246,6 +246,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Play Controls Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="m4v-EX-Pif">
+                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfL-Mm-tik">
                                 <rect key="frame" x="151" y="39" width="45" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -260,28 +264,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zn-yK-VIr">
-                                <rect key="frame" x="147" y="579" width="75" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zn-yK-VIr">
+                                <rect key="frame" x="174" y="592" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play/Pause"/>
+                                <state key="normal" image="play-circle"/>
+                                <state key="selected" image="pause-circle"/>
                                 <connections>
                                     <action selector="didTapPlay:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="bmd-xT-hvt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-bt-bDL">
-                                <rect key="frame" x="249" y="579" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-bt-bDL">
+                                <rect key="frame" x="238" y="592" width="54" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" image="skip-forward"/>
                                 <connections>
                                     <action selector="didTapNext:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="rsj-ea-kTV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcE-Nv-ow9">
-                                <rect key="frame" x="79" y="579" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Rewind"/>
-                                <connections>
-                                    <action selector="didTapRewind:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="1oW-5W-cyQ"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzq-tB-MCD" userLabel="nextSongImage">
@@ -332,11 +329,19 @@
                                     <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="xoM-Pi-OtT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcE-Nv-ow9">
+                                <rect key="frame" x="97" y="592" width="16" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="skip-back"/>
+                                <connections>
+                                    <action selector="didTapRewind:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="1oW-5W-cyQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="OAC-xS-Zdp">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="xr0-SN-5VT">
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="xr0-SN-5VT">
                             <connections>
                                 <segue destination="i34-ip-837" kind="show" id="qy7-0A-kRY"/>
                             </connections>
@@ -713,7 +718,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -731,7 +736,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -749,7 +754,7 @@
             <objects>
                 <navigationController storyboardIdentifier="joinNavigation" automaticallyAdjustsScrollViewInsets="NO" id="141-5Q-cK0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZsF-SI-4el">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZsF-SI-4el">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -767,7 +772,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fH1-J5-IB6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0D-OG-46R">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K0D-OG-46R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -787,6 +792,14 @@
         <image name="Join Gradient" width="375" height="48"/>
         <image name="Join Image" width="375" height="255"/>
         <image name="Login Gradient" width="375" height="385"/>
+        <image name="Play Controls Gradient" width="375" height="64"/>
+        <image name="log-out" width="20" height="22"/>
+        <image name="pause-circle" width="22" height="22"/>
+        <image name="play-circle" width="22" height="22"/>
+        <image name="plus" width="16" height="16"/>
+        <image name="settings" width="24" height="24"/>
+        <image name="skip-back" width="16" height="18"/>
+        <image name="skip-forward" width="16" height="18"/>
         <image name="undertone copy" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>

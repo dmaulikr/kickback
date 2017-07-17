@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28DEF22FD52A6FD7215EA52C /* Pods_KickbackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */; };
+		5939AA901F1D3C270093948D /* hk-grotesk in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA8F1F1D3C270093948D /* hk-grotesk */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
 		A018364F1F1D23C900FEE77F /* HKGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */; };
 		A01836501F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.release.xcconfig"; sourceTree = "<group>"; };
+		5939AA8F1F1D3C270093948D /* hk-grotesk */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "hk-grotesk"; sourceTree = "<group>"; };
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		A01836431F1D239A00FEE77F /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				5939AA8F1F1D3C270093948D /* hk-grotesk */,
 				A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */,
 				A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */,
 				A01836461F1D23C900FEE77F /* HKGrotesk-Italic.otf */,
@@ -379,7 +382,7 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SMV55D92WY;
+						DevelopmentTeam = 53N92N9UY4;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -433,6 +436,7 @@
 				A01836581F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf in Resources */,
 				A01836561F1D23C900FEE77F /* HKGrotesk-Regular.otf in Resources */,
 				DFB1986E1F14139000349AAD /* Main.storyboard in Resources */,
+				5939AA901F1D3C270093948D /* hk-grotesk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,14 +771,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = 53N92N9UY4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -788,14 +792,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = 53N92N9UY4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

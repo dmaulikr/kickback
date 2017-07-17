@@ -17,6 +17,8 @@ class CreateViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        playlistTextView.becomeFirstResponder()
+
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
 //        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
