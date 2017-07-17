@@ -98,10 +98,9 @@ class APIManager {
                             dictionary["album"] =  item["album"] as! JSON
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["user"] = user
+                            dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
                             results.append(track)
-                            print(results)
-                            print("end of alamofire")
                         }
                     }
                 }
