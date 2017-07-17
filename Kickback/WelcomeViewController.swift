@@ -74,6 +74,8 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
+        User.current = nil
+        Queue.current = nil
         performSegue(withIdentifier: "logoutSegue", sender: self)
         
     }

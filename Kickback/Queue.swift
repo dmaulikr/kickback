@@ -23,6 +23,8 @@ class Queue {
     var currentTrack: Track?
     var parseQueue: PFObject
     
+    static var current: Queue?
+    
     // Create initializer
     init(owner: User, name: String) {
         let queue = PFObject(className: "Queue")
