@@ -14,7 +14,7 @@ class User {
     // Properties
     var id: String // corresponds to the spotify ID
     var name: String
-    var queue: Queue?
+    var queueId: String?
     var premium: Bool
     
     private static var _current: User?
@@ -37,7 +37,7 @@ class User {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = user.id
                 dictionary["name"] = user.name
-                dictionary["queue"] = user.queue
+                dictionary["queueId"] = user.queueId
                 dictionary["premium"] = user.premium
                 let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
                 defaults.set(data, forKey: "currentUserData")
@@ -51,10 +51,11 @@ class User {
         self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
+        self.queueId = dictionary["queueId"] as? String
         // need to update parse user now (in the same way as update queue)
     }
     
-    func add(queue: Queue) {
-        self.queue = queue
+    func add(queueId: String) {
+        self.queueId = queueId
     }
 }

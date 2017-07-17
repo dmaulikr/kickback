@@ -29,7 +29,6 @@ class CreateViewController: UIViewController {
     
     @IBAction func didTapCreate(_ sender: Any) {
         let queue = Queue(owner: user, name: playlistNameField.text!)
-        user.add(queue: queue)
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
     }
 
