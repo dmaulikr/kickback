@@ -30,6 +30,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         )
         
+        // Check for signed in user
+        if let user = User.current {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: UIViewController
+            if let queueId = user.queueId {
+                let query = PFQuery(className: "Queue")
+                let parseQueue = try! query.getObjectWithId(queueId)
+                if parseQueue["ownerId"] as! String == user.id {
+                    vc = storyboard.instantiateViewController(withIdentifier: "createHomeViewController")
+                } else {
+                    vc = storyboard.instantiateViewController(withIdentifier: "joinHomeViewController")
+                }
+            } else {
+                vc = storyboard.instantiateViewController(withIdentifier: "welcomeViewController")
+            }
+            let navigationController = UINavigationController(rootViewController: vc)
+            window?.rootViewController = navigationController
+        }
+        
         return true
     }
     

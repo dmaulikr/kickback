@@ -81,7 +81,7 @@ class APIManager {
         })
     }
     
-    func searchTracks(query: String, user: User?) -> [Track] {
+    func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
         print("request went through")
@@ -106,13 +106,11 @@ class APIManager {
                         }
                     }
                 }
+                callback(results)
             } catch {
                 print(error.localizedDescription)
             }
         }
-        print("Results: \(results)")
-        return results
-        //print(results)
     }
     
 }

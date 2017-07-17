@@ -79,7 +79,7 @@
         <!--HomeViewController-->
         <scene sceneID="W7A-9j-GnE">
             <objects>
-                <viewController title="HomeViewController" id="5To-Vg-COi" customClass="WelcomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcomeViewController" title="HomeViewController" id="5To-Vg-COi" customClass="WelcomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8d-39-Ii0"/>
                         <viewControllerLayoutGuide type="bottom" id="anp-dO-lcM"/>
@@ -233,7 +233,7 @@
         <!--CreateHomeViewController-->
         <scene sceneID="lbm-vu-cWl">
             <objects>
-                <viewController title="CreateHomeViewController" id="3dT-Bj-TZH" customClass="CreateHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createHomeViewController" title="CreateHomeViewController" id="3dT-Bj-TZH" customClass="CreateHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6z6-fq-eI8"/>
                         <viewControllerLayoutGuide type="bottom" id="rlH-h7-N6W"/>
@@ -600,7 +600,7 @@
         <!--JoinHomeViewController-->
         <scene sceneID="DcG-3A-dtn">
             <objects>
-                <viewController title="JoinHomeViewController" id="I9V-Zq-SfM" customClass="JoinHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="joinHomeViewController" title="JoinHomeViewController" id="I9V-Zq-SfM" customClass="JoinHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lkI-u1-NAP"/>
                         <viewControllerLayoutGuide type="bottom" id="Q6B-1h-Kno"/>
@@ -712,7 +712,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XdP-Rt-KwT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -730,7 +730,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Gy2-kC-kJK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -748,7 +748,7 @@
         <!--Navigation Controller-->
         <scene sceneID="SXN-Od-XNM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="141-5Q-cK0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="joinNavigation" automaticallyAdjustsScrollViewInsets="NO" id="141-5Q-cK0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZsF-SI-4el">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

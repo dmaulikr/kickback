@@ -59,7 +59,7 @@ class JoinViewController: UIViewController, UITextViewDelegate {
                 } else {
                     let queue = Queue(parseQueue!)
                     queue.addMember(userId: self.user.id)
-                    self.user.add(queue: queue)
+                    self.user.add(queueId: queue.id)
                     self.performSegue(withIdentifier: "joinSuccessSegue", sender: self)
                 }
             })

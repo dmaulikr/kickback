@@ -14,7 +14,7 @@ class User {
     // Properties
     var id: String // corresponds to the spotify ID
     var name: String
-    var queue: Queue?
+    var queueId: String?
     var premium: Bool
     var profileImageURL: String
     
@@ -38,8 +38,8 @@ class User {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = user.id
                 dictionary["name"] = user.name
-                dictionary["queue"] = user.queue
                 dictionary["profileImageURL"] = user.profileImageURL
+                dictionary["queueId"] = user.queueId
                 dictionary["premium"] = user.premium
                 let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
                 defaults.set(data, forKey: "currentUserData")
@@ -54,9 +54,10 @@ class User {
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
         self.profileImageURL = dictionary["profileImageURL"] as! String
+        self.queueId = dictionary["queueId"] as? String
     }
     
-    func add(queue: Queue) {
-        self.queue = queue
+    func add(queueId: String) {
+        self.queueId = queueId
     }
 }
