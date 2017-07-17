@@ -16,8 +16,6 @@ class CreateHomeViewController: UIViewController {
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
     
-    @IBOutlet weak var volumeLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
@@ -48,12 +46,6 @@ class CreateHomeViewController: UIViewController {
     @IBAction func didTapAddtoPlaylist(_ sender: Any) {
         performSegue(withIdentifier: "searchSegue", sender: self)
 
-    }
-    
-    @IBAction func volumeSlider(_ sender: UISlider) {
-        var currentValue = Int(sender.value)
-        
-        volumeLabel.text = "\(currentValue)"
     }
 
     @IBAction func didTapNext(_ sender: Any) {
