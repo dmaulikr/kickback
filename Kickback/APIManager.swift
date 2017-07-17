@@ -84,7 +84,6 @@ class APIManager {
     func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
-        print("request went through")
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
                 print("inside alamofire")

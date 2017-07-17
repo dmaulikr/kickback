@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func onTapLeave(_ sender: Any) {
+        Queue.current = nil
         performSegue(withIdentifier: "leaveSegue", sender: self)
     }
     /*
