@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -349,7 +349,6 @@
                         <outlet property="playlistNameLabel" destination="GfL-Mm-tik" id="gIZ-En-Sqf"/>
                         <outlet property="previousSongImageView" destination="RlV-kN-mUO" id="4gT-Ps-W0k"/>
                         <outlet property="tableView" destination="tmy-jA-aqT" id="yO1-Ry-uEe"/>
-                        <outlet property="volumeLabel" destination="W5m-tD-X64" id="4Jv-Ze-7ye"/>
                         <segue destination="fH1-J5-IB6" kind="show" identifier="searchSegue" id="RLJ-51-yHb"/>
                     </connections>
                 </viewController>
@@ -714,7 +713,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -732,7 +731,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -750,7 +749,7 @@
             <objects>
                 <navigationController storyboardIdentifier="joinNavigation" automaticallyAdjustsScrollViewInsets="NO" id="141-5Q-cK0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZsF-SI-4el">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZsF-SI-4el">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -768,7 +767,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fH1-J5-IB6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K0D-OG-46R">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0D-OG-46R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -792,6 +791,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WmO-7I-fLE"/>
-        <segue reference="Lua-aA-nN6"/>
+        <segue reference="qy7-0A-kRY"/>
     </inferredMetricsTieBreakers>
 </document>

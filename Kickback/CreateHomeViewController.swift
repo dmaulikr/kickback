@@ -26,8 +26,6 @@ class CreateHomeViewController: UIViewController {
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {

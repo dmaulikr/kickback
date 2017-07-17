@@ -54,7 +54,7 @@ class CreateViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        let queue = Queue(owner: user, name: playlistNameField.text!)
+        let queue = Queue(owner: user, name: playlistTextView.text!)
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
     }
 

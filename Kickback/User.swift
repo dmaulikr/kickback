@@ -16,7 +16,7 @@ class User {
     var name: String
     var queueId: String?
     var premium: Bool
-    var profileImageURL: String
+    var profileImageURL: String?
     
     private static var _current: User?
     
@@ -53,7 +53,7 @@ class User {
         self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
-        self.profileImageURL = dictionary["profileImageURL"] as! String
+        self.profileImageURL = dictionary["profileImageURL"] as? String
         self.queueId = dictionary["queueId"] as? String
     }
     

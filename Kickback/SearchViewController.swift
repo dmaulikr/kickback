@@ -21,9 +21,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-
-        tracks = (APIManager.current?.searchTracks(query: "wild", user: User.current))!
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +44,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let keywords = searchText
         let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
         
-        tracks = (APIManager.current?.searchTracks(query: finalKeywords, user: User.current))!
+//        tracks = (APIManager.current?.searchTracks(query: finalKeywords, user: User.current))!
         tableView.reloadData()
         print(tracks.count)
         print(tracks)
