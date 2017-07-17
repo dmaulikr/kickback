@@ -24,8 +24,7 @@ class SearchResultCell: UITableViewCell {
     }
 
     @IBAction func onAddTrack(_ sender: Any) {
-        let user = User.current!
-        
+        Queue.current!.addTrack(track, user: User.current!)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
