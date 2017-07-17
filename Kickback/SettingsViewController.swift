@@ -18,6 +18,11 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = UIColor.white
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

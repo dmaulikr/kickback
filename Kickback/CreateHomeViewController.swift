@@ -16,15 +16,24 @@ class CreateHomeViewController: UIViewController {
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
     
-    @IBOutlet weak var volumeLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var addToPlaylistButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        // Do any additional setup after loading the view.
+        
+        // Set up Add to Playlist Button
+        addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
+        addToPlaylistButton.layer.masksToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Set up clear navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,11 +41,9 @@ class CreateHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func volumeSlider(_ sender: UISlider) {
-        var currentValue = Int(sender.value)
-        
-        volumeLabel.text = "\(currentValue)"
+    @IBAction func didTapAddtoPlaylist(_ sender: Any) {
+        performSegue(withIdentifier: "searchSegue", sender: self)
+
     }
 
     @IBAction func didTapNext(_ sender: Any) {

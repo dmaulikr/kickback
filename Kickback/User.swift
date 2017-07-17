@@ -16,6 +16,7 @@ class User {
     var name: String
     var queueId: String?
     var premium: Bool
+    var profileImageURL: String?
     
     private static var _current: User?
     
@@ -37,6 +38,7 @@ class User {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = user.id
                 dictionary["name"] = user.name
+                dictionary["profileImageURL"] = user.profileImageURL
                 dictionary["queueId"] = user.queueId
                 dictionary["premium"] = user.premium
                 let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
@@ -51,8 +53,8 @@ class User {
         self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
+        self.profileImageURL = dictionary["profileImageURL"] as? String
         self.queueId = dictionary["queueId"] as? String
-        // need to update parse user now (in the same way as update queue)
     }
     
     func add(queueId: String) {

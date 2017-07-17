@@ -71,10 +71,12 @@ class APIManager {
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = spotifyUser.canonicalUserName
                 dictionary["name"] = spotifyUser.displayName
+                dictionary["profileImageURL"] = spotifyUser.smallestImage.imageURL.absoluteString
                 let status = spotifyUser.product
                 dictionary["premium"] = status == SPTProduct.premium
                 let user = User(dictionary)
-                User.current = user 
+                User.current = user
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "user.currentSetup"), object: nil)
             }
         })
     }
@@ -82,8 +84,10 @@ class APIManager {
     func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
+        print("request went through")
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
+                print("inside alamofire")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
@@ -97,6 +101,8 @@ class APIManager {
                             dictionary["user"] = user
                             let track = Track(dictionary)
                             results.append(track)
+                            print(results)
+                            print("end of alamofire")
                         }
                     }
                 }

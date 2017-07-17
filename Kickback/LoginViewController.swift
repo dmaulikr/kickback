@@ -10,10 +10,19 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    
     let manager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        welcomeLabel.text = "Get ready to kickback to \nmusic with your friends."
+        
+        // Set up Login Button
+        loginButton.layer.cornerRadius = loginButton.frame.width * 0.10
+        loginButton.layer.masksToBounds = true
+        
         APIManager.current = manager
     }
     
