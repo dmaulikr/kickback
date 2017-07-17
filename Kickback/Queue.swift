@@ -23,7 +23,21 @@ class Queue {
     var currentTrack: Track?
     var parseQueue: PFObject
     
-    static var current: Queue?
+    private static var _current: Queue?
+    static var current: Queue? {
+        get {
+            if _current == nil {
+                if let queueId = User.current?.queueId {
+                    let parseQueue = try! PFQuery(className: "Queue").getObjectWithId(queueId)
+                    _current = Queue(parseQueue)
+                }
+            }
+            return _current
+        }
+        set (queue) {
+            _current = queue
+        }
+    }
     
     // Create initializer
     init(owner: User, name: String) {
@@ -123,6 +137,18 @@ class Queue {
     func renameTo(_ newName: String) {
         self.name = newName
         parseQueue["name"] = newName
+        parseQueue.saveInBackground()
+    }
+    
+    func incrementPlayIndex() {
+        playIndex += 1
+        parseQueue["playIndex"] = playIndex
+        parseQueue.saveInBackground()
+    }
+    
+    func decrementPlayIndex() {
+        playIndex -= 1
+        parseQueue["playIndex"] = playIndex
         parseQueue.saveInBackground()
     }
     

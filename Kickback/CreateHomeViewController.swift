@@ -22,7 +22,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     var manager = APIManager.current!
     var player: SPTAudioStreamingController!
-    
+    var queue: Queue!
+    var user: User!
+    var tracks = ["spotify:track:4jJIWz41sPgzlgnxegAI7c", "spotify:track:4AGgXEtNPFPAMUoDEgjvwX", "spotify:track:7HOpH9FAgS8axilvDU8w6d", "spotify:track:3uA8SjMyDtwtt0jLPMQbVD"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +41,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             try! player.start(withClientId: manager.auth.clientID)
             self.player.login(withAccessToken: manager.session.accessToken)
         }
+        self.queue = Queue.current
+        self.user = User.current
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,26 +64,37 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
 
     @IBAction func didTapNext(_ sender: Any) {
+        if queue.playIndex == 4 - 1 { // replace the 4 with queue.tracks.count
+            player.skipNext(printError(_:))
+        } else {
+            queue.incrementPlayIndex()
+            player.playSpotifyURI(tracks[queue.playIndex], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+        }
     }
     
     @IBAction func didTapPlayPause(_ sender: Any) {
         let resume = !player.playbackState.isPlaying
-        player.setIsPlaying(resume) { (error: Error?) in
-            print(error?.localizedDescription)
-        }
+        player.setIsPlaying(resume, callback: printError(_:))
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
+        if queue.playIndex == 0 {
+            player.skipPrevious(printError(_:))
+        } else {
+            queue.decrementPlayIndex()
+            player.playSpotifyURI(tracks[queue.playIndex], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+        }
+    }
+    
+    func printError(_ error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        }
     }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-        print("logged in")
-        self.player?.playSpotifyURI("spotify:track:4jJIWz41sPgzlgnxegAI7c", startingWith: 0, startingWithPosition: 0, callback: { (error) in
-            if (error != nil) {
-                print("playing")
-            }
-        })
+        self.player?.playSpotifyURI(tracks[0], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
     }
     
     /*
