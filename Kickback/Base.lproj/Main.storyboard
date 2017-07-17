@@ -265,7 +265,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play/Pause"/>
                                 <connections>
-                                    <action selector="didTapPlay:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="bmd-xT-hvt"/>
+                                    <action selector="didTapPlayPause:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="HXF-eS-INa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-bt-bDL">
@@ -284,14 +284,6 @@
                                     <action selector="didTapRewind:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="1oW-5W-cyQ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzq-tB-MCD" userLabel="nextSongImage">
-                                <rect key="frame" x="249" y="158" width="118" height="141"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlV-kN-mUO" userLabel="previousSongImage">
-                                <rect key="frame" x="10" y="158" width="131" height="141"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty Album" translatesAutoresizingMaskIntoConstraints="NO" id="WEv-9j-C4p" userLabel="currentSongImage">
                                 <rect key="frame" x="81" y="97" width="220" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,7 +304,7 @@
                                         <rect key="frame" x="0.0" y="28" width="336" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -332,6 +324,14 @@
                                     <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="xoM-Pi-OtT"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uzq-tB-MCD" userLabel="nextSongImage">
+                                <rect key="frame" x="225" y="137" width="141" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlV-kN-mUO" userLabel="previousSongImage">
+                                <rect key="frame" x="9" y="137" width="142" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -388,7 +388,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XjG-85-Lw7" id="MdT-gf-Liq">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -435,7 +435,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4S7-8o-7G9" id="qG0-sZ-VM2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KW-gD-WIP">
@@ -519,7 +519,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwV-KI-1j9" id="zrd-Aw-E9g">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -739,7 +739,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -775,7 +775,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fH1-J5-IB6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K0D-OG-46R">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0D-OG-46R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -799,6 +799,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WmO-7I-fLE"/>
-        <segue reference="Lua-aA-nN6"/>
+        <segue reference="qy7-0A-kRY"/>
     </inferredMetricsTieBreakers>
 </document>
