@@ -79,7 +79,7 @@ class APIManager {
         })
     }
     
-    func searchTracks(query: String, user: User?, handler: ([Track]) -> Void) -> Void {
+    func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
@@ -100,11 +100,11 @@ class APIManager {
                         }
                     }
                 }
+                callback(results)
             } catch {
                 print(error.localizedDescription)
             }
         }
-        handler(results)
     }
     
 }

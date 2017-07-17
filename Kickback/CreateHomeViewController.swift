@@ -25,15 +25,6 @@ class CreateHomeViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
         // Do any additional setup after loading the view.
-        
-        let manager = APIManager.current!
-        print("searching tracks")
-        manager.searchTracks(query: "wild", user: User.current) { (tracks: [Track]) in
-            print("got here")
-            for track in tracks {
-                print(track.name)
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
