@@ -48,6 +48,9 @@ class Queue {
         queue.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 self.id = self.parseQueue.objectId!
+                owner.add(queueId: self.id)
+                User.current = owner
+                print(User.current!.queueId!)
             } else {
                 print(error?.localizedDescription)
             }
