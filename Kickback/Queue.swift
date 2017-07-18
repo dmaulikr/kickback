@@ -56,7 +56,7 @@ class Queue {
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["name"] = self.name
-        queue["tracks"] = self.tracks
+        queue["jsonTracks"] = [] as! [[String: Any]]
         queue["counts"] = self.counts
         queue["members"] = self.members
         queue["playIndex"] = self.playIndex
@@ -68,7 +68,7 @@ class Queue {
                 User.current = owner
                 print(User.current!.queueId!)
             } else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
         }
     }
@@ -79,7 +79,11 @@ class Queue {
         self.ownerId = parseQueue["ownerId"] as! String
         self.accessCode = parseQueue["accessCode"] as! String
         self.name = parseQueue["name"] as! String
-        self.tracks = parseQueue["tracks"] as! [Track]
+        let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+        self.tracks = []
+        for jsonTrack in jsonTracks {
+            self.tracks.append(Track(jsonTrack))
+        }
         self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
         self.playIndex = parseQueue["playIndex"] as! Int
@@ -92,7 +96,11 @@ class Queue {
             self.ownerId = parseQueue["ownerId"] as! String
             self.accessCode = parseQueue["accessCode"] as! String
             self.name = parseQueue["name"] as! String
-            self.tracks = parseQueue["tracks"] as! [Track]
+            let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+            self.tracks = []
+            for jsonTrack in jsonTracks {
+                self.tracks.append(Track(jsonTrack))
+            }
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
@@ -127,7 +135,7 @@ class Queue {
         track.userId = user.id
         updateFromParse()
         tracks.append(track)
-        parseQueue.add(track, forKey: "tracks")
+        parseQueue.add(track.dictionary, forKey: "jsonTracks")
         // reorder the tracks as needed (we might need to use a heap)
         counts[track.userId!]! += 1
         parseQueue["counts"] = counts
