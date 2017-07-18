@@ -4,7 +4,6 @@
 //
 //  Created by Tavis Thompson on 7/10/17.
 //  Copyright © 2017 FBU. All rights reserved.
-//
 
 import UIKit
 
@@ -21,7 +20,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var addToPlaylistButton: UIButton!
     
     var manager = APIManager.current!
-    var player: SPTAudioStreamingController!
+    var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
     var tracks = ["spotify:track:4jJIWz41sPgzlgnxegAI7c", "spotify:track:4AGgXEtNPFPAMUoDEgjvwX", "spotify:track:7HOpH9FAgS8axilvDU8w6d", "spotify:track:3uA8SjMyDtwtt0jLPMQbVD"]
@@ -34,13 +33,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         addToPlaylistButton.layer.masksToBounds = true
         
         // Initialize Spotify player
-        if self.player == nil {
-            self.player = SPTAudioStreamingController.sharedInstance()
-            self.player.playbackDelegate = self
-            self.player.delegate = self
-            try! player.start(withClientId: manager.auth.clientID)
+        player.playbackDelegate = self
+        player.delegate = self
+        if !player.loggedIn {
+            do {
+                try player.start(withClientId: manager.auth.clientID)
+            } catch {
+                print(error.localizedDescription)
+            }
             self.player.login(withAccessToken: manager.session.accessToken)
         }
+        
         self.queue = Queue.current
         self.user = User.current
     }
