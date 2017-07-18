@@ -17,10 +17,9 @@ class CreateViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-//        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
-//                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
+
+        // Keep keyboard permentaly on the screen
+//        playlistTextView.becomeFirstResponder() NOT WORKING
         
         // placeholder text
         playlistTextView.delegate = self

@@ -99,9 +99,11 @@ class APIManager {
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside alamofire")
+                print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
+                    print("inside tracks")
+                    print("the tracks \(tracks)")
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
                             /// <#Description#>
@@ -114,6 +116,7 @@ class APIManager {
                             dictionary["user"] = user
                             dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
+                            print("---------")
                             results.append(track)
                         }
                     }
