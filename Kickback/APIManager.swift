@@ -84,12 +84,13 @@ class APIManager {
     func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
-        print("request went through")
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside alamofire")
+                print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
+                    print("inside tracks")
+                    print("the tracks \(tracks)")
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
                             let item = items[i]
@@ -100,9 +101,9 @@ class APIManager {
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["user"] = user
                             let track = Track(dictionary)
+                            print("---------")
                             results.append(track)
-                            print(results)
-                            print("end of alamofire")
+                            print("Track \(track)")
                         }
                     }
                 }

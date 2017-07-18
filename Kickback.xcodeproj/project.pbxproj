@@ -30,7 +30,6 @@
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
-		A0BEF7FC1F142B9600CABCFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7FB1F142B9600CABCFA /* SongCell.swift */; };
 		A0D4431F1F1BE3C8001E2BE9 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
@@ -92,7 +91,6 @@
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A0BEF7FB1F142B9600CABCFA /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +202,6 @@
 		A0BEF7FA1F142B4B00CABCFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A0BEF7FB1F142B9600CABCFA /* SongCell.swift */,
 				A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */,
 			);
 			name = Views;
@@ -601,7 +598,6 @@
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
-				A0BEF7FC1F142B9600CABCFA /* SongCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0D4431F1F1BE3C8001E2BE9 /* TrackCell.swift in Sources */,
