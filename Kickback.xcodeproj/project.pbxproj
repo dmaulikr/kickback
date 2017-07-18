@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		28DEF22FD52A6FD7215EA52C /* Pods_KickbackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */; };
 		5939AA901F1D3C270093948D /* hk-grotesk in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA8F1F1D3C270093948D /* hk-grotesk */; };
+		5939AA981F1EA8860093948D /* party.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA971F1EA8860093948D /* party.gif */; };
+		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
 		A018364F1F1D23C900FEE77F /* HKGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */; };
 		A01836501F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */; };
@@ -69,6 +71,8 @@
 		20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.release.xcconfig"; sourceTree = "<group>"; };
 		5939AA8F1F1D3C270093948D /* hk-grotesk */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "hk-grotesk"; sourceTree = "<group>"; };
+		5939AA971F1EA8860093948D /* party.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = party.gif; sourceTree = "<group>"; };
+		5939AA991F1EAF200093948D /* Gif+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Swift.swift"; sourceTree = "<group>"; };
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		DFB198671F14139000349AAD /* Kickback */ = {
 			isa = PBXGroup;
 			children = (
+				5939AA971F1EA8860093948D /* party.gif */,
 				A01836431F1D239A00FEE77F /* Ressources */,
 				A031975F1F154E91001ABBC7 /* API */,
 				DFC3C2A51F15482D0080DF88 /* Models */,
@@ -263,6 +268,7 @@
 				DFB1986F1F14139000349AAD /* Assets.xcassets */,
 				DFB198711F14139000349AAD /* LaunchScreen.storyboard */,
 				DFB198741F14139000349AAD /* Info.plist */,
+				5939AA991F1EAF200093948D /* Gif+Swift.swift */,
 			);
 			path = Kickback;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				A01836511F1D23C900FEE77F /* HKGrotesk-Italic.otf in Resources */,
 				A01836581F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf in Resources */,
 				A01836561F1D23C900FEE77F /* HKGrotesk-Regular.otf in Resources */,
+				5939AA981F1EA8860093948D /* party.gif in Resources */,
 				DFB1986E1F14139000349AAD /* Main.storyboard in Resources */,
 				5939AA901F1D3C270093948D /* hk-grotesk in Resources */,
 			);
@@ -613,6 +620,7 @@
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
 				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
+				5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */,
 				A0BEF7F21F14276700CABCFA /* CreateViewController.swift in Sources */,
 				A0BEF7F31F14276700CABCFA /* WelcomeViewController.swift in Sources */,
 				DFC3C2A91F15483D0080DF88 /* Track.swift in Sources */,
