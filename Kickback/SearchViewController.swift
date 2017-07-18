@@ -62,6 +62,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar.resignFirstResponder()
     }
 
+    @IBAction func onTapCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
      // MARK: - Navigation
      
