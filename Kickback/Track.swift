@@ -12,19 +12,58 @@ import Parse
 class Track {
     
     // Properties
-    var id: String
-    var name: String
-    var album: [String: Any]
-    var artists: [[String: Any]]
-    var userId: String?
-    var uri: String
+    var dictionary: [String: Any]
+    
+    var id: String {
+        get {
+            return dictionary["id"] as! String
+        }
+        set (id) {
+            dictionary["id"] = id
+        }
+    }
+    var name: String {
+        get {
+            return dictionary["name"] as! String
+        }
+        set (name) {
+            dictionary["name"] = name
+        }
+    }
+    var album: [String: Any] {
+        get {
+            return dictionary["album"] as! [String: Any]
+        }
+        set (album) {
+            dictionary["album"] = album
+        }
+    }
+    var artists: [[String: Any]] {
+        get {
+            return dictionary["artists"] as! [[String: Any]]
+        }
+        set (artists) {
+            dictionary["artists"] = artists
+        }
+    }
+    var userId: String? {
+        get {
+            return dictionary["userId"] as? String
+        }
+        set (userId) {
+            dictionary["userId"] = userId
+        }
+    }
+    var uri: String {
+        get {
+            return dictionary["uri"] as! String
+        }
+        set (uri) {
+            dictionary["uri"] = uri
+        }
+    }
     
     init(_ dictionary: [String: Any]) {
-        self.id = dictionary["id"] as! String
-        self.name = dictionary["name"] as! String
-        self.album = dictionary["album"] as! [String: Any]
-        self.artists = dictionary["artists"] as! [[String: Any]]
-        self.userId = dictionary["userId"] as? String
-        self.uri = dictionary["uri"] as! String
+        self.dictionary = dictionary
     }
 }
