@@ -23,7 +23,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
-    var tracks = ["spotify:track:4jJIWz41sPgzlgnxegAI7c", "spotify:track:4AGgXEtNPFPAMUoDEgjvwX", "spotify:track:7HOpH9FAgS8axilvDU8w6d", "spotify:track:3uA8SjMyDtwtt0jLPMQbVD"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,25 +66,35 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
 
     @IBAction func didTapNext(_ sender: Any) {
-        if queue.playIndex == 4 - 1 { // replace the 4 with queue.tracks.count
-            player.skipNext(printError(_:))
-        } else {
-            queue.incrementPlayIndex()
-            player.playSpotifyURI(tracks[queue.playIndex], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+        let tracks = queue.tracks
+        if !tracks.isEmpty {
+            if queue.playIndex == tracks.count - 1 {
+                player.skipNext(printError(_:))
+            } else {
+                queue.incrementPlayIndex()
+                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
         }
     }
     
     @IBAction func didTapPlayPause(_ sender: Any) {
-        let resume = !player.playbackState.isPlaying
-        player.setIsPlaying(resume, callback: printError(_:))
+        if !queue.tracks.isEmpty {
+            let resume = !player.playbackState.isPlaying
+            player.setIsPlaying(resume, callback: printError(_:))
+        } else {
+            print("No tracks to play!")
+        }
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
-        if queue.playIndex == 0 {
-            player.skipPrevious(printError(_:))
-        } else {
-            queue.decrementPlayIndex()
-            player.playSpotifyURI(tracks[queue.playIndex], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+        let tracks = queue.tracks
+        if !tracks.isEmpty {
+            if queue.playIndex == 0 {
+                player.skipPrevious(printError(_:))
+            } else {
+                queue.decrementPlayIndex()
+                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
         }
     }
     
@@ -97,7 +106,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-        self.player?.playSpotifyURI(tracks[0], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+//        self.player.playSpotifyURI(tracks[0], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
     }
     
     /*
