@@ -12,11 +12,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var gifBackgroundImage: UIImageView!
     
     let manager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gifBackgroundImage.loadGif(name: "party")
         welcomeLabel.text = "Get ready to kickback to \nmusic with your friends."
         
         // Set up Login Button
