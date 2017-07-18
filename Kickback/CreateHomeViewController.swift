@@ -59,11 +59,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func didTapAddtoPlaylist(_ sender: Any) {
-        performSegue(withIdentifier: "searchSegue", sender: self)
-
-    }
 
     @IBAction func didTapNext(_ sender: Any) {
         let tracks = queue.tracks
