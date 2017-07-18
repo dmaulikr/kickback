@@ -20,8 +20,8 @@
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
-		A0D4431F1F1BE3C8001E2BE9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D4431E1F1BE3C8001E2BE9 /* SearchResultCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
+		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -71,7 +71,6 @@
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A0D4431E1F1BE3C8001E2BE9 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +84,7 @@
 		DF3056F31F1E784100FD8AC5 /* HKGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Regular.otf"; path = "hk-grotesk/HKGrotesk-Regular.otf"; sourceTree = "<group>"; };
 		DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
 		DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		A0BEF7FA1F142B4B00CABCFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A0D4431E1F1BE3C8001E2BE9 /* SearchResultCell.swift */,
+				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -578,9 +578,9 @@
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
+				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
-				A0D4431F1F1BE3C8001E2BE9 /* SearchResultCell.swift in Sources */,
 				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
