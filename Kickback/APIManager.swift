@@ -58,8 +58,21 @@ class APIManager {
         self.auth.clientID = "7d5032c6d7294aeb8a4fdc7662062655" // put your client ID here
         self.auth.redirectURL = URL(string: "Kickback://returnAfterLogin") // put your direct URL here
         self.auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistModifyPrivateScope]
+        self.auth.tokenSwapURL = URL(string: "https://kickback-token-refresh.herokuapp.com/swap")
+        self.auth.tokenRefreshURL = URL(string: "https://kickback-token-refresh.herokuapp.com/refresh")
         self.loginURL = auth.spotifyWebAuthenticationURL()
         self.session = session
+    }
+    
+    func refreshToken() {
+        auth.renewSession(session) { (error, newSession) in
+            if let error = error {
+                print("got an error")
+                print(error.localizedDescription)
+            } else {
+                self.session = newSession
+            }
+        }
     }
     
     func createUser() {
@@ -91,6 +104,7 @@ class APIManager {
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
+                            /// <#Description#>
                             let item = items[i]
                             var dictionary: [String: Any] = [:]
                             dictionary["id"] = item["id"]
@@ -98,10 +112,9 @@ class APIManager {
                             dictionary["album"] =  item["album"] as! JSON
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["user"] = user
+                            dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
                             results.append(track)
-                            print(results)
-                            print("end of alamofire")
                         }
                     }
                 }
@@ -110,6 +123,7 @@ class APIManager {
                 print(error.localizedDescription)
             }
         }
+        refreshToken()
     }
     
 }
