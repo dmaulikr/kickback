@@ -23,6 +23,22 @@ class Queue {
     var currentTrack: Track?
     var parseQueue: PFObject
     
+    private static var _current: Queue?
+    static var current: Queue? {
+        get {
+            if _current == nil {
+                if let queueId = User.current?.queueId {
+                    let parseQueue = try! PFQuery(className: "Queue").getObjectWithId(queueId)
+                    _current = Queue(parseQueue)
+                }
+            }
+            return _current
+        }
+        set (queue) {
+            _current = queue
+        }
+    }
+    
     // Create initializer
     init(owner: User, name: String) {
         let queue = PFObject(className: "Queue")
@@ -36,11 +52,11 @@ class Queue {
         self.tracks = []
         self.counts = [owner.id: 0]
         self.members = [owner.id]
-        self.playIndex = -1
+        self.playIndex = 0
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["name"] = self.name
-        queue["tracks"] = self.tracks
+        queue["jsonTracks"] = [] as! [[String: Any]]
         queue["counts"] = self.counts
         queue["members"] = self.members
         queue["playIndex"] = self.playIndex
@@ -52,7 +68,7 @@ class Queue {
                 User.current = owner
                 print(User.current!.queueId!)
             } else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
         }
     }
@@ -63,7 +79,11 @@ class Queue {
         self.ownerId = parseQueue["ownerId"] as! String
         self.accessCode = parseQueue["accessCode"] as! String
         self.name = parseQueue["name"] as! String
-        self.tracks = parseQueue["tracks"] as! [Track]
+        let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+        self.tracks = []
+        for jsonTrack in jsonTracks {
+            self.tracks.append(Track(jsonTrack))
+        }
         self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
         self.playIndex = parseQueue["playIndex"] as! Int
@@ -76,7 +96,11 @@ class Queue {
             self.ownerId = parseQueue["ownerId"] as! String
             self.accessCode = parseQueue["accessCode"] as! String
             self.name = parseQueue["name"] as! String
-            self.tracks = parseQueue["tracks"] as! [Track]
+            let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+            self.tracks = []
+            for jsonTrack in jsonTracks {
+                self.tracks.append(Track(jsonTrack))
+            }
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
@@ -111,7 +135,7 @@ class Queue {
         track.userId = user.id
         updateFromParse()
         tracks.append(track)
-        parseQueue.add(track, forKey: "tracks")
+        parseQueue.add(track.dictionary, forKey: "jsonTracks")
         // reorder the tracks as needed (we might need to use a heap)
         counts[track.userId!]! += 1
         parseQueue["counts"] = counts
@@ -121,6 +145,18 @@ class Queue {
     func renameTo(_ newName: String) {
         self.name = newName
         parseQueue["name"] = newName
+        parseQueue.saveInBackground()
+    }
+    
+    func incrementPlayIndex() {
+        playIndex += 1
+        parseQueue["playIndex"] = playIndex
+        parseQueue.saveInBackground()
+    }
+    
+    func decrementPlayIndex() {
+        playIndex -= 1
+        parseQueue["playIndex"] = playIndex
         parseQueue.saveInBackground()
     }
     

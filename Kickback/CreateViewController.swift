@@ -21,8 +21,6 @@ class CreateViewController: UIViewController, UITextViewDelegate {
 
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-//        playlistNameField.attributedPlaceholder = NSAttributedString(string: "Name your playlist",
-//                                                                     attributes: [NSForegroundColorAttributeName: UIColor.white])
         
         // placeholder text
         playlistTextView.delegate = self
@@ -57,6 +55,7 @@ class CreateViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func didTapCreate(_ sender: Any) {
         let queue = Queue(owner: user, name: playlistTextView.text!)
+        Queue.current = queue
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
     }
 

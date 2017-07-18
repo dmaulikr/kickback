@@ -61,6 +61,7 @@ class JoinViewController: UIViewController, UITextViewDelegate {
                     queue.addMember(userId: self.user.id)
                     self.user.add(queueId: queue.id)
                     self.performSegue(withIdentifier: "joinSuccessSegue", sender: self)
+                    Queue.current = queue
                 }
             })
         }

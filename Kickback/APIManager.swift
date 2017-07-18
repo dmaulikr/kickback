@@ -58,8 +58,21 @@ class APIManager {
         self.auth.clientID = "7d5032c6d7294aeb8a4fdc7662062655" // put your client ID here
         self.auth.redirectURL = URL(string: "Kickback://returnAfterLogin") // put your direct URL here
         self.auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistModifyPrivateScope]
+        self.auth.tokenSwapURL = URL(string: "https://kickback-token-refresh.herokuapp.com/swap")
+        self.auth.tokenRefreshURL = URL(string: "https://kickback-token-refresh.herokuapp.com/refresh")
         self.loginURL = auth.spotifyWebAuthenticationURL()
         self.session = session
+    }
+    
+    func refreshToken() {
+        auth.renewSession(session) { (error, newSession) in
+            if let error = error {
+                print("got an error")
+                print(error.localizedDescription)
+            } else {
+                self.session = newSession
+            }
+        }
     }
     
     func createUser() {
@@ -84,12 +97,13 @@ class APIManager {
     func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
-        print("request went through")
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside alamofire")
+                print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
+                    print("inside tracks")
+                    print("the tracks \(tracks)")
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
                             let item = items[i]
@@ -98,11 +112,11 @@ class APIManager {
                             dictionary["name"] = item["name"]
                             dictionary["album"] =  item["album"] as! JSON
                             dictionary["artists"] = item["artists"] as! [JSON]
-                            dictionary["user"] = user
+                            dictionary["userId"] = user?.id
+                            dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
+                            print("---------")
                             results.append(track)
-                            print(results)
-                            print("end of alamofire")
                         }
                     }
                 }
@@ -111,6 +125,7 @@ class APIManager {
                 print(error.localizedDescription)
             }
         }
+        refreshToken()
     }
     
 }

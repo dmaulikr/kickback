@@ -4,11 +4,10 @@
 //
 //  Created by Tavis Thompson on 7/10/17.
 //  Copyright © 2017 FBU. All rights reserved.
-//
 
 import UIKit
 
-class CreateHomeViewController: UIViewController {
+class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate {
 
     @IBOutlet weak var playlistNameLabel: UILabel!
     
@@ -20,12 +19,34 @@ class CreateHomeViewController: UIViewController {
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
     
+    var manager = APIManager.current!
+    var player = SPTAudioStreamingController.sharedInstance()!
+    var queue: Queue!
+    var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
+        
+        // Initialize Spotify player
+        player.playbackDelegate = self
+        player.delegate = self
+        if !player.loggedIn {
+            do {
+                try player.start(withClientId: manager.auth.clientID)
+            } catch {
+                print(error.localizedDescription)
+            }
+            self.player.login(withAccessToken: manager.session.accessToken)
+        }
+        
+        self.queue = Queue.current
+        self.user = User.current
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,14 +68,54 @@ class CreateHomeViewController: UIViewController {
     }
 
     @IBAction func didTapNext(_ sender: Any) {
+        let tracks = queue.tracks
+        if !tracks.isEmpty {
+            if queue.playIndex == tracks.count - 1 {
+                player.skipNext(printError(_:))
+            } else {
+                queue.incrementPlayIndex()
+                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
+        }
     }
     
-    @IBAction func didTapPlay(_ sender: Any) {
+    @IBAction func didTapPlayPause(_ sender: Any) {
+        print(queue.playIndex)
+        if !queue.tracks.isEmpty {
+            if let playbackState = player.playbackState {
+                let resume = !playbackState.isPlaying
+                player.setIsPlaying(resume, callback: printError(_:))
+            } else {
+                self.player.playSpotifyURI(queue.tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
+        } else {
+            print("No tracks to play!")
+        }
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
+        print(queue.playIndex)
+        let tracks = queue.tracks
+        if !tracks.isEmpty {
+            if queue.playIndex == 0 {
+                player.skipPrevious(printError(_:))
+            } else {
+                queue.decrementPlayIndex()
+                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
+        }
     }
     
+    func printError(_ error: Error?) {
+        if let error = error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
+        // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
+//
+    }
     
     /*
     // MARK: - Navigation

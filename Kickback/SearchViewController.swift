@@ -29,11 +29,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(tracks.count)
         return tracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         cell.track = tracks[indexPath.row]
         return cell
     }
@@ -44,10 +45,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let keywords = searchText
         let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
         
-//        tracks = (APIManager.current?.searchTracks(query: finalKeywords, user: User.current))!
-        tableView.reloadData()
-        print(tracks.count)
-        print(tracks)
+        APIManager.current?.searchTracks(query: finalKeywords, user: User.current, callback: { (tracks) in
+            self.tracks = tracks
+            self.tableView.reloadData()
+        })
+        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -60,6 +62,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar.resignFirstResponder()
     }
 
+    @IBAction func onTapCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
      // MARK: - Navigation
      

@@ -12,16 +12,6 @@
 		5939AA981F1EA8860093948D /* party.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA971F1EA8860093948D /* party.gif */; };
 		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
-		A018364F1F1D23C900FEE77F /* HKGrotesk-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */; };
-		A01836501F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */; };
-		A01836511F1D23C900FEE77F /* HKGrotesk-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836461F1D23C900FEE77F /* HKGrotesk-Italic.otf */; };
-		A01836521F1D23C900FEE77F /* HKGrotesk-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836471F1D23C900FEE77F /* HKGrotesk-Light.otf */; };
-		A01836531F1D23C900FEE77F /* HKGrotesk-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836481F1D23C900FEE77F /* HKGrotesk-LightItalic.otf */; };
-		A01836541F1D23C900FEE77F /* HKGrotesk-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A01836491F1D23C900FEE77F /* HKGrotesk-Medium.otf */; };
-		A01836551F1D23C900FEE77F /* HKGrotesk-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A018364A1F1D23C900FEE77F /* HKGrotesk-MediumItalic.otf */; };
-		A01836561F1D23C900FEE77F /* HKGrotesk-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A018364B1F1D23C900FEE77F /* HKGrotesk-Regular.otf */; };
-		A01836571F1D23C900FEE77F /* HKGrotesk-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A018364C1F1D23C900FEE77F /* HKGrotesk-SemiBold.otf */; };
-		A01836581F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A018364D1F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf */; };
 		A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031975D1F154E85001ABBC7 /* APIManager.swift */; };
 		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
 		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
@@ -33,9 +23,8 @@
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
-		A0BEF7FC1F142B9600CABCFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7FB1F142B9600CABCFA /* SongCell.swift */; };
-		A0D4431F1F1BE3C8001E2BE9 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
+		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -76,16 +65,6 @@
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Bold.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-Bold.otf"; sourceTree = "<group>"; };
-		A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-BoldItalic.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
-		A01836461F1D23C900FEE77F /* HKGrotesk-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Italic.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-Italic.otf"; sourceTree = "<group>"; };
-		A01836471F1D23C900FEE77F /* HKGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Light.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-Light.otf"; sourceTree = "<group>"; };
-		A01836481F1D23C900FEE77F /* HKGrotesk-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-LightItalic.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-LightItalic.otf"; sourceTree = "<group>"; };
-		A01836491F1D23C900FEE77F /* HKGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Medium.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-Medium.otf"; sourceTree = "<group>"; };
-		A018364A1F1D23C900FEE77F /* HKGrotesk-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-MediumItalic.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-MediumItalic.otf"; sourceTree = "<group>"; };
-		A018364B1F1D23C900FEE77F /* HKGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Regular.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-Regular.otf"; sourceTree = "<group>"; };
-		A018364C1F1D23C900FEE77F /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
-		A018364D1F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "../../../Downloads/hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		A031975D1F154E85001ABBC7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
@@ -98,11 +77,20 @@
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A0BEF7FB1F142B9600CABCFA /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
-		A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF3056EC1F1E784100FD8AC5 /* HKGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Bold.otf"; path = "hk-grotesk/HKGrotesk-Bold.otf"; sourceTree = "<group>"; };
+		DF3056ED1F1E784100FD8AC5 /* HKGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-BoldItalic.otf"; path = "hk-grotesk/HKGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
+		DF3056EE1F1E784100FD8AC5 /* HKGrotesk-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Italic.otf"; path = "hk-grotesk/HKGrotesk-Italic.otf"; sourceTree = "<group>"; };
+		DF3056EF1F1E784100FD8AC5 /* HKGrotesk-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Light.otf"; path = "hk-grotesk/HKGrotesk-Light.otf"; sourceTree = "<group>"; };
+		DF3056F01F1E784100FD8AC5 /* HKGrotesk-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-LightItalic.otf"; path = "hk-grotesk/HKGrotesk-LightItalic.otf"; sourceTree = "<group>"; };
+		DF3056F11F1E784100FD8AC5 /* HKGrotesk-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Medium.otf"; path = "hk-grotesk/HKGrotesk-Medium.otf"; sourceTree = "<group>"; };
+		DF3056F21F1E784100FD8AC5 /* HKGrotesk-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-MediumItalic.otf"; path = "hk-grotesk/HKGrotesk-MediumItalic.otf"; sourceTree = "<group>"; };
+		DF3056F31F1E784100FD8AC5 /* HKGrotesk-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Regular.otf"; path = "hk-grotesk/HKGrotesk-Regular.otf"; sourceTree = "<group>"; };
+		DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
+		DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,22 +153,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A01836431F1D239A00FEE77F /* Ressources */ = {
+		A01836431F1D239A00FEE77F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5939AA8F1F1D3C270093948D /* hk-grotesk */,
-				A01836441F1D23C900FEE77F /* HKGrotesk-Bold.otf */,
-				A01836451F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf */,
-				A01836461F1D23C900FEE77F /* HKGrotesk-Italic.otf */,
-				A01836471F1D23C900FEE77F /* HKGrotesk-Light.otf */,
-				A01836481F1D23C900FEE77F /* HKGrotesk-LightItalic.otf */,
-				A01836491F1D23C900FEE77F /* HKGrotesk-Medium.otf */,
-				A018364A1F1D23C900FEE77F /* HKGrotesk-MediumItalic.otf */,
-				A018364B1F1D23C900FEE77F /* HKGrotesk-Regular.otf */,
-				A018364C1F1D23C900FEE77F /* HKGrotesk-SemiBold.otf */,
-				A018364D1F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf */,
+				DF3056EC1F1E784100FD8AC5 /* HKGrotesk-Bold.otf */,
+				DF3056ED1F1E784100FD8AC5 /* HKGrotesk-BoldItalic.otf */,
+				DF3056EE1F1E784100FD8AC5 /* HKGrotesk-Italic.otf */,
+				DF3056EF1F1E784100FD8AC5 /* HKGrotesk-Light.otf */,
+				DF3056F01F1E784100FD8AC5 /* HKGrotesk-LightItalic.otf */,
+				DF3056F11F1E784100FD8AC5 /* HKGrotesk-Medium.otf */,
+				DF3056F21F1E784100FD8AC5 /* HKGrotesk-MediumItalic.otf */,
+				DF3056F31F1E784100FD8AC5 /* HKGrotesk-Regular.otf */,
+				DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */,
+				DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */,
 			);
-			name = Ressources;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A031975F1F154E91001ABBC7 /* API */ = {
@@ -211,8 +198,7 @@
 		A0BEF7FA1F142B4B00CABCFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A0BEF7FB1F142B9600CABCFA /* SongCell.swift */,
-				A0D4431E1F1BE3C8001E2BE9 /* TrackCell.swift */,
+				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -257,6 +243,7 @@
 			children = (
 				5939AA971F1EA8860093948D /* party.gif */,
 				A01836431F1D239A00FEE77F /* Ressources */,
+				A01836431F1D239A00FEE77F /* Resources */,
 				A031975F1F154E91001ABBC7 /* API */,
 				DFC3C2A51F15482D0080DF88 /* Models */,
 				A0BEF7F91F14277200CABCFA /* View Controllers */,
@@ -429,13 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A01836501F1D23C900FEE77F /* HKGrotesk-BoldItalic.otf in Resources */,
-				A01836541F1D23C900FEE77F /* HKGrotesk-Medium.otf in Resources */,
 				DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */,
-				A01836571F1D23C900FEE77F /* HKGrotesk-SemiBold.otf in Resources */,
-				A01836521F1D23C900FEE77F /* HKGrotesk-Light.otf in Resources */,
-				A018364F1F1D23C900FEE77F /* HKGrotesk-Bold.otf in Resources */,
-				A01836551F1D23C900FEE77F /* HKGrotesk-MediumItalic.otf in Resources */,
 				DFB198701F14139000349AAD /* Assets.xcassets in Resources */,
 				A01836531F1D23C900FEE77F /* HKGrotesk-LightItalic.otf in Resources */,
 				A01836511F1D23C900FEE77F /* HKGrotesk-Italic.otf in Resources */,
@@ -612,10 +593,9 @@
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
-				A0BEF7FC1F142B9600CABCFA /* SongCell.swift in Sources */,
+				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
-				A0D4431F1F1BE3C8001E2BE9 /* TrackCell.swift in Sources */,
 				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
