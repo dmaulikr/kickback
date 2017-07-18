@@ -49,6 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = navigationController
         }
         
+        // Refresh token if needed
+        if let manager = APIManager.current {
+            if let session = manager.session {
+                if !session.isValid() {
+                    manager.refreshToken()
+                }
+            }
+        }
+        
         return true
     }
     

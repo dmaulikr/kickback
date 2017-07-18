@@ -17,6 +17,7 @@ class Track {
     var album: [String: Any]
     var artists: [[String: Any]]
     var userId: String?
+    var uri: String
     
     init(_ dictionary: [String: Any]) {
         self.id = dictionary["id"] as! String
@@ -24,5 +25,6 @@ class Track {
         self.album = dictionary["album"] as! [String: Any]
         self.artists = dictionary["artists"] as! [[String: Any]]
         self.userId = dictionary["userId"] as? String
+        self.uri = dictionary["uri"] as! String
     }
 }
