@@ -52,7 +52,7 @@ class Queue {
         self.tracks = []
         self.counts = [owner.id: 0]
         self.members = [owner.id]
-        self.playIndex = -1
+        self.playIndex = 0
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["name"] = self.name
