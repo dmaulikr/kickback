@@ -26,7 +26,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Set up instructions
         findMusicLabel.text = "Search for songs, artists, albums,\nplaylists, and profiles."
-        searchBar.keyboardAppearance = UIKeyboardAppearance.dark
+        
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +41,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        searchBar.becomeFirstResponder()  
+        searchBar.becomeFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
