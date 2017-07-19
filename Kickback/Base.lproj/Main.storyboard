@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -263,13 +263,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invite Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH3-qJ-O0r">
-                                <rect key="frame" x="130" y="68" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zn-yK-VIr">
                                 <rect key="frame" x="174" y="592" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -348,11 +341,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="OAC-xS-Zdp">
-                        <barButtonItem key="rightBarButtonItem" image="settings" id="xr0-SN-5VT">
+                        <barButtonItem key="leftBarButtonItem" title="Leave" id="0aO-6r-yZ3">
                             <connections>
-                                <segue destination="i34-ip-837" kind="show" id="qy7-0A-kRY"/>
+                                <segue destination="5To-Vg-COi" kind="showDetail" identifier="leaveSegue" id="wVk-89-VTH"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="AIY-nq-t3E"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addToPlaylistButton" destination="CX5-rz-xSq" id="MkZ-oG-BB3"/>
@@ -713,11 +707,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="sEg-IJ-7ke">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="wV3-19-IDe">
+                        <barButtonItem key="leftBarButtonItem" title="Leave" id="IaN-wY-36j">
                             <connections>
-                                <segue destination="i34-ip-837" kind="show" id="Lua-aA-nN6"/>
+                                <segue destination="5To-Vg-COi" kind="showDetail" identifier="leaveSegue" id="IDg-v8-Mhf"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="BIU-hG-bBk"/>
                     </navigationItem>
                     <connections>
                         <outlet property="playlistNameLabel" destination="naF-G0-inl" id="yYb-y6-Miu"/>
@@ -726,54 +721,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thH-bQ-kC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1132" y="-837.03148425787117"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="6D1-Th-i9U">
-            <objects>
-                <viewController title="Settings" id="i34-ip-837" customClass="SettingsViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kqa-Lh-mj2"/>
-                        <viewControllerLayoutGuide type="bottom" id="qEo-Vp-t5h"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EWq-QV-eB9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f44-dN-yCx">
-                                <rect key="frame" x="145" y="435" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Party's Over"/>
-                                <connections>
-                                    <action selector="onTapLeave:" destination="i34-ip-837" eventType="touchUpInside" id="oew-fh-5i6"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Access Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjy-OR-p80">
-                                <rect key="frame" x="137" y="239" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Rename playlist" borderStyle="roundedRect" placeholder="Rename" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39H-xc-Srk">
-                                <rect key="frame" x="126" y="165" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="o7z-f5-jLY"/>
-                    <connections>
-                        <outlet property="accessCodeLabel" destination="Wjy-OR-p80" id="6rZ-7j-7hi"/>
-                        <outlet property="renameQTextField" destination="39H-xc-Srk" id="0rd-6W-I64"/>
-                        <segue destination="LCD-nB-QIS" kind="presentation" identifier="leaveSegue" id="cvM-Uw-8jD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mnA-sj-777" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1921" y="-1192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XdP-Rt-KwT">
@@ -834,7 +781,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fH1-J5-IB6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K0D-OG-46R">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0D-OG-46R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -859,14 +806,12 @@
         <image name="pause-circle" width="22" height="22"/>
         <image name="play-circle" width="22" height="22"/>
         <image name="plus" width="16" height="16"/>
-        <image name="settings" width="24" height="24"/>
         <image name="skip-back" width="16" height="18"/>
         <image name="skip-forward" width="16" height="18"/>
         <image name="undertone copy" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cvM-Uw-8jD"/>
-        <segue reference="qy7-0A-kRY"/>
+        <segue reference="wVk-89-VTH"/>
         <segue reference="vr2-Cu-EBT"/>
     </inferredMetricsTieBreakers>
 </document>
