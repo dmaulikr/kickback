@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		28DEF22FD52A6FD7215EA52C /* Pods_KickbackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */; };
-		5939AA901F1D3C270093948D /* hk-grotesk in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA8F1F1D3C270093948D /* hk-grotesk */; };
 		5939AA981F1EA8860093948D /* party.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA971F1EA8860093948D /* party.gif */; };
 		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
@@ -22,7 +21,6 @@
 		A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */; };
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
-		A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
@@ -59,7 +57,6 @@
 /* Begin PBXFileReference section */
 		20DB8159D161B00A8E291567 /* Pods-KickbackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		258CC4F90C6ADCCC338E72B1 /* Pods-Kickback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.release.xcconfig"; sourceTree = "<group>"; };
-		5939AA8F1F1D3C270093948D /* hk-grotesk */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "hk-grotesk"; sourceTree = "<group>"; };
 		5939AA971F1EA8860093948D /* party.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = party.gif; sourceTree = "<group>"; };
 		5939AA991F1EAF200093948D /* Gif+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gif+Swift.swift"; sourceTree = "<group>"; };
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +73,6 @@
 		A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +152,7 @@
 		A01836431F1D239A00FEE77F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5939AA971F1EA8860093948D /* party.gif */,
 				DF3056EC1F1E784100FD8AC5 /* HKGrotesk-Bold.otf */,
 				DF3056ED1F1E784100FD8AC5 /* HKGrotesk-BoldItalic.otf */,
 				DF3056EE1F1E784100FD8AC5 /* HKGrotesk-Italic.otf */,
@@ -190,7 +187,6 @@
 				A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */,
 				A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */,
 				A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */,
-				A0BEF7EE1F14276700CABCFA /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -241,8 +237,6 @@
 		DFB198671F14139000349AAD /* Kickback */ = {
 			isa = PBXGroup;
 			children = (
-				5939AA971F1EA8860093948D /* party.gif */,
-				A01836431F1D239A00FEE77F /* Ressources */,
 				A01836431F1D239A00FEE77F /* Resources */,
 				A031975F1F154E91001ABBC7 /* API */,
 				DFC3C2A51F15482D0080DF88 /* Models */,
@@ -375,7 +369,7 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 53N92N9UY4;
+						DevelopmentTeam = SMV55D92WY;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -418,13 +412,8 @@
 			files = (
 				DFB198731F14139000349AAD /* LaunchScreen.storyboard in Resources */,
 				DFB198701F14139000349AAD /* Assets.xcassets in Resources */,
-				A01836531F1D23C900FEE77F /* HKGrotesk-LightItalic.otf in Resources */,
-				A01836511F1D23C900FEE77F /* HKGrotesk-Italic.otf in Resources */,
-				A01836581F1D23C900FEE77F /* HKGrotesk-SemiBoldItalic.otf in Resources */,
-				A01836561F1D23C900FEE77F /* HKGrotesk-Regular.otf in Resources */,
 				5939AA981F1EA8860093948D /* party.gif in Resources */,
 				DFB1986E1F14139000349AAD /* Main.storyboard in Resources */,
-				5939AA901F1D3C270093948D /* hk-grotesk in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +580,6 @@
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
-				A0BEF7F81F14276700CABCFA /* SettingsViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
@@ -759,7 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 53N92N9UY4;
+				DEVELOPMENT_TEAM = SMV55D92WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
@@ -780,7 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 53N92N9UY4;
+				DEVELOPMENT_TEAM = SMV55D92WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
