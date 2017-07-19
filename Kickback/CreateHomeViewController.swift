@@ -118,7 +118,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let logoutAction = UIAlertAction(title: "Leave Playlist", style: .destructive) { (action) in
             Queue.current = nil
             User.leaveQueue()
-            print(Queue.current)
             self.performSegue(withIdentifier: "leaveSegue", sender: nil)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {

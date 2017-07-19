@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = User.current {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc: UIViewController
-            print("in app delegate \(Queue.current)")
             if let queue = Queue.current {
                 if queue.ownerId == user.id {
                     vc = storyboard.instantiateViewController(withIdentifier: "createHomeViewController")

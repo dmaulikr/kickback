@@ -22,27 +22,24 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-
-        // Internal notification center to check if User.current has been set
-//        NotificationCenter.default.addObserver(self, selector: #selector(setupWelcomeViewController), name: Notification.Name("user.currentSetup"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setupWelcomeViewController), name: Notification.Name("user.currentSetup"), object: nil)
         setupWelcomeViewController()
-  
-        // Set up the profile image to be a perfect circle
+
+        // Make profile picture circlar
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.layer.masksToBounds = false
         profileImage.clipsToBounds = true
      
-        // Set up Join Playlist Button
+        // Style Join Playlist Button
         joinPlaylistButton.layer.cornerRadius = joinPlaylistButton.frame.width * 0.10
         joinPlaylistButton.layer.masksToBounds = true
         
-        // Set up Create Playlist Button
+        // Style Create Playlist Button
         createPlaylistButton.layer.cornerRadius = createPlaylistButton.frame.width * 0.10
         createPlaylistButton.layer.masksToBounds = true
     
-        // Set up welcome instructions
+        // Render welcome instructions
         instructionsLabel.text = "Create a playlist and invite others, \nor join a playlist with a playlist code."
         
         // Set up clear navigation bar 
@@ -58,17 +55,17 @@ class WelcomeViewController: UIViewController {
     }
     
     func setupWelcomeViewController() {
-        // Set up the profile image
-        // cover picture
-        if let url = User.current?.profileImageURL {
-            profileImage.af_setImage(withURL: URL(string: url)!)
-        }
-        
-        // Set up text for the screen
-        if User.current?.name == "" {
-             welcomeLabel.text = "Welcome"
-        } else {
-            welcomeLabel.text = "Welcome, " + (User.current?.name)!
+        if let user = User.current {
+            if let url = user.profileImageURL {
+                profileImage.af_setImage(withURL: URL(string: url)!)
+            }
+            
+            // Set up text for the screen
+            if user.name == "" {
+                welcomeLabel.text = "Welcome"
+            } else {
+                welcomeLabel.text = "Welcome, " + user.name
+            }
         }
     }
     
