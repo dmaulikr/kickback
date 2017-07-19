@@ -342,11 +342,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="OAC-xS-Zdp">
                         <barButtonItem key="leftBarButtonItem" image="log-out" id="0aO-6r-yZ3">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="LCD-nB-QIS" kind="showDetail" id="1TI-83-QVS"/>
+                                <action selector="onTapLeave:" destination="3dT-Bj-TZH" id="fvC-dC-uaT"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="user-plus" id="AIY-nq-t3E">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="RUd-SA-K8p" kind="presentation" id="wrU-wp-2Sr"/>
                             </connections>
@@ -359,6 +361,7 @@
                         <outlet property="playlistNameLabel" destination="GfL-Mm-tik" id="gIZ-En-Sqf"/>
                         <outlet property="previousSongImageView" destination="RlV-kN-mUO" id="4gT-Ps-W0k"/>
                         <outlet property="tableView" destination="tmy-jA-aqT" id="yO1-Ry-uEe"/>
+                        <segue destination="LCD-nB-QIS" kind="showDetail" identifier="leaveSegue" id="noR-SQ-Xsn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hew-ZV-esl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -410,7 +413,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMf-F4-uI3">
-                                <rect key="frame" x="8" y="15" width="51" height="51"/>
+                                <rect key="frame" x="7" y="15" width="51" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="x"/>
                                 <connections>
@@ -774,11 +777,16 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="fzQ-Iv-2Uu">
-                        <barButtonItem key="leftBarButtonItem" image="log-out" id="YxL-qj-HVi"/>
-                        <barButtonItem key="rightBarButtonItem" image="user-plus" id="QQi-X4-ohn"/>
+                        <barButtonItem key="leftBarButtonItem" image="log-out" id="YxL-qj-HVi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="user-plus" id="QQi-X4-ohn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="playlistNameLabel" destination="naF-G0-inl" id="yYb-y6-Miu"/>
+                        <segue destination="LCD-nB-QIS" kind="showDetail" identifier="leaveSegue" id="sg4-eA-zFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thH-bQ-kC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -877,7 +885,7 @@
         <image name="x" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1TI-83-QVS"/>
+        <segue reference="sg4-eA-zFC"/>
         <segue reference="yXw-0g-3NX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
