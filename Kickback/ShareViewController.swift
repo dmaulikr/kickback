@@ -1,38 +1,32 @@
 //
-//  SettingsViewController.swift
+//  ShareViewController.swift
 //  Kickback
 //
-//  Created by Tavis Thompson on 7/10/17.
+//  Created by Katie Jiang on 7/19/17.
 //  Copyright © 2017 FBU. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class ShareViewController: UIViewController {
 
-    @IBOutlet weak var renameQTextField: UITextField!
-    @IBOutlet weak var accessCodeLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = UIColor.white
+        
+        codeLabel.text = Queue.current!.accessCode
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func onTapLeave(_ sender: Any) {
-        Queue.current = nil
-        performSegue(withIdentifier: "leaveSegue", sender: self)
+    
+    @IBAction func onTapCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
+
     /*
     // MARK: - Navigation
 

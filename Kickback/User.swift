@@ -63,4 +63,8 @@ class User {
     func add(queueId: String) {
         self.queueId = queueId
     }
+    
+    func leaveQueue() {
+        self.queueId = nil
+    }
 }
