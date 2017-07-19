@@ -17,9 +17,10 @@ class CreateViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        playlistTextView.becomeFirstResponder()
 
-        // Keep keyboard permentaly on the screen
-//        playlistTextView.becomeFirstResponder() NOT WORKING
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
         
         // placeholder text
         playlistTextView.delegate = self

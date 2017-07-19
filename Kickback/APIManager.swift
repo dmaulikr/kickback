@@ -111,14 +111,13 @@ class APIManager {
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
-                            /// <#Description#>
                             let item = items[i]
                             var dictionary: [String: Any] = [:]
                             dictionary["id"] = item["id"]
                             dictionary["name"] = item["name"]
                             dictionary["album"] =  item["album"] as! JSON
                             dictionary["artists"] = item["artists"] as! [JSON]
-                            dictionary["user"] = user
+                            dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
                             results.append(track)

@@ -45,6 +45,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,15 +76,21 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func didTapPlayPause(_ sender: Any) {
+        print(queue.playIndex)
         if !queue.tracks.isEmpty {
-            let resume = !player.playbackState.isPlaying
-            player.setIsPlaying(resume, callback: printError(_:))
+            if let playbackState = player.playbackState {
+                let resume = !playbackState.isPlaying
+                player.setIsPlaying(resume, callback: printError(_:))
+            } else {
+                self.player.playSpotifyURI(queue.tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+            }
         } else {
             print("No tracks to play!")
         }
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
+        print(queue.playIndex)
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == 0 {
@@ -102,7 +110,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
         // after a user authenticates a session, the SPTAudioStreamingController is then initialized and this method called
-//        self.player.playSpotifyURI(tracks[0], startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+//
     }
     
     /*
