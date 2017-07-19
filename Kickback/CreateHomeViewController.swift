@@ -19,6 +19,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
     
+    
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
@@ -45,8 +46,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
