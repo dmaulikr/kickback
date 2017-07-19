@@ -220,7 +220,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uHl-1C-FXu">
                                 <rect key="frame" x="283" y="11" width="76" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus"/>
+                                <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="didTapCreate:" destination="bHf-5H-k6g" eventType="touchUpInside" id="xOl-XR-hlz"/>
                                 </connections>
@@ -860,7 +860,6 @@
         <image name="log-out" width="20" height="22"/>
         <image name="pause-circle" width="22" height="22"/>
         <image name="play-circle" width="22" height="22"/>
-        <image name="plus" width="16" height="16"/>
         <image name="skip-back" width="16" height="18"/>
         <image name="skip-forward" width="16" height="18"/>
         <image name="undertone copy" width="2000" height="2000"/>
