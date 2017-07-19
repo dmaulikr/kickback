@@ -64,7 +64,10 @@ class User {
         self.queueId = queueId
     }
     
-    func leaveQueue() {
-        self.queueId = nil
+    static func leaveQueue() {
+        if let user = User.current {
+            user.queueId = nil
+            User.current = user
+        }
     }
 }

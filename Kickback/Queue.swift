@@ -34,8 +34,8 @@ class Queue {
             }
             return _current
         }
-        set (queue) {
-            _current = queue
+        set (newQueue) {
+            _current = newQueue
         }
     }
     
