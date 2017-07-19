@@ -58,7 +58,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
-        
+     
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         
         // Refresh control

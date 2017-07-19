@@ -133,6 +133,7 @@ class Queue {
     
     func addTrack(_ track: Track, user: User) {
         track.userId = user.id
+        track.addedAt = Date()
         updateFromParse()
         tracks.append(track)
         parseQueue.add(track.dictionary, forKey: "jsonTracks")
@@ -158,6 +159,10 @@ class Queue {
         playIndex -= 1
         parseQueue["playIndex"] = playIndex
         parseQueue.saveInBackground()
+    }
+    
+    func sortTracks() {
+        
     }
     
     private static func generateAccessCode() -> String {
