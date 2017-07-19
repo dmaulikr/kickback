@@ -26,7 +26,8 @@ class WelcomeViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
 
         // Internal notification center to check if User.current has been set
-        NotificationCenter.default.addObserver(self, selector: #selector(setupWelcomeViewController), name: Notification.Name("user.currentSetup"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(setupWelcomeViewController), name: Notification.Name("user.currentSetup"), object: nil)
+        setupWelcomeViewController()
   
         // Set up the profile image to be a perfect circle
         profileImage.layer.cornerRadius = profileImage.frame.height / 2

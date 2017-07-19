@@ -34,10 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = User.current {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc: UIViewController
-            if let queueId = user.queueId {
-                let query = PFQuery(className: "Queue")
-                let parseQueue = try! query.getObjectWithId(queueId)
-                if parseQueue["ownerId"] as! String == user.id {
+            print("in app delegate \(Queue.current)")
+            if let queue = Queue.current {
+                if queue.ownerId == user.id {
                     vc = storyboard.instantiateViewController(withIdentifier: "createHomeViewController")
                 } else {
                     vc = storyboard.instantiateViewController(withIdentifier: "joinHomeViewController")
