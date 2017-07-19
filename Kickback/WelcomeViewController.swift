@@ -80,10 +80,20 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func didTapLogout(_ sender: Any) {
-        User.current = nil
-        Queue.current = nil
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-        
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (action) in
+            APIManager.current = nil
+            User.current = nil
+            self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+            (action) in
+        }
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true) {
+            // what happens after the alert controller has finished presenting
+        }
     }
 
     /*

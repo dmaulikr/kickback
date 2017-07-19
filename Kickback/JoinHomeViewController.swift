@@ -20,7 +20,6 @@ class JoinHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,15 +35,21 @@ class JoinHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onTapLeave(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to leave this playlist?", preferredStyle: .actionSheet)
+        let logoutAction = UIAlertAction(title: "Leave Playlist", style: .destructive) { (action) in
+            Queue.current = nil
+            User.current!.leaveQueue()
+            self.performSegue(withIdentifier: "leaveSegue", sender: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+            (action) in
+        }
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true) {
+            // what happens after the alert controller has finished presenting
+        }
     }
-    */
 
 }
