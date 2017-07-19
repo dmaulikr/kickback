@@ -47,12 +47,13 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         self.user = User.current
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // Set up clear navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
     }
 
     override func didReceiveMemoryWarning() {

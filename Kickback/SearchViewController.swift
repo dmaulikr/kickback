@@ -9,10 +9,10 @@
 import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
+    
+    @IBOutlet weak var findMusicLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     var tracks: [Track] = []
     
     override func viewDidLoad() {
@@ -23,7 +23,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchBar.delegate = self
         
         tableView.isHidden = true
-
+        
+        // Set up instructions
+        findMusicLabel.text = "Search for songs, artists, albums,\nplaylists, and profiles."
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,10 +58,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         if searchText.isEmpty {
             self.tableView.isHidden = true
+
         }
         else {
             self.tableView.isHidden = false
-    
             APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                 self.tracks = tracks
                 self.tableView.reloadData()

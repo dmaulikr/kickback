@@ -25,17 +25,13 @@ class CreateViewController: UIViewController, UITextViewDelegate {
         playlistTextView.delegate = self
         placeholderLabel = UILabel()
         placeholderLabel.text = "Name your playlist..."
-//        placeholderLabel.font = UIFont.
-//            UIFont(fontWithName:@"Arial" size:50)
-
+        placeholderLabel.font = placeholderLabel.font.withSize(25)
+        
         placeholderLabel.sizeToFit()
         playlistTextView.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (playlistTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !playlistTextView.text.isEmpty
-        
-        // change the color of the cursor
-        UITextView.appearance().tintColor = UIColor.purple
         
         // change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.tintColor = UIColor.white
