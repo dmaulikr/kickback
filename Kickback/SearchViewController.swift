@@ -9,10 +9,10 @@
 import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
-
+    
+    @IBOutlet weak var findMusicLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     var tracks: [Track] = []
     
     override func viewDidLoad() {
@@ -21,6 +21,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
+        
+        tableView.isHidden = true
+        
+        // Set up instructions
+        findMusicLabel.text = "Search for songs, artists, albums,\nplaylists, and profiles."
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if tracks.isEmpty {
+            self.tableView.isHidden = true
+        }
+        else {
+            self.tableView.isHidden = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,13 +56,18 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         
-        let keywords = searchText
-        let finalKeywords = keywords.replacingOccurrences(of: " ", with: "+")
-        
-        APIManager.current?.searchTracks(query: finalKeywords, user: User.current, callback: { (tracks) in
-            self.tracks = tracks
-            self.tableView.reloadData()
-        })
+        if searchText.isEmpty {
+            self.tableView.isHidden = true
+
+        }
+        else {
+            self.tableView.isHidden = false
+            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
+                self.tracks = tracks
+                self.tableView.reloadData()
+            })
+
+        }
         
     }
     

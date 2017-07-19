@@ -58,11 +58,17 @@ class WelcomeViewController: UIViewController {
     
     func setupWelcomeViewController() {
         // Set up the profile image
-        let url = URL(string: (User.current?.profileImageURL)!)
-        profileImage.af_setImage(withURL: url!)
+        // cover picture
+        if let url = User.current?.profileImageURL {
+            profileImage.af_setImage(withURL: URL(string: url)!)
+        }
         
         // Set up text for the screen
-        welcomeLabel.text = "Welcome, " + (User.current?.name)!
+        if User.current?.name == "" {
+             welcomeLabel.text = "Welcome"
+        } else {
+            welcomeLabel.text = "Welcome, " + (User.current?.name)!
+        }
     }
     
     @IBAction func didTapCreate(_ sender: Any) {

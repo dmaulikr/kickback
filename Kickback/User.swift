@@ -53,6 +53,9 @@ class User {
         self.id = dictionary["id"] as! String
         self.name = dictionary["name"] as! String
         self.premium = dictionary["premium"] as! Bool
+        if dictionary["profileImageURL"] != nil  {
+            profileImageURL = dictionary["profileImageURL"] as? String
+        }
         self.profileImageURL = dictionary["profileImageURL"] as? String
         self.queueId = dictionary["queueId"] as? String
     }

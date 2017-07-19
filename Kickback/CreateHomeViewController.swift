@@ -49,22 +49,18 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // Set up clear navigation bar
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func didTapAddtoPlaylist(_ sender: Any) {
-        performSegue(withIdentifier: "searchSegue", sender: self)
-
     }
 
     @IBAction func didTapNext(_ sender: Any) {

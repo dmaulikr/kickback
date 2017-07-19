@@ -83,8 +83,15 @@ class APIManager {
                 let spotifyUser = response as! SPTUser
                 var dictionary: [String: Any] = [:]
                 dictionary["id"] = spotifyUser.canonicalUserName
-                dictionary["name"] = spotifyUser.displayName
-                dictionary["profileImageURL"] = spotifyUser.smallestImage.imageURL.absoluteString
+                if spotifyUser.displayName == nil {
+                    dictionary["name"] = ""
+
+                } else {
+                    dictionary["name"] = spotifyUser.displayName
+                }
+                if spotifyUser.smallestImage != nil {
+                    dictionary["profileImageURL"] = spotifyUser.smallestImage.imageURL.absoluteString
+                }
                 let status = spotifyUser.product
                 dictionary["premium"] = status == SPTProduct.premium
                 let user = User(dictionary)
@@ -102,8 +109,6 @@ class APIManager {
                 print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
-                    print("inside tracks")
-                    print("the tracks \(tracks)")
                     if let items = tracks["items"] as? [JSON] {
                         for i in 0..<items.count {
                             let item = items[i]
@@ -115,7 +120,6 @@ class APIManager {
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
                             let track = Track(dictionary)
-                            print("---------")
                             results.append(track)
                         }
                     }

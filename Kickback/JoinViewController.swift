@@ -32,8 +32,6 @@ class JoinViewController: UIViewController, UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !accessCodeTextView.text.isEmpty
         
-        // change the color of the cursor
-        UITextView.appearance().tintColor = UIColor.purple
         
         // change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.tintColor = UIColor.white
