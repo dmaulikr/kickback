@@ -46,6 +46,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
