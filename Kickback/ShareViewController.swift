@@ -9,13 +9,15 @@
 import UIKit
 
 class ShareViewController: UIViewController {
-
-    @IBOutlet weak var codeLabel: UILabel!
+    
+    @IBOutlet weak var codeButton: UIButton!
+    
+    let accessCode = Queue.current!.accessCode
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        codeLabel.text = Queue.current!.accessCode
+        codeButton.titleLabel!.text = accessCode
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +29,12 @@ class ShareViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func onTapCode(_ sender: Any) {
+        let shareSheet = UIActivityViewController(activityItems: [accessCode], applicationActivities: nil)
+        shareSheet.popoverPresentationController?.sourceView = self.view
+        shareSheet.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .postToWeibo, .postToTencentWeibo, .saveToCameraRoll, .print]
+        self.present(shareSheet, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
