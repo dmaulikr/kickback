@@ -21,6 +21,7 @@ class CreateViewController: UIViewController, UITextViewDelegate {
 
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
+        playlistTextView.keyboardAppearance = UIKeyboardAppearance.dark
         
         // placeholder text
         playlistTextView.delegate = self

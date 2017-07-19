@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Set up instructions
         findMusicLabel.text = "Search for songs, artists, albums,\nplaylists, and profiles."
+        searchBar.keyboardAppearance = UIKeyboardAppearance.dark
     }
     
     override func viewWillAppear(_ animated: Bool) {

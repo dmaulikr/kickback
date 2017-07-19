@@ -22,6 +22,8 @@ class JoinViewController: UIViewController, UITextViewDelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
         
+        accessCodeTextView.keyboardAppearance = UIKeyboardAppearance.dark
+        
         // placeholder text
         accessCodeTextView.delegate = self
         placeholderLabel = UILabel()
