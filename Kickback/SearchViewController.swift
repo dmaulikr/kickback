@@ -37,6 +37,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        searchBar.becomeFirstResponder()  
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,7 +86,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     @IBAction func onTapCancel(_ sender: Any) {
+        view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onTapView(_ sender: Any) {
+        view.endEditing(true)
     }
     /*
      // MARK: - Navigation
