@@ -23,6 +23,7 @@
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
+		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
 		DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		DF5F5CB91F208EB300BCE070 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
+				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
+				DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */,
 				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
 				5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */,
 				A0BEF7F21F14276700CABCFA /* CreateViewController.swift in Sources */,
