@@ -29,8 +29,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
-    var isSwipeRightEnabled = true
-    var defaultOptions = SwipeTableOptions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +56,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 64
+        tableView.estimatedRowHeight = 66
+        view.layoutMargins.left = 32
         
         self.queue = Queue.current
         self.user = User.current
@@ -88,6 +87,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Table view
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if queue.tracks.count <= 1 {
             return 0
@@ -99,9 +100,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         cell.track = queue.tracks[queue.playIndex + indexPath.row + 1]
         cell.delegate = self
-        cell.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = createSelectedBackgroundView()
         return cell
     }
+    
+    func createSelectedBackgroundView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        return view
+    }
+    
+    // MARK: - Render tracks
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         renderTracks()
@@ -151,6 +160,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
 
+    // MARK: - Spotify player
+    
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
         let tracks = queue.tracks
@@ -225,17 +236,18 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let track = queue.tracks[queue.playIndex + indexPath.row + 1]
         
-        if orientation == .left {
-            guard isSwipeRightEnabled else { return nil }
-            
+        if orientation == .right {
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 // here we should actually check whether or not the track has been liked
 //                let updatedLikeStatue = !track.likedByCurrentUser
                 track.like()
+                self.queue.updateTracksToParse()
+                
                 let cell = tableView.cellForRow(at: indexPath) as! TrackCell
                 cell.setLiked(true, animated: true) // use updatedLikeStatus
             })
             like.hidesWhenSelected = true
+            
             
             let descriptor = ActionDescriptor.like // again, check if track is liked by current user here
             configure(action: like, with: descriptor)
@@ -246,16 +258,14 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-//        var options = SwipeTableOptions()
-//        options.expansionStyle = orientation == .left ? .selection : .destructive
-//        options.transitionStyle = defaultOptions.transitionStyle
-//        
-//        return options
-        return defaultOptions
+        var options = SwipeTableOptions()
+        options.expansionStyle = SwipeExpansionStyle.selection
+        return options
     }
     
     func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
         action.title = descriptor.title()
         action.image = descriptor.image()
+//        action.backgroundColor = descriptor.color
     }
 }

@@ -50,12 +50,6 @@ class TrackCell: SwipeTableViewCell {
             self.liked = liked
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
 
 enum ActionDescriptor {
@@ -73,8 +67,6 @@ enum ActionDescriptor {
     }
     
     var color: UIColor {
-        switch self {
-        case .like: return UIColor.red
-        }
+        return UIColor.red
     }
 }

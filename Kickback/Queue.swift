@@ -172,6 +172,16 @@ class Queue {
     
     func sortTracks() {
         QuickSort.quicksortDutchFlag(&tracks, low: furthestIndex + 1, high: tracks.count - 1)
+        updateTracksToParse()
+    }
+    
+    func updateTracksToParse() {
+        var jsonTracks: [[String: Any]] = []
+        for track in tracks {
+            jsonTracks.append(track.dictionary)
+        }
+        parseQueue["jsonTracks"] = jsonTracks
+        parseQueue.saveInBackground()
     }
     
     private static func generateAccessCode() -> String {
