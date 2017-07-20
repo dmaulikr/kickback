@@ -162,7 +162,7 @@ class Queue {
     }
     
     func sortTracks() {
-        
+        QuickSort.quicksortDutchFlag(&tracks, low: playIndex + 1, high: tracks.count - 1)
     }
     
     private static func generateAccessCode() -> String {
