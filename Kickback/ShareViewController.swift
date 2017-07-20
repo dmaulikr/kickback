@@ -16,8 +16,10 @@ class ShareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        codeButton.titleLabel!.text = accessCode
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        codeButton.setTitle(accessCode, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
