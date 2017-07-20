@@ -216,4 +216,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             // what happens after the alert controller has finished presenting
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "artistSegue" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let track = queue.tracks[queue.playIndex + indexPath.row + 1]
+                let artistViewController = segue.destination as! ArtistViewController
+                artistViewController.track = track
+            }
+        }
+    }
 }
