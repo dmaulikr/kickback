@@ -19,33 +19,26 @@ class SearchResultCell: UITableViewCell {
             nameLabel.text = track.name
             
             // Setting up artist label
-            if track.artists.count == 1 {
-                artistsLabel.text = track.artists[0]["name"] as! String
-            } else {
-                artistsLabel.text = ""
-                
-                for i in 0 ..< track.artists.count {
-                    if i == track.artists.count - 1 {
-                        artistsLabel.text = artistsLabel.text! +  " " + (track.artists[i]["name"] as! String)
-                    } else {
-                        artistsLabel.text = artistsLabel.text! +  " " + (track.artists[i]["name"] as! String) + ", "
-                    }
-                }
+            let artists = track.artists
+            var artistNames: [String] = []
+            for i in 0..<artists.count {
+                let name = artists[i]["name"] as! String
+                artistNames.append(name)
             }
+            artistsLabel.text = artistNames.joined(separator: ", ")
             
             // Setting up the album image
             let imageDict = track.album["images"] as! [[String: Any]]
             let url = URL(string: imageDict[0]["url"] as! String)
             albumImageView.af_setImage(withURL: url!)
-            
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         albumImageView.layer.borderWidth = 1
         albumImageView.layer.borderColor = UIColor.white.cgColor
-//        albumImageView.layer.borderColor = 
     }
     
     @IBAction func onAddTrack(_ sender: Any) {
