@@ -122,7 +122,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     func renderTracks() {
         queue.updateFromParse()
-        queue.sortTracks()
         tableView.reloadData()
         loadAlbumDisplays()
     }

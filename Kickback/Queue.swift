@@ -114,6 +114,29 @@ class Queue {
         }
     }
     
+    func updateFromParse(callback: @escaping () -> Void) {
+        do {
+            try parseQueue.fetch()
+            self.id = parseQueue.objectId
+            self.ownerId = parseQueue["ownerId"] as! String
+            self.accessCode = parseQueue["accessCode"] as! String
+            self.name = parseQueue["name"] as! String
+            let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+            self.tracks = []
+            for jsonTrack in jsonTracks {
+                self.tracks.append(Track(jsonTrack))
+            }
+            self.counts = parseQueue["counts"] as! [String: Int]
+            self.members = parseQueue["members"] as! [String]
+            self.playIndex = parseQueue["playIndex"] as! Int
+            self.furthestIndex = parseQueue["furthestIndex"] as! Int
+            callback()
+        } catch {
+            print(error.localizedDescription)
+        }
+
+    }
+    
     func addMember(userId: String) {
         if !members.contains(userId) {
             updateFromParse()
@@ -141,8 +164,13 @@ class Queue {
         track.addedAt = Date()
         updateFromParse()
         tracks.append(track)
-        parseQueue.add(track.dictionary, forKey: "jsonTracks")
-        // reorder the tracks as needed (we might need to use a heap)
+//        parseQueue.add(track.dictionary, forKey: "jsonTracks")
+        sortTracks()
+        var jsonTracks: [[String: Any]] = []
+        for track in tracks {
+            jsonTracks.append(track.dictionary)
+        }
+        parseQueue["jsonTracks"] = jsonTracks
         counts[track.userId!]! += 1
         parseQueue["counts"] = counts
         parseQueue.saveInBackground()
