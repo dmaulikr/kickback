@@ -5,18 +5,21 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
+  - SwipeCellKit (1.9.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage
   - Parse
+  - SwipeCellKit
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
+  SwipeCellKit: 893661973276ae3512a84ac0a47055923b10731e
 
-PODFILE CHECKSUM: ba7f16a7217b94b1cd57e7a0abfe7014f7422cf0
+PODFILE CHECKSUM: 324fee7362e839e382cb09b14fefa828ac6d8860
 
 COCOAPODS: 1.2.1

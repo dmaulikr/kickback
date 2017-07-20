@@ -6,6 +6,7 @@
 //  Copyright © 2017 FBU. All rights reserved.
 
 import UIKit
+import SwipeCellKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -28,6 +29,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
+    var isSwipeRightEnabled = true
+    var defaultOptions = SwipeTableOptions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +55,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor.clear
+        tableView.allowsSelection = true
+        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 64
         
         self.queue = Queue.current
         self.user = User.current
@@ -91,6 +98,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         cell.track = queue.tracks[queue.playIndex + indexPath.row + 1]
+        cell.delegate = self
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -210,5 +218,44 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         present(alertController, animated: true) {
             // what happens after the alert controller has finished presenting
         }
+    }
+}
+
+extension CreateHomeViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let track = queue.tracks[queue.playIndex + indexPath.row + 1]
+        
+        if orientation == .left {
+            guard isSwipeRightEnabled else { return nil }
+            
+            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                // here we should actually check whether or not the track has been liked
+//                let updatedLikeStatue = !track.likedByCurrentUser
+                track.like()
+                let cell = tableView.cellForRow(at: indexPath) as! TrackCell
+                cell.setLiked(true, animated: true) // use updatedLikeStatus
+            })
+            like.hidesWhenSelected = true
+            
+            let descriptor = ActionDescriptor.like // again, check if track is liked by current user here
+            configure(action: like, with: descriptor)
+            return [like]
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+//        var options = SwipeTableOptions()
+//        options.expansionStyle = orientation == .left ? .selection : .destructive
+//        options.transitionStyle = defaultOptions.transitionStyle
+//        
+//        return options
+        return defaultOptions
+    }
+    
+    func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+        action.title = descriptor.title()
+        action.image = descriptor.image()
     }
 }

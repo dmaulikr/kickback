@@ -9,6 +9,7 @@ target 'Kickback' do
   pod 'Parse'
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage'
+  pod 'SwipeCellKit'
 
   target 'KickbackTests' do
     inherit! :search_paths
