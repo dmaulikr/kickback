@@ -33,6 +33,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up timer
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
@@ -118,6 +121,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func renderTracks() {
+        queue.updateFromParse()
         queue.sortTracks()
         tableView.reloadData()
         loadAlbumDisplays()

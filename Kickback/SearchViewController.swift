@@ -32,12 +32,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if tracks.isEmpty {
-            self.tableView.isHidden = true
-        }
-        else {
-            self.tableView.isHidden = false
-        }
+        self.tableView.isHidden = tracks.isEmpty
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +45,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(tracks.count)
         return tracks.count
     }
     
@@ -61,11 +55,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-        
         if searchText.isEmpty {
             self.tableView.isHidden = true
-
         }
         else {
             self.tableView.isHidden = false
@@ -73,9 +64,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tracks = tracks
                 self.tableView.reloadData()
             })
-
         }
-        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
