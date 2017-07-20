@@ -15,7 +15,6 @@ class TrackCell: SwipeTableViewCell {
     @IBOutlet weak var artistsLabel: UILabel!
     
     var animator: Any?
-    var indicatorView = IndicatorView(frame: CGRect.zero)
     
     var track: Track! {
         didSet {
@@ -32,28 +31,10 @@ class TrackCell: SwipeTableViewCell {
             albumImage.af_setImage(withURL: url!)
         }
     }
-    var liked = false {
-        didSet {
-            indicatorView.transform = liked ? CGAffineTransform.identity : CGAffineTransform.init(scaleX: 0.001, y: 0.001)
-        }
-    }
+    var liked = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupIndicatorView()
-    }
-    
-    func setupIndicatorView() {
-        indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        indicatorView.color = tintColor
-        indicatorView.backgroundColor = .clear
-        contentView.addSubview(indicatorView)
-        
-        let size: CGFloat = 12
-        indicatorView.widthAnchor.constraint(equalToConstant: size).isActive = true
-        indicatorView.heightAnchor.constraint(equalTo: indicatorView.widthAnchor).isActive = true
-        indicatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
-        indicatorView.centerYAnchor.constraint(equalTo: songLabel.centerYAnchor).isActive = true
     }
     
     func setLiked(_ liked: Bool, animated: Bool) {
@@ -77,17 +58,6 @@ class TrackCell: SwipeTableViewCell {
     }
 }
 
-class IndicatorView: UIView {
-    var color = UIColor.clear {
-        didSet { setNeedsDisplay() }
-    }
-    
-    override func draw(_ rect: CGRect) {
-        color.set()
-        UIBezierPath(ovalIn: rect).fill()
-    }
-}
-
 enum ActionDescriptor {
     case like
     
@@ -95,6 +65,7 @@ enum ActionDescriptor {
         switch self {
         case .like: return "Like"
         }
+//        return nil
     }
     
     func image() -> UIImage? {
