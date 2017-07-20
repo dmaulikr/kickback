@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate {
+class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var playlistNameLabel: UILabel!
     
@@ -15,18 +15,25 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
     
+    @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var artistsLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
-    
+    @IBOutlet weak var playButton: UIButton!
     
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
+    var refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Add timer
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
         
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
@@ -44,11 +51,22 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             self.player.login(withAccessToken: manager.session.accessToken)
         }
         
+        // Initialize the table view
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorColor = UIColor.clear
+        
         self.queue = Queue.current
         self.user = User.current
+        
+        playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
+        
+        // Refresh control
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // Set up clear navigation bar
         let navBar = self.navigationController!.navigationBar
         navBar.setBackgroundImage(UIImage(), for: .default)
@@ -57,14 +75,79 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         navBar.topItem?.title = queue.name
         navBar.tintColor = UIColor.white
         self.navigationController?.view.backgroundColor = .clear
+        
+        loadAlbumDisplays()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if queue.tracks.count <= 1 {
+            return 0
+        }
+        return queue.tracks.count - queue.playIndex - 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
+        cell.track = queue.tracks[queue.playIndex + indexPath.row + 1]
+        cell.backgroundColor = UIColor.clear
+        return cell
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    func onTimer() {
+        tableView.reloadData()
+    }
+    
+    func loadAlbumDisplays() {
+        // Load current track info
+        let tracks = queue.tracks
+        let playIndex = queue.playIndex
+        if !tracks.isEmpty {
+            songLabel.text = tracks[playIndex].name
+            let artists = tracks[playIndex].artists
+            var artistNames: [String] = []
+            for i in 0..<artists.count {
+                let name = artists[i]["name"] as! String
+                artistNames.append(name)
+            }
+            artistsLabel.text = artistNames.joined(separator: ", ")
+            let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
+            let url = URL(string: imageDictionary[0]["url"] as! String)!
+            currentSongImageView.af_setImage(withURL: url)
+        }
+        // Load previous track
+        if playIndex > 0 {
+            let prevTrack = tracks[playIndex - 1]
+            let prevImageDictionary = tracks[playIndex - 1].album["images"] as! [[String: Any]]
+            let prevUrl = URL(string: prevImageDictionary[0]["url"] as! String)!
+            previousSongImageView.af_setImage(withURL: prevUrl)
+            previousSongImageView.alpha = 0.5
+        } else {
+            previousSongImageView.image = nil
+        }
+        // Load next track
+        if playIndex < tracks.count - 1 {
+            let nextTrack = tracks[playIndex + 1]
+            let nextImageDictionary = tracks[playIndex + 1].album["images"] as! [[String: Any]]
+            let nextUrl = URL(string: nextImageDictionary[0]["url"] as! String)!
+            nextSongImageView.af_setImage(withURL: nextUrl)
+            nextSongImageView.alpha = 0.5
+        } else {
+            nextSongImageView.image = nil
+        }
+    }
 
     @IBAction func didTapNext(_ sender: Any) {
+        playButton.isSelected = true
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == tracks.count - 1 {
@@ -72,12 +155,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             } else {
                 queue.incrementPlayIndex()
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                tableView.reloadData()
+                loadAlbumDisplays()
             }
         }
     }
     
     @IBAction func didTapPlayPause(_ sender: Any) {
-        print(queue.playIndex)
+        playButton.isSelected = !playButton.isSelected
         if !queue.tracks.isEmpty {
             if let playbackState = player.playbackState {
                 let resume = !playbackState.isPlaying
@@ -91,7 +176,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
-        print(queue.playIndex)
+        playButton.isSelected = true
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == 0 {
@@ -99,6 +184,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             } else {
                 queue.decrementPlayIndex()
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                tableView.reloadData()
+                loadAlbumDisplays()
             }
         }
     }
