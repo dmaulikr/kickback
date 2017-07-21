@@ -23,13 +23,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var rewindButton: UIButton!
     
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,16 +42,25 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
         
-        // Initialize Spotify player
-        player.playbackDelegate = self
-        player.delegate = self
-        if !player.loggedIn {
-            do {
-                try player.start(withClientId: manager.auth.clientID)
-            } catch {
-                print(error.localizedDescription)
+        self.queue = Queue.current
+        self.user = User.current
+        let isOwner = queue.ownerId == user.id
+        playButton.isHidden = !isOwner
+        nextButton.isHidden = !isOwner
+        rewindButton.isHidden = !isOwner
+        if isOwner {
+            // Initialize Spotify player
+            player.playbackDelegate = self
+            player.delegate = self
+            if !player.loggedIn {
+                do {
+                    try player.start(withClientId: manager.auth.clientID)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                self.player.login(withAccessToken: manager.session.accessToken)
             }
-            self.player.login(withAccessToken: manager.session.accessToken)
+            playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         }
         
         // Initialize the table view
@@ -61,11 +72,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 66
         view.layoutMargins.left = 32
-        
-        self.queue = Queue.current
-        self.user = User.current
-     
-        playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -181,16 +187,23 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBAction func didTapPlayPause(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
+        let timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: false)
         if !queue.tracks.isEmpty {
             if let playbackState = player.playbackState {
                 let resume = !playbackState.isPlaying
+                
                 player.setIsPlaying(resume, callback: printError(_:))
             } else {
+                print(timer)
                 self.player.playSpotifyURI(queue.tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
             }
         } else {
             print("No tracks to play!")
         }
+    }
+    
+    @objc func update() {
+        // Something cool
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
