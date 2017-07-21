@@ -28,7 +28,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,6 +143,20 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
 
+//    func durationComplete(){
+//        var track = queue.tracks
+//        if track["duration_ms"] as! Int =  {
+//            
+//        }
+//    }
+    
+//    func duration(for resource: String) -> Double {
+//        let track = queue.currentTrack
+//        let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
+//        return Double(CMTimeGetSeconds(asset.duration))
+//    }
+//    
+    
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
         let tracks = queue.tracks
@@ -159,16 +173,23 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBAction func didTapPlayPause(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
+        let timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: false)
         if !queue.tracks.isEmpty {
             if let playbackState = player.playbackState {
                 let resume = !playbackState.isPlaying
+                
                 player.setIsPlaying(resume, callback: printError(_:))
             } else {
+                print(timer)
                 self.player.playSpotifyURI(queue.tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
             }
         } else {
             print("No tracks to play!")
         }
+    }
+    
+    @objc func update() {
+        // Something cool
     }
     
     @IBAction func didTapRewind(_ sender: Any) {
