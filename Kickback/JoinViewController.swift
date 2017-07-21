@@ -55,6 +55,15 @@ class JoinViewController: UIViewController, UITextViewDelegate {
             query.getFirstObjectInBackground(block: { (parseQueue: PFObject?, error: Error?) in
                 if let error = error {
                     // There is no queue with that access code.
+                    
+                    // create the alert
+                    let alert = UIAlertController(title: "🙅 Invalid Access Code 🙅‍♂️", message: "You have entered an invalid access code. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                 
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    // show the alert
+                    self.present(alert, animated: true, completion: nil)
                     print(error.localizedDescription)
                 } else {
                     let queue = Queue(parseQueue!)

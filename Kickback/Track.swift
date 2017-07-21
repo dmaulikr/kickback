@@ -62,6 +62,16 @@ class Track {
             dictionary["uri"] = uri
         }
     }
+    var duration_ms: Int?{
+        get {
+            return  dictionary["duration_ms"] as? Int
+        }
+        set (duration)
+        {
+             dictionary["duration_ms"] = duration_ms
+        }
+        
+    }
     
     init(_ dictionary: [String: Any]) {
         self.dictionary = dictionary
