@@ -95,11 +95,6 @@ class Track: Comparable {
         if lhs.likes > rhs.likes {
             return true
         }
-        if let counts = Queue.current?.counts {
-            if counts[lhs.userId!]! < counts[rhs.userId!]! {
-                return true
-            }
-        }
         return lhs.addedAt < rhs.addedAt
     }
     

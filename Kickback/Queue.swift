@@ -16,11 +16,11 @@ class Queue {
     var ownerId: String
     var accessCode: String
     var name: String // name of queue
-    var tracks: [Track]
-    var counts: [String: Int] // user id : number of songs user has played
+    var tracks: [Track] = []
+    var counts: [String: Int] = [:] // user id : number of songs user has played
     var members: [String] // user ids, might not be necessary with the counts dictionary?
-    var playIndex: Int // index of current playing track
-    var furthestIndex : Int
+    var playIndex: Int = 0 // index of current playing track
+    var furthestIndex : Int = 0
     var currentTrack: Track?
     var parseQueue: PFObject
     
@@ -50,16 +50,11 @@ class Queue {
         } else {
             self.name = name
         }
-        self.tracks = []
-        self.counts = [owner.id: 0]
         self.members = [owner.id]
-        self.playIndex = 0
-        self.furthestIndex = 0
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["name"] = self.name
         queue["jsonTracks"] = [] as! [[String: Any]]
-        queue["counts"] = self.counts
         queue["members"] = self.members
         queue["playIndex"] = self.playIndex
         queue["furthestIndex"] = self.furthestIndex
@@ -87,7 +82,6 @@ class Queue {
         for jsonTrack in jsonTracks {
             self.tracks.append(Track(jsonTrack))
         }
-        self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
         self.playIndex = parseQueue["playIndex"] as! Int
         self.furthestIndex = parseQueue["furthestIndex"] as! Int
@@ -105,7 +99,6 @@ class Queue {
             for jsonTrack in jsonTracks {
                 self.tracks.append(Track(jsonTrack))
             }
-            self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
             self.furthestIndex = parseQueue["furthestIndex"] as! Int
@@ -126,7 +119,6 @@ class Queue {
             for jsonTrack in jsonTracks {
                 self.tracks.append(Track(jsonTrack))
             }
-            self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
             self.furthestIndex = parseQueue["furthestIndex"] as! Int
@@ -142,8 +134,6 @@ class Queue {
             updateFromParse()
             members.append(userId)
             parseQueue.add(userId, forKey: "members")
-            counts[userId] = 0
-            parseQueue["counts"] = counts
             parseQueue.saveInBackground()
         }
     }
@@ -153,8 +143,6 @@ class Queue {
             updateFromParse()
             members = members.filter() {$0 != userId}
             parseQueue.remove(userId, forKey: "members")
-            counts.removeValue(forKey: userId)
-            parseQueue["counts"] = counts
             parseQueue.saveInBackground()
         }
     }
@@ -164,15 +152,12 @@ class Queue {
         track.addedAt = Date()
         updateFromParse()
         tracks.append(track)
-//        parseQueue.add(track.dictionary, forKey: "jsonTracks")
         sortTracks()
         var jsonTracks: [[String: Any]] = []
         for track in tracks {
             jsonTracks.append(track.dictionary)
         }
         parseQueue["jsonTracks"] = jsonTracks
-        counts[track.userId!]! += 1
-        parseQueue["counts"] = counts
         parseQueue.saveInBackground()
     }
     
@@ -199,8 +184,64 @@ class Queue {
     }
     
     func sortTracks() {
-        QuickSort.quicksortDutchFlag(&tracks, low: furthestIndex + 1, high: tracks.count - 1)
+        var sortedTracks: [Track] = []
+        var userQueues: [String: [Track]] = [:]
+        // initializing user queues
+        for userId in members {
+            userQueues[userId] = []
+            counts[userId] = 0
+        }
+        // initializing the counts dictionary
+        for i in 0..<furthestIndex + 1 {
+            sortedTracks.append(tracks[i])
+            counts[tracks[i].userId!]! += 1
+        }
+        // sorting the unplayed tracks
+        let unplayedTracks = Array(tracks[furthestIndex + 1..<tracks.endIndex])
+        if !unplayedTracks.isEmpty {
+            for track in unplayedTracks {
+                userQueues[track.userId!]!.append(track)
+            }
+            var peekedTracks: [Track] = []
+            for userId in members {
+                var userTracks = userQueues[userId]!
+                QuickSort.quicksortDutchFlag(&userTracks, low: 0, high: userTracks.count - 1)
+                if !userTracks.isEmpty {
+                    peekedTracks.append(userTracks.removeFirst())
+                }
+                userQueues[userId] = userTracks
+            }
+            var numTracks = unplayedTracks.count
+            while numTracks > 0 {
+                numTracks -= 1
+                var minIndex = 0
+                for i in 0..<peekedTracks.count {
+                    minIndex = isLess(peekedTracks[i], peekedTracks[minIndex]) ? i : minIndex
+                }
+                let min = peekedTracks[minIndex]
+                sortedTracks.append(min)
+                peekedTracks.remove(at: minIndex)
+                counts[min.userId!]! += 1
+                var userTracks = userQueues[min.userId!]!
+                if !userTracks.isEmpty {
+                    let track = userTracks.removeFirst()
+                    peekedTracks.append(track)
+                    userQueues[min.userId!] = userTracks
+                }
+            }
+        }
+        self.tracks = sortedTracks
         updateTracksToParse()
+    }
+    
+    private func isLess(_ track1: Track, _ track2: Track) -> Bool {
+        if track1.likes < track2.likes {
+            return false
+        } else if counts[track1.userId!]! > counts[track2.userId!]! {
+            return false
+        } else {
+            return track1.addedAt < track2.addedAt
+        }
     }
     
     func updateTracksToParse() {
