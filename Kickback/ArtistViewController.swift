@@ -8,23 +8,33 @@
 
 import UIKit
 
-class ArtistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ArtistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate  {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
-    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var track: Track!
     var topTracks: [Track] = []
-    
+    var albums: [Album] = []
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.minimumLineSpacing = layout.minimumInteritemSpacing
+//        let cellsPerLine: CGFloat = 3;
+//        let interItemSpacingTotal = layout.minimumInteritemSpacing * (cellsPerLine - 1)
+//        let width = collectionView.frame.size.width / cellsPerLine - interItemSpacingTotal / cellsPerLine
+//        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
         let imageDictionary = track.album["images"] as! [[String: Any]]
         let url = URL(string: imageDictionary[0]["url"] as! String)
@@ -33,22 +43,16 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         nameLabel.text = track.artists[0]["name"] as! String
         
         let artistURI = track.artists[0]["uri"] as! String
-        APIManager.current?.topTracks(artistURI: URL(string: artistURI)!, user: User.current, callback: { (topTracks) in
+        APIManager.current?.getTopTracks(artistURI: URL(string: artistURI)!, user: User.current, callback: { (topTracks) in
             self.topTracks = topTracks
             self.tableView.reloadData()
         })
         
-/*     songLabel.text = track.name
- if artists.count > 1 {
- var artistNames: [String] = []
- for i in 1..<artists.count {
- let name = artists[i]["name"] as! String
- artistNames.append(name)
- }
- }
- songLabel.text = songLabel.text + "(with " + artistNames.joined(separator: ", ") + ")" */
+        APIManager.current?.getAlbumsByArtist(artistURI: URL(string: artistURI)!, user: User.current, callback: { (albums) in
+            self.albums = albums
+            self.collectionView.reloadData()
+        })
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,15 +71,28 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return albums.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
+        cell.album = albums[indexPath.item]
+        return cell
+    }
+    
 
-    /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "albumSegue" {
+            let cell = sender as! UICollectionViewCell
+            if let indexPath = collectionView.indexPath(for: cell) {
+                let album = albums[indexPath.row]
+                let albumViewController = segue.destination as! AlbumViewController
+                albumViewController.album = album
+            }
+        }
     }
-    */
-
 }

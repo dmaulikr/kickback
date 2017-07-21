@@ -218,12 +218,12 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "artistSegue" {
+        if segue.identifier == "albumSegue" {
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell) {
                 let track = queue.tracks[queue.playIndex + indexPath.row + 1]
-                let artistViewController = segue.destination as! ArtistViewController
-                artistViewController.track = track
+                let albumViewController = segue.destination as! AlbumViewController
+                albumViewController.track = track
             }
         }
     }

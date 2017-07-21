@@ -11,6 +11,8 @@
 		5939AA981F1EA8860093948D /* party.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA971F1EA8860093948D /* party.gif */; };
 		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
+		A01C60FE1F22832D00199634 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C60FD1F22832D00199634 /* Album.swift */; };
+		A01C61001F22900D00199634 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01C60FF1F22900D00199634 /* AlbumCell.swift */; };
 		A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031975D1F154E85001ABBC7 /* APIManager.swift */; };
 		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
 		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
@@ -64,6 +66,8 @@
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A01C60FD1F22832D00199634 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		A01C60FF1F22900D00199634 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		A031975D1F154E85001ABBC7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 			children = (
 				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
 				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
+				A01C60FF1F22900D00199634 /* AlbumCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				DFC3C2A61F1548380080DF88 /* User.swift */,
 				DFC3C2A81F15483D0080DF88 /* Track.swift */,
 				DFC3C2AA1F1548430080DF88 /* Queue.swift */,
+				A01C60FD1F22832D00199634 /* Album.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -584,10 +590,12 @@
 			files = (
 				A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
+				A01C60FE1F22832D00199634 /* Album.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
+				A01C61001F22900D00199634 /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
