@@ -22,12 +22,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var rewindButton: UIButton!
     
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
+    var isOwner = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +39,22 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
         
-        // Initialize Spotify player
-        player.playbackDelegate = self
-        player.delegate = self
-        if !player.loggedIn {
-            do {
-                try player.start(withClientId: manager.auth.clientID)
-            } catch {
-                print(error.localizedDescription)
+        playButton.isHidden = !isOwner
+        nextButton.isHidden = !isOwner
+        rewindButton.isHidden = !isOwner
+        if isOwner {
+            // Initialize Spotify player
+            player.playbackDelegate = self
+            player.delegate = self
+            if !player.loggedIn {
+                do {
+                    try player.start(withClientId: manager.auth.clientID)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                self.player.login(withAccessToken: manager.session.accessToken)
             }
-            self.player.login(withAccessToken: manager.session.accessToken)
+            playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         }
         
         // Initialize the table view
@@ -55,8 +64,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
-     
-        playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -142,20 +149,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             nextSongImageView.image = nil
         }
     }
-
-//    func durationComplete(){
-//        var track = queue.tracks
-//        if track["duration_ms"] as! Int =  {
-//            
-//        }
-//    }
-    
-//    func duration(for resource: String) -> Double {
-//        let track = queue.currentTrack
-//        let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
-//        return Double(CMTimeGetSeconds(asset.duration))
-//    }
-//    
     
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true

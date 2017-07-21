@@ -17,7 +17,6 @@
 		A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */; };
 		A0BEF7F21F14276700CABCFA /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E81F14276700CABCFA /* CreateViewController.swift */; };
 		A0BEF7F31F14276700CABCFA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E91F14276700CABCFA /* WelcomeViewController.swift */; };
-		A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */; };
 		A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */; };
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
@@ -72,7 +71,6 @@
 		A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E81F14276700CABCFA /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E91F14276700CABCFA /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinHomeViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */,
 				A0BEF7E81F14276700CABCFA /* CreateViewController.swift */,
 				A0BEF7E91F14276700CABCFA /* WelcomeViewController.swift */,
-				A0BEF7EA1F14276700CABCFA /* JoinHomeViewController.swift */,
 				A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */,
 				A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */,
 				A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */,
@@ -378,7 +375,7 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 53N92N9UY4;
+						DevelopmentTeam = SMV55D92WY;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -593,7 +590,6 @@
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
-				A0BEF7F41F14276700CABCFA /* JoinHomeViewController.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
 				DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */,
@@ -759,14 +755,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 53N92N9UY4;
+				DEVELOPMENT_TEAM = SMV55D92WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -780,14 +776,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 53N92N9UY4;
+				DEVELOPMENT_TEAM = SMV55D92WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
