@@ -9,7 +9,7 @@
 import Foundation
 import Parse
 
-class Track {
+class Track: Comparable {
     
     // Properties
     var dictionary: [String: Any]
@@ -62,18 +62,48 @@ class Track {
             dictionary["uri"] = uri
         }
     }
-    var duration_ms: Int?{
+    var likes: Int {
         get {
-            return  dictionary["duration_ms"] as? Int
+            return dictionary["likes"] as! Int
         }
-        set (duration)
-        {
-             dictionary["duration_ms"] = duration_ms
+        set (likes) {
+            dictionary["likes"] = likes
         }
-        
+    }
+    var addedAt: Date {
+        get {
+            return dictionary["addedAt"] as! Date
+        }
+        set (date) {
+            dictionary["addedAt"] = date
+        }
     }
     
     init(_ dictionary: [String: Any]) {
         self.dictionary = dictionary
+    }
+    
+    func like() {
+        self.likes += 1
+    }
+    
+    func dislike() {
+        self.likes -= 1
+    }
+    
+    static func < (lhs: Track, rhs: Track) -> Bool {
+        if lhs.likes > rhs.likes {
+            return true
+        }
+        if let counts = Queue.current?.counts {
+            if counts[lhs.userId!]! < counts[rhs.userId!]! {
+                return true
+            }
+        }
+        return lhs.addedAt < rhs.addedAt
+    }
+    
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        return true
     }
 }

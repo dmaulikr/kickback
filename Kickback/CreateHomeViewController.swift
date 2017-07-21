@@ -32,9 +32,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add timer
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
-        
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
@@ -58,7 +55,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         self.queue = Queue.current
         self.user = User.current
-        
+     
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         
         // Refresh control
@@ -76,7 +73,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         navBar.tintColor = UIColor.white
         self.navigationController?.view.backgroundColor = .clear
         
-        loadAlbumDisplays()
+        renderTracks()
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,12 +96,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        tableView.reloadData()
+        renderTracks()
         refreshControl.endRefreshing()
     }
     
-    func onTimer() {
+    func renderTracks() {
+        queue.sortTracks()
         tableView.reloadData()
+        loadAlbumDisplays()
     }
     
     func loadAlbumDisplays() {
@@ -126,7 +125,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
         // Load previous track
         if playIndex > 0 {
-            let prevTrack = tracks[playIndex - 1]
             let prevImageDictionary = tracks[playIndex - 1].album["images"] as! [[String: Any]]
             let prevUrl = URL(string: prevImageDictionary[0]["url"] as! String)!
             previousSongImageView.af_setImage(withURL: prevUrl)
@@ -136,7 +134,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
         // Load next track
         if playIndex < tracks.count - 1 {
-            let nextTrack = tracks[playIndex + 1]
             let nextImageDictionary = tracks[playIndex + 1].album["images"] as! [[String: Any]]
             let nextUrl = URL(string: nextImageDictionary[0]["url"] as! String)!
             nextSongImageView.af_setImage(withURL: nextUrl)
@@ -169,8 +166,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             } else {
                 queue.incrementPlayIndex()
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
-                tableView.reloadData()
-                loadAlbumDisplays()
+                renderTracks()
             }
         }
     }
@@ -205,8 +201,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             } else {
                 queue.decrementPlayIndex()
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
-                tableView.reloadData()
-                loadAlbumDisplays()
+                renderTracks()
             }
         }
     }

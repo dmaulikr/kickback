@@ -22,6 +22,7 @@
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
+		DF156F961F200212005804E8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF156F951F200212005804E8 /* QuickSort.swift */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
 		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
@@ -78,6 +79,7 @@
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF156F951F200212005804E8 /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
 		DF3056EC1F1E784100FD8AC5 /* HKGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Bold.otf"; path = "hk-grotesk/HKGrotesk-Bold.otf"; sourceTree = "<group>"; };
 		DF3056ED1F1E784100FD8AC5 /* HKGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-BoldItalic.otf"; path = "hk-grotesk/HKGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
 		DF3056EE1F1E784100FD8AC5 /* HKGrotesk-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Italic.otf"; path = "hk-grotesk/HKGrotesk-Italic.otf"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				A031975D1F154E85001ABBC7 /* APIManager.swift */,
+				DF156F951F200212005804E8 /* QuickSort.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */,
 				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
 				5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */,
+				DF156F961F200212005804E8 /* QuickSort.swift in Sources */,
 				A0BEF7F21F14276700CABCFA /* CreateViewController.swift in Sources */,
 				A0BEF7F31F14276700CABCFA /* WelcomeViewController.swift in Sources */,
 				DFC3C2A91F15483D0080DF88 /* Track.swift in Sources */,

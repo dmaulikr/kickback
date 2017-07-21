@@ -20,6 +20,7 @@ class Queue {
     var counts: [String: Int] // user id : number of songs user has played
     var members: [String] // user ids, might not be necessary with the counts dictionary?
     var playIndex: Int // index of current playing track
+    var furthestIndex : Int
     var currentTrack: Track?
     var parseQueue: PFObject
     
@@ -53,6 +54,7 @@ class Queue {
         self.counts = [owner.id: 0]
         self.members = [owner.id]
         self.playIndex = 0
+        self.furthestIndex = 0
         queue["ownerId"] = self.ownerId
         queue["accessCode"] = self.accessCode
         queue["name"] = self.name
@@ -60,6 +62,7 @@ class Queue {
         queue["counts"] = self.counts
         queue["members"] = self.members
         queue["playIndex"] = self.playIndex
+        queue["furthestIndex"] = self.furthestIndex
         self.parseQueue = queue
         queue.saveInBackground { (success: Bool, error: Error?) in
             if success {
@@ -87,6 +90,7 @@ class Queue {
         self.counts = parseQueue["counts"] as! [String: Int]
         self.members = parseQueue["members"] as! [String]
         self.playIndex = parseQueue["playIndex"] as! Int
+        self.furthestIndex = parseQueue["furthestIndex"] as! Int
     }
     
     func updateFromParse() {
@@ -104,6 +108,7 @@ class Queue {
             self.counts = parseQueue["counts"] as! [String: Int]
             self.members = parseQueue["members"] as! [String]
             self.playIndex = parseQueue["playIndex"] as! Int
+            self.furthestIndex = parseQueue["furthestIndex"] as! Int
         } catch {
             print(error.localizedDescription)
         }
@@ -133,6 +138,7 @@ class Queue {
     
     func addTrack(_ track: Track, user: User) {
         track.userId = user.id
+        track.addedAt = Date()
         updateFromParse()
         tracks.append(track)
         parseQueue.add(track.dictionary, forKey: "jsonTracks")
@@ -149,8 +155,12 @@ class Queue {
     }
     
     func incrementPlayIndex() {
+        if furthestIndex == playIndex {
+            furthestIndex += 1
+        }
         playIndex += 1
         parseQueue["playIndex"] = playIndex
+        parseQueue["furthestIndex"] = furthestIndex
         parseQueue.saveInBackground()
     }
     
@@ -158,6 +168,10 @@ class Queue {
         playIndex -= 1
         parseQueue["playIndex"] = playIndex
         parseQueue.saveInBackground()
+    }
+    
+    func sortTracks() {
+        QuickSort.quicksortDutchFlag(&tracks, low: furthestIndex + 1, high: tracks.count - 1)
     }
     
     private static func generateAccessCode() -> String {
