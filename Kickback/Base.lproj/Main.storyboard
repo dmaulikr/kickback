@@ -380,9 +380,11 @@
                         <outlet property="addToPlaylistButton" destination="CX5-rz-xSq" id="MkZ-oG-BB3"/>
                         <outlet property="artistsLabel" destination="JxF-2I-HSl" id="36z-gi-Ie4"/>
                         <outlet property="currentSongImageView" destination="WEv-9j-C4p" id="zdL-BM-MTf"/>
+                        <outlet property="nextButton" destination="VZe-bt-bDL" id="Esp-KW-WJr"/>
                         <outlet property="nextSongImageView" destination="Uzq-tB-MCD" id="Dd2-W5-uAk"/>
                         <outlet property="playButton" destination="9Zn-yK-VIr" id="TwI-fF-Y4V"/>
                         <outlet property="previousSongImageView" destination="RlV-kN-mUO" id="4gT-Ps-W0k"/>
+                        <outlet property="rewindButton" destination="zcE-Nv-ow9" id="6TH-Qs-mj5"/>
                         <outlet property="songLabel" destination="cqb-pI-OtI" id="b47-k0-eMr"/>
                         <outlet property="tableView" destination="tmy-jA-aqT" id="yO1-Ry-uEe"/>
                         <segue destination="LCD-nB-QIS" kind="showDetail" identifier="leaveSegue" id="noR-SQ-Xsn"/>
@@ -629,7 +631,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1132" y="-73.313343328335833"/>
+            <point key="canvasLocation" x="1132" y="-726"/>
         </scene>
         <!--AlbumViewController-->
         <scene sceneID="1nd-pj-RbM">
@@ -689,7 +691,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBq-fO-0JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="-62"/>
+            <point key="canvasLocation" x="226" y="-726"/>
         </scene>
         <!--JoinQViewController-->
         <scene sceneID="wZd-ZR-T79">
@@ -742,146 +744,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="accessCodeTextView" destination="x17-xe-vf3" id="iSN-pA-kjT"/>
-                        <segue destination="141-5Q-cK0" kind="show" identifier="joinSuccessSegue" id="miv-cC-ggQ"/>
+                        <segue destination="iVp-Ia-EQV" kind="show" identifier="joinSuccessSegue" id="bBs-fI-9um"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsJ-gP-2qH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-602" y="-837"/>
         </scene>
-        <!--JoinHomeViewController-->
-        <scene sceneID="DcG-3A-dtn">
-            <objects>
-                <viewController storyboardIdentifier="joinHomeViewController" title="JoinHomeViewController" id="I9V-Zq-SfM" customClass="JoinHomeViewController" customModule="Kickback" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lkI-u1-NAP"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q6B-1h-Kno"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9p2-uA-lJ4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="PDD-P8-BqX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iK0-bO-hql">
-                                <rect key="frame" x="86" y="335" width="219" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.51728105550000003" green="0.13359223310000001" blue="0.96084690090000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="20"/>
-                                <state key="normal" title="Add to Playlist"/>
-                                <connections>
-                                    <action selector="didTapAddtoPlaylist:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="3zC-pa-nAo"/>
-                                    <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="7Ov-F5-u5q"/>
-                                    <segue destination="YV5-Ya-KJv" kind="presentation" identifier="searchSegue" id="yXw-0g-3NX"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t3e-0c-1US" userLabel="previousSongImage">
-                                <rect key="frame" x="22" y="90" width="140" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-DA-Jqy" userLabel="nextSongImage">
-                                <rect key="frame" x="227" y="74" width="140" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Empty Album" translatesAutoresizingMaskIntoConstraints="NO" id="jO2-Wj-PpG" userLabel="currentSongImage">
-                                <rect key="frame" x="86" y="50" width="220" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yDR-YO-iiY">
-                                <rect key="frame" x="0.0" y="388" width="375" height="282"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TrackCell" rowHeight="66" id="K6g-B6-8EK" customClass="TrackCell" customModule="Kickback" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="66"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6g-B6-8EK" id="Kfn-Xx-rND">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hki-3F-GTp">
-                                                    <rect key="frame" x="8" y="7" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFd-YD-ugl">
-                                                    <rect key="frame" x="66" y="8" width="301" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="15"/>
-                                                    <color key="textColor" red="0.98824346070000002" green="0.98822498319999996" blue="0.98823750020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-C1-8N5">
-                                                    <rect key="frame" x="66" y="34" width="301" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="13"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="albumImage" destination="Hki-3F-GTp" id="EnW-Ib-eZ0"/>
-                                            <outlet property="artistsLabel" destination="7ec-C1-8N5" id="yzy-wq-V5c"/>
-                                            <outlet property="songLabel" destination="LFd-YD-ugl" id="Sam-Dr-DCw"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJV-gl-QPX">
-                                <rect key="frame" x="-6" y="278" width="381" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="17"/>
-                                <color key="textColor" red="0.98824346070000002" green="0.98822498319999996" blue="0.98823750020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvd-yD-54y">
-                                <rect key="frame" x="-6" y="304" width="381" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="13"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="fzQ-Iv-2Uu">
-                        <barButtonItem key="leftBarButtonItem" image="log-out" id="YxL-qj-HVi">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="onTapLeave:" destination="I9V-Zq-SfM" id="RYs-mJ-Tv4"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="user-plus" id="QQi-X4-ohn">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="RUd-SA-K8p" kind="presentation" id="b5C-bG-2xB"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addToPlaylistButton" destination="iK0-bO-hql" id="kK5-LF-HNS"/>
-                        <outlet property="artistLabel" destination="Cvd-yD-54y" id="oLb-1w-GcG"/>
-                        <outlet property="currentSongImageView" destination="jO2-Wj-PpG" id="VT3-u8-Z8M"/>
-                        <outlet property="nextSongImageView" destination="YQc-DA-Jqy" id="snH-b0-HyM"/>
-                        <outlet property="previousSongImageView" destination="t3e-0c-1US" id="awG-BN-991"/>
-                        <outlet property="songLabel" destination="qJV-gl-QPX" id="eec-4C-fED"/>
-                        <outlet property="tableView" destination="yDR-YO-iiY" id="Gl8-Zj-vGy"/>
-                        <segue destination="LCD-nB-QIS" kind="showDetail" identifier="leaveSegue" id="sg4-eA-zFC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="thH-bQ-kC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1132" y="-837.03148425787117"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="XdP-Rt-KwT">
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -899,7 +774,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -911,24 +786,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sH-MT-knf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="-1524"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SXN-Od-XNM">
-            <objects>
-                <navigationController storyboardIdentifier="joinNavigation" automaticallyAdjustsScrollViewInsets="NO" id="141-5Q-cK0" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZsF-SI-4el">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="I9V-Zq-SfM" kind="relationship" relationship="rootViewController" id="uso-7f-a0B"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vqZ-Bk-TAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="192.80000000000001" y="-837.03148425787117"/>
         </scene>
     </scenes>
     <resources>
@@ -949,9 +806,8 @@
         <image name="x" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bBs-fI-9um"/>
         <segue reference="noR-SQ-Xsn"/>
-        <segue reference="vr2-Cu-EBT"/>
-        <segue reference="wrU-wp-2Sr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
