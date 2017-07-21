@@ -92,6 +92,7 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
                 let album = albums[indexPath.row]
                 let albumViewController = segue.destination as! AlbumViewController
                 albumViewController.album = album
+                albumViewController.track = track
             }
         }
     }
