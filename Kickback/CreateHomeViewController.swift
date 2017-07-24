@@ -10,7 +10,6 @@ import SwipeCellKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var playlistNameLabel: UILabel!
     
     @IBOutlet weak var previousSongImageView: UIImageView!
     @IBOutlet weak var currentSongImageView: UIImageView!
@@ -75,25 +74,20 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
-        tableView.insertSubview(refreshControl, at: 0)
-        
-        // Set up playlist name
-        playlistNameLabel.text = "Lisening to " + queue.name
+        tableView.insertSubview(refreshControl, at: 388)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Set up clear navigation bar
+        // Set up navigation bar
         let navBar = self.navigationController!.navigationBar
-        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.setBackgroundImage(UIImage(), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
         navBar.shadowImage = UIImage()
-        navBar.isTranslucent = true
-       // navBar.topItem?.title = queue.name
-        navBar.tintColor = UIColor.white
-        self.navigationController?.view.backgroundColor = .clear
-        
+//        navBar.barTintColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
+//        navBar.setValue(true, forKey: "hidesShadow")
+        navBar.topItem?.title = "Listening to " + queue.name
         renderTracks()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

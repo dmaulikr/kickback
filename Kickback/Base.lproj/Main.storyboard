@@ -326,13 +326,6 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhX-hH-QS3">
-                                            <rect key="frame" x="56" y="24" width="263" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HKGrotesk-Bold" family="HK Grotesk" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -409,7 +402,6 @@
                         <outlet property="nextButton" destination="VZe-bt-bDL" id="Esp-KW-WJr"/>
                         <outlet property="nextSongImageView" destination="0da-iJ-nrQ" id="3Wf-Le-np5"/>
                         <outlet property="playButton" destination="9Zn-yK-VIr" id="TwI-fF-Y4V"/>
-                        <outlet property="playlistNameLabel" destination="MhX-hH-QS3" id="SuM-0g-wFf"/>
                         <outlet property="previousSongImageView" destination="3HE-R3-10F" id="74h-Ep-KtP"/>
                         <outlet property="rewindButton" destination="zcE-Nv-ow9" id="6TH-Qs-mj5"/>
                         <outlet property="songLabel" destination="NEQ-4r-Ff8" id="Vvu-eb-csu"/>
@@ -801,9 +793,14 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.34157165195503442" green="0.11560266253739916" blue="0.5373494029045105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
