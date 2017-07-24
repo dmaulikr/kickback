@@ -120,6 +120,7 @@ class APIManager {
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
                             dictionary["likes"] = 0
+                            dictionary["likedByUsers"] = []
                             let track = Track(dictionary)
                             results.append(track)
                         }

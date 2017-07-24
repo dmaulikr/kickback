@@ -31,12 +31,13 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
+    var isSwiping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set up timer
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
         
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
@@ -127,9 +128,12 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func renderTracks() {
-        queue.updateFromParse()
-        tableView.reloadData()
-        loadAlbumDisplays()
+        if !isSwiping {
+            queue.updateFromParse()
+            queue.sortTracks()
+            tableView.reloadData()
+            loadAlbumDisplays()
+        }
     }
     
     func loadAlbumDisplays() {
@@ -251,26 +255,33 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
 extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let track = queue.tracks[queue.playIndex + indexPath.row + 1]
-        
         if orientation == .right {
+            
+            let userId = self.user.id
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                // here we should actually check whether or not the track has been liked
-//                let updatedLikeStatue = !track.likedByCurrentUser
-                track.like()
+                let updatedLikeState = !track.isLikedBy(userId: userId)
+                updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
                 self.queue.updateTracksToParse()
                 
                 let cell = tableView.cellForRow(at: indexPath) as! TrackCell
-                cell.setLiked(true, animated: true) // use updatedLikeStatus
+                cell.setLiked(updatedLikeState, animated: true)
             })
             like.hidesWhenSelected = true
-            
-            
-            let descriptor = ActionDescriptor.like // again, check if track is liked by current user here
+            let descriptor = !track.isLikedBy(userId: userId) ? ActionDescriptor.like : ActionDescriptor.unlike
             configure(action: like, with: descriptor)
+
             return [like]
         } else {
             return nil
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
+        isSwiping = orientation == .right
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {
+        isSwiping = false
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {

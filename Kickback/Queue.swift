@@ -184,6 +184,9 @@ class Queue {
     }
     
     func sortTracks() {
+        if tracks.isEmpty {
+            return
+        }
         var sortedTracks: [Track] = []
         var userQueues: [String: [Track]] = [:]
         // initializing user queues
@@ -206,6 +209,9 @@ class Queue {
             for userId in members {
                 var userTracks = userQueues[userId]!
                 QuickSort.quicksortDutchFlag(&userTracks, low: 0, high: userTracks.count - 1)
+                for track in userTracks {
+                    print("\(track.name) has \(track.likes)")
+                }
                 if !userTracks.isEmpty {
                     peekedTracks.append(userTracks.removeFirst())
                 }
@@ -234,13 +240,15 @@ class Queue {
         updateTracksToParse()
     }
     
-    private func isLess(_ track1: Track, _ track2: Track) -> Bool {
-        if track1.likes < track2.likes {
-            return false
-        } else if counts[track1.userId!]! > counts[track2.userId!]! {
-            return false
+    private func isLess(_ lhs: Track, _ rhs: Track) -> Bool {
+        let lhsCounts = counts[lhs.userId!]!
+        let rhsCounts = counts[rhs.userId!]!
+        if lhs.likes == rhs.likes && lhsCounts == rhsCounts {
+            return lhs.addedAt < rhs.addedAt
+        } else if lhs.likes == rhs.likes {
+            return lhsCounts < rhsCounts
         } else {
-            return track1.addedAt < track2.addedAt
+            return lhs.likes > rhs.likes
         }
     }
     
