@@ -13,6 +13,7 @@
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
 		A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031975D1F154E85001ABBC7 /* APIManager.swift */; };
 		A0A568BA1F26BBC9005157CB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A568B91F26BBC9005157CB /* Album.swift */; };
+		A0A568BC1F26BD7B005157CB /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A568BB1F26BD7B005157CB /* AlbumCell.swift */; };
 		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
 		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
 		A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */; };
@@ -68,6 +69,7 @@
 		A031975D1F154E85001ABBC7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0A568B91F26BBC9005157CB /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		A0A568BB1F26BD7B005157CB /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
 				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
+				A0A568BB1F26BD7B005157CB /* AlbumCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
+				A0A568BC1F26BD7B005157CB /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
