@@ -293,6 +293,9 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
         action.title = descriptor.title()
         action.image = descriptor.image()
-//        action.backgroundColor = descriptor.color
+        //        action.backgroundColor = descriptor.color
     }
+    
+    // MARK: - Navigation
 }
+

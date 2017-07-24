@@ -12,6 +12,7 @@
 		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
 		A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031975D1F154E85001ABBC7 /* APIManager.swift */; };
+		A0A568BA1F26BBC9005157CB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A568B91F26BBC9005157CB /* Album.swift */; };
 		A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */; };
 		A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */; };
 		A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */; };
@@ -66,6 +67,7 @@
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A031975D1F154E85001ABBC7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0A568B91F26BBC9005157CB /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateHomeViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				DFC3C2A61F1548380080DF88 /* User.swift */,
 				DFC3C2A81F15483D0080DF88 /* Track.swift */,
 				DFC3C2AA1F1548430080DF88 /* Queue.swift */,
+				A0A568B91F26BBC9005157CB /* Album.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 			files = (
 				A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
+				A0A568BA1F26BBC9005157CB /* Album.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
