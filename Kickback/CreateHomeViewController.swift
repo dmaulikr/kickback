@@ -76,6 +76,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        
+        // Set up playlist name
+        playlistNameLabel.text = "Lisening to " + queue.name
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +87,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         navBar.setBackgroundImage(UIImage(), for: .default)
         navBar.shadowImage = UIImage()
         navBar.isTranslucent = true
-        navBar.topItem?.title = queue.name
+       // navBar.topItem?.title = queue.name
         navBar.tintColor = UIColor.white
         self.navigationController?.view.backgroundColor = .clear
         
