@@ -96,7 +96,7 @@ class Track: Comparable {
         self.likedByUsers.append(userId)
     }
     
-    func dislike(userId: String) {
+    func unlike(userId: String) {
         self.likes -= 1
         let index = self.likedByUsers.index(of: userId)
         self.likedByUsers.remove(at: index!)
@@ -107,13 +107,14 @@ class Track: Comparable {
     }
     
     static func < (lhs: Track, rhs: Track) -> Bool {
-        if lhs.likes > rhs.likes {
-            return true
+        if lhs.likes == rhs.likes {
+            return lhs.addedAt < rhs.addedAt
+        } else {
+            return lhs.likes > rhs.likes
         }
-        return lhs.addedAt < rhs.addedAt
     }
     
     static func == (lhs: Track, rhs: Track) -> Bool {
-        return true
+        return lhs.id == rhs.id
     }
 }

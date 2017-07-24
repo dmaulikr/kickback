@@ -53,13 +53,13 @@ class TrackCell: SwipeTableViewCell {
 }
 
 enum ActionDescriptor {
-    case like
+    case like, unlike
     
     func title() -> String? {
         switch self {
         case .like: return "Like"
+        case .unlike: return "Unlike"
         }
-//        return nil
     }
     
     func image() -> UIImage? {
