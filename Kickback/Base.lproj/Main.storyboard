@@ -448,11 +448,16 @@
                                     <action selector="onTapCode:" destination="RUd-SA-K8p" eventType="touchUpInside" id="mFu-aG-zVt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-w6-h3o">
+                                <rect key="frame" x="88" y="255" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="codeButton" destination="FPu-al-uzx" id="bzR-ir-t9U"/>
+                        <outlet property="qrImage" destination="Go3-w6-h3o" id="qSp-M5-jHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmY-6m-K19" userLabel="First Responder" sceneMemberID="firstResponder"/>

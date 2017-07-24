@@ -10,6 +10,7 @@ target 'Kickback' do
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage'
   pod 'SwipeCellKit'
+  pod 'QRCode'
 
   target 'KickbackTests' do
     inherit! :search_paths
