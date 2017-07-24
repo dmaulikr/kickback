@@ -62,6 +62,14 @@ class Track: Comparable {
             dictionary["uri"] = uri
         }
     }
+    var likedByUsers: [String] {
+        get {
+            return dictionary["likedByUsers"] as! [String]
+        }
+        set (likedByUsers) {
+            dictionary["likedByUsers"] = likedByUsers
+        }
+    }
     var likes: Int {
         get {
             return dictionary["likes"] as! Int
@@ -83,12 +91,19 @@ class Track: Comparable {
         self.dictionary = dictionary
     }
     
-    func like() {
+    func like(userId: String) {
         self.likes += 1
+        self.likedByUsers.append(userId)
     }
     
-    func dislike() {
+    func dislike(userId: String) {
         self.likes -= 1
+        let index = self.likedByUsers.index(of: userId)
+        self.likedByUsers.remove(at: index!)
+    }
+    
+    func isLikedBy(userId: String) -> Bool {
+        return self.likedByUsers.contains(userId)
     }
     
     static func < (lhs: Track, rhs: Track) -> Bool {

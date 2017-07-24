@@ -31,6 +31,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var refreshControl = UIRefreshControl()
+    var isSwiping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,9 +128,11 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func renderTracks() {
-        queue.updateFromParse()
-        tableView.reloadData()
-        loadAlbumDisplays()
+        if !isSwiping {
+            queue.updateFromParse()
+            tableView.reloadData()
+            loadAlbumDisplays()
+        }
     }
     
     func loadAlbumDisplays() {
@@ -253,10 +256,11 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
         let track = queue.tracks[queue.playIndex + indexPath.row + 1]
         
         if orientation == .right {
+            isSwiping = true
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 // here we should actually check whether or not the track has been liked
 //                let updatedLikeStatue = !track.likedByCurrentUser
-                track.like()
+                track.like(userId: self.user.id)
                 self.queue.updateTracksToParse()
                 
                 let cell = tableView.cellForRow(at: indexPath) as! TrackCell
@@ -271,6 +275,7 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
         } else {
             return nil
         }
+        isSwiping = false
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
