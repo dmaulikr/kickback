@@ -250,6 +250,18 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             // what happens after the alert controller has finished presenting
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "albumSegue" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let track = queue.tracks[queue.playIndex + indexPath.row + 1]
+                let albumViewController = segue.destination as! AlbumViewController
+                albumViewController.track = track
+            }
+        }
+    }
+
 }
 
 extension CreateHomeViewController: SwipeTableViewCellDelegate {
@@ -293,6 +305,9 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
         action.title = descriptor.title()
         action.image = descriptor.image()
-//        action.backgroundColor = descriptor.color
+        //        action.backgroundColor = descriptor.color
     }
+    
+    // MARK: - Navigation
 }
+
