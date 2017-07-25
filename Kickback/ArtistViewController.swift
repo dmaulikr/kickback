@@ -77,14 +77,13 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "albumSegue" {
-            let cell = sender as! UICollectionViewCell
-            if let indexPath = collectionView.indexPath(for: cell) {
-                let album = albums[indexPath.item]
-                let albumViewController = segue.destination as! AlbumViewController
-                albumViewController.album = album
-                albumViewController.track = track
-            }
+        let cell = sender as! UICollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let album = albums[indexPath.item]
+            let albumViewController = segue.destination as! AlbumViewController
+            albumViewController.album = album
+            //  albumViewController.track = track
         }
     }
 }
+

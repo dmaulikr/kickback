@@ -955,8 +955,8 @@
         <image name="x" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="noR-SQ-Xsn"/>
         <segue reference="bBs-fI-9um"/>
+        <segue reference="noR-SQ-Xsn"/>
         <segue reference="vTg-yr-bTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
