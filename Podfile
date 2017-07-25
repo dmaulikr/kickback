@@ -11,6 +11,7 @@ target 'Kickback' do
   pod 'AlamofireImage'
   pod 'SwipeCellKit'
   pod 'QRCode'
+  pod 'QRCodeReader.swift'
 
   target 'KickbackTests' do
     inherit! :search_paths

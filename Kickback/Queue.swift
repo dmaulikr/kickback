@@ -209,9 +209,6 @@ class Queue {
             for userId in members {
                 var userTracks = userQueues[userId]!
                 QuickSort.quicksortDutchFlag(&userTracks, low: 0, high: userTracks.count - 1)
-                for track in userTracks {
-                    print("\(track.name) has \(track.likes)")
-                }
                 if !userTracks.isEmpty {
                     peekedTracks.append(userTracks.removeFirst())
                 }

@@ -256,7 +256,6 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         let track = queue.tracks[queue.playIndex + indexPath.row + 1]
         if orientation == .right {
-            
             let userId = self.user.id
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                 let updatedLikeState = !track.isLikedBy(userId: userId)

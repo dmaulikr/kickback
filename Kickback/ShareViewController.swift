@@ -42,6 +42,7 @@ class ShareViewController: UIViewController {
         shareSheet.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .postToWeibo, .postToTencentWeibo, .saveToCameraRoll, .print]
         self.present(shareSheet, animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 
