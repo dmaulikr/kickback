@@ -86,4 +86,5 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
                 albumViewController.track = track
             }
         }
+    }
 }
