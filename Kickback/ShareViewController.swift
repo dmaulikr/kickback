@@ -8,10 +8,10 @@
 
 import UIKit
 import QRCode
+import PopupDialog
 
 class ShareViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var codeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     let accessCode = Queue.current!.accessCode
@@ -22,13 +22,6 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
-        
-        let qrCode = QRCode(accessCode)
-        qrImage.image = qrCode?.image
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        codeButton.setTitle(accessCode, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,12 +33,21 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func onTapCode(_ sender: Any) {
+    func onTapCode() {
         let shareSheet = UIActivityViewController(activityItems: [accessCode], applicationActivities: nil)
         shareSheet.popoverPresentationController?.sourceView = self.view
         shareSheet.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .postToWeibo, .postToTencentWeibo, .saveToCameraRoll, .print]
         self.present(shareSheet, animated: true, completion: nil)
     }
+    
+    // MARK: - Popup dialog
+    func onShareQR() {
+        let title = "Share QR Code"
+        let image = QRCode(accessCode)?.image
+        let popup = PopupDialog(title: title, message: nil, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: nil)
+        self.present(popup, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,8 +73,9 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         if indexPath.row == 0 {
             performSegue(withIdentifier: "addFriendsSegue", sender: self)
         } else if indexPath.row == 1 {
-            onTapCode(self)
+            onTapCode()
         } else if indexPath.row == 2 {
+            onShareQR()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
