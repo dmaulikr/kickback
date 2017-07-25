@@ -9,15 +9,19 @@
 import UIKit
 import QRCode
 
-class ShareViewController: UIViewController {
+class ShareViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var codeButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     let accessCode = Queue.current!.accessCode
     @IBOutlet weak var qrImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
         
         let qrCode = QRCode(accessCode)
         qrImage.image = qrCode?.image
@@ -41,6 +45,36 @@ class ShareViewController: UIViewController {
         shareSheet.popoverPresentationController?.sourceView = self.view
         shareSheet.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .postToWeibo, .postToTencentWeibo, .saveToCameraRoll, .print]
         self.present(shareSheet, animated: true, completion: nil)
+    }
+    
+    // MARK: - Table view
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShareCell") as! ShareCell
+        switch indexPath.row {
+        case 0:
+            cell.shareLabel.text = "Add friends by username"
+        case 1:
+            cell.shareLabel.text = "Share playlist code: \(accessCode)"
+        case 2:
+            cell.shareLabel.text = "Scan QR code"
+        default:
+            break
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            performSegue(withIdentifier: "addFriendsSegue", sender: self)
+        } else if indexPath.row == 1 {
+            onTapCode(self)
+        } else if indexPath.row == 2 {
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /*
