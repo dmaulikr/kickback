@@ -17,7 +17,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var artistNameButton: UIButton!
-    
+
     @IBOutlet weak var tableView: UITableView!
     
     var album: Album!

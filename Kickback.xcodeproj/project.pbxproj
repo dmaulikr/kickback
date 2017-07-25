@@ -22,6 +22,7 @@
 		A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */; };
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
+		A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DF156F961F200212005804E8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF156F951F200212005804E8 /* QuickSort.swift */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
@@ -78,6 +79,7 @@
 		A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumResultCell.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,11 +205,28 @@
 		A0BEF7FA1F142B4B00CABCFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
-				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
-				A0A568BF1F26C4AD005157CB /* AlbumCell.swift */,
+				A0DB3C111F28023F008940D2 /* CollectionView */,
+				A0DB3C101F28022F008940D2 /* TableView */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A0DB3C101F28022F008940D2 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
+				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
+				A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		A0DB3C111F28023F008940D2 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A0A568BF1F26C4AD005157CB /* AlbumCell.swift */,
+			);
+			name = CollectionView;
 			sourceTree = "<group>";
 		};
 		D83A39A17791AABD99499427 /* Pods */ = {
@@ -591,6 +610,7 @@
 				A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
 				A0A568BA1F26BBC9005157CB /* Album.swift in Sources */,
+				A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
