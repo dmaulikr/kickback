@@ -449,16 +449,21 @@
                                     <action selector="onTapCode:" destination="RUd-SA-K8p" eventType="touchUpInside" id="mFu-aG-zVt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-w6-h3o">
+                                <rect key="frame" x="88" y="255" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="codeButton" destination="FPu-al-uzx" id="bzR-ir-t9U"/>
+                        <outlet property="qrImage" destination="Go3-w6-h3o" id="qSp-M5-jHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmY-6m-K19" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="-1217.5412293853074"/>
+            <point key="canvasLocation" x="2028" y="-1524"/>
         </scene>
         <!--ArtistViewController-->
         <scene sceneID="ieg-LZ-VfK">
@@ -700,6 +705,24 @@
             </objects>
             <point key="canvasLocation" x="1132" y="-726"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="4RO-EP-qqh">
+            <objects>
+                <viewController id="HWX-YM-uQ2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a2n-kx-wmR"/>
+                        <viewControllerLayoutGuide type="bottom" id="NzP-82-mjZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dnI-Vf-oHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A7S-Rb-NQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-726"/>
+        </scene>
         <!--AlbumViewController-->
         <scene sceneID="1nd-pj-RbM">
             <objects>
@@ -850,6 +873,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="join"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-mG-lGq">
+                                <rect key="frame" x="137" y="104" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan QR Code"/>
+                                <connections>
+                                    <action selector="onScanQR:" destination="q2e-UN-Mv7" eventType="touchUpInside" id="3gE-Cq-XPe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
@@ -881,7 +912,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

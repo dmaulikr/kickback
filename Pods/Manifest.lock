@@ -5,12 +5,16 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
+  - QRCode (2.0)
+  - QRCodeReader.swift (7.4.3)
   - SwipeCellKit (1.9.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage
   - Parse
+  - QRCode
+  - QRCodeReader.swift
   - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -18,8 +22,10 @@ SPEC CHECKSUMS:
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
+  QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
+  QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
   SwipeCellKit: 893661973276ae3512a84ac0a47055923b10731e
 
-PODFILE CHECKSUM: 324fee7362e839e382cb09b14fefa828ac6d8860
+PODFILE CHECKSUM: 7b50fd0865dae54a85330cbf2d5208cde04d0ad6
 
 COCOAPODS: 1.2.1

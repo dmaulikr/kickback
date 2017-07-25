@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import QRCode
 
 class ShareViewController: UIViewController {
     
     @IBOutlet weak var codeButton: UIButton!
     
     let accessCode = Queue.current!.accessCode
+    @IBOutlet weak var qrImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let qrCode = QRCode(accessCode)
+        qrImage.image = qrCode?.image
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +42,7 @@ class ShareViewController: UIViewController {
         shareSheet.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact, .openInIBooks, .postToFlickr, .postToVimeo, .postToWeibo, .postToTencentWeibo, .saveToCameraRoll, .print]
         self.present(shareSheet, animated: true, completion: nil)
     }
+    
     /*
     // MARK: - Navigation
 
