@@ -151,6 +151,8 @@ class APIManager {
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
+                            dictionary["likes"] = 0
+                            dictionary["likedByUsers"] = []
                             let track = Track(dictionary)
                             results.append(track)
                         }
@@ -213,6 +215,8 @@ class APIManager {
                         dictionary["artists"] = item["artists"] as! [JSON]
                         dictionary["userId"] = user?.id
                         dictionary["uri"] = item["uri"]
+                        dictionary["likes"] = 0
+                        dictionary["likedByUsers"] = []
                         let track = Track(dictionary)
                         results.append(track)
                     }
