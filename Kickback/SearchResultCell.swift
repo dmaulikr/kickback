@@ -13,6 +13,7 @@ class SearchResultCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var addTrackButton: UIButton!
     
     var track: Track! {
         didSet {
@@ -43,6 +44,7 @@ class SearchResultCell: UITableViewCell {
     
     @IBAction func onAddTrack(_ sender: Any) {
         Queue.current!.addTrack(track, user: User.current!)
+        addTrackButton.isSelected = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
