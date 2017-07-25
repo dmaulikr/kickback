@@ -28,6 +28,7 @@
 		DF0D517D1F27B1AE0021D993 /* QRPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D517C1F27B1AE0021D993 /* QRPopupViewController.swift */; };
 		DF156F961F200212005804E8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF156F951F200212005804E8 /* QuickSort.swift */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
+		DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4855091F27F5DB00CFACA2 /* UserCell.swift */; };
 		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
 		DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		DF4855091F27F5DB00CFACA2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DF5F5CB91F208EB300BCE070 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
 				A0A568BF1F26C4AD005157CB /* AlbumCell.swift */,
 				DF0D517A1F27A9230021D993 /* ShareCell.swift */,
+				DF4855091F27F5DB00CFACA2 /* UserCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
+				DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */,
 				A0A568C01F26C4AD005157CB /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,

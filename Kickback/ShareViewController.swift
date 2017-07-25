@@ -10,24 +10,30 @@ import UIKit
 import QRCode
 import PopupDialog
 
-class ShareViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ShareViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    let members = Queue.current!.members
     let accessCode = Queue.current!.accessCode
-    @IBOutlet weak var qrImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Actions
     
     @IBAction func onTapCancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -78,6 +84,19 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
             onShareQR()
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Collection view
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return members.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
+        let member = members[indexPath.row]
+        cell.usernameLabel.text = member
+        return cell
     }
     
     /*
