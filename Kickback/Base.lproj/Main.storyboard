@@ -285,7 +285,7 @@
                                 <state key="normal" title="Add to Playlist"/>
                                 <connections>
                                     <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="xoM-Pi-OtT"/>
-                                    <segue destination="YV5-Ya-KJv" kind="presentation" identifier="searchSegue" id="vr2-Cu-EBT"/>
+                                    <segue destination="yvr-C4-7g7" kind="presentation" identifier="searchSegue" id="vr2-Cu-EBT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-bt-bDL">
@@ -796,6 +796,7 @@
                             <outletCollection property="gestureRecognizers" destination="9Sf-iI-lsU" appends="YES" id="1nZ-lF-Pw9"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="vJT-sr-PMG"/>
                     <connections>
                         <outlet property="findMusicLabel" destination="qvR-kQ-QER" id="fi3-B5-0UI"/>
                         <outlet property="searchBar" destination="lo5-9e-755" id="4ca-vi-Aai"/>
@@ -810,7 +811,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1132" y="-726.38680659670172"/>
+            <point key="canvasLocation" x="2071.1999999999998" y="-726.38680659670172"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4RO-EP-qqh">
@@ -828,7 +829,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7S-Rb-NQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028" y="-726"/>
+            <point key="canvasLocation" x="2967.1999999999998" y="-726.38680659670172"/>
         </scene>
         <!--AlbumViewController-->
         <scene sceneID="1nd-pj-RbM">
@@ -1059,6 +1060,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sH-MT-knf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="-1524"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Y4r-KR-7ym">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yvr-C4-7g7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2mk-Ym-smz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YV5-Ya-KJv" kind="relationship" relationship="rootViewController" id="5Bl-w4-2cB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GES-UW-Qck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="-726.38680659670172"/>
         </scene>
     </scenes>
     <resources>

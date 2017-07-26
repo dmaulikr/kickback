@@ -47,7 +47,41 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.isHidden = tracks.isEmpty || artists.isEmpty || albums.isEmpty
+        self.tableView.isHidden = tracks.isEmpty && artists.isEmpty && albums.isEmpty
+        self.segmentedControl.isHidden =  tracks.isEmpty && artists.isEmpty && albums.isEmpty
+        
+        self.navigationController?.isNavigationBarHidden = true
+  
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
+                self.tracks = tracks
+                self.tableView.reloadData()
+            })
+        case 1:
+            APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
+                self.artists = artists
+                self.tableView.reloadData()
+            })
+        case 2:
+            APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
+                self.albums = albums
+                self.tableView.reloadData()
+            })
+        case 3:
+            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
+                //      self.tracks = tracks
+                //       self.tableView.reloadData()
+            })
+        default:
+            break
+        }
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
