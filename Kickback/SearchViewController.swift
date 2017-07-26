@@ -75,30 +75,29 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
-        
+        var cell = UITableViewCell()
+
         switch segmentedControl.selectedSegmentIndex {
         case 0:
+            let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             searchCell.track = tracks[indexPath.row]
-            return searchCell
+            cell = searchCell as SearchResultCell
         case 1:
-            searchCell.isHidden = true
+            let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
             albumCell.album = albums[indexPath.row]
-            return albumCell
+            cell = albumCell as AlbumResultCell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.track = tracks[indexPath.row]
-            return cell
+            let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
+            albumCell.album = albums[indexPath.row]
+            cell = albumCell as AlbumResultCell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             cell.track = tracks[indexPath.row]
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.track = tracks[indexPath.row]
-            return cell
+            print("default")
         }
+        return cell
     }
     
 
@@ -124,9 +123,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     self.tableView.reloadData()
                 })
             case 2:
-                APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-              //      self.tracks = tracks
-              //      self.tableView.reloadData()
+                APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
+                    self.albums = albums
+                    self.tableView.reloadData()
                 })
             case 3:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
@@ -160,6 +159,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         segmentedControlBorder(sender: sender)
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
@@ -169,12 +169,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 1:
             APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
                 self.albums = albums
-                // self.tableView.reloadData()
+                self.tableView.reloadData()
             })
         case 2:
-            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-                //      self.tracks = tracks
-                //      self.tableView.reloadData()
+            APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
+                self.albums = albums
+                self.tableView.reloadData()
             })
         case 3:
             APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
