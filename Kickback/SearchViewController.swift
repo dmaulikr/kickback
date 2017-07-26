@@ -16,7 +16,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let segmentBottomBorder = CALayer()
-    var searchText: String!
+    var searchText = ""
 
     var tracks: [Track] = []
     var artists: [Artist] = []
@@ -40,7 +40,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Set up the segemented control
         segmentBottomBorder.borderColor = UIColor.white.cgColor
-        segmentBottomBorder.borderWidth = 4
+        segmentBottomBorder.borderWidth = 3
         segmentedControlBorder(sender: segmentedControl)
         let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
@@ -51,37 +51,32 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.segmentedControl.isHidden =  tracks.isEmpty && artists.isEmpty && albums.isEmpty
         
         self.navigationController?.isNavigationBarHidden = true
-  
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-                self.tracks = tracks
-                self.tableView.reloadData()
-            })
-        case 1:
-            APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
-                self.artists = artists
-                self.tableView.reloadData()
-            })
-        case 2:
-            APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
-                self.albums = albums
-                self.tableView.reloadData()
-            })
-        case 3:
-            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-                //      self.tracks = tracks
-                //       self.tableView.reloadData()
-            })
-        default:
-            break
+        
+        if searchText.characters.count > 0 {
+            switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
+                    self.tracks = tracks
+                    self.tableView.reloadData()
+                })
+            case 1:
+                APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
+                    self.artists = artists
+                    self.tableView.reloadData()
+                })
+            case 2:
+                APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
+                    self.albums = albums
+                    self.tableView.reloadData()
+                })
+            default:
+                break
+            }
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,8 +96,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             return artists.count
         case 2:
             return albums.count
-        case 3:
-            return tracks.count
         default:
             return 0
         }
@@ -127,10 +120,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             albumCell.albumCellButton.tag = indexPath.row
             albumCell.album = albums[indexPath.row]
             cell = albumCell as AlbumResultCell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.track = tracks[indexPath.row]
-            return cell
         default:
             break
         }
@@ -165,11 +154,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     self.albums = albums
                     self.tableView.reloadData()
                 })
-            case 3:
-                APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-              //      self.tracks = tracks
-             //       self.tableView.reloadData()
-                })
             default:
                 break;
             }
@@ -198,34 +182,31 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         segmentedControlBorder(sender: sender)
         
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-                self.tracks = tracks
-                self.tableView.reloadData()
-            })
-        case 1:
-            APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
-                self.artists = artists
-                self.tableView.reloadData()
-            })
-        case 2:
-            APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
-                self.albums = albums
-                self.tableView.reloadData()
-            })
-        case 3:
-            APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
-                //      self.tracks = tracks
-                //       self.tableView.reloadData()
-            })
-        default:
-            break
+        if searchText.characters.count > 0 {
+            switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
+                    self.tracks = tracks
+                    self.tableView.reloadData()
+                })
+            case 1:
+                APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
+                    self.artists = artists
+                    self.tableView.reloadData()
+                })
+            case 2:
+                APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
+                    self.albums = albums
+                    self.tableView.reloadData()
+                })
+            default:
+                break
+            }
         }
     }
     
     func segmentedControlBorder(sender: UISegmentedControl) {
-        let width: CGFloat = sender.frame.size.width/4
+        let width: CGFloat = sender.frame.size.width / 3
         let x = CGFloat(sender.selectedSegmentIndex) * width
         let y = sender.frame.size.height - (segmentBottomBorder.borderWidth)
         segmentBottomBorder.frame = CGRect(x: x, y: y, width: width, height: (segmentBottomBorder.borderWidth))
