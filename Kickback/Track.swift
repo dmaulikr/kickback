@@ -62,13 +62,13 @@ class Track {
             dictionary["uri"] = uri
         }
     }
-    var duration_ms: Int?{
+    var durationMS: Int? {
         get {
             return  dictionary["duration_ms"] as? Int
         }
         set (duration)
         {
-             dictionary["duration_ms"] = duration_ms
+             dictionary["duration_ms"] = durationMS
         }
         
     }

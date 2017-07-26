@@ -9,6 +9,7 @@ import UIKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var playlistNameLabel: UILabel!
     
     @IBOutlet weak var previousSongImageView: UIImageView!
@@ -22,19 +23,23 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBOutlet weak var addToPlaylistButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    
+    var timer = Timer()
+    var seconds = 60;
+    var isTimerRunning = false
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
     var user: User!
+    var trackDuration = 0
     var refreshControl = UIRefreshControl()
-    
+    // variable is  making sure the timer will pause 
+    var isPaused = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Add timer
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
-        
+        let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
+        print ("the other time is\(othertimer)")
+       
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
@@ -59,11 +64,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         self.queue = Queue.current
         self.user = User.current
         
+       //        let durtrack = queue.tracks[queue.playIndex]
+//        self.trackDuration = durtrack.durationMS! / 1000
+
+        
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+      
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,13 +173,18 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: Selector(("updateTimer")), userInfo: nil, repeats: true)
         let tracks = queue.tracks
+
         if !tracks.isEmpty {
             if queue.playIndex == tracks.count - 1 {
                 player.skipNext(printError(_:))
             } else {
                 queue.incrementPlayIndex()
-                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                let track = queue.tracks[queue.playIndex]
+                self.trackDuration = track.durationMS! / 1000
+                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
                 loadAlbumDisplays()
             }
@@ -177,33 +193,47 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBAction func didTapPlayPause(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
-        let timer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(self.update), userInfo: nil, repeats: false)
+        // Add timer
+        if playButton.isSelected {
+            isPaused = true
+            runTimer()
+        }else{
+            isPaused = false
+            timer.invalidate()
+        }
+        
         if !queue.tracks.isEmpty {
             if let playbackState = player.playbackState {
                 let resume = !playbackState.isPlaying
-                
                 player.setIsPlaying(resume, callback: printError(_:))
+                print ("the song is not playing")
+
+
             } else {
-                print(timer)
                 self.player.playSpotifyURI(queue.tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                print ("the song is playing")
+
             }
         } else {
             print("No tracks to play!")
         }
+        
     }
     
-    @objc func update() {
-        // Something cool
-    }
+    
     
     @IBAction func didTapRewind(_ sender: Any) {
         playButton.isSelected = true
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == 0 {
                 player.skipPrevious(printError(_:))
             } else {
                 queue.decrementPlayIndex()
+                let track = queue.tracks[queue.playIndex]
+                self.trackDuration = track.durationMS! / 1000
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
                 loadAlbumDisplays()
@@ -211,7 +241,50 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
     
-    func printError(_ error: Error?) {
+    func restartTimer() {
+//        let track = queue.tracks[queue.playIndex]
+//        self.trackDuration = track.durationMS! / 1000
+    }
+    
+    func runTimer() {
+       
+
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(CreateHomeViewController.updateTimer)), userInfo: nil, repeats: true)
+      
+    }
+    func updateTimer() {
+        let tracks = queue.tracks
+
+        //This will decrement(count down)the seconds.
+        if trackDuration <= 1{
+            let track = queue.tracks[queue.playIndex]
+            self.trackDuration = track.durationMS! / 1000
+        }else{
+        trackDuration = trackDuration - 1
+        }
+        
+        timerLabel.text = "\(trackDuration)" //This will update the label.
+        
+        if (trackDuration <= 0) {
+            if !tracks.isEmpty {
+                
+                if queue.playIndex == tracks.count - 1 {
+                    player.skipNext(printError(_:))
+                } else {
+                    queue.incrementPlayIndex()
+                    let track = queue.tracks[queue.playIndex]
+                    self.trackDuration = track.durationMS! / 1000
+                    player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                    tableView.reloadData()
+                    loadAlbumDisplays()
+                }
+            }
+
+        }
+    }
+    
+   
+       func printError(_ error: Error?) {
         if let error = error {
             print(error.localizedDescription)
         }
@@ -238,3 +311,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
