@@ -93,12 +93,16 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             return tracks.count
         case 1:
+            print("Count \(artists.count)")
             return artists.count
         case 2:
             return albums.count
         default:
             return 0
         }
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,6 +118,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
             artistCell.artistCellButton.tag = indexPath.row
             artistCell.artist = artists[indexPath.row]
+            print("Index path \(indexPath.row)")
             cell = artistCell as ArtistResultCell
         case 2:
             let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
@@ -155,7 +160,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     self.tableView.reloadData()
                 })
             default:
-                break;
+                break
             }
         }
     }
@@ -187,17 +192,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
-                    self.tableView.reloadData()
+                        self.tableView.reloadData()
                 })
             case 1:
                 APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
                     self.artists = artists
+                    for artist in artists {
+                        print(artist)
+                    }
                     self.tableView.reloadData()
                 })
             case 2:
                 APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
                     self.albums = albums
-                    self.tableView.reloadData()
+                        self.tableView.reloadData()
                 })
             default:
                 break

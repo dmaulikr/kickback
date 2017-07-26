@@ -25,6 +25,7 @@ class ArtistResultCell: UITableViewCell {
             let url = URL(string: imageDictionary[0]["url"] as! String)
             artistImageView.af_setImage(withURL: url!)
         }
+        
     }
     
     override func awakeFromNib() {
@@ -33,7 +34,7 @@ class ArtistResultCell: UITableViewCell {
         artistImageView.layer.borderWidth = 1
         artistImageView.layer.borderColor = UIColor.white.cgColor
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -106,7 +106,6 @@ class APIManager {
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
@@ -139,7 +138,6 @@ class APIManager {
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeArtist, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside request")
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let artists = readableJSON["artists"] as? JSON {
                     if let items = artists["items"] as? [JSON] {
@@ -170,7 +168,6 @@ class APIManager {
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeAlbum, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside request")
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let albums = readableJSON["albums"] as? JSON {
                     if let items = albums["items"] as? [JSON] {
