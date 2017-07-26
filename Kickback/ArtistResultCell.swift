@@ -13,6 +13,8 @@ class ArtistResultCell: UITableViewCell {
     @IBOutlet weak var artistImageView: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var artistCellButton: UIButton!
+    
     var artist: Artist! {
         didSet {
             // Setting up the artist name

@@ -690,6 +690,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="chevron-right"/>
                                                     <state key="selected" image="check"/>
+                                                    <connections>
+                                                        <segue destination="xAy-2L-Ru3" kind="show" identifier="artistSegue" id="kCQ-6s-swq"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-kt-FZS">
                                                     <rect key="frame" x="8" y="9" width="75" height="75"/>
@@ -706,6 +709,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="artistCellButton" destination="AaS-eB-Q74" id="5zv-FD-fHJ"/>
                                             <outlet property="artistImageView" destination="VhJ-kt-FZS" id="X2u-Ua-wyG"/>
                                             <outlet property="artistNameLabel" destination="9zp-Np-C3i" id="yhe-53-in4"/>
                                         </connections>
@@ -1080,6 +1084,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="bBs-fI-9um"/>
+        <segue reference="kCQ-6s-swq"/>
         <segue reference="Y6U-tn-9TH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

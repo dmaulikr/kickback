@@ -208,5 +208,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let albumViewController = segue.destination as! AlbumViewController
             albumViewController.album = album
         }
+        if segue.identifier == "artistSegue" {
+            let button = sender as! UIButton
+            let artist = artists[button.tag]
+            let artistViewController = segue.destination as! ArtistViewController
+            artistViewController.artist = artist
+        }
     }
 }
