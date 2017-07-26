@@ -30,6 +30,7 @@
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
 		DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4855091F27F5DB00CFACA2 /* UserCell.swift */; };
 		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
+		DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5AB9E1F293A39006A6A39 /* Invite.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		DF4855091F27F5DB00CFACA2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DF5F5CB91F208EB300BCE070 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		DFA5AB9E1F293A39006A6A39 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				DFC3C2A81F15483D0080DF88 /* Track.swift */,
 				DFC3C2AA1F1548430080DF88 /* Queue.swift */,
 				A0A568B91F26BBC9005157CB /* Album.swift */,
+				DFA5AB9E1F293A39006A6A39 /* Invite.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */,
 				A0A568C01F26C4AD005157CB /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
+				DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DF0D517B1F27A9230021D993 /* ShareCell.swift in Sources */,
