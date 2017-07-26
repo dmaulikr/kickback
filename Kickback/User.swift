@@ -17,6 +17,8 @@ class User {
     var queueId: String?
     var premium: Bool
     var profileImageURL: String?
+    var parseId: String?
+    var parseUser: PFObject!
     
     private static var _current: User?
     
@@ -41,6 +43,10 @@ class User {
                 dictionary["profileImageURL"] = user.profileImageURL
                 dictionary["queueId"] = user.queueId
                 dictionary["premium"] = user.premium
+                if let parseId = user.parseId {
+                    user.parseUser = try! PFQuery(className: "SPTUser").getObjectWithId(
+                    parseId)
+                }
                 let data = try! JSONSerialization.data(withJSONObject: dictionary, options: [])
                 defaults.set(data, forKey: "currentUserData")
             } else {
@@ -58,16 +64,40 @@ class User {
         }
         self.profileImageURL = dictionary["profileImageURL"] as? String
         self.queueId = dictionary["queueId"] as? String
+        let query = PFQuery(className: "SPTUser").whereKey("id", equalTo: id)
+        if query.countObjects(nil) == 0 {
+            self.parseUser = PFObject(className: "SPTUser", dictionary: dictionary)
+            self.parseUser.saveInBackground(block: { (success, error) in
+                if success {
+                    self.parseId = self.parseUser.objectId
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+        } else {
+            query.getFirstObjectInBackground(block: { (result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.parseUser = result!
+                    self.parseId = self.parseUser.objectId
+                }
+            })
+        }
     }
     
     func add(queueId: String) {
         self.queueId = queueId
+        self.parseUser["queueId"] = queueId
+        self.parseUser.saveInBackground()
     }
     
     static func leaveQueue() {
         if let user = User.current {
             user.queueId = nil
             User.current = user
+            user.parseUser.remove(forKey: "queueId")
+            user.parseUser.saveInBackground()
         }
     }
 }

@@ -95,7 +95,8 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
         let member = members[indexPath.row]
-        cell.usernameLabel.text = member
+        cell.userId = member
+//        cell.usernameLabel.text = member
         return cell
     }
     
