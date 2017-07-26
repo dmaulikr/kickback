@@ -19,6 +19,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var searchText: String!
 
     var tracks: [Track] = []
+    var artists: [Artist] = []
     var albums: [Album] = []
     
     override func viewDidLoad() {
@@ -83,9 +84,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             searchCell.track = tracks[indexPath.row]
             cell = searchCell as SearchResultCell
         case 1:
-            let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
-            albumCell.album = albums[indexPath.row]
-            cell = albumCell as AlbumResultCell
+            let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
+            artistCell.artist = artists[indexPath.row]
+            cell = artistCell as ArtistResultCell
         case 2:
             let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
             albumCell.album = albums[indexPath.row]
@@ -118,8 +119,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                     self.tableView.reloadData()
                 })
             case 1:
-                APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
-                    self.albums = albums
+                APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
+                    print(artists)
+                    self.artists = artists
                     self.tableView.reloadData()
                 })
             case 2:
@@ -167,8 +169,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             })
         case 1:
-            APIManager.current?.searchAlbums(query: searchText, user: User.current, callback: { (albums) in
-                self.albums = albums
+            APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
+                self.artists = artists
                 self.tableView.reloadData()
             })
         case 2:

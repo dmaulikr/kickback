@@ -134,6 +134,37 @@ class APIManager {
         refreshToken()
     }
     
+    func searchArtists(query: String, user: User?, callback: @escaping ([Artist]) -> Void) -> Void {
+        var results: [Artist] = []
+        let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeArtist, accessToken: session.accessToken)
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                print("inside request")
+                let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let artists = readableJSON["artists"] as? JSON {
+                    if let items = artists["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            dictionary["images"] =  item["images"] as! [JSON]
+                            dictionary["userId"] = user?.id
+                            dictionary["uri"] = item["uri"]
+                            let artist = Artist(dictionary)
+                            results.append(artist)
+                        }
+                    }
+                }
+                callback(results)
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
     func searchAlbums(query: String, user: User?, callback: @escaping ([Album]) -> Void) -> Void {
         var results: [Album] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeAlbum, accessToken: session.accessToken)
@@ -152,13 +183,6 @@ class APIManager {
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
-                            
-                            dictionary["album_type"] = item["album_type"]
-                            dictionary["available_markets"] = item["available_markets"]
-                            dictionary["external_urls"] = item["external_urls"]
-                            dictionary["href"] = item["href"]
-                            dictionary["type"] = item["type"]
-                            
                             let album = Album(dictionary)
                             results.append(album)
                         }
@@ -205,6 +229,7 @@ class APIManager {
         refreshToken()
     }
     
+    
     func getAlbumsByArtist(artistURI: URL, user: User?, callback: @escaping ([Album]) -> Void) -> Void {
         var results: [Album] = []
         let urlRequest = try! SPTArtist.createRequestForAlbums(byArtist: artistURI, of: SPTAlbumType.album, withAccessToken: session.accessToken, market: "US")
@@ -220,13 +245,6 @@ class APIManager {
                         dictionary["artists"] = item["artists"] as! [JSON]
                         dictionary["userId"] = user?.id
                         dictionary["uri"] = item["uri"]
-                        
-                        dictionary["album_type"] = item["album_type"]
-                        dictionary["available_markets"] = item["available_markets"]
-                        dictionary["external_urls"] = item["external_urls"]
-                        dictionary["href"] = item["href"]
-                        dictionary["type"] = item["type"]
-                        
                         let album = Album(dictionary)
                         results.append(album)
                     }

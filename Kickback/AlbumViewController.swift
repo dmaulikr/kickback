@@ -38,12 +38,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
             dictionary["artists"] = track.album["artists"]
             dictionary["userId"] = User.current?.id
             dictionary["uri"] = track.album["uri"]
-            
-            dictionary["album_type"] = track.album["album_type"]
-            dictionary["available_markets"] = track.album["available_markets"]
-            dictionary["external_urls"] = track.album["external_urls"]
-            dictionary["href"] = track.album["href"]
-            dictionary["type"] = track.album["type"]
             album = Album(dictionary)
         }
         
