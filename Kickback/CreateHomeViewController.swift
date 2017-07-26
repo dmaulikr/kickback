@@ -9,20 +9,20 @@ import UIKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var startTimer: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var playlistNameLabel: UILabel!
-    
     @IBOutlet weak var previousSongImageView: UIImageView!
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
-    
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var addToPlaylistButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    var indexProgressBar = 0.00
+    var currentPoseIndex = 0.00
     var timer = Timer()
     var seconds = 60;
     var isTimerRunning = false
@@ -31,12 +31,20 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var queue: Queue!
     var user: User!
     var trackDuration = 0
+    var fullTrackDuration = 0
+    var count = 0
     var refreshControl = UIRefreshControl()
     // variable is  making sure the timer will pause 
     var isPaused = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setProgressBar()
+        // Makes time labels hidden
+//        timerLabel.isHidden = true
+//        startTimer.isHidden = true
+        print (count)
+
         let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
         print ("the other time is\(othertimer)")
        
@@ -73,9 +81,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-      
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         // Set up clear navigation bar
@@ -89,6 +97,18 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         loadAlbumDisplays()
     }
+    
+    @IBAction func screenTapped(_ sender: Any) {
+        print ("count is \(count)")
+            count = 0
+//            fades in
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.timerLabel.alpha = 1.0
+            self.startTimer.alpha = 1.0
+        }, completion: nil)
+            startTimer.isHidden = false
+        }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -184,6 +204,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 queue.incrementPlayIndex()
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
+                indexProgressBar = 0
                  player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
                 loadAlbumDisplays()
@@ -234,6 +255,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 queue.decrementPlayIndex()
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
+                indexProgressBar = 0
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
                 loadAlbumDisplays()
@@ -247,44 +269,125 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func runTimer() {
-       
-
+        getNextPoseData()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(CreateHomeViewController.updateTimer)), userInfo: nil, repeats: true)
       
     }
     func updateTimer() {
         let tracks = queue.tracks
+        count = count + 1
+        print(count)
+        if count >= 4{
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
+                self.timerLabel.alpha = 0.0
+                self.startTimer.alpha = 0.0
+            }, completion: {
+                finished in
+                })
 
+//            startTimer.isHidden = true
+        }
         //This will decrement(count down)the seconds.
         if trackDuration <= 1{
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
+            self.fullTrackDuration = track.durationMS! / 1000
         }else{
         trackDuration = trackDuration - 1
-        }
-        
-        timerLabel.text = "\(trackDuration)" //This will update the label.
-        
-        if (trackDuration <= 0) {
-            if !tracks.isEmpty {
+        //this makes the progress bar increase.
+            if indexProgressBar == Double(fullTrackDuration)
+            {
+                getNextPoseData()
                 
-                if queue.playIndex == tracks.count - 1 {
-                    player.skipNext(printError(_:))
-                } else {
-                    queue.incrementPlayIndex()
-                    let track = queue.tracks[queue.playIndex]
-                    self.trackDuration = track.durationMS! / 1000
-                    player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
-                    tableView.reloadData()
-                    loadAlbumDisplays()
+                // reset the progress counter
+                indexProgressBar = 0
+                if !tracks.isEmpty {
+                    if queue.playIndex == tracks.count - 1 {
+                        player.skipNext(printError(_:))
+                    } else {
+                        currentPoseIndex = 0
+                        queue.incrementPlayIndex()
+                        let track = queue.tracks[queue.playIndex]
+                        self.trackDuration = track.durationMS! / 1000
+                        player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                        tableView.reloadData()
+                        loadAlbumDisplays()
+                    }
                 }
+                
+                
             }
+            
+            // update the display
+            // use poseDuration - 1 so that you display 20 steps of the the progress bar, from 0...19
+            progressBar.progress = Float(indexProgressBar)/Float(fullTrackDuration-1)
+            
+            // increment the counter
+            indexProgressBar += 1
 
         }
+        
+        let (_,m, s) = secondsToHoursMinutesSeconds (seconds: trackDuration)
+         let (_,min, sec) = secondsToHoursMinutesSeconds (seconds: Int(indexProgressBar))
+        if s < 10  {
+        timerLabel.text = "0\(m):0\(s)" //This will update the label.
+        startTimer.text = "0\(min):0\(sec)"
+        }else{
+        timerLabel.text = "0\(m):\(s)"//This will update the label.
+        startTimer.text = "0\(min):\(sec)"
+
+        }
+        if sec < 10  {
+            startTimer.text = "0\(min):0\(sec)"
+        }else{
+            startTimer.text = "0\(min):\(sec)"
+            
+        }
+        
+        
+        if (trackDuration <= 0) {
+            print("Hey Im Done ")
+            }
+
+    }
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    func printSecondsToHoursMinutesSeconds (seconds:Int) -> () {
+        let (h, m, s) = secondsToHoursMinutesSeconds (seconds: trackDuration)
+        print ("\(h) Hours, \(m) Minutes, \(s) Seconds")
     }
     
-   
-       func printError(_ error: Error?) {
+    func getNextPoseData()
+    {
+        // do next pose stuff
+        
+        currentPoseIndex += 1
+        print(currentPoseIndex)
+    }
+    
+    func setProgressBar()
+    {
+        if indexProgressBar == Double(trackDuration)
+        {
+            getNextPoseData()
+            
+            // reset the progress counter
+            indexProgressBar = 0
+        }
+        
+        // update the display
+        // use poseDuration - 1 so that you display 20 steps of the the progress bar, from 0...19
+        
+//        progressBar.setProgress(0 , animated: true)
+        // increment the counter
+        indexProgressBar += 1
+
+    }
+    
+    
+    
+    func printError(_ error: Error?) {
         if let error = error {
             print(error.localizedDescription)
         }
