@@ -688,7 +688,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaS-eB-Q74">
                                                     <rect key="frame" x="328" y="35" width="49" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="plus"/>
+                                                    <state key="normal" image="chevron-right"/>
                                                     <state key="selected" image="check"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-kt-FZS">
@@ -720,8 +720,11 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er9-tJ-wgo">
                                                     <rect key="frame" x="328" y="35" width="49" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="plus"/>
+                                                    <state key="normal" image="chevron-right"/>
                                                     <state key="selected" image="check"/>
+                                                    <connections>
+                                                        <segue destination="lhz-Bd-K6e" kind="show" identifier="albumSegue" id="Y6U-tn-9TH"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x3Y-9P-o5O">
                                                     <rect key="frame" x="8" y="9" width="75" height="75"/>
@@ -745,6 +748,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="albumCellButton" destination="Er9-tJ-wgo" id="PjC-K2-0pU"/>
                                             <outlet property="albumImageView" destination="x3Y-9P-o5O" id="lat-LN-f7B"/>
                                             <outlet property="albumNameLabel" destination="a9x-Hz-Sc9" id="AbY-pE-20Z"/>
                                             <outlet property="artistNameLabel" destination="Ngj-WC-Px4" id="lmh-n5-xTW"/>
@@ -1062,6 +1066,7 @@
         <image name="Play Controls Gradient" width="375" height="64"/>
         <image name="Search" width="375" height="90"/>
         <image name="check" width="18" height="13"/>
+        <image name="chevron-right" width="8" height="14"/>
         <image name="log-out" width="20" height="22"/>
         <image name="pause-circle" width="22" height="22"/>
         <image name="play-circle" width="22" height="22"/>
@@ -1073,9 +1078,9 @@
         <image name="x" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBs-fI-9um"/>
         <segue reference="noR-SQ-Xsn"/>
-        <segue reference="vTg-yr-bTs"/>
+        <segue reference="bBs-fI-9um"/>
+        <segue reference="Y6U-tn-9TH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

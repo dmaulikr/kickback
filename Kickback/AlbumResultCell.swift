@@ -14,6 +14,8 @@ class AlbumResultCell: UITableViewCell {
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var albumCellButton: UIButton!
+    
     var album: Album! {
         didSet {
             // Setting up the album title
@@ -31,6 +33,8 @@ class AlbumResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        albumImageView.layer.borderWidth = 1
+        albumImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,5 +42,4 @@ class AlbumResultCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }

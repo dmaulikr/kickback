@@ -39,9 +39,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
             dictionary["userId"] = User.current?.id
             dictionary["uri"] = track.album["uri"]
             album = Album(dictionary)
-        }
-        
-        if track != nil {
+
             // Setting up the current track
             currentTrackNameLabel.text = track.name
             let artists = track.artists
@@ -106,7 +104,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let artistViewController = segue.destination as! ArtistViewController
-        artistViewController.track = track
+        artistViewController.album = album
     }
-    
 }

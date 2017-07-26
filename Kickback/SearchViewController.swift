@@ -47,7 +47,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.isHidden = tracks.isEmpty
+        self.tableView.isHidden = tracks.isEmpty || artists.isEmpty || albums.isEmpty
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,9 +64,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             return tracks.count
         case 1:
-            return albums.count
+            return artists.count
         case 2:
-            return tracks.count
+            return albums.count
         case 3:
             return tracks.count
         default:
@@ -85,10 +85,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             cell = searchCell as SearchResultCell
         case 1:
             let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
+            artistCell.artistCellButton.tag = indexPath.row
             artistCell.artist = artists[indexPath.row]
             cell = artistCell as ArtistResultCell
         case 2:
             let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
+            albumCell.albumCellButton.tag = indexPath.row
             albumCell.album = albums[indexPath.row]
             cell = albumCell as AlbumResultCell
         case 3:
@@ -96,7 +98,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             cell.track = tracks[indexPath.row]
             return cell
         default:
-            print("default")
+            break
         }
         return cell
     }
@@ -184,7 +186,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 //       self.tableView.reloadData()
             })
         default:
-            break;
+            break
         }
     }
     
@@ -196,13 +198,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         sender.layer.addSublayer(segmentBottomBorder)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "albumSegue" {
+            let button = sender as! UIButton
+            let album = albums[button.tag]
+            let albumViewController = segue.destination as! AlbumViewController
+            albumViewController.album = album
+        }
     }
-    */
 }

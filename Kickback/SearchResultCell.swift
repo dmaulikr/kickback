@@ -33,7 +33,6 @@ class SearchResultCell: UITableViewCell {
             let url = URL(string: imageDict[0]["url"] as! String)
             albumImageView.af_setImage(withURL: url!)
             
-            
             addTrackButton.isSelected = false
         }
     }

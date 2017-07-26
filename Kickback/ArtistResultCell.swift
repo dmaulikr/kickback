@@ -28,6 +28,8 @@ class ArtistResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        artistImageView.layer.borderWidth = 1
+        artistImageView.layer.borderColor = UIColor.white.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
