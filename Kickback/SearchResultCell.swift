@@ -34,6 +34,7 @@ class SearchResultCell: UITableViewCell {
             albumImageView.af_setImage(withURL: url!)
             
             addTrackButton.isSelected = false
+            addTrackButton.isEnabled = true
         }
     }
     
@@ -47,6 +48,7 @@ class SearchResultCell: UITableViewCell {
     @IBAction func onAddTrack(_ sender: Any) {
         Queue.current!.addTrack(track, user: User.current!)
         addTrackButton.isSelected = true
+        addTrackButton.isEnabled = false
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
