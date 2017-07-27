@@ -11,9 +11,9 @@ import Parse
 import AVFoundation
 import QRCodeReader
 
-class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderViewControllerDelegate {
+class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var accessCodeTextView: UITextView!
+    @IBOutlet weak var tableView: UITableView!
     var user = User.current!
     var placeholderLabel : UILabel!
     lazy var readerVC: QRCodeReaderViewController = {
@@ -28,22 +28,23 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
         self.navigationController?.navigationBar.barTintColor = UIColor.black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
         
-        accessCodeTextView.keyboardAppearance = UIKeyboardAppearance.dark
-        
         // placeholder text
-        accessCodeTextView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Put in the access code"
-        placeholderLabel.sizeToFit()
-        accessCodeTextView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (accessCodeTextView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !accessCodeTextView.text.isEmpty
-        
+//        accessCodeTextView.delegate = self
+//        placeholderLabel = UILabel()
+//        placeholderLabel.text = "Put in the access code"
+//        placeholderLabel.sizeToFit()
+//        accessCodeTextView.addSubview(placeholderLabel)
+//        placeholderLabel.frame.origin = CGPoint(x: 5, y: (accessCodeTextView.font?.pointSize)! / 2)
+//        placeholderLabel.textColor = UIColor.lightGray
+//        placeholderLabel.isHidden = !accessCodeTextView.text.isEmpty
         
         // change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        // table view
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.reloadData()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -54,20 +55,43 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func didTapJoin(_ sender: Any) {
-        if let code = accessCodeTextView.text {
-            tryJoinQueueWith(code: code)
-        }
-    }
 
-    @IBAction func onScanQR(_ sender: Any) {
+    func onScanQR() {
         readerVC.delegate = self
         readerVC.modalPresentationStyle = .formSheet
         present(readerVC, animated: true, completion: nil)
     }
     
+    // MARK: - Table view
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JoinCell") as! JoinCell
+        switch indexPath.row {
+        case 0:
+            cell.joinLabel.text = "Enter playlist access code"
+        case 1:
+            cell.joinLabel.text = "Scan QR code"
+        default:
+            break
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            performSegue(withIdentifier: "enterAccessCodeSegue", sender: nil)
+        } else if indexPath.row == 1 {
+            onScanQR()
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: - QRCodeReaderViewController Delegate Methods
+    
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         tryJoinQueueWith(code: result.value)

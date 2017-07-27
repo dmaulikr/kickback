@@ -34,6 +34,8 @@
 		DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4855091F27F5DB00CFACA2 /* UserCell.swift */; };
 		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
 		DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5AB9E1F293A39006A6A39 /* Invite.swift */; };
+		DFA5ABA31F2A40E9006A6A39 /* JoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */; };
+		DFA5ABA51F2A4345006A6A39 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -110,6 +112,8 @@
 		DF4855091F27F5DB00CFACA2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DF5F5CB91F208EB300BCE070 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		DFA5AB9E1F293A39006A6A39 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
+		DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinCell.swift; sourceTree = "<group>"; };
+		DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */,
 				DFF2F1651F1FD39000B38EE1 /* ShareViewController.swift */,
 				DF0D517C1F27B1AE0021D993 /* QRPopupViewController.swift */,
+				DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				A0DB3C111F28023F008940D2 /* CollectionView */,
 				A0DB3C101F28022F008940D2 /* TableView */,
+				DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -632,8 +638,10 @@
 				DF0D517D1F27B1AE0021D993 /* QRPopupViewController.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
 				A0A568BA1F26BBC9005157CB /* Album.swift in Sources */,
+				DFA5ABA31F2A40E9006A6A39 /* JoinCell.swift in Sources */,
 				A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
+				DFA5ABA51F2A4345006A6A39 /* AccessCodeViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				A0060A0A1F28749B006C5C6C /* ArtistResultCell.swift in Sources */,
