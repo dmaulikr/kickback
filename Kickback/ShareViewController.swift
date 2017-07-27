@@ -47,13 +47,17 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: - Popup dialog
+    func onAddByUsername() {
+        let title = "Add friend by Spotify username"
+        
+    }
+    
     func onShareQR() {
         let title = "Share QR Code"
         let image = QRCode(accessCode)?.image
         let popup = PopupDialog(title: title, message: nil, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: nil)
         self.present(popup, animated: true, completion: nil)
     }
-    
     
     // MARK: - Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,7 +100,6 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
         let member = members[indexPath.row]
         cell.userId = member
-//        cell.usernameLabel.text = member
         return cell
     }
     
