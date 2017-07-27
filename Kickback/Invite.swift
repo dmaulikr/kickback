@@ -40,7 +40,7 @@ class Invite {
     }
     
     static func removeInvite(queueId: String, userId: String) {
-        let query = PFQuery(className: "Invite").whereKey("queueId", equalTo: queueId).whereKey("userId", equalTo: userId)
+        let query = PFQuery(className: "Invite").whereKey("queueId", equalTo: queueId).whereKey("inviteeId", equalTo: userId)
         if query.countObjects(nil) > 0 {
             query.getFirstObjectInBackground(block: { (result, error) in
                 if let error = error {

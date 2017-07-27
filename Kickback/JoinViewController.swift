@@ -117,8 +117,8 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
             }
         } else {
             let invite = invites[indexPath.row]
-            tryJoinQueueWith(code: invite.queueCode)
             Invite.removeInvite(queueId: invite.queueId, userId: invite.inviteeId)
+            tryJoinQueueWith(code: invite.queueCode)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
