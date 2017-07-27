@@ -39,7 +39,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var refreshControl = UIRefreshControl()
     // variable is  making sure the timer will pause 
     var isPaused = true
-
+    var isSwiping = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setProgressBar()
@@ -48,13 +49,12 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
 //        startTimer.isHidden = true
         print (count)
 
-        let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
-        print ("the other time is\(othertimer)")
+//        let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.runTimer), userInfo: nil, repeats: true)
+//        print ("the other time is\(othertimer)")
        
-    var isSwiping = false
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+      
+  
+   
         
         // Set up timer
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
@@ -62,7 +62,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
-        
+//        
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
@@ -88,10 +88,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor.clear
-        
-        self.queue = Queue.current
-        self.user = User.current
-        
+//        
+//        self.queue = Queue.current
+//        self.user = User.current
+//        
        //        let durtrack = queue.tracks[queue.playIndex]
 //        self.trackDuration = durtrack.durationMS! / 1000
 
@@ -317,8 +317,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
 
 //            startTimer.isHidden = true
         }
+    
         //This will decrement(count down)the seconds.
-        if trackDuration <= 1{
+        if trackDuration <= 0{
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
