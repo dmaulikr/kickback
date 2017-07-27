@@ -42,9 +42,11 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
             artist = Artist(dictionary)
         }
         
-        let imageDictionary = artist.images 
-        let url = URL(string: imageDictionary[0]["url"] as! String)
-        backgroundImageView.af_setImage(withURL: url!)
+        if !artist.images.isEmpty {
+            let imageDictionary = artist.images[0]["url"]
+            let url = URL(string: imageDictionary as! String)
+            backgroundImageView.af_setImage(withURL: url!)
+        }
         
         nameLabel.text = artist.name
         

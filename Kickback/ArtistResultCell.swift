@@ -21,9 +21,11 @@ class ArtistResultCell: UITableViewCell {
             artistNameLabel.text = artist.name
             
             // Set the image of the aertist
-            let imageDictionary = artist.images
-            let url = URL(string: imageDictionary[0]["url"] as! String)
-            artistImageView.af_setImage(withURL: url!)
+            if !artist.images.isEmpty {
+                let imageDictionary = artist.images[0]["url"]
+                let url = URL(string: imageDictionary as! String)
+                artistImageView.af_setImage(withURL: url!)
+            }
         }
         
     }

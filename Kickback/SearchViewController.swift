@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.navigationController?.isNavigationBarHidden = true
         
-        if searchText.characters.count > 0 {
+        if !searchText.characters.isEmpty {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
@@ -93,7 +93,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             return tracks.count
         case 1:
-            print("Count \(artists.count)")
             return artists.count
         case 2:
             return albums.count
@@ -118,7 +117,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
             artistCell.artistCellButton.tag = indexPath.row
             artistCell.artist = artists[indexPath.row]
-            print("Index path \(indexPath.row)")
             cell = artistCell as ArtistResultCell
         case 2:
             let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
@@ -187,7 +185,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         segmentedControlBorder(sender: sender)
         
-        if searchText.characters.count > 0 {
+        if !searchText.characters.isEmpty {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
@@ -197,9 +195,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 1:
                 APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
                     self.artists = artists
-                    for artist in artists {
-                        print(artist)
-                    }
                     self.tableView.reloadData()
                 })
             case 2:

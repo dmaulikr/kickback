@@ -146,7 +146,7 @@ class APIManager {
                             var dictionary: [String: Any] = [:]
                             dictionary["id"] = item["id"]
                             dictionary["name"] = item["name"]
-                            dictionary["images"] =  item["images"] as! [JSON]
+                            dictionary["images"] = item["images"] as! [JSON]
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
                             let artist = Artist(dictionary)
