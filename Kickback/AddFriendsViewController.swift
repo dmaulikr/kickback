@@ -33,7 +33,7 @@ class AddFriendsViewController: UIViewController {
             if userQuery.countObjects(nil) > 0 {
                 let inviteQuery = PFQuery(className: "Invite").whereKey("queueId", equalTo: Queue.current!.id).whereKey("userId", equalTo: userId)
                 if inviteQuery.countObjects(nil) == 0 {
-                    Invite.addInvite(queueId: Queue.current!.id, userId: userId)
+                    Invite.addInvite(queue: Queue.current!, inviteeId: userId, inviter: User.current!)
                     print("invited user")
                 } else {
                     print("user has already been invited")

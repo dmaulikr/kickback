@@ -11,13 +11,30 @@ import Parse
 
 class Invite {
     
-    var userId: String!
-    var queueId: String!
+    var queueName: String
+    var inviterName: String?
+    var inviterId: String
+    var queueCode: String
+    var inviteeId: String
+    var queueId: String
     
-    static func addInvite(queueId: String, userId: String) {
+    init(_ parseInvite: PFObject) {
+        queueName = parseInvite["queueName"] as! String
+        inviterName = parseInvite["inviterName"] as? String
+        inviterId = parseInvite["inviterId"] as! String
+        queueCode = parseInvite["queueCode"] as! String
+        inviteeId = parseInvite["inviteeId"] as! String
+        queueId = parseInvite["queueId"] as! String
+    }
+    
+    static func addInvite(queue: Queue, inviteeId: String, inviter: User) {
         var dictionary: [String: Any] = [:]
-        dictionary["queueId"] = queueId
-        dictionary["userId"] = userId
+        dictionary["queueId"] = queue.id
+        dictionary["queueName"] = queue.name
+        dictionary["queueCode"] = queue.accessCode
+        dictionary["inviteeId"] = inviteeId
+        dictionary["inviterName"] = inviter.name
+        dictionary["inviterId"] = inviter.id
         let invite = PFObject(className: "Invite", dictionary: dictionary)
         invite.saveInBackground()
     }
