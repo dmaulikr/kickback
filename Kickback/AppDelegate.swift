@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navAppearance.tintColor = UIColor.clear
         navAppearance.barTintColor = UIColor.white
         navAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        UIApplication.shared.statusBarStyle = .lightContent
+//        UIApplication.shared.statusBarStyle = .lightContent
         
         return true
     }
