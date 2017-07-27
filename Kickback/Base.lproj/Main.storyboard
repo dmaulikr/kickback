@@ -793,6 +793,8 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="9Sf-iI-lsU" appends="YES" id="1nZ-lF-Pw9"/>
+                            <outletCollection property="gestureRecognizers" destination="KbM-Kb-TqP" appends="YES" id="KFd-Fw-GgI"/>
+                            <outletCollection property="gestureRecognizers" destination="diz-Xj-yvv" appends="YES" id="Es3-dy-Hzc"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="vJT-sr-PMG"/>
@@ -809,6 +811,16 @@
                         <action selector="onTapView:" destination="YV5-Ya-KJv" id="BiA-ZG-2Rk"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="KbM-Kb-TqP">
+                    <connections>
+                        <action selector="swipeLeftWithSender:" destination="YV5-Ya-KJv" id="phb-ds-bLa"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="diz-Xj-yvv">
+                    <connections>
+                        <action selector="swipeRightWithSender:" destination="YV5-Ya-KJv" id="BdH-ay-8AL"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2071.1999999999998" y="-726.38680659670172"/>
         </scene>
@@ -1029,7 +1041,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1047,7 +1059,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

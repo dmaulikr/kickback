@@ -216,6 +216,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         sender.layer.addSublayer(segmentBottomBorder)
     }
     
+    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+        segmentedControl.selectedSegmentIndex = (segmentedControl.selectedSegmentIndex + 1) % segmentedControl.numberOfSegments
+        segmentedControlDidChange(segmentedControl)
+    }
+    
+    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
+        segmentedControl.selectedSegmentIndex = (segmentedControl.selectedSegmentIndex - 1) % segmentedControl.numberOfSegments
+        if(segmentedControl.selectedSegmentIndex == -1){
+            segmentedControl.selectedSegmentIndex = segmentedControl.numberOfSegments-1
+        }
+        segmentedControlDidChange(segmentedControl)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
