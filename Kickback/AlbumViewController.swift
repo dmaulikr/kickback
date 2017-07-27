@@ -24,6 +24,8 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     var track: Track!
     var tracks: [Track] = []
     
+    var addedtoQueue: [Bool]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,6 +82,9 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if !tracks.isEmpty {
+            addedtoQueue = [Bool](repeating: false, count: tracks.count - 1)
+        }
         return tracks.count - 1
     }
     
@@ -94,10 +99,27 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
         
         cell.track = self.tracks[indexPath.row]
-        cell.backgroundColor = UIColor.clear
+        cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                            for: UIControlEvents.touchUpInside)
+        cell.addTrackButton.tag = indexPath.row
+        
+        if addedtoQueue[indexPath.row] == true {
+            // disable State Button
+            cell.addTrackButton.isEnabled = false
+            
+        } else {
+            // activate State Button
+            cell.addTrackButton.isEnabled = true
+        }
         return cell
     }
     
+    func buttonAction(sender:UIButton!) {
+        let index = sender.tag
+        if addedtoQueue[index] == false {
+            addedtoQueue[index] = true
+        }
+    }
     
     // MARK: - Navigation
     

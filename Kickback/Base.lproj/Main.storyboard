@@ -1105,6 +1105,7 @@
                                                         <constraint firstAttribute="height" constant="20" id="u0n-NI-2EJ"/>
                                                     </constraints>
                                                     <state key="normal" image="plus"/>
+                                                    <state key="disabled" image="check"/>
                                                     <state key="selected" image="check"/>
                                                     <connections>
                                                         <action selector="onAddTrack:" destination="iuX-rP-Z5Q" eventType="touchUpInside" id="mUp-qv-bi4"/>
