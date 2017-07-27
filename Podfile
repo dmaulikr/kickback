@@ -9,6 +9,10 @@ target 'Kickback' do
   pod 'Parse'
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage'
+  pod 'SwipeCellKit'
+  pod 'QRCode'
+  pod 'QRCodeReader.swift'
+  pod 'PopupDialog', '~> 0.5'
 
   target 'KickbackTests' do
     inherit! :search_paths

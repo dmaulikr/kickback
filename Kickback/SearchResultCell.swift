@@ -13,6 +13,7 @@ class SearchResultCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var addTrackButton: UIButton!
     
     var track: Track! {
         didSet {
@@ -31,6 +32,8 @@ class SearchResultCell: UITableViewCell {
             let imageDict = track.album["images"] as! [[String: Any]]
             let url = URL(string: imageDict[0]["url"] as! String)
             albumImageView.af_setImage(withURL: url!)
+            
+            addTrackButton.isEnabled = true
         }
     }
     
@@ -43,6 +46,7 @@ class SearchResultCell: UITableViewCell {
     
     @IBAction func onAddTrack(_ sender: Any) {
         Queue.current!.addTrack(track, user: User.current!)
+        addTrackButton.isEnabled = false
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

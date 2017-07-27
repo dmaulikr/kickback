@@ -6,6 +6,7 @@
 //  Copyright © 2017 FBU. All rights reserved.
 
 import UIKit
+import SwipeCellKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -26,6 +27,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var timer = Timer()
     var seconds = 60;
     var isTimerRunning = false
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var rewindButton: UIButton!
     var manager = APIManager.current!
     var player = SPTAudioStreamingController.sharedInstance()!
     var queue: Queue!
@@ -48,20 +51,37 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.onTimer), userInfo: nil, repeats: true)
         print ("the other time is\(othertimer)")
        
+    var isSwiping = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Set up timer
+        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        
         // Set up Add to Playlist Button
         addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
         addToPlaylistButton.layer.masksToBounds = true
         
-        // Initialize Spotify player
-        player.playbackDelegate = self
-        player.delegate = self
-        if !player.loggedIn {
-            do {
-                try player.start(withClientId: manager.auth.clientID)
-            } catch {
-                print(error.localizedDescription)
+        self.queue = Queue.current
+        self.user = User.current
+        let isOwner = queue.ownerId == user.id
+        playButton.isHidden = !isOwner
+        nextButton.isHidden = !isOwner
+        rewindButton.isHidden = !isOwner
+        if isOwner {
+            // Initialize Spotify player
+            player.playbackDelegate = self
+            player.delegate = self
+            if !player.loggedIn {
+                do {
+                    try player.start(withClientId: manager.auth.clientID)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                self.player.login(withAccessToken: manager.session.accessToken)
             }
-            self.player.login(withAccessToken: manager.session.accessToken)
+            playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         }
         
         // Initialize the table view
@@ -77,6 +97,11 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
 
         
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
+        tableView.allowsSelection = true
+        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 66
+        view.layoutMargins.left = 32
         
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -95,7 +120,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         navBar.tintColor = UIColor.white
         self.navigationController?.view.backgroundColor = .clear
         
-        loadAlbumDisplays()
+        renderTracks()
     }
     
     @IBAction func screenTapped(_ sender: Any) {
@@ -115,6 +140,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Table view
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if queue.tracks.count <= 1 {
             return 0
@@ -125,17 +152,31 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         cell.track = queue.tracks[queue.playIndex + indexPath.row + 1]
-        cell.backgroundColor = UIColor.clear
+        cell.delegate = self
+        cell.selectedBackgroundView = createSelectedBackgroundView()
         return cell
     }
     
+    func createSelectedBackgroundView() -> UIView {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        return view
+    }
+    
+    // MARK: - Render tracks
+    
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        tableView.reloadData()
+        renderTracks()
         refreshControl.endRefreshing()
     }
     
-    func onTimer() {
-        tableView.reloadData()
+    func renderTracks() {
+        if !isSwiping {
+            queue.updateFromParse()
+            queue.sortTracks()
+            tableView.reloadData()
+            loadAlbumDisplays()
+        }
     }
     
     func loadAlbumDisplays() {
@@ -157,7 +198,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
         // Load previous track
         if playIndex > 0 {
-            let prevTrack = tracks[playIndex - 1]
             let prevImageDictionary = tracks[playIndex - 1].album["images"] as! [[String: Any]]
             let prevUrl = URL(string: prevImageDictionary[0]["url"] as! String)!
             previousSongImageView.af_setImage(withURL: prevUrl)
@@ -167,7 +207,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
         // Load next track
         if playIndex < tracks.count - 1 {
-            let nextTrack = tracks[playIndex + 1]
             let nextImageDictionary = tracks[playIndex + 1].album["images"] as! [[String: Any]]
             let nextUrl = URL(string: nextImageDictionary[0]["url"] as! String)!
             nextSongImageView.af_setImage(withURL: nextUrl)
@@ -177,19 +216,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
 
-//    func durationComplete(){
-//        var track = queue.tracks
-//        if track["duration_ms"] as! Int =  {
-//            
-//        }
-//    }
-    
-//    func duration(for resource: String) -> Double {
-//        let track = queue.currentTrack
-//        let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
-//        return Double(CMTimeGetSeconds(asset.duration))
-//    }
-//    
+    // MARK: - Spotify player
     
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
@@ -208,6 +235,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                  player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
                 loadAlbumDisplays()
+
+                player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                renderTracks()
+
             }
         }
     }
@@ -257,8 +288,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 self.trackDuration = track.durationMS! / 1000
                 indexProgressBar = 0
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
-                tableView.reloadData()
-                loadAlbumDisplays()
+                renderTracks()
             }
         }
     }
@@ -413,16 +443,65 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             // what happens after the alert controller has finished presenting
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "albumSegue" {
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let track = queue.tracks[queue.playIndex + indexPath.row + 1]
+                let albumViewController = segue.destination as! AlbumViewController
+                albumViewController.track = track
+            }
+        }
+    }
+
 }
 
 
+extension CreateHomeViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let track = queue.tracks[queue.playIndex + indexPath.row + 1]
+        if orientation == .right {
+            let userId = self.user.id
+            let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
+                let updatedLikeState = !track.isLikedBy(userId: userId)
+                updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
+                self.queue.updateTracksToParse()
+                
+                let cell = tableView.cellForRow(at: indexPath) as! TrackCell
+                cell.setLiked(updatedLikeState, animated: true)
+            })
+            like.hidesWhenSelected = true
+            let descriptor = !track.isLikedBy(userId: userId) ? ActionDescriptor.like : ActionDescriptor.unlike
+            configure(action: like, with: descriptor)
 
-
-
-
-
-
-
-
+            return [like]
+        } else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
+        isSwiping = orientation == .right
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {
+        isSwiping = false
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = SwipeExpansionStyle.selection
+        return options
+    }
+    
+    func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+        action.title = descriptor.title()
+        action.image = descriptor.image()
+        //        action.backgroundColor = descriptor.color
+    }
+    
+    // MARK: - Navigation
+}
 
 

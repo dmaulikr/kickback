@@ -106,7 +106,6 @@ class APIManager {
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
         Alamofire.request(urlRequest).responseJSON { (response) in
             do {
-                print("inside request")
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
                     if let items = tracks["items"] as? [JSON] {
@@ -119,11 +118,161 @@ class APIManager {
                             dictionary["artists"] = item["artists"] as! [JSON]
                             dictionary["userId"] = user?.id
                             dictionary["uri"] = item["uri"]
-                            dictionary["duration_ms"] = item ["duration_ms"]
-            
+                            dictionary["likes"] = 0
+                            dictionary["likedByUsers"] = []
                             let track = Track(dictionary)
                             results.append(track)
                         }
+                    }
+                }
+                callback(results)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
+    func searchArtists(query: String, user: User?, callback: @escaping ([Artist]) -> Void) -> Void {
+        var results: [Artist] = []
+        let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeArtist, accessToken: session.accessToken)
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let artists = readableJSON["artists"] as? JSON {
+                    if let items = artists["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            dictionary["images"] = item["images"] as! [JSON]
+                            dictionary["userId"] = user?.id
+                            dictionary["uri"] = item["uri"]
+                            let artist = Artist(dictionary)
+                            results.append(artist)
+                        }
+                    }
+                }
+                callback(results)
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
+    func searchAlbums(query: String, user: User?, callback: @escaping ([Album]) -> Void) -> Void {
+        var results: [Album] = []
+        let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeAlbum, accessToken: session.accessToken)
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let albums = readableJSON["albums"] as? JSON {
+                    if let items = albums["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            dictionary["images"] =  item["images"] as! [JSON]
+                            dictionary["artists"] = item["artists"] as! [JSON]
+                            dictionary["userId"] = user?.id
+                            dictionary["uri"] = item["uri"]
+                            let album = Album(dictionary)
+                            results.append(album)
+                        }
+                    }
+                }
+                callback(results)
+
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
+    func getTracksInAlbum(albumURI: URL, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
+        var results: [Track] = []
+        let urlRequest = try! SPTAlbum.createRequest(forAlbum: albumURI, withAccessToken: session.accessToken, market: "US")
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as!                     [String: Any]
+                if let tracks = readableJSON["tracks"] as? JSON {
+                    if let items = tracks["items"] as? [JSON] {
+                        for i in 0..<items.count {
+                            let item = items[i]
+                            var dictionary: [String: Any] = [:]
+                            dictionary["id"] = item["id"]
+                            dictionary["name"] = item["name"]
+                            dictionary["album"] = readableJSON
+                            dictionary["artists"] = item["artists"] as! [JSON]
+                            dictionary["userId"] = user?.id
+                            dictionary["uri"] = item["uri"]
+                            dictionary["likes"] = 0
+                            dictionary["likedByUsers"] = []
+                            let track = Track(dictionary)
+                            results.append(track)
+                        }
+                    }
+                }
+                callback(results)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
+    
+    func getAlbumsByArtist(artistURI: URL, user: User?, callback: @escaping ([Album]) -> Void) -> Void {
+        var results: [Album] = []
+        let urlRequest = try! SPTArtist.createRequestForAlbums(byArtist: artistURI, of: SPTAlbumType.album, withAccessToken: session.accessToken, market: "US")
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let albums = readableJSON["items"] as? [[String: Any]] {
+                    for item in albums {
+                        var dictionary: [String: Any] = [:]
+                        dictionary["id"] = item["id"]
+                        dictionary["name"] = item["name"]
+                        dictionary["images"] =  item["images"] as! [JSON]
+                        dictionary["artists"] = item["artists"] as! [JSON]
+                        dictionary["userId"] = user?.id
+                        dictionary["uri"] = item["uri"]
+                        let album = Album(dictionary)
+                        results.append(album)
+                    }
+                }
+                callback(results)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        refreshToken()
+    }
+    
+    func getTopTracks(artistURI: URL, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
+        var results: [Track] = []
+        let urlRequest = try! SPTArtist.createRequestForTopTracks(forArtist: artistURI, withAccessToken: session.accessToken, market: "US")
+        Alamofire.request(urlRequest).responseJSON { (response) in
+            do {
+                var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
+                if let tracks = readableJSON["tracks"] as? [[String: Any]] {
+                    for item in tracks {
+                        var dictionary: [String: Any] = [:]
+                        dictionary["id"] = item["id"]
+                        dictionary["name"] = item["name"]
+                        dictionary["album"] =  item["album"] as! JSON
+                        dictionary["artists"] = item["artists"] as! [JSON]
+                        dictionary["userId"] = user?.id
+                        dictionary["uri"] = item["uri"]
+                        dictionary["likes"] = 0
+                        dictionary["likedByUsers"] = []
+                        let track = Track(dictionary)
+                        results.append(track)
                     }
                 }
                 callback(results)

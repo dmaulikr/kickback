@@ -9,9 +9,9 @@
 import Foundation
 import Parse
 
-class Track {
+class Track: Comparable {
     
-    // Properties
+    // Properties    
     var dictionary: [String: Any]
     
     var id: String {
@@ -62,18 +62,66 @@ class Track {
             dictionary["uri"] = uri
         }
     }
-    var durationMS: Int? {
+
+    var likedByUsers: [String] {
         get {
-            return  dictionary["duration_ms"] as? Int
+            return dictionary["likedByUsers"] as! [String]
         }
-        set (duration)
-        {
+      set (likedByUsers) {
+            dictionary["likedByUsers"] = likedByUsers
+        }
+    }
+
+     var durationMS: Int? {
+        set (duration){
              dictionary["duration_ms"] = durationMS
+          }
+     }
+    var likes: Int {
+        get {
+            return dictionary["likes"] as! Int
         }
-        
+        set (likes) {
+            dictionary["likes"] = likes
+        }
+    }
+    var addedAt: Date {
+        get {
+            return dictionary["addedAt"] as! Date
+        }
+        set (date) {
+            dictionary["addedAt"] = date
+        }
     }
     
     init(_ dictionary: [String: Any]) {
         self.dictionary = dictionary
+    }
+    
+    func like(userId: String) {
+        self.likes += 1
+        self.likedByUsers.append(userId)
+    }
+    
+    func unlike(userId: String) {
+        self.likes -= 1
+        let index = self.likedByUsers.index(of: userId)
+        self.likedByUsers.remove(at: index!)
+    }
+    
+    func isLikedBy(userId: String) -> Bool {
+        return self.likedByUsers.contains(userId)
+    }
+    
+    static func < (lhs: Track, rhs: Track) -> Bool {
+        if lhs.likes == rhs.likes {
+            return lhs.addedAt < rhs.addedAt
+        } else {
+            return lhs.likes > rhs.likes
+        }
+    }
+    
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        return lhs.id == rhs.id
     }
 }
