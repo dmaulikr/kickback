@@ -26,9 +26,17 @@
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
 		A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
+		DF0D51791F27A9110021D993 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D51781F27A9110021D993 /* AddFriendsViewController.swift */; };
+		DF0D517B1F27A9230021D993 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D517A1F27A9230021D993 /* ShareCell.swift */; };
+		DF0D517D1F27B1AE0021D993 /* QRPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D517C1F27B1AE0021D993 /* QRPopupViewController.swift */; };
 		DF156F961F200212005804E8 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF156F951F200212005804E8 /* QuickSort.swift */; };
 		DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */; };
+		DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4855091F27F5DB00CFACA2 /* UserCell.swift */; };
 		DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5F5CB91F208EB300BCE070 /* TrackCell.swift */; };
+		DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5AB9E1F293A39006A6A39 /* Invite.swift */; };
+		DFA5ABA31F2A40E9006A6A39 /* JoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */; };
+		DFA5ABA51F2A4345006A6A39 /* AccessCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */; };
+		DFA5ABA71F2A5302006A6A39 /* InviteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA5ABA61F2A5302006A6A39 /* InviteCell.swift */; };
 		DFB198691F14139000349AAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB198681F14139000349AAD /* AppDelegate.swift */; };
 		DFB1986E1F14139000349AAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986C1F14139000349AAD /* Main.storyboard */; };
 		DFB198701F14139000349AAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB1986F1F14139000349AAD /* Assets.xcassets */; };
@@ -87,6 +95,9 @@
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF0D51781F27A9110021D993 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		DF0D517A1F27A9230021D993 /* ShareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
+		DF0D517C1F27B1AE0021D993 /* QRPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRPopupViewController.swift; path = ../QRPopupViewController.swift; sourceTree = "<group>"; };
 		DF156F951F200212005804E8 /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
 		DF3056EC1F1E784100FD8AC5 /* HKGrotesk-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-Bold.otf"; path = "hk-grotesk/HKGrotesk-Bold.otf"; sourceTree = "<group>"; };
 		DF3056ED1F1E784100FD8AC5 /* HKGrotesk-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-BoldItalic.otf"; path = "hk-grotesk/HKGrotesk-BoldItalic.otf"; sourceTree = "<group>"; };
@@ -99,7 +110,12 @@
 		DF3056F41F1E784100FD8AC5 /* HKGrotesk-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBold.otf"; path = "hk-grotesk/HKGrotesk-SemiBold.otf"; sourceTree = "<group>"; };
 		DF3056F51F1E784100FD8AC5 /* HKGrotesk-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HKGrotesk-SemiBoldItalic.otf"; path = "hk-grotesk/HKGrotesk-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		DF4855091F27F5DB00CFACA2 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		DF5F5CB91F208EB300BCE070 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		DFA5AB9E1F293A39006A6A39 /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
+		DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinCell.swift; sourceTree = "<group>"; };
+		DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessCodeViewController.swift; sourceTree = "<group>"; };
+		DFA5ABA61F2A5302006A6A39 /* InviteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteCell.swift; sourceTree = "<group>"; };
 		DFB198651F14139000349AAD /* Kickback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kickback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB198681F14139000349AAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB1986D1F14139000349AAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +209,7 @@
 		A0BEF7F91F14277200CABCFA /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DF0D51781F27A9110021D993 /* AddFriendsViewController.swift */,
 				A0BEF7E51F14276700CABCFA /* AlbumViewController.swift */,
 				A0BEF7E61F14276700CABCFA /* ArtistViewController.swift */,
 				A0BEF7E71F14276700CABCFA /* CreateHomeViewController.swift */,
@@ -202,6 +219,8 @@
 				A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */,
 				A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */,
 				DFF2F1651F1FD39000B38EE1 /* ShareViewController.swift */,
+				DF0D517C1F27B1AE0021D993 /* QRPopupViewController.swift */,
+				DFA5ABA41F2A4345006A6A39 /* AccessCodeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -218,10 +237,12 @@
 		A0DB3C101F28022F008940D2 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				DFA5ABA21F2A40E9006A6A39 /* JoinCell.swift */,
 				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
 				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
 				A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */,
 				A0060A091F28749B006C5C6C /* ArtistResultCell.swift */,
+				DFA5ABA61F2A5302006A6A39 /* InviteCell.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -230,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				A0A568BF1F26C4AD005157CB /* AlbumCell.swift */,
+				DF0D517A1F27A9230021D993 /* ShareCell.swift */,
+				DF4855091F27F5DB00CFACA2 /* UserCell.swift */,
 			);
 			name = CollectionView;
 			sourceTree = "<group>";
@@ -324,6 +347,7 @@
 				DFC3C2A81F15483D0080DF88 /* Track.swift */,
 				DFC3C2AA1F1548430080DF88 /* Queue.swift */,
 				A0A568B91F26BBC9005157CB /* Album.swift */,
+				DFA5AB9E1F293A39006A6A39 /* Invite.swift */,
 				A0060A071F287304006C5C6C /* Artist.swift */,
 			);
 			name = Models;
@@ -614,19 +638,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */,
+				DF0D517D1F27B1AE0021D993 /* QRPopupViewController.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
 				A0A568BA1F26BBC9005157CB /* Album.swift in Sources */,
+				DFA5ABA31F2A40E9006A6A39 /* JoinCell.swift in Sources */,
 				A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
+				DFA5ABA51F2A4345006A6A39 /* AccessCodeViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
 				A0060A0A1F28749B006C5C6C /* ArtistResultCell.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
+				DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */,
 				A0A568C01F26C4AD005157CB /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
+				DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */,
 				A0060A081F287304006C5C6C /* Artist.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
+				DF0D517B1F27A9230021D993 /* ShareCell.swift in Sources */,
 				DFC3C2AB1F1548430080DF88 /* Queue.swift in Sources */,
 				DF5F5CBA1F208EB300BCE070 /* TrackCell.swift in Sources */,
 				A0BEF7F01F14276700CABCFA /* ArtistViewController.swift in Sources */,
@@ -634,8 +664,10 @@
 				DF156F961F200212005804E8 /* QuickSort.swift in Sources */,
 				A0BEF7F21F14276700CABCFA /* CreateViewController.swift in Sources */,
 				A0BEF7F31F14276700CABCFA /* WelcomeViewController.swift in Sources */,
+				DF0D51791F27A9110021D993 /* AddFriendsViewController.swift in Sources */,
 				DFC3C2A91F15483D0080DF88 /* Track.swift in Sources */,
 				DFF2F1661F1FD39000B38EE1 /* ShareViewController.swift in Sources */,
+				DFA5ABA71F2A5302006A6A39 /* InviteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

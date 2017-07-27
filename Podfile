@@ -12,6 +12,7 @@ target 'Kickback' do
   pod 'SwipeCellKit'
   pod 'QRCode'
   pod 'QRCodeReader.swift'
+  pod 'PopupDialog', '~> 0.5'
 
   target 'KickbackTests' do
     inherit! :search_paths
