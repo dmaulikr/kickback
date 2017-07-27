@@ -117,12 +117,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             
             if addedtoQueue[indexPath.row] == true {
                 // disable State Button
-                searchCell.addTrackButton.isSelected = true
                 searchCell.addTrackButton.isEnabled = false
                 
             } else {
                 // activate State Button
-                searchCell.addTrackButton.isSelected = false
                 searchCell.addTrackButton.isEnabled = true
             }
             cell = searchCell as SearchResultCell
