@@ -9,13 +9,14 @@
 import UIKit
 import QRCode
 import PopupDialog
+import Parse
 
 class ShareViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let members = Queue.current!.members
+    var members: [String]!
     let accessCode = Queue.current!.accessCode
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+        members = Queue.current!.members
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
@@ -47,10 +49,6 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: - Popup dialog
-    func onAddByUsername() {
-        let title = "Add friend by Spotify username"
-        
-    }
     
     func onShareQR() {
         let title = "Share QR Code"
@@ -98,8 +96,17 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
-        let member = members[indexPath.row]
-        cell.userId = member
+        let memberId = members[indexPath.row]
+        
+        cell.profileImage.layer.cornerRadius = cell.profileImage.frame.height / 2
+        cell.profileImage.layer.masksToBounds = false
+        cell.profileImage.clipsToBounds = true
+        let parseUser = try! PFQuery(className: "SPTUser").whereKey("id", equalTo: memberId).getFirstObject()
+        if let url = parseUser["profileImageURL"] {
+            cell.profileImage.af_setImage(withURL: URL(string: url as! String)!)
+        }
+        let name = parseUser["name"] as! String
+        cell.usernameLabel.text = name != "" ? name : parseUser["id"] as! String
         return cell
     }
     
