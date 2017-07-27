@@ -11,6 +11,8 @@
 		5939AA981F1EA8860093948D /* party.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5939AA971F1EA8860093948D /* party.gif */; };
 		5939AA9A1F1EAF200093948D /* Gif+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5939AA991F1EAF200093948D /* Gif+Swift.swift */; };
 		91A831D73881A40FE2295FDE /* Pods_Kickback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */; };
+		A0060A081F287304006C5C6C /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0060A071F287304006C5C6C /* Artist.swift */; };
+		A0060A0A1F28749B006C5C6C /* ArtistResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0060A091F28749B006C5C6C /* ArtistResultCell.swift */; };
 		A031975E1F154E85001ABBC7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A031975D1F154E85001ABBC7 /* APIManager.swift */; };
 		A0A568BA1F26BBC9005157CB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A568B91F26BBC9005157CB /* Album.swift */; };
 		A0A568C01F26C4AD005157CB /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A568BF1F26C4AD005157CB /* AlbumCell.swift */; };
@@ -22,6 +24,7 @@
 		A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */; };
 		A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */; };
 		A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */; };
+		A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */; };
 		D5BAD4DE79AE60DC3E28ADA9 /* Pods_KickbackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */; };
 		DF0D51791F27A9110021D993 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D51781F27A9110021D993 /* AddFriendsViewController.swift */; };
 		DF0D517B1F27A9230021D993 /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0D517A1F27A9230021D993 /* ShareCell.swift */; };
@@ -71,6 +74,8 @@
 		765E0EDE286EDF9BC2202D8C /* Pods-KickbackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackUITests/Pods-KickbackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78E389D0C38848D5B67328AE /* Pods-KickbackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FDF3E15AE4E0F6A52DD03BF /* Pods-KickbackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KickbackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KickbackTests/Pods-KickbackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0060A071F287304006C5C6C /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		A0060A091F28749B006C5C6C /* ArtistResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistResultCell.swift; sourceTree = "<group>"; };
 		A031975D1F154E85001ABBC7 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		A07557A1AAE2BF9EB7E27728 /* Pods_KickbackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0A568B91F26BBC9005157CB /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -83,6 +88,7 @@
 		A0BEF7EB1F14276700CABCFA /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A0BEF7EC1F14276700CABCFA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0BEF7ED1F14276700CABCFA /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumResultCell.swift; sourceTree = "<group>"; };
 		A9DC6BC8161D027F4ADCC162 /* Pods-Kickback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kickback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kickback/Pods-Kickback.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D0FE473E40C2487E6AF865 /* Pods_Kickback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kickback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB3CF4DA90311F9A70F227 /* Pods_KickbackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KickbackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,13 +221,31 @@
 		A0BEF7FA1F142B4B00CABCFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
+				A0DB3C111F28023F008940D2 /* CollectionView */,
+				A0DB3C101F28022F008940D2 /* TableView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A0DB3C101F28022F008940D2 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
 				DF5F5CB91F208EB300BCE070 /* TrackCell.swift */,
+				DF3056F61F1E7A3900FD8AC5 /* SearchResultCell.swift */,
+				A0DB3C0E1F28017C008940D2 /* AlbumResultCell.swift */,
+				A0060A091F28749B006C5C6C /* ArtistResultCell.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		A0DB3C111F28023F008940D2 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
 				A0A568BF1F26C4AD005157CB /* AlbumCell.swift */,
 				DF0D517A1F27A9230021D993 /* ShareCell.swift */,
 				DF4855091F27F5DB00CFACA2 /* UserCell.swift */,
 			);
-			name = Views;
+			name = CollectionView;
 			sourceTree = "<group>";
 		};
 		D83A39A17791AABD99499427 /* Pods */ = {
@@ -315,6 +339,7 @@
 				DFC3C2AA1F1548430080DF88 /* Queue.swift */,
 				A0A568B91F26BBC9005157CB /* Album.swift */,
 				DFA5AB9E1F293A39006A6A39 /* Invite.swift */,
+				A0060A071F287304006C5C6C /* Artist.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -396,7 +421,7 @@
 				TargetAttributes = {
 					DFB198641F14139000349AAD = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = SMV55D92WY;
+						DevelopmentTeam = SBJXS787V3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -607,14 +632,17 @@
 				DF0D517D1F27B1AE0021D993 /* QRPopupViewController.swift in Sources */,
 				DFC3C2A71F1548380080DF88 /* User.swift in Sources */,
 				A0A568BA1F26BBC9005157CB /* Album.swift in Sources */,
+				A0DB3C0F1F28017C008940D2 /* AlbumResultCell.swift in Sources */,
 				A0BEF7F71F14276700CABCFA /* SearchViewController.swift in Sources */,
 				A0BEF7F61F14276700CABCFA /* LoginViewController.swift in Sources */,
 				A0BEF7EF1F14276700CABCFA /* AlbumViewController.swift in Sources */,
+				A0060A0A1F28749B006C5C6C /* ArtistResultCell.swift in Sources */,
 				DF3056F71F1E7A3900FD8AC5 /* SearchResultCell.swift in Sources */,
 				DF48550A1F27F5DB00CFACA2 /* UserCell.swift in Sources */,
 				A0A568C01F26C4AD005157CB /* AlbumCell.swift in Sources */,
 				A0BEF7F11F14276700CABCFA /* CreateHomeViewController.swift in Sources */,
 				DFA5AB9F1F293A39006A6A39 /* Invite.swift in Sources */,
+				A0060A081F287304006C5C6C /* Artist.swift in Sources */,
 				DFB198691F14139000349AAD /* AppDelegate.swift in Sources */,
 				A0BEF7F51F14276700CABCFA /* JoinViewController.swift in Sources */,
 				DF0D517B1F27A9230021D993 /* ShareCell.swift in Sources */,
@@ -783,7 +811,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = SBJXS787V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",
@@ -804,7 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = SMV55D92WY;
+				DEVELOPMENT_TEAM = SBJXS787V3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Kickback",

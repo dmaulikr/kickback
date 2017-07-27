@@ -17,6 +17,9 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var collectionView: UICollectionView!
     
     var track: Track!
+    var artist: Artist!
+    var album: Album!
+    
     var topTracks: [Track] = []
     var albums: [Album] = []
     
@@ -28,14 +31,26 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         
         collectionView.dataSource = self
         collectionView.delegate = self
+      
+        if album != nil {
+            var dictionary: [String: Any] = [:]
+            dictionary["id"] = album.artists[0]["id"]
+            dictionary["name"] = album.artists[0]["name"]
+            dictionary["images"] = album.images
+            dictionary["userId"] = User.current?.id
+            dictionary["uri"] = album.artists[0]["uri"]
+            artist = Artist(dictionary)
+        }
         
-        let imageDictionary = track.album["images"] as! [[String: Any]]
-        let url = URL(string: imageDictionary[0]["url"] as! String)
-        backgroundImageView.af_setImage(withURL: url!)
+        if !artist.images.isEmpty {
+            let imageDictionary = artist.images[0]["url"]
+            let url = URL(string: imageDictionary as! String)
+            backgroundImageView.af_setImage(withURL: url!)
+        }
         
-        nameLabel.text = track.artists[0]["name"] as! String
+        nameLabel.text = artist.name
         
-        let artistURI = track.artists[0]["uri"] as! String
+        let artistURI = artist.uri
         APIManager.current?.getTopTracks(artistURI: URL(string: artistURI)!, user: User.current, callback: { (topTracks) in
             self.topTracks = topTracks
             self.tableView.reloadData()
@@ -58,7 +73,7 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         cell.track = topTracks[indexPath.row]
         cell.backgroundColor = UIColor.clear
         return cell
@@ -77,14 +92,13 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     }
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "albumSegue" {
-            let cell = sender as! UICollectionViewCell
-            if let indexPath = collectionView.indexPath(for: cell) {
-                let album = albums[indexPath.row]
-                let albumViewController = segue.destination as! AlbumViewController
-                albumViewController.album = album
-                albumViewController.track = track
-            }
+        let cell = sender as! UICollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let album = albums[indexPath.item]
+            let albumViewController = segue.destination as! AlbumViewController
+            albumViewController.album = album
+            albumViewController.track = track
         }
     }
 }
+

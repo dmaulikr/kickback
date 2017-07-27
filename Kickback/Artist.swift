@@ -1,15 +1,15 @@
 //
-//  Album.swift
+//  Artist.swift
 //  Kickback
 //
-//  Created by Daniel Afolabi on 7/21/17.
+//  Created by Daniel Afolabi on 7/25/17.
 //  Copyright © 2017 FBU. All rights reserved.
 //
 
 import Foundation
 import Parse
 
-class Album {
+class Artist {
     
     // Properties
     var dictionary: [String: Any]
@@ -36,15 +36,6 @@ class Album {
         }
         set (album) {
             dictionary["images"] = album
-        }
-    }
-    
-    var artists: [[String: Any]] {
-        get {
-            return dictionary["artists"] as! [[String: Any]]
-        }
-        set (artists) {
-            dictionary["artists"] = artists
         }
     }
     var userId: String? {
