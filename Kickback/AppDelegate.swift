@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var auth = SPTAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         auth.redirectURL = URL(string: "Kickback://returnAfterLogin")
         auth.sessionUserDefaultsKey = "current session"
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://kickback.herokuapp.com/parse"
             })
         )
-        
+
         // Check for signed in user
         if let user = User.current {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -56,6 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Customize navigation bar
+        let navAppearance = UINavigationBar.appearance()
+        navAppearance.tintColor = UIColor.clear
+        navAppearance.barTintColor = UIColor.white
+        navAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
     
@@ -67,12 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             auth.handleAuthCallback(withTriggeredAuthURL: url, callback: { (error, session) in
                 // 4- handle error
                 if error != nil {
-                    print(error?.localizedDescription)
+                    print(error!.localizedDescription)
                     return
                 }
                 // 5- Add session to User Defaults
                 let userDefaults = UserDefaults.standard
-                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session)
+                let sessionData = NSKeyedArchiver.archivedData(withRootObject: session!)
                 userDefaults.set(sessionData, forKey: "currentSPTSession")
                 userDefaults.synchronize()
                 // 6 - Set current user
