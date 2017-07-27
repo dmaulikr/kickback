@@ -62,14 +62,21 @@ class Track: Comparable {
             dictionary["uri"] = uri
         }
     }
+
     var likedByUsers: [String] {
         get {
             return dictionary["likedByUsers"] as! [String]
         }
-        set (likedByUsers) {
+      set (likedByUsers) {
             dictionary["likedByUsers"] = likedByUsers
         }
     }
+
+     var durationMS: Int? {
+        set (duration){
+             dictionary["duration_ms"] = durationMS
+          }
+     }
     var likes: Int {
         get {
             return dictionary["likes"] as! Int
