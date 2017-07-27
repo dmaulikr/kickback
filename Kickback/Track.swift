@@ -11,7 +11,7 @@ import Parse
 
 class Track: Comparable {
     
-    // Properties
+    // Properties    
     var dictionary: [String: Any]
     
     var id: String {

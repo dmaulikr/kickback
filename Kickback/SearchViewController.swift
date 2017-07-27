@@ -22,6 +22,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var artists: [Artist] = []
     var albums: [Album] = []
     
+    var addedtoQueue: [Bool]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +93,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
+            addedtoQueue = [Bool](repeating: false, count: tracks.count)
             return tracks.count
         case 1:
             return artists.count
@@ -100,18 +103,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             return 0
         }
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell = UITableViewCell()
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             searchCell.track = tracks[indexPath.row]
+            
+            searchCell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                                for: UIControlEvents.touchUpInside)
+            searchCell.addTrackButton.tag = indexPath.row
+            
+            if addedtoQueue[indexPath.row] == true {
+                // disable State Button
+                searchCell.addTrackButton.isSelected = true
+                searchCell.addTrackButton.isEnabled = false
+                
+            } else {
+                // activate State Button
+                searchCell.addTrackButton.isSelected = false
+                searchCell.addTrackButton.isEnabled = true
+            }
             cell = searchCell as SearchResultCell
         case 1:
             let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
@@ -129,6 +142,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    func buttonAction(sender:UIButton!) {
+        let index = sender.tag
+        if addedtoQueue[index] == false {
+            addedtoQueue[index] = true
+        }
+    }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
@@ -184,7 +203,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         segmentedControlBorder(sender: sender)
-        
         if !searchText.characters.isEmpty {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
