@@ -123,7 +123,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func screenTapped(_ sender: Any) {
-        print ("count is \(count)")
             count = 0
 //            fades in
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
@@ -305,7 +304,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     func updateTimer() {
         let tracks = queue.tracks
         count = count + 1
-        print(count)
         if count >= 4{
             UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.timerLabel.alpha = 0.0
