@@ -10,10 +10,6 @@ import UIKit
 
 class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var currentTrackImageView: UIImageView!
-    @IBOutlet weak var currentTrackNameLabel: UILabel!
-    @IBOutlet weak var currentTrackArtistNameLabel: UILabel!
-    
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var artistNameButton: UIButton!
@@ -23,6 +19,8 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     var album: Album!
     var track: Track!
     var tracks: [Track] = []
+    
+    var addedtoQueue: [Bool]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +37,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
             dictionary["userId"] = User.current?.id
             dictionary["uri"] = track.album["uri"]
             album = Album(dictionary)
-
-            // Setting up the current track
-            currentTrackNameLabel.text = track.name
-            let artists = track.artists
-            var artistNames: [String] = []
-            for i in 0..<artists.count {
-                let name = artists[i]["name"] as! String
-                artistNames.append(name)
-            }
-            currentTrackArtistNameLabel.text = artistNames.joined(separator: ", ")
-        } else {
-            currentTrackImageView.isHidden = true
-            currentTrackNameLabel.isHidden = true
-            currentTrackArtistNameLabel.isHidden = true
         }
         
         // Setting up the album title
@@ -64,7 +48,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let imageDictionary = album.images
         let url = URL(string: imageDictionary[0]["url"] as! String)
         profileImageView.af_setImage(withURL: url!)
-        currentTrackImageView.af_setImage(withURL: url!)
         
         // Setting up the album image
         let albumURI = album.uri
@@ -80,24 +63,93 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        addedtoQueue = [Bool](repeating: false, count: tracks.count)
+        if track == nil {
+            return tracks.count
+        }
         return tracks.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        
-        self.tracks = tracks.filter({ (dictionary) -> Bool in
-            if let value = dictionary.name as? String {
-                return value != currentTrackNameLabel.text
+        if track == nil {
+            cell.track = self.tracks[indexPath.row]
+            cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                          for: UIControlEvents.touchUpInside)
+            cell.addTrackButton.tag = indexPath.row
+            
+            // Reset the reuse cell
+            cell.nameLabel.textColor = UIColor.white
+            cell.albumImageView.layer.borderWidth = 1
+            cell.addTrackButton.isHidden = false
+            
+            if addedtoQueue[indexPath.row] == true {
+                // disable State Button
+                cell.addTrackButton.isEnabled = false
+                
+            } else {
+                // activate State Button
+                cell.addTrackButton.isEnabled = true
             }
-            return false
-        })
-        
-        cell.track = self.tracks[indexPath.row]
-        cell.backgroundColor = UIColor.clear
+        } else {
+            if indexPath.row == 0 {
+                // Setting up the current track
+                cell.nameLabel.text = track.name
+                cell.nameLabel.textColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
+                let artists = track.artists
+                var artistNames: [String] = []
+                for i in 0..<artists.count {
+                    let name = artists[i]["name"] as! String
+                    artistNames.append(name)
+                }
+                cell.artistsLabel.text = artistNames.joined(separator: ", ")
+                
+                // Setting up the album picture
+                let imageDictionary = album.images
+                let url = URL(string: imageDictionary[0]["url"] as! String)
+                profileImageView.af_setImage(withURL: url!)
+                cell.albumImageView.af_setImage(withURL: url!)
+                cell.albumImageView.layer.borderWidth = 0
+                
+                cell.addTrackButton.isHidden = true
+                cell.addTrackButton.isEnabled = false
+                
+            } else {
+                self.tracks = tracks.filter({ (dictionary) -> Bool in
+                    if let value = dictionary.name as? String {
+                        return value != track.name
+                    }
+                    return false
+                })
+                cell.track = self.tracks[indexPath.row]
+                cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                              for: UIControlEvents.touchUpInside)
+                cell.addTrackButton.tag = indexPath.row
+                
+                // Reset the reuse cell
+                cell.nameLabel.textColor = UIColor.white
+                cell.albumImageView.layer.borderWidth = 1
+                cell.addTrackButton.isHidden = false
+                
+                if addedtoQueue[indexPath.row] == true {
+                    // disable State Button
+                    cell.addTrackButton.isEnabled = false
+                    
+                } else {
+                    // activate State Button
+                    cell.addTrackButton.isEnabled = true
+                }
+            }
+        }
         return cell
     }
     
+    func buttonAction(sender:UIButton!) {
+        let index = sender.tag
+        if addedtoQueue[index] == false {
+            addedtoQueue[index] = true
+        }
+    }
     
     // MARK: - Navigation
     
