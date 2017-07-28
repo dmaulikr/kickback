@@ -57,6 +57,14 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // Set up black navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.black
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
