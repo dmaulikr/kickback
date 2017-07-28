@@ -88,7 +88,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor.clear
-//        
+    
+//
 //        self.queue = Queue.current
 //        self.user = User.current
 //        
@@ -140,6 +141,32 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     // MARK: - Table view
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Set a sticky button for the table view
+        let view = UIView()
+        
+        // Set up Add to Playlist Button
+        let button = UIButton()
+        button.setTitle("Add to Playlist", for: .normal)
+        button.titleLabel?.font =  UIFont.systemFont(ofSize: 20)
+//        UIFont(size: 20.0)
+        button.frame = CGRect(x: 78, y: 10, width: 219, height: 45)
+        button.backgroundColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
+        button.layer.cornerRadius = button.frame.width * 0.10
+        button.layer.masksToBounds = true
+        view.addSubview(button)
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if queue.tracks.count <= 1 {
