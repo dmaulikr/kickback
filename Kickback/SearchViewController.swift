@@ -126,12 +126,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             cell = searchCell as SearchResultCell
         case 1:
             let artistCell = tableView.dequeueReusableCell(withIdentifier: "ArtistResultCell", for: indexPath) as! ArtistResultCell
-            artistCell.artistCellButton.tag = indexPath.row
             artistCell.artist = artists[indexPath.row]
             cell = artistCell as ArtistResultCell
         case 2:
             let albumCell = tableView.dequeueReusableCell(withIdentifier: "AlbumResultCell", for: indexPath) as! AlbumResultCell
-            albumCell.albumCellButton.tag = indexPath.row
             albumCell.album = albums[indexPath.row]
             cell = albumCell as AlbumResultCell
         default:
@@ -250,16 +248,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "albumSegue" {
-            let button = sender as! UIButton
-            let album = albums[button.tag]
-            let albumViewController = segue.destination as! AlbumViewController
-            albumViewController.album = album
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let album = albums[indexPath.row]
+                let albumViewController = segue.destination as! AlbumViewController
+                albumViewController.album = album
+            }
         }
         if segue.identifier == "artistSegue" {
-            let button = sender as! UIButton
-            let artist = artists[button.tag]
-            let artistViewController = segue.destination as! ArtistViewController
-            artistViewController.artist = artist
+            let cell = sender as! UITableViewCell
+            if let indexPath = tableView.indexPath(for: cell) {
+                let artist = artists[indexPath.row]
+                let artistViewController = segue.destination as! ArtistViewController
+                artistViewController.artist = artist
+            }
         }
     }
 }

@@ -13,9 +13,7 @@ class AlbumResultCell: UITableViewCell {
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
-    
-    @IBOutlet weak var albumCellButton: UIButton!
-    
+        
     var album: Album! {
         didSet {
             // Setting up the album title

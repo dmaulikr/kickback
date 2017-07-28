@@ -844,9 +844,6 @@
                                                     </constraints>
                                                     <state key="normal" image="chevron-right"/>
                                                     <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <segue destination="xAy-2L-Ru3" kind="show" identifier="artistSegue" id="kCQ-6s-swq"/>
-                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VhJ-kt-FZS">
                                                     <rect key="frame" x="12" y="12" width="75" height="75"/>
@@ -875,9 +872,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="artistCellButton" destination="AaS-eB-Q74" id="5zv-FD-fHJ"/>
                                             <outlet property="artistImageView" destination="VhJ-kt-FZS" id="X2u-Ua-wyG"/>
                                             <outlet property="artistNameLabel" destination="9zp-Np-C3i" id="yhe-53-in4"/>
+                                            <segue destination="xAy-2L-Ru3" kind="show" identifier="artistSegue" id="7GT-5Z-IBe"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AlbumResultCell" rowHeight="105" id="LpK-88-rk1" customClass="AlbumResultCell" customModule="Kickback" customModuleProvider="target">
@@ -914,9 +911,6 @@
                                                     </constraints>
                                                     <state key="normal" image="chevron-right"/>
                                                     <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <segue destination="lhz-Bd-K6e" kind="show" identifier="albumSegue" id="Y6U-tn-9TH"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -935,10 +929,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="albumCellButton" destination="Er9-tJ-wgo" id="PjC-K2-0pU"/>
                                             <outlet property="albumImageView" destination="x3Y-9P-o5O" id="lat-LN-f7B"/>
                                             <outlet property="albumNameLabel" destination="a9x-Hz-Sc9" id="AbY-pE-20Z"/>
                                             <outlet property="artistNameLabel" destination="Ngj-WC-Px4" id="lmh-n5-xTW"/>
+                                            <segue destination="lhz-Bd-K6e" kind="show" identifier="albumSegue" id="A1y-NO-BJJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -989,7 +983,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbk-Hi-Bgw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9Sf-iI-lsU">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="9Sf-iI-lsU">
                     <connections>
                         <action selector="onTapView:" destination="YV5-Ya-KJv" id="BiA-ZG-2Rk"/>
                     </connections>
@@ -1366,7 +1360,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2mk-Ym-smz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1400,8 +1399,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="nhZ-av-Lie"/>
-        <segue reference="kCQ-6s-swq"/>
-        <segue reference="Y6U-tn-9TH"/>
+        <segue reference="A1y-NO-BJJ"/>
+        <segue reference="7GT-5Z-IBe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
