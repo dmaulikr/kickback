@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Login Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="8sE-a6-jcy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="8sE-a6-jcy">
                                 <rect key="frame" x="0.0" y="314" width="375" height="353"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -95,7 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Join Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="qV7-Er-Qi2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="join-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="qV7-Er-Qi2">
                                 <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -150,16 +150,11 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="LDR-pg-QeX">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="0yy-hg-QY9">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MVu-d9-i4U">
-                                <rect key="frame" x="16" y="11" width="77" height="22"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="PPp-PF-aVw">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ygp-nb-SJo">
+                                <rect key="frame" x="16" y="7" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="log-out">
-                                    <color key="titleColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapLogout:" destination="5To-Vg-COi" eventType="touchUpInside" id="IFa-K7-vPs"/>
-                                </connections>
+                                <state key="normal" image="logout"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -190,7 +185,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Join Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Gv-Wlv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="join-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Gv-Wlv">
                                 <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -201,10 +196,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Join Image" translatesAutoresizingMaskIntoConstraints="NO" id="Uuw-Lb-x3m">
-                                <rect key="frame" x="0.0" y="66" width="375" height="225"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYZ-Eg-oLF">
                                 <rect key="frame" x="16" y="309" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -250,11 +241,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Xf5-1j-bfT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Xf5-1j-bfT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Play Controls Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="m4v-EX-Pif">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play-controls-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="m4v-EX-Pif">
                                 <rect key="frame" x="-1" y="539" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -304,13 +295,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqb-pI-OtI">
-                                            <rect key="frame" x="12" y="204" width="351" height="21"/>
+                                            <rect key="frame" x="12" y="204" width="351" height="20"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="17"/>
                                             <color key="textColor" red="0.98824346070000002" green="0.98822498319999996" blue="0.98823750020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxF-2I-HSl">
-                                            <rect key="frame" x="12" y="237" width="351" height="16"/>
+                                            <rect key="frame" x="12" y="236" width="351" height="16"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -418,7 +409,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="OAC-xS-Zdp">
-                        <barButtonItem key="leftBarButtonItem" image="log-out" id="0aO-6r-yZ3">
+                        <barButtonItem key="leftBarButtonItem" image="logout" id="0aO-6r-yZ3">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onTapLeave:" destination="3dT-Bj-TZH" id="fvC-dC-uaT"/>
@@ -469,8 +460,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="itr-ZT-0J4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="itr-ZT-0J4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="390"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-gT-ejJ">
@@ -594,7 +585,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Join Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="I4S-oJ-GvL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="join-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="I4S-oJ-GvL">
                                 <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -820,7 +811,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="NdD-Ld-hRC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="search-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="NdD-Ld-hRC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1089,8 +1080,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-Q9-K0k">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="home-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="vfv-Q9-K0k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2VO-0a-wTL">
@@ -1127,7 +1118,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="textView" destination="2VO-0a-wTL" id="vna-Dx-lk3"/>
@@ -1286,7 +1277,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Join Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="lQO-0W-cpF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="join-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="lQO-0W-cpF">
                                 <rect key="frame" x="0.0" y="337" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1397,7 +1388,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1415,7 +1406,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1433,7 +1424,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yvr-C4-7g7" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2mk-Ym-smz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2mk-Ym-smz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1454,23 +1445,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Empty Album" width="220" height="220"/>
-        <image name="Home Gradient" width="375" height="381"/>
-        <image name="Join Gradient" width="375" height="48"/>
-        <image name="Join Image" width="375" height="255"/>
-        <image name="Login Gradient" width="375" height="385"/>
-        <image name="Play Controls Gradient" width="375" height="64"/>
-        <image name="Search" width="375" height="90"/>
-        <image name="check" width="18" height="13"/>
-        <image name="chevron-right" width="8" height="14"/>
-        <image name="log-out" width="20" height="22"/>
-        <image name="pause-circle" width="22" height="22"/>
-        <image name="play-circle" width="22" height="22"/>
-        <image name="plus" width="16" height="16"/>
-        <image name="skip-back" width="16" height="18"/>
-        <image name="skip-forward" width="16" height="18"/>
-        <image name="user-plus" width="24" height="20"/>
-        <image name="x" width="14" height="14"/>
+        <image name="Empty Album" width="16" height="16"/>
+        <image name="check" width="100" height="100"/>
+        <image name="chevron-right" width="100" height="100"/>
+        <image name="home-gradient" width="375" height="381"/>
+        <image name="join-gradient" width="375" height="48"/>
+        <image name="login-gradient" width="375" height="385"/>
+        <image name="logout" width="100" height="100"/>
+        <image name="pause-circle" width="100" height="100"/>
+        <image name="play-circle" width="100" height="100"/>
+        <image name="play-controls-gradient" width="375" height="64"/>
+        <image name="plus" width="100" height="100"/>
+        <image name="search-gradient" width="187" height="45"/>
+        <image name="skip-back" width="100" height="100"/>
+        <image name="skip-forward" width="100" height="100"/>
+        <image name="user-plus" width="100" height="100"/>
+        <image name="x" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="noR-SQ-Xsn"/>
