@@ -619,27 +619,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-ZJ-5jv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-ZJ-5jv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="w5t-ZJ-5jv" secondAttribute="height" multiplier="16:9" id="tlT-tI-Uob"/>
+                                                <constraint firstAttribute="width" secondItem="w5t-ZJ-5jv" secondAttribute="height" multiplier="15:7" id="tlT-tI-Uob"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
-                                            <rect key="frame" x="12" y="223" width="351" height="31"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
+                                            <rect key="frame" x="12" y="187" width="351" height="30.5"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-iP-KS4">
-                                            <rect key="frame" x="12" y="272" width="56.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-iP-KS4">
+                                            <rect key="frame" x="12" y="273" width="56.5" height="20"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="YR8-iP-KS4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I74-sQ-wAH" secondAttribute="bottom" constant="25" id="4c2-XJ-EFY"/>
+                                        <constraint firstItem="YR8-iP-KS4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I74-sQ-wAH" secondAttribute="bottom" constant="12" id="4c2-XJ-EFY"/>
                                         <constraint firstItem="w5t-ZJ-5jv" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" id="6Yj-bH-DDe"/>
                                         <constraint firstItem="I74-sQ-wAH" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" constant="12" id="7E1-VK-4Ei"/>
                                         <constraint firstItem="YR8-iP-KS4" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" constant="12" id="BQR-ju-OjE"/>
@@ -1436,10 +1436,10 @@
         <image name="x" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="noR-SQ-Xsn"/>
         <segue reference="nhZ-av-Lie"/>
-        <segue reference="7GT-5Z-IBe"/>
+        <segue reference="noR-SQ-Xsn"/>
         <segue reference="vTg-yr-bTs"/>
+        <segue reference="Owa-LJ-ftL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
