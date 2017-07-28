@@ -20,7 +20,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addToPlaylistButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     var indexProgressBar = 0.00
     var currentPoseIndex = 0.00
@@ -58,11 +57,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         // Set up timer
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
-        
-        // Set up Add to Playlist Button
-        addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
-        addToPlaylistButton.layer.masksToBounds = true
-//        
+            
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
@@ -153,19 +148,23 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Set up Add to Playlist Button
         let button = UIButton()
         button.setTitle("Add to Playlist", for: .normal)
-        button.titleLabel?.font =  UIFont.systemFont(ofSize: 20)
-//        UIFont(size: 20.0)
+        button.titleLabel?.font =  UIFont.systemFont(ofSize: 19)
         button.frame = CGRect(x: 78, y: 10, width: 219, height: 45)
         button.backgroundColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
         button.layer.cornerRadius = button.frame.width * 0.10
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                            for: UIControlEvents.touchUpInside)
         view.addSubview(button)
-        
         return view
     }
     
+    func buttonAction(sender: UIButton!) {
+        performSegue(withIdentifier: "searchSegue", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 45
+        return 57
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
