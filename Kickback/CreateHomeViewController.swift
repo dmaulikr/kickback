@@ -20,6 +20,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playControlsGradientImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     var indexProgressBar = 0.00
     var currentPoseIndex = 0.00
@@ -61,6 +62,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
+        playControlsGradientImageView.isHidden = !isOwner
         playButton.isHidden = !isOwner
         nextButton.isHidden = !isOwner
         rewindButton.isHidden = !isOwner
@@ -296,6 +298,29 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
     }
     
+    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load next track
+            let tracks = queue.tracks
+            let playIndex = queue.playIndex
+            if playIndex < tracks.count - 1 {
+                didTapNext(Any)
+            }
+        }
+    }
+    
+    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load previous track
+            let playIndex = queue.playIndex
+            if playIndex > 0 {
+                didTapRewind(Any)
+            }
+        }
+    }
+    
     
     
     @IBAction func didTapRewind(_ sender: Any) {
@@ -438,8 +463,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         indexProgressBar += 1
 
     }
-    
-    
     
     func printError(_ error: Error?) {
         if let error = error {
