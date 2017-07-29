@@ -296,6 +296,29 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
     }
     
+    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load next track
+            let tracks = queue.tracks
+            let playIndex = queue.playIndex
+            if playIndex < tracks.count - 1 {
+                didTapNext(Any)
+            }
+        }
+    }
+    
+    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load previous track
+            let playIndex = queue.playIndex
+            if playIndex > 0 {
+                didTapRewind(Any)
+            }
+        }
+    }
+    
     
     
     @IBAction func didTapRewind(_ sender: Any) {
@@ -438,8 +461,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         indexProgressBar += 1
 
     }
-    
-    
     
     func printError(_ error: Error?) {
         if let error = error {
