@@ -20,6 +20,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var artistsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var playControlsGradientImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     var indexProgressBar = 0.00
     var currentPoseIndex = 0.00
@@ -61,6 +62,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
+        playControlsGradientImageView.isHidden = !isOwner
         playButton.isHidden = !isOwner
         nextButton.isHidden = !isOwner
         rewindButton.isHidden = !isOwner

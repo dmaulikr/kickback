@@ -288,7 +288,7 @@
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Album" translatesAutoresizingMaskIntoConstraints="NO" id="WEv-9j-C4p" userLabel="currentSongImage">
-                                            <rect key="frame" x="94" y="12" width="180" height="180"/>
+                                            <rect key="frame" x="98" y="12" width="180" height="180"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="180" id="IDp-k0-zch"/>
                                                 <constraint firstAttribute="width" constant="180" id="cJO-Xr-Rvo"/>
@@ -310,7 +310,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <gestureRecognizers/>
                                     <constraints>
-                                        <constraint firstItem="WEv-9j-C4p" firstAttribute="centerX" secondItem="Jcs-zv-3uV" secondAttribute="centerX" constant="-3.5" id="GXg-SV-F2r"/>
+                                        <constraint firstItem="WEv-9j-C4p" firstAttribute="centerX" secondItem="Jcs-zv-3uV" secondAttribute="centerX" id="GXg-SV-F2r"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JxF-2I-HSl" secondAttribute="bottom" constant="12" id="K4c-6y-68o"/>
                                         <constraint firstItem="Uzq-tB-MCD" firstAttribute="centerY" secondItem="RlV-kN-mUO" secondAttribute="centerY" id="Kxe-bj-2Pc"/>
                                         <constraint firstItem="WEv-9j-C4p" firstAttribute="centerY" secondItem="RlV-kN-mUO" secondAttribute="centerY" id="LeA-h3-cV8"/>
@@ -433,6 +433,7 @@
                         <outlet property="nextButton" destination="VZe-bt-bDL" id="Esp-KW-WJr"/>
                         <outlet property="nextSongImageView" destination="Uzq-tB-MCD" id="Dd2-W5-uAk"/>
                         <outlet property="playButton" destination="9Zn-yK-VIr" id="TwI-fF-Y4V"/>
+                        <outlet property="playControlsGradientImageView" destination="m4v-EX-Pif" id="r3N-pO-m1g"/>
                         <outlet property="previousSongImageView" destination="RlV-kN-mUO" id="4gT-Ps-W0k"/>
                         <outlet property="progressBar" destination="Ec2-QP-euw" id="l8b-bF-WY0"/>
                         <outlet property="rewindButton" destination="zcE-Nv-ow9" id="6TH-Qs-mj5"/>
