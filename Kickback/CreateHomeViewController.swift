@@ -303,7 +303,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load next track
-            didTapNext(Any)
         }
     }
     
@@ -311,6 +310,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load previous track
+
             didTapRewind(Any)
         }
     }
