@@ -220,7 +220,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: Selector(("updateTimer")), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
         let tracks = queue.tracks
 
         if !tracks.isEmpty {
@@ -230,6 +230,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 queue.incrementPlayIndex()
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
+                self.fullTrackDuration = track.durationMS! / 1000
                 indexProgressBar = 0
                  player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
@@ -286,6 +287,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
                 indexProgressBar = 0
+                self.fullTrackDuration = track.durationMS! / 1000
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 renderTracks()
             }
@@ -321,10 +323,11 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
+
         }else{
         trackDuration = trackDuration - 1
         //this makes the progress bar increase.
-            if indexProgressBar == Double(fullTrackDuration)
+                       if indexProgressBar == Double(fullTrackDuration)
             {
                 getNextPoseData()
                 
@@ -338,6 +341,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                         queue.incrementPlayIndex()
                         let track = queue.tracks[queue.playIndex]
                         self.trackDuration = track.durationMS! / 1000
+                        self.fullTrackDuration = track.durationMS! / 1000
                         player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                         tableView.reloadData()
                         loadAlbumDisplays()
