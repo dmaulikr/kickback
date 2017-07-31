@@ -300,19 +300,19 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
-//        let isOwner = queue.ownerId == user.id
-//        if isOwner {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
             // Load next track
             didTapNext(Any)
-//        }
+        }
     }
     
     @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
-//        let isOwner = queue.ownerId == user.id
-//        if isOwner {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
             // Load previous track
             didTapRewind(Any)
-//        }
+        }
     }
     
     
