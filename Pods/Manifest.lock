@@ -3,6 +3,7 @@ PODS:
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - Bolts/Tasks (1.8.4)
+  - MarqueeLabel/Swift (3.1.0)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
   - PopupDialog (0.5.4)
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage
+  - MarqueeLabel/Swift
   - Parse
   - PopupDialog (~> 0.5)
   - QRCode
@@ -23,12 +25,13 @@ SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  MarqueeLabel: 061d04687ee5485ac035b45c8e292274a87afe01
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
   SwipeCellKit: 893661973276ae3512a84ac0a47055923b10731e
 
-PODFILE CHECKSUM: 684a5c21899e516abba23dfa9d22d1804e394bcd
+PODFILE CHECKSUM: fa484b5f1a0c67596bce65e30b68c3b23c5f90ed
 
 COCOAPODS: 1.2.1

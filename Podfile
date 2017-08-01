@@ -13,6 +13,7 @@ target 'Kickback' do
   pod 'QRCode'
   pod 'QRCodeReader.swift'
   pod 'PopupDialog', '~> 0.5'
+  pod 'MarqueeLabel/Swift'
 
   target 'KickbackTests' do
     inherit! :search_paths
