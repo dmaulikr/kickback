@@ -287,13 +287,16 @@
                                                 <constraint firstAttribute="height" constant="150" id="qrB-gq-bpp"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Album" translatesAutoresizingMaskIntoConstraints="NO" id="WEv-9j-C4p" userLabel="currentSongImage">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Empty Album" translatesAutoresizingMaskIntoConstraints="NO" id="WEv-9j-C4p" userLabel="currentSongImage">
                                             <rect key="frame" x="98" y="12" width="180" height="180"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="180" id="IDp-k0-zch"/>
                                                 <constraint firstAttribute="width" constant="180" id="cJO-Xr-Rvo"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="FRE-cW-NNx" appends="YES" id="i28-c2-N2V"/>
+                                            </connections>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvS-47-yw3">
                                             <rect key="frame" x="12" y="204" width="351" height="33"/>
@@ -315,26 +318,16 @@
                                                 <segue destination="xAy-2L-Ru3" kind="show" identifier="artistSegue" id="0Al-fi-zLR"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uL-OT-ahu">
-                                            <rect key="frame" x="98" y="12" width="180" height="180"/>
-                                            <connections>
-                                                <action selector="didTapMainAlbumCover:" destination="3dT-Bj-TZH" eventType="touchUpInside" id="zRg-GT-ZAj"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="WEv-9j-C4p" firstAttribute="centerX" secondItem="Jcs-zv-3uV" secondAttribute="centerX" id="GXg-SV-F2r"/>
                                         <constraint firstItem="Uzq-tB-MCD" firstAttribute="centerY" secondItem="RlV-kN-mUO" secondAttribute="centerY" id="Kxe-bj-2Pc"/>
-                                        <constraint firstItem="3uL-OT-ahu" firstAttribute="leading" secondItem="WEv-9j-C4p" secondAttribute="leading" id="L43-Y7-eOd"/>
                                         <constraint firstItem="WEv-9j-C4p" firstAttribute="centerY" secondItem="RlV-kN-mUO" secondAttribute="centerY" id="LeA-h3-cV8"/>
-                                        <constraint firstItem="3uL-OT-ahu" firstAttribute="top" secondItem="WEv-9j-C4p" secondAttribute="top" id="Sbr-jP-9E7"/>
                                         <constraint firstItem="WEv-9j-C4p" firstAttribute="top" secondItem="Jcs-zv-3uV" secondAttribute="top" constant="12" id="Xf6-F8-TMc"/>
                                         <constraint firstAttribute="trailing" secondItem="Uzq-tB-MCD" secondAttribute="trailing" constant="12" id="Z2i-7G-7sL"/>
-                                        <constraint firstItem="3uL-OT-ahu" firstAttribute="trailing" secondItem="WEv-9j-C4p" secondAttribute="trailing" id="cvA-zg-otn"/>
                                         <constraint firstItem="RlV-kN-mUO" firstAttribute="leading" secondItem="Jcs-zv-3uV" secondAttribute="leading" constant="12" id="rjw-FY-c5k"/>
-                                        <constraint firstItem="3uL-OT-ahu" firstAttribute="bottom" secondItem="WEv-9j-C4p" secondAttribute="bottom" id="wWI-EU-sa2"/>
                                     </constraints>
                                     <connections>
                                         <outletCollection property="gestureRecognizers" destination="Wdf-HP-zTO" appends="YES" id="XUg-FI-zFr"/>
@@ -473,6 +466,11 @@
                         <action selector="swipeRightWithSender:" destination="3dT-Bj-TZH" id="cO1-q8-q1I"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="FRE-cW-NNx">
+                    <connections>
+                        <action selector="didTapMainAlbumCover:" destination="3dT-Bj-TZH" id="JX9-8y-Ihi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1132" y="-1524.2878560719641"/>
         </scene>

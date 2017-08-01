@@ -243,7 +243,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
+        runTimer()
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: Selector(("updateTimer")), userInfo: nil, repeats: true)
         let tracks = queue.tracks
 
         if !tracks.isEmpty {
@@ -298,11 +299,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load next track
-            let tracks = queue.tracks
-            let playIndex = queue.playIndex
-            if playIndex < tracks.count - 1 {
-                didTapNext(Any)
-            }
+            didTapNext(Any)
         }
     }
     
@@ -310,10 +307,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load previous track
-            let playIndex = queue.playIndex
-            if playIndex > 0 {
-                didTapRewind(Any)
-            }
+            didTapRewind(Any)
         }
     }
     
@@ -322,7 +316,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func didTapRewind(_ sender: Any) {
         playButton.isSelected = true
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
+        runTimer()
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == 0 {
@@ -358,8 +353,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             }, completion: {
                 finished in
                 })
-
-//            startTimer.isHidden = true
         }
     
         //This will decrement(count down)the seconds.
@@ -370,7 +363,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }else{
         trackDuration = trackDuration - 1
         //this makes the progress bar increase.
-            if indexProgressBar == Double(fullTrackDuration)
+            if indexProgressBar != 0 && indexProgressBar == Double(fullTrackDuration)
             {
                 getNextPoseData()
                 
@@ -488,6 +481,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func didTapMainAlbumCover(_ sender: Any) {
+        print("reached here")
         performSegue(withIdentifier: "albumSegueButton", sender: self)
     }
     
