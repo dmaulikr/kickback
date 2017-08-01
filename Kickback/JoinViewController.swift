@@ -17,6 +17,7 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
     @IBOutlet weak var tableView: UITableView!
     var user = User.current!
     var placeholderLabel : UILabel!
+    @IBOutlet weak var invitesLabel: UILabel!
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
@@ -44,24 +45,30 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
         // load invites
-        let query = PFQuery(className: "Invite").whereKey("inviteeId", equalTo: user.id)
-        query.findObjectsInBackground { (results, error) in
-            if let error = error {
-                print("Error loading invites: \(error.localizedDescription)")
-            } else {
-                for parseInvite in results! {
-                    self.invites.append(Invite(parseInvite))
-                }
-                self.invitesTableView.dataSource = self
-                self.invitesTableView.delegate = self
-                self.invitesTableView.reloadData()
-            }
-        }
+        reloadInvites()
         
         // table view
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
+    }
+    
+    func reloadInvites() {
+        let query = PFQuery(className: "Invite").whereKey("inviteeId", equalTo: user.id)
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print("Error loading invites: \(error.localizedDescription)")
+            } else {
+                self.invites = []
+                for parseInvite in results! {
+                    self.invites.append(Invite(parseInvite))
+                }
+                self.invitesTableView.dataSource = self
+                self.invitesTableView.delegate = self
+                self.invitesLabel.text = "Invites (\(self.invites.count))"
+                self.invitesTableView.reloadData()
+            }
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -91,17 +98,26 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.restorationIdentifier == "JoinTableView" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "JoinCell") as! JoinCell
+            let backgroundColorView = UIView()
+            backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+            cell.selectedBackgroundView = backgroundColorView
             switch indexPath.row {
             case 0:
                 cell.joinLabel.text = "Enter playlist access code"
+                cell.iconImage.image = #imageLiteral(resourceName: "search")
             case 1:
                 cell.joinLabel.text = "Scan QR code"
+                cell.iconImage.image = #imageLiteral(resourceName: "camera")
+                cell.chevronImage.isHidden = true
             default:
                 break
             }
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "InviteCell", for: indexPath) as! InviteCell
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+        cell.selectedBackgroundView = backgroundColorView
         let invite = invites[indexPath.row]
         cell.playlistLabel.text = invite.queueName
         cell.ownerLabel.text = invite.inviterName ?? invite.inviterId
