@@ -47,7 +47,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0B-9v-oRX">
-                                <rect key="frame" x="74" y="329.5" width="227" height="45"/>
+                                <rect key="frame" x="74" y="329" width="227" height="45"/>
                                 <color key="backgroundColor" red="0.51728105545043945" green="0.13359223306179047" blue="0.96084690093994141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Cck-yO-FOm"/>
@@ -60,13 +60,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kickback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjR-Do-bVY">
-                                <rect key="frame" x="83.5" y="214" width="208" height="60"/>
+                                <rect key="frame" x="83.5" y="213.5" width="208" height="60.5"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Bold" family="HK Grotesk" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVV-Ft-dKk">
-                                <rect key="frame" x="137.5" y="286" width="101.5" height="19.5"/>
+                                <rect key="frame" x="137.5" y="286" width="101.5" height="19"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Light" family="HK Grotesk" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -116,19 +116,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGp-ka-zhe">
-                                <rect key="frame" x="138.5" y="286" width="98" height="27"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="22"/>
+                                <rect key="frame" x="130.5" y="242" width="115.5" height="31.5"/>
+                                <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start listening" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74H-8X-2kl">
-                                <rect key="frame" x="140" y="325" width="95.5" height="19.5"/>
-                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="16"/>
+                                <rect key="frame" x="134" y="289.5" width="107.5" height="22"/>
+                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGJ-5c-aql">
-                                <rect key="frame" x="78" y="378" width="219" height="45"/>
+                                <rect key="frame" x="78" y="355.5" width="219" height="45"/>
                                 <color key="backgroundColor" red="0.51728105545043945" green="0.13359223306179047" blue="0.96084690093994141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="3T6-Jt-RWV"/>
@@ -141,23 +141,23 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVW-xP-wpr">
-                                <rect key="frame" x="22" y="347.5" width="331" height="14.5"/>
+                                <rect key="frame" x="22" y="314.5" width="331" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="331" id="sPa-UG-gzl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-LM-mOs">
-                                <rect key="frame" x="128" y="154" width="120" height="120"/>
+                                <rect key="frame" x="128" y="110" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Ch6-fE-hoz"/>
                                     <constraint firstAttribute="width" constant="120" id="aWn-lt-CwZ"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ed-XH-lVp">
-                                <rect key="frame" x="78" y="439" width="219" height="45"/>
+                                <rect key="frame" x="78" y="424.5" width="219" height="45"/>
                                 <color key="backgroundColor" red="0.98040139675140381" green="0.98038303852081299" blue="0.98039543628692627" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="eSV-w0-IqE"/>
@@ -176,16 +176,16 @@
                         <constraints>
                             <constraint firstItem="74H-8X-2kl" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="9Gs-lh-TW0"/>
                             <constraint firstItem="JGJ-5c-aql" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="Fe8-hR-oPC"/>
-                            <constraint firstItem="74H-8X-2kl" firstAttribute="top" secondItem="dGp-ka-zhe" secondAttribute="bottom" constant="12" id="G8t-mM-4CL"/>
+                            <constraint firstItem="74H-8X-2kl" firstAttribute="top" secondItem="dGp-ka-zhe" secondAttribute="bottom" constant="16" id="G8t-mM-4CL"/>
                             <constraint firstItem="anp-dO-lcM" firstAttribute="top" secondItem="qV7-Er-Qi2" secondAttribute="bottom" id="Gx9-Mf-uIq"/>
                             <constraint firstItem="5Ed-XH-lVp" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="HKf-wc-EkN"/>
                             <constraint firstItem="9Om-LM-mOs" firstAttribute="top" secondItem="L8d-39-Ii0" secondAttribute="bottom" constant="90" id="Ot1-Os-zWT"/>
                             <constraint firstAttribute="trailing" secondItem="qV7-Er-Qi2" secondAttribute="trailing" id="b0W-cf-SFz"/>
-                            <constraint firstItem="JGJ-5c-aql" firstAttribute="top" secondItem="AVW-xP-wpr" secondAttribute="bottom" constant="16" id="dnQ-8c-1TG"/>
+                            <constraint firstItem="JGJ-5c-aql" firstAttribute="top" secondItem="AVW-xP-wpr" secondAttribute="bottom" constant="24" id="dnQ-8c-1TG"/>
                             <constraint firstItem="dGp-ka-zhe" firstAttribute="top" secondItem="9Om-LM-mOs" secondAttribute="bottom" constant="12" id="jYI-5f-Te4"/>
                             <constraint firstItem="dGp-ka-zhe" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="kid-tq-OS2"/>
                             <constraint firstItem="AVW-xP-wpr" firstAttribute="top" secondItem="74H-8X-2kl" secondAttribute="bottom" constant="3" id="lBb-9h-zMg"/>
-                            <constraint firstItem="5Ed-XH-lVp" firstAttribute="top" secondItem="JGJ-5c-aql" secondAttribute="bottom" constant="16" id="qV6-c9-mwb"/>
+                            <constraint firstItem="5Ed-XH-lVp" firstAttribute="top" secondItem="JGJ-5c-aql" secondAttribute="bottom" constant="24" id="qV6-c9-mwb"/>
                             <constraint firstItem="9Om-LM-mOs" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="usH-al-wEx"/>
                             <constraint firstItem="AVW-xP-wpr" firstAttribute="centerX" secondItem="dbf-fB-c3O" secondAttribute="centerX" id="wqP-yn-ipd"/>
                             <constraint firstItem="qV7-Er-Qi2" firstAttribute="leading" secondItem="dbf-fB-c3O" secondAttribute="leading" id="xQ9-O4-OWA"/>
@@ -430,12 +430,12 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your playlist is currently empty. Start by adding songs!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDg-Ux-qCQ">
-                                            <rect key="frame" x="98" y="204" width="180" height="41"/>
+                                            <rect key="frame" x="93" y="204" width="190" height="41"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="180" id="X9A-VX-Ibk"/>
+                                                <constraint firstAttribute="width" constant="190" id="X9A-VX-Ibk"/>
                                                 <constraint firstAttribute="height" constant="41" id="XMh-JV-bv4"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -468,7 +468,7 @@
                                         <rect key="frame" x="0.0" y="248" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Hl-KQ-b3o">
@@ -485,7 +485,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-I7-xQn">
-                                                    <rect key="frame" x="74" y="34" width="289" height="14"/>
+                                                    <rect key="frame" x="74" y="34" width="289" height="14.5"/>
                                                     <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -713,7 +713,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3J-Dr-9Pj">
-                                <rect key="frame" x="293" y="101" width="29.5" height="17"/>
+                                <rect key="frame" x="293.5" y="101" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -785,8 +785,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG3-85-VhV">
-                                                    <rect key="frame" x="30" y="102" width="52.5" height="14"/>
-                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
+                                                    <rect key="frame" x="28" y="102" width="57" height="16"/>
+                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1725,7 +1725,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwr-fp-WMk">
-                                <rect key="frame" x="253.5" y="95" width="29.5" height="17"/>
+                                <rect key="frame" x="253" y="95" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1836,6 +1836,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yvr-C4-7g7" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2mk-Ym-smz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1882,7 +1883,7 @@
         <image name="x" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BBK-1t-kic"/>
+        <segue reference="bBs-fI-9um"/>
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="0Al-fi-zLR"/>
         <segue reference="7sA-as-iGV"/>
