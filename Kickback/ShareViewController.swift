@@ -29,6 +29,7 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         collectionView.delegate = self
         collectionView.reloadData()
         
+        
         self.navigationController?.title = "Share"
         self.navigationController?.navigationItem.backBarButtonItem?.title = "Back"
     }
@@ -52,7 +53,6 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: - Popup dialog
-    
     func onShareQR() {
         let title = "Share QR Code"
         let image = QRCode(accessCode)?.image
@@ -67,13 +67,21 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShareCell") as! ShareCell
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red:0.20, green:0.07, blue:0.31, alpha:1.0)
+        cell.selectedBackgroundView = backgroundColorView
         switch indexPath.row {
         case 0:
             cell.shareLabel.text = "Add friends by username"
+            cell.iconImage.image = #imageLiteral(resourceName: "search")
         case 1:
             cell.shareLabel.text = "Share playlist code: \(accessCode)"
+            cell.iconImage.image = #imageLiteral(resourceName: "share")
+            cell.chevronImage.isHidden = true
         case 2:
             cell.shareLabel.text = "Scan QR code"
+            cell.iconImage.image = #imageLiteral(resourceName: "camera")
+            cell.chevronImage.isHidden = true
         default:
             break
         }
@@ -90,6 +98,8 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
     
     // MARK: - Collection view
     
