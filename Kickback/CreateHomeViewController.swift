@@ -44,17 +44,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     override func viewDidLoad() {
         super.viewDidLoad()
         setProgressBar()
-        // Makes time labels hidden
-//        timerLabel.isHidden = true
-//        startTimer.isHidden = true
-        print (count)
-
-//        let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.runTimer), userInfo: nil, repeats: true)
-//        print ("the other time is\(othertimer)")
-       
-      
-  
-   
         
         // Set up timer
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
@@ -85,15 +74,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor.clear
-    
-//
-//        self.queue = Queue.current
-//        self.user = User.current
-//        
-       //        let durtrack = queue.tracks[queue.playIndex]
-//        self.trackDuration = durtrack.durationMS! / 1000
-
-        
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
@@ -121,14 +101,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func screenTapped(_ sender: Any) {
-            count = 0
-//            fades in
+        count = 0
+        // fades in
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
             self.timerLabel.alpha = 1.0
             self.startTimer.alpha = 1.0
         }, completion: nil)
-            startTimer.isHidden = false
-        }
+        startTimer.isHidden = false
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -349,6 +329,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     func updateTimer() {
         let tracks = queue.tracks
+        if tracks.isEmpty {
+            return
+        }
         count = count + 1
         if count >= 4{
             UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
@@ -360,7 +343,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     
         //This will decrement(count down)the seconds.
-        if trackDuration <= 0{
+        if trackDuration <= 0 {
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
