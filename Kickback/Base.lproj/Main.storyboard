@@ -333,7 +333,7 @@
                                         <rect key="frame" x="0.0" y="295" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Hl-KQ-b3o">
@@ -483,7 +483,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="34" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NAm-Mt-InO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="102"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="102"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="6bR-EH-1zs"/>
@@ -505,8 +505,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQB-CG-grt">
-                                                    <rect key="frame" x="46" y="8.5" width="67" height="17"/>
-                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="14"/>
+                                                    <rect key="frame" x="46" y="7.5" width="76.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -539,13 +539,13 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDw-ev-tyW">
-                                <rect key="frame" x="12" y="178" width="73" height="22"/>
+                                <rect key="frame" x="12" y="184" width="73" height="22"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Umr-k4-9x0">
-                                <rect key="frame" x="12" y="212" width="351" height="455"/>
+                                <rect key="frame" x="12" y="218" width="351" height="405"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CO7-Pk-ruz">
                                     <size key="itemSize" width="112" height="124"/>
@@ -603,7 +603,7 @@
                             <constraint firstItem="itr-ZT-0J4" firstAttribute="leading" secondItem="EZr-Z0-wL5" secondAttribute="leading" id="con-FJ-zzE"/>
                             <constraint firstAttribute="trailing" secondItem="Umr-k4-9x0" secondAttribute="trailing" constant="12" id="i2X-4I-g0z"/>
                             <constraint firstItem="NAm-Mt-InO" firstAttribute="leading" secondItem="EZr-Z0-wL5" secondAttribute="leading" id="qUv-Cz-rAV"/>
-                            <constraint firstItem="NAm-Mt-InO" firstAttribute="top" secondItem="jpH-Ex-xoC" secondAttribute="bottom" id="tFe-cw-Cd1"/>
+                            <constraint firstItem="NAm-Mt-InO" firstAttribute="top" secondItem="jpH-Ex-xoC" secondAttribute="bottom" constant="6" id="tFe-cw-Cd1"/>
                             <constraint firstItem="itr-ZT-0J4" firstAttribute="top" secondItem="EZr-Z0-wL5" secondAttribute="top" id="xoq-xe-iJO"/>
                         </constraints>
                     </view>
@@ -636,15 +636,6 @@
                                 <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x17-xe-vf3">
-                                <rect key="frame" x="67" y="146" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.36990389229999998" green="0.090993046760000001" blue="0.68243741989999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="join"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrB-qX-gPt">
                                 <rect key="frame" x="329" y="84" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -653,6 +644,15 @@
                                     <action selector="onTapJoin:" destination="qcX-hT-syF" eventType="touchUpInside" id="0rU-pd-HkY"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x17-xe-vf3">
+                                <rect key="frame" x="16" y="84" width="305" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.36990389229999998" green="0.090993046760000001" blue="0.68243741989999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="join"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -665,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="611-aA-Jre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602" y="-132"/>
+            <point key="canvasLocation" x="-602.39999999999998" y="-132.68365817091455"/>
         </scene>
         <!--ArtistViewController-->
         <scene sceneID="ieg-LZ-VfK">
@@ -1452,7 +1452,7 @@
                             <constraint firstItem="UbW-6w-xZo" firstAttribute="leading" secondItem="vKa-1f-1vh" secondAttribute="leading" constant="12" id="ztg-ga-6fd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Join Playlist" id="6We-3E-4qb"/>
+                    <navigationItem key="navigationItem" id="6We-3E-4qb"/>
                     <connections>
                         <outlet property="invitesLabel" destination="UbW-6w-xZo" id="hzf-cV-Fob"/>
                         <outlet property="invitesTableView" destination="1Nq-TB-Fk9" id="QWK-Na-nuj"/>
@@ -1545,7 +1545,7 @@
         <image name="x" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBs-fI-9um"/>
+        <segue reference="nhZ-av-Lie"/>
         <segue reference="WmO-7I-fLE"/>
         <segue reference="6Am-mG-N4M"/>
         <segue reference="Owa-LJ-ftL"/>
