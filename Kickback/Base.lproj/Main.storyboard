@@ -571,15 +571,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="112" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4BM-Yy-05V">
-                                                    <rect key="frame" x="8" y="6" width="100" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG3-85-VhV">
-                                                    <rect key="frame" x="0.0" y="109" width="116" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG3-85-VhV">
+                                                    <rect key="frame" x="29.5" y="102" width="53" height="15"/>
+                                                    <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1517,10 +1511,7 @@
         <image name="x" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kCQ-6s-swq"/>
         <segue reference="nhZ-av-Lie"/>
-        <segue reference="WmO-7I-fLE"/>
-        <segue reference="6Am-mG-N4M"/>
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="0Al-fi-zLR"/>
         <segue reference="7sA-as-iGV"/>
