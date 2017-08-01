@@ -17,10 +17,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var previousSongImageView: UIImageView!
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
-    @IBOutlet weak var songLabel: UILabel!
-    @IBOutlet weak var artistsLabel: UILabel!
+    @IBOutlet weak var songLabelButton: UIButton!
+    @IBOutlet weak var artistsLabelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addToPlaylistButton: UIButton!
+    @IBOutlet weak var playControlsGradientImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     var indexProgressBar = 0.00
     var currentPoseIndex = 0.00
@@ -44,28 +44,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     override func viewDidLoad() {
         super.viewDidLoad()
         setProgressBar()
-        // Makes time labels hidden
-//        timerLabel.isHidden = true
-//        startTimer.isHidden = true
-        print (count)
-
-//        let othertimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.runTimer), userInfo: nil, repeats: true)
-//        print ("the other time is\(othertimer)")
-       
-      
-  
-   
         
         // Set up timer
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
-        
-        // Set up Add to Playlist Button
-        addToPlaylistButton.layer.cornerRadius = addToPlaylistButton.frame.width * 0.10
-        addToPlaylistButton.layer.masksToBounds = true
-//        
+            
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
+        playControlsGradientImageView.isHidden = !isOwner
         playButton.isHidden = !isOwner
         nextButton.isHidden = !isOwner
         rewindButton.isHidden = !isOwner
@@ -88,14 +74,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = UIColor.clear
-//        
-//        self.queue = Queue.current
-//        self.user = User.current
-//        
-       //        let durtrack = queue.tracks[queue.playIndex]
-//        self.trackDuration = durtrack.durationMS! / 1000
-
-        
         playButton.isSelected = player.playbackState != nil && player.playbackState!.isPlaying
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
@@ -107,8 +85,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
         
+        // Navigation controller
+        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         // Set up clear navigation bar
@@ -124,14 +103,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func screenTapped(_ sender: Any) {
-            count = 0
-//            fades in
+        count = 0
+        // fades in
         UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
             self.timerLabel.alpha = 1.0
             self.startTimer.alpha = 1.0
         }, completion: nil)
-            startTimer.isHidden = false
-        }
+        startTimer.isHidden = false
+    }
     
 
     override func didReceiveMemoryWarning() {
@@ -140,6 +119,36 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     // MARK: - Table view
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Set a sticky button for the table view
+        let view = UIView()
+        
+        // Set up Add to Playlist Button
+        let button = UIButton()
+        button.setTitle("Add to Playlist", for: .normal)
+        button.titleLabel?.font =  UIFont.systemFont(ofSize: 19)
+        button.frame = CGRect(x: 78, y: 10, width: 219, height: 45)
+        button.backgroundColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
+        button.layer.cornerRadius = button.frame.width * 0.10
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                            for: UIControlEvents.touchUpInside)
+        view.addSubview(button)
+        return view
+    }
+    
+    func buttonAction(sender: UIButton!) {
+        performSegue(withIdentifier: "searchSegue", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 57
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if queue.tracks.count <= 1 {
@@ -183,14 +192,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let tracks = queue.tracks
         let playIndex = queue.playIndex
         if !tracks.isEmpty {
-            songLabel.text = tracks[playIndex].name
+            songLabelButton.setTitle(tracks[playIndex].name, for: .normal)
             let artists = tracks[playIndex].artists
             var artistNames: [String] = []
             for i in 0..<artists.count {
                 let name = artists[i]["name"] as! String
                 artistNames.append(name)
             }
-            artistsLabel.text = artistNames.joined(separator: ", ")
+            artistsLabelButton.setTitle(artistNames.joined(separator: ", "), for: .normal)
             let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)!
             currentSongImageView.af_setImage(withURL: url)
@@ -221,6 +230,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         playButton.isSelected = true
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
+
         let tracks = queue.tracks
 
         if !tracks.isEmpty {
@@ -272,12 +282,29 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
     }
     
+    @IBAction func swipeLeft(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load next track
+            didTapNext(Any)
+        }
+    }
+    
+    @IBAction func swipeRight(sender: UISwipeGestureRecognizer) {
+        let isOwner = queue.ownerId == user.id
+        if isOwner {
+            // Load previous track
+            didTapRewind(Any)
+        }
+    }
+    
     
     
     @IBAction func didTapRewind(_ sender: Any) {
         playButton.isSelected = true
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
+        runTimer()
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
         let tracks = queue.tracks
         if !tracks.isEmpty {
             if queue.playIndex == 0 {
@@ -306,6 +333,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     func updateTimer() {
         let tracks = queue.tracks
+        if tracks.isEmpty {
+            return
+        }
         count = count + 1
         if count >= 4{
             UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
@@ -314,12 +344,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             }, completion: {
                 finished in
                 })
-
-//            startTimer.isHidden = true
         }
     
         //This will decrement(count down)the seconds.
-        if trackDuration <= 0{
+        if trackDuration <= 0 {
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
@@ -327,7 +355,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }else{
         trackDuration = trackDuration - 1
         //this makes the progress bar increase.
-                       if indexProgressBar == Double(fullTrackDuration)
+
+            if indexProgressBar != 0 && indexProgressBar == Double(fullTrackDuration)
+
             {
                 getNextPoseData()
                 
@@ -418,8 +448,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
 
     }
     
-    
-    
     func printError(_ error: Error?) {
         if let error = error {
             print(error.localizedDescription)
@@ -447,7 +475,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
     
+    @IBAction func didTapMainAlbumCover(_ sender: Any) {
+        print("reached here")
+        performSegue(withIdentifier: "albumSegueButton", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let track = queue.tracks[queue.playIndex]
+        
         if segue.identifier == "albumSegue" {
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell) {
@@ -456,8 +491,22 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 albumViewController.track = track
             }
         }
+        if segue.identifier == "albumSegueButton" {
+            let albumViewController = segue.destination as! AlbumViewController
+            albumViewController.track = queue.tracks[queue.playIndex]
+        }
+        if segue.identifier == "artistSegue" {
+            let artistViewController = segue.destination as! ArtistViewController
+            var dictionary: [String: Any] = [:]
+            dictionary["id"] = track.artists[0]["id"]
+            dictionary["name"] = track.artists[0]["name"]
+            dictionary["images"] = track.album["images"]
+            dictionary["userId"] = User.current?.id
+            dictionary["uri"] = track.artists[0]["uri"]
+            let artist = Artist(dictionary)
+            artistViewController.artist = artist
+        }
     }
-
 }
 
 

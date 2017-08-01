@@ -12,6 +12,7 @@ class ShareCell: UITableViewCell {
 
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var shareLabel: UILabel!
+    @IBOutlet weak var chevronImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

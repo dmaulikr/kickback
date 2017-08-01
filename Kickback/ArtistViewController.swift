@@ -23,6 +23,8 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     var topTracks: [Track] = []
     var albums: [Album] = []
     
+    var addedtoQueue: [Bool]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,16 +71,36 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        addedtoQueue = [Bool](repeating: false, count: topTracks.count)
         return topTracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         cell.track = topTracks[indexPath.row]
-        cell.backgroundColor = UIColor.clear
+        
+        cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+                                            for: UIControlEvents.touchUpInside)
+        cell.addTrackButton.tag = indexPath.row
+        
+        if addedtoQueue[indexPath.row] == true {
+            // disable State Button
+            cell.addTrackButton.isEnabled = false
+            
+        } else {
+            // activate State Button
+            cell.addTrackButton.isEnabled = true
+        }
         return cell
     }
     
+    func buttonAction(sender:UIButton!) {
+        let index = sender.tag
+        if addedtoQueue[index] == false {
+            addedtoQueue[index] = true
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albums.count
     }
