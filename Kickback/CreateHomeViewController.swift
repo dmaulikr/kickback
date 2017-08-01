@@ -84,8 +84,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        
+        // Navigation controller
+        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         // Set up clear navigation bar
