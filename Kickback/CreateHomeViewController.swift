@@ -481,7 +481,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let track = queue.tracks[queue.playIndex]
         
         if segue.identifier == "albumSegue" {
             let cell = sender as! UITableViewCell
@@ -496,6 +495,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             albumViewController.track = queue.tracks[queue.playIndex]
         }
         if segue.identifier == "artistSegue" {
+            let track = queue.tracks[queue.playIndex]
             let artistViewController = segue.destination as! ArtistViewController
             var dictionary: [String: Any] = [:]
             dictionary["id"] = track.artists[0]["id"]
