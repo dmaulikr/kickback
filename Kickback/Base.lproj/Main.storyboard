@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -751,48 +750,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-ZJ-5jv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newartisit_gradient" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-bY-PZm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cBR-tV-EfB">
-                                <rect key="frame" x="0.0" y="121" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="I18-K5-EgJ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-ZJ-5jv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="w5t-ZJ-5jv" secondAttribute="height" multiplier="15:7" id="tlT-tI-Uob"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
                                             <rect key="frame" x="12" y="187" width="351" height="30.5"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-iP-KS4">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Popular" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YR8-iP-KS4">
                                             <rect key="frame" x="12" y="229.5" width="56.5" height="20"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blackgradient" translatesAutoresizingMaskIntoConstraints="NO" id="iRa-bY-PZm">
-                                            <rect key="frame" x="0.0" y="-6" width="375" height="181"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="YR8-iP-KS4" firstAttribute="top" secondItem="I74-sQ-wAH" secondAttribute="bottom" constant="12" id="4c2-XJ-EFY"/>
-                                        <constraint firstItem="w5t-ZJ-5jv" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" id="6Yj-bH-DDe"/>
                                         <constraint firstItem="I74-sQ-wAH" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" constant="12" id="7E1-VK-4Ei"/>
                                         <constraint firstItem="YR8-iP-KS4" firstAttribute="leading" secondItem="I18-K5-EgJ" secondAttribute="leading" constant="12" id="BQR-ju-OjE"/>
-                                        <constraint firstItem="w5t-ZJ-5jv" firstAttribute="top" secondItem="I18-K5-EgJ" secondAttribute="top" id="M2z-GS-Va1"/>
-                                        <constraint firstItem="I74-sQ-wAH" firstAttribute="top" secondItem="w5t-ZJ-5jv" secondAttribute="bottom" constant="12" id="jj9-Yx-QHm"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YR8-iP-KS4" secondAttribute="bottom" constant="12" id="kpN-2d-hwY"/>
                                         <constraint firstItem="YR8-iP-KS4" firstAttribute="leading" secondItem="I74-sQ-wAH" secondAttribute="leading" id="o8z-qA-YQf"/>
                                         <constraint firstAttribute="trailing" secondItem="I74-sQ-wAH" secondAttribute="trailing" constant="12" id="oYl-Yn-yIV"/>
-                                        <constraint firstAttribute="trailing" secondItem="w5t-ZJ-5jv" secondAttribute="trailing" id="qMV-sS-6G3"/>
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="UJS-3s-ZMQ">
@@ -1599,6 +1592,7 @@
         <image name="join-gradient" width="375" height="48"/>
         <image name="login-gradient" width="375" height="385"/>
         <image name="logout" width="22" height="22"/>
+        <image name="newartisit_gradient" width="1413" height="525"/>
         <image name="pause-button" width="128" height="128"/>
         <image name="play-button" width="128" height="128"/>
         <image name="play-controls-gradient" width="375" height="64"/>
