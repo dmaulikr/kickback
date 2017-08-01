@@ -28,6 +28,9 @@ class ShareViewController: UIViewController, UITableViewDataSource, UITableViewD
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
+        
+        self.navigationController?.title = "Share"
+        self.navigationController?.navigationItem.backBarButtonItem?.title = "Back"
     }
 
     override func didReceiveMemoryWarning() {
