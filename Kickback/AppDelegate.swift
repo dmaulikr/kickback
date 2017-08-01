@@ -13,11 +13,21 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var customizedLaunchScreenView: UIView?
     var auth = SPTAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // customize launch screen 
+         if let window = self.window  {
+            UIView.animate(withDuration: 1, delay: 2, options: .curveEaseOut,
+                                       animations: { () -> Void in
+                                        self.customizedLaunchScreenView?.alpha = 0 },
+                                       completion: { _ in
+                                        self.customizedLaunchScreenView?.removeFromSuperview() })
         
+        }
+        
+
         // Override point for customization after application launch.
         auth.redirectURL = URL(string: "Kickback://returnAfterLogin")
         auth.sessionUserDefaultsKey = "current session"

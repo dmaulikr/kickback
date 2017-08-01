@@ -17,8 +17,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var previousSongImageView: UIImageView!
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
-    @IBOutlet weak var songLabel: UILabel!
-    @IBOutlet weak var artistsLabel: UILabel!
+    @IBOutlet weak var songLabelButton: UIButton!
+    @IBOutlet weak var artistsLabelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playControlsGradientImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
@@ -192,14 +192,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let tracks = queue.tracks
         let playIndex = queue.playIndex
         if !tracks.isEmpty {
-            songLabel.text = tracks[playIndex].name
+            songLabelButton.setTitle(tracks[playIndex].name, for: .normal)
             let artists = tracks[playIndex].artists
             var artistNames: [String] = []
             for i in 0..<artists.count {
                 let name = artists[i]["name"] as! String
                 artistNames.append(name)
             }
-            artistsLabel.text = artistNames.joined(separator: ", ")
+            artistsLabelButton.setTitle(artistNames.joined(separator: ", "), for: .normal)
             let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)!
             currentSongImageView.af_setImage(withURL: url)
@@ -229,8 +229,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func didTapNext(_ sender: Any) {
         playButton.isSelected = true
         timer.invalidate()
-        runTimer()
-//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: Selector(("updateTimer")), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
+
         let tracks = queue.tracks
 
         if !tracks.isEmpty {
@@ -240,6 +240,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 queue.incrementPlayIndex()
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
+                self.fullTrackDuration = track.durationMS! / 1000
                 indexProgressBar = 0
                  player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
@@ -285,6 +286,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load next track
+            didTapNext(Any)
         }
     }
     
@@ -292,7 +294,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load previous track
-
             didTapRewind(Any)
         }
     }
@@ -313,6 +314,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 let track = queue.tracks[queue.playIndex]
                 self.trackDuration = track.durationMS! / 1000
                 indexProgressBar = 0
+                self.fullTrackDuration = track.durationMS! / 1000
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 renderTracks()
             }
@@ -349,10 +351,13 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
+
         }else{
         trackDuration = trackDuration - 1
         //this makes the progress bar increase.
+
             if indexProgressBar != 0 && indexProgressBar == Double(fullTrackDuration)
+
             {
                 getNextPoseData()
                 
@@ -366,6 +371,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                         queue.incrementPlayIndex()
                         let track = queue.tracks[queue.playIndex]
                         self.trackDuration = track.durationMS! / 1000
+                        self.fullTrackDuration = track.durationMS! / 1000
                         player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                         tableView.reloadData()
                         loadAlbumDisplays()
@@ -469,7 +475,13 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
     
+    @IBAction func didTapMainAlbumCover(_ sender: Any) {
+        print("reached here")
+        performSegue(withIdentifier: "albumSegueButton", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "albumSegue" {
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell) {
@@ -478,8 +490,23 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 albumViewController.track = track
             }
         }
+        if segue.identifier == "albumSegueButton" {
+            let albumViewController = segue.destination as! AlbumViewController
+            albumViewController.track = queue.tracks[queue.playIndex]
+        }
+        if segue.identifier == "artistSegue" {
+            let track = queue.tracks[queue.playIndex]
+            let artistViewController = segue.destination as! ArtistViewController
+            var dictionary: [String: Any] = [:]
+            dictionary["id"] = track.artists[0]["id"]
+            dictionary["name"] = track.artists[0]["name"]
+            dictionary["images"] = track.album["images"]
+            dictionary["userId"] = User.current?.id
+            dictionary["uri"] = track.artists[0]["uri"]
+            let artist = Artist(dictionary)
+            artistViewController.artist = artist
+        }
     }
-
 }
 
 
