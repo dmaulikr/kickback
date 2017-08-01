@@ -62,9 +62,10 @@ class WelcomeViewController: UIViewController {
             
             // Set up text for the screen
             if user.name == "" {
-                welcomeLabel.text = "Welcome"
+                welcomeLabel.text = "Welcome!"
             } else {
-                welcomeLabel.text = "Welcome, " + user.name
+                let firstName = user.name.components(separatedBy: " ").first!
+                welcomeLabel.text = "Welcome, " + firstName + "!"
             }
         }
     }
