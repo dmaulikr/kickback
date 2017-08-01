@@ -7,27 +7,27 @@
 //
 
 import UIKit
+import CoreImage
 
 class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var albumNameLabel: UILabel!
     @IBOutlet weak var artistNameButton: UIButton!
-
+    @IBOutlet weak var background_Image: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     var album: Album!
     var track: Track!
     var tracks: [Track] = []
-    
+    var context = CIContext(options: nil)
+
     var addedtoQueue: [Bool]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
         if track != nil {
             var dictionary: [String: Any] = [:]
             dictionary["id"] = track.album["id"]
@@ -48,6 +48,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let imageDictionary = album.images
         let url = URL(string: imageDictionary[0]["url"] as! String)
         profileImageView.af_setImage(withURL: url!)
+        background_Image.af_setImage(withURL: url!)
         
         // Setting up the album image
         let albumURI = album.uri
@@ -150,8 +151,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
             addedtoQueue[index] = true
         }
     }
-    
-    // MARK: - Navigation
+       // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
