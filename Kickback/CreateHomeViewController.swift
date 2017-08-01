@@ -21,6 +21,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var nextSongImageView: UIImageView!
     @IBOutlet weak var songLabelButton: UIButton!
     @IBOutlet weak var artistsLabelButton: UIButton!
+    @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playControlsGradientImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
@@ -83,24 +84,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         tableView.estimatedRowHeight = 66
         view.layoutMargins.left = 32
         
+        // Animate instructions label
+        instructionsLabel.layer.cornerRadius = 5
+        instructionsLabel.layer.masksToBounds = true
+        
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-        
-        // Navigation controller
-        
-        // Set up welcome instructions
-        songLabelButton.titleLabel?.textAlignment = .center
-        songLabelButton.titleLabel?.numberOfLines = 0 // Dynamic number of lines
-        songLabelButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
-        //        artistsLabelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        //        artistsLabelButton.setTitle("There's nothing in your playlist yet.\nStart by adding new songs!", for: .normal)
-        artistsLabelButton.titleLabel?.textAlignment = .center
-        artistsLabelButton.titleLabel?.numberOfLines = 0 // Dynamic number of lines
-        artistsLabelButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         // Set up clear navigation bar
@@ -193,6 +185,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     func renderTracks() {
         if !isSwiping {
+            let hasTracks = !queue.tracks.isEmpty
+            songLabelButton.isHidden = !hasTracks
+            artistsLabelButton.isHidden = !hasTracks
+            instructionsLabel.isHidden = hasTracks
             queue.updateFromParse()
             queue.sortTracks()
             tableView.reloadData()

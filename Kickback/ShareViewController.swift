@@ -32,7 +32,7 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         for button in [searchButton, shareButton, scanButton] {
             button!.layer.cornerRadius = button!.frame.height / 2
-            button!.layer.masksToBounds = false
+            button!.layer.masksToBounds = true
             button!.clipsToBounds = true
         }
 
