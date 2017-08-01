@@ -10,6 +10,8 @@ import SwipeCellKit
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var secondbg: UIImageView!
+    @IBOutlet weak var bg: UIImageView!
     @IBOutlet weak var startTimer: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var timerLabel: UILabel!
@@ -187,6 +189,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         }
     }
     
+    func fadeIn() {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.currentSongImageView.alpha = 0.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+            self.currentSongImageView.alpha = 1.0
+        }, completion: nil)
+
+    }
+    
     func loadAlbumDisplays() {
         // Load current track info
         let tracks = queue.tracks
@@ -202,10 +215,16 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             artistsLabelButton.setTitle(artistNames.joined(separator: ", "), for: .normal)
             let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)!
+        
             currentSongImageView.af_setImage(withURL: url)
+            bg.af_setImage(withURL: url)
+            secondbg.af_setImage(withURL: url)
+
+            
         }
         // Load previous track
         if playIndex > 0 {
+           
             let prevImageDictionary = tracks[playIndex - 1].album["images"] as! [[String: Any]]
             let prevUrl = URL(string: prevImageDictionary[0]["url"] as! String)!
             previousSongImageView.af_setImage(withURL: prevUrl)
@@ -227,6 +246,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     // MARK: - Spotify player
     
     @IBAction func didTapNext(_ sender: Any) {
+        
         playButton.isSelected = true
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,selector: #selector(CreateHomeViewController.updateTimer), userInfo: nil, repeats: true)
@@ -244,7 +264,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 indexProgressBar = 0
                  player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 tableView.reloadData()
+                fadeIn()
                 loadAlbumDisplays()
+                
+                
 
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                 renderTracks()
@@ -301,6 +324,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     
     @IBAction func didTapRewind(_ sender: Any) {
+    
         playButton.isSelected = true
         timer.invalidate()
         runTimer()
@@ -316,6 +340,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 indexProgressBar = 0
                 self.fullTrackDuration = track.durationMS! / 1000
                 player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
+                fadeIn()
                 renderTracks()
             }
         }
@@ -345,6 +370,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 finished in
                 })
         }
+        
     
         //This will decrement(count down)the seconds.
         if trackDuration <= 0 {
@@ -374,6 +400,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                         self.fullTrackDuration = track.durationMS! / 1000
                         player.playSpotifyURI(tracks[queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: printError(_:))
                         tableView.reloadData()
+                        fadeIn()
                         loadAlbumDisplays()
                     }
                 }
@@ -461,6 +488,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func onTapLeave(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to leave this playlist?", preferredStyle: .actionSheet)
         let logoutAction = UIAlertAction(title: "Leave Playlist", style: .destructive) { (action) in
+        self.player.playSpotifyURI(self.queue.tracks[self.queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: self.printError(_:))
             Queue.current = nil
             User.leaveQueue()
             self.performSegue(withIdentifier: "leaveSegue", sender: nil)
