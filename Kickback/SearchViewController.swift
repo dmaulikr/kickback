@@ -35,7 +35,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         segmentedControl.isHidden = true
         
         // Set up instructions
-        findMusicLabel.text = "Search for songs, artists, albums,\nplaylists, and profiles."
+        findMusicLabel.text = "Search for songs, artists, and albums."
         
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
@@ -114,7 +114,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             searchCell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
                                                 for: UIControlEvents.touchUpInside)
             searchCell.addTrackButton.tag = indexPath.row
-            
             if addedtoQueue[indexPath.row] == true {
                 // disable State Button
                 searchCell.addTrackButton.isEnabled = false
@@ -135,7 +134,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         default:
             break
         }
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+        cell.selectedBackgroundView = backgroundColorView
+        print(backgroundColorView)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func buttonAction(sender:UIButton!) {

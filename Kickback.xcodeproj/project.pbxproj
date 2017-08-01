@@ -830,7 +830,7 @@
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -851,7 +851,7 @@
 				);
 				INFOPLIST_FILE = Kickback/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.Kickback1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fbu.KickbackApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Kickback/Kickback-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

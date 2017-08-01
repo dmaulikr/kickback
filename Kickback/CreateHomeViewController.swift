@@ -89,6 +89,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         
         // Navigation controller
         
+        // Set up welcome instructions
+        songLabelButton.titleLabel?.textAlignment = .center
+        songLabelButton.titleLabel?.numberOfLines = 0 // Dynamic number of lines
+        songLabelButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
+        //        artistsLabelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        //        artistsLabelButton.setTitle("There's nothing in your playlist yet.\nStart by adding new songs!", for: .normal)
+        artistsLabelButton.titleLabel?.textAlignment = .center
+        artistsLabelButton.titleLabel?.numberOfLines = 0 // Dynamic number of lines
+        artistsLabelButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -504,8 +515,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func didTapMainAlbumCover(_ sender: Any) {
-        print("reached here")
-        performSegue(withIdentifier: "albumSegueButton", sender: self)
+        if !queue.tracks.isEmpty {
+            performSegue(withIdentifier: "albumSegueButton", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
