@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "chevron-right-100.png",
+      "filename" : "chevron-right-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "chevron-right-200.png",
+      "filename" : "chevron-right-2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "chevron-right-300.png",
+      "filename" : "chevron-right-3.png",
       "scale" : "3x"
     }
   ],
