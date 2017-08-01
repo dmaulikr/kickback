@@ -14,9 +14,10 @@ import QRCodeReader
 class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var invitesTableView: UITableView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var scanButton: UIButton!
     var user = User.current!
-    var placeholderLabel : UILabel!
+    @IBOutlet weak var invitesLabel: UILabel!
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
@@ -27,81 +28,80 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        
-        // placeholder text
-//        accessCodeTextView.delegate = self
-//        placeholderLabel = UILabel()
-//        placeholderLabel.text = "Put in the access code"
-//        placeholderLabel.sizeToFit()
-//        accessCodeTextView.addSubview(placeholderLabel)
-//        placeholderLabel.frame.origin = CGPoint(x: 5, y: (accessCodeTextView.font?.pointSize)! / 2)
-//        placeholderLabel.textColor = UIColor.lightGray
-//        placeholderLabel.isHidden = !accessCodeTextView.text.isEmpty
         
         // change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-        // load invites
-        let query = PFQuery(className: "Invite").whereKey("inviteeId", equalTo: user.id)
-        query.findObjectsInBackground { (results, error) in
-            if let error = error {
-                print("Error loading invites: \(error.localizedDescription)")
-            } else {
-                for parseInvite in results! {
-                    self.invites.append(Invite(parseInvite))
-                }
-                self.invitesTableView.dataSource = self
-                self.invitesTableView.delegate = self
-                self.invitesTableView.reloadData()
-            }
+        // style buttons
+        for button in [searchButton, scanButton] {
+            button!.layer.cornerRadius = button!.frame.height / 2
+            button!.layer.masksToBounds = false
+            button!.clipsToBounds = true
         }
         
+        // load invites
+        reloadInvites()
+        
         // table view
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
+        invitesTableView.delegate = self
+        invitesTableView.dataSource = self
+        invitesTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func onScanQR() {
+    
+    // MARK: - Button actions
+    
+    @IBAction func onSearch(_ sender: Any) {
+        performSegue(withIdentifier: "enterAccessCodeSegue", sender: nil)
+    }
+    
+    @IBAction func onScan(_ sender: Any) {
         readerVC.delegate = self
         readerVC.modalPresentationStyle = .formSheet
         present(readerVC, animated: true, completion: nil)
     }
     
+    @IBAction func changeSelectedColor(_ sender: Any) {
+        let button = sender as! UIButton
+        button.alpha = 0.1
+    }
+    
+    @IBAction func changeNormalColor(_ sender: Any) {
+        let button = sender as! UIButton
+        button.alpha = 0.25
+    }
+    
     // MARK: - Table view
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.restorationIdentifier == "JoinTableView" {
-            return 2
+    func reloadInvites() {
+        let query = PFQuery(className: "Invite").whereKey("inviteeId", equalTo: user.id)
+        query.findObjectsInBackground { (results, error) in
+            if let error = error {
+                print("Error loading invites: \(error.localizedDescription)")
+            } else {
+                self.invites = []
+                for parseInvite in results! {
+                    self.invites.append(Invite(parseInvite))
+                }
+                self.invitesLabel.text = "Invites (\(self.invites.count))"
+                self.invitesTableView.reloadData()
+            }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return invites.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.restorationIdentifier == "JoinTableView" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "JoinCell") as! JoinCell
-            switch indexPath.row {
-            case 0:
-                cell.joinLabel.text = "Enter playlist access code"
-            case 1:
-                cell.joinLabel.text = "Scan QR code"
-            default:
-                break
-            }
-            return cell
-        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "InviteCell", for: indexPath) as! InviteCell
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+        cell.selectedBackgroundView = backgroundColorView
         let invite = invites[indexPath.row]
         cell.playlistLabel.text = invite.queueName
         cell.ownerLabel.text = invite.inviterName ?? invite.inviterId
@@ -109,17 +109,9 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.restorationIdentifier == "JoinTableView" {
-            if indexPath.row == 0 {
-                performSegue(withIdentifier: "enterAccessCodeSegue", sender: nil)
-            } else if indexPath.row == 1 {
-                onScanQR()
-            }
-        } else {
-            let invite = invites[indexPath.row]
-            Invite.removeInvite(queueId: invite.queueId, userId: invite.inviteeId)
-            tryJoinQueueWith(code: invite.queueCode)
-        }
+        let invite = invites[indexPath.row]
+        Invite.removeInvite(queueId: invite.queueId, userId: invite.inviteeId)
+        tryJoinQueueWith(code: invite.queueCode)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

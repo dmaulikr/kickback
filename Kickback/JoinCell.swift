@@ -12,6 +12,7 @@ class JoinCell: UITableViewCell {
 
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var joinLabel: UILabel!
+    @IBOutlet weak var chevronImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
