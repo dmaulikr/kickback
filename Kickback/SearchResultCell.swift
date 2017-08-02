@@ -29,10 +29,11 @@ class SearchResultCell: UITableViewCell {
             artistsLabel.text = artistNames.joined(separator: ", ")
             
             // Setting up the album image
-            let imageDict = track.album["images"] as! [[String: Any]]
-            let url = URL(string: imageDict[0]["url"] as! String)
-            albumImageView.af_setImage(withURL: url!)
-            
+            if !(track.album["images"] as! [[String: Any]]).isEmpty {
+                let imageDict = track.album["images"] as! [[String: Any]]
+                let url = URL(string: imageDict[0]["url"] as! String)
+                albumImageView.af_setImage(withURL: url!)
+            }
             addTrackButton.isEnabled = true
         }
     }
