@@ -40,8 +40,8 @@ class SearchResultCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        albumImageView.layer.borderWidth = 1
-        albumImageView.layer.borderColor = UIColor.white.cgColor
+//        albumImageView.layer.borderWidth = 1
+//        albumImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     @IBAction func onAddTrack(_ sender: Any) {

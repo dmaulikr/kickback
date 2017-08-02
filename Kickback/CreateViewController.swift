@@ -7,41 +7,29 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
-class CreateViewController: UIViewController, UITextViewDelegate {
+class CreateViewController: UIViewController {
     
-    @IBOutlet weak var playlistTextView: UITextView!
     var user = User.current!
     
+    @IBOutlet weak var playlistTextField: SkyFloatingLabelTextField!
     var placeholderLabel : UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        playlistTextView.becomeFirstResponder()
-
-        self.navigationController?.navigationBar.barTintColor = UIColor.black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.purple]
-        playlistTextView.keyboardAppearance = UIKeyboardAppearance.dark
         
-        // placeholder text
-        playlistTextView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Name your playlist..."
-        placeholderLabel.font = placeholderLabel.font.withSize(25)
-        
-        placeholderLabel.sizeToFit()
-        playlistTextView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (playlistTextView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !playlistTextView.text.isEmpty
+        playlistTextField.becomeFirstResponder()
+        playlistTextField.placeholderFont = UIFont(name: "HKGrotesk-SemiBold", size: 26)
+        playlistTextField.placeholderColor = UIColor.lightText
+        playlistTextField.selectedTitleColor = UIColor(red:0.42, green:0.11, blue:0.60, alpha:1.0)
+        playlistTextField.font = UIFont(name: "HKGrotesk-SemiBold", size: 26)
         
         // change the color of the back button in the navigation bar
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = !textView.text.isEmpty
+        self.title = "Create Playlist"
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,7 +38,7 @@ class CreateViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func didTapCreate(_ sender: Any) {
-        let queue = Queue(owner: user, name: playlistTextView.text!)
+        let queue = Queue(owner: user, name: playlistTextField.text!)
         Queue.current = queue
         performSegue(withIdentifier: "createSuccessSegue", sender: self)
     }

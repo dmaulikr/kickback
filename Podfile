@@ -14,6 +14,7 @@ target 'Kickback' do
   pod 'QRCodeReader.swift'
   pod 'PopupDialog', '~> 0.5'
   pod 'MarqueeLabel/Swift'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   target 'KickbackTests' do
     inherit! :search_paths
