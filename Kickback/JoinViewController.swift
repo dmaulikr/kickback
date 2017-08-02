@@ -119,8 +119,9 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
-        tryJoinQueueWith(code: result.value)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { 
+            self.tryJoinQueueWith(code: result.value)
+        }
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
