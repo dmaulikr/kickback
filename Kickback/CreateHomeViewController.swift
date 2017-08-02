@@ -7,6 +7,7 @@
 
 import UIKit
 import SwipeCellKit
+import MarqueeLabel
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -19,8 +20,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBOutlet weak var previousSongImageView: UIImageView!
     @IBOutlet weak var currentSongImageView: UIImageView!
     @IBOutlet weak var nextSongImageView: UIImageView!
-    @IBOutlet weak var songLabelButton: UIButton!
-    @IBOutlet weak var artistsLabelButton: UIButton!
+    @IBOutlet weak var trackTitleLabel: MarqueeLabel!
+    @IBOutlet weak var artistsLabel: MarqueeLabel!
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var playControlsGradientImageView: UIImageView!
@@ -186,8 +187,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     func renderTracks() {
         if !isSwiping {
             let hasTracks = !queue.tracks.isEmpty
-            songLabelButton.isHidden = !hasTracks
-            artistsLabelButton.isHidden = !hasTracks
+            trackTitleLabel.isHidden = !hasTracks
+            artistsLabel.isHidden = !hasTracks
             instructionsLabel.isHidden = hasTracks
             queue.updateFromParse()
             queue.sortTracks()
@@ -212,14 +213,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let tracks = queue.tracks
         let playIndex = queue.playIndex
         if !tracks.isEmpty {
-            songLabelButton.setTitle(tracks[playIndex].name, for: .normal)
+            trackTitleLabel.text = tracks[playIndex].name
             let artists = tracks[playIndex].artists
             var artistNames: [String] = []
             for i in 0..<artists.count {
                 let name = artists[i]["name"] as! String
                 artistNames.append(name)
             }
-            artistsLabelButton.setTitle(artistNames.joined(separator: ", "), for: .normal)
+            artistsLabel.text = artistNames.joined(separator: ", ")
             let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)!
         
@@ -512,7 +513,21 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     
     @IBAction func didTapMainAlbumCover(_ sender: Any) {
         if !queue.tracks.isEmpty {
-            performSegue(withIdentifier: "albumSegueButton", sender: self)
+            performSegue(withIdentifier: "trackAlbumSegue", sender: self)
+        }
+    }
+    
+    @IBAction func didTapTrackTitle(_ sender: Any) {
+        print("tapped the track title")
+        if !queue.tracks.isEmpty {
+            performSegue(withIdentifier: "trackAlbumSegue", sender: self)
+        }
+    }
+    
+    
+    @IBAction func didTapArtistsLabel(_ sender: Any) {
+        if !queue.tracks.isEmpty {
+            performSegue(withIdentifier: "artistSegue", sender: self)
         }
     }
     
@@ -526,7 +541,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 albumViewController.track = track
             }
         }
-        if segue.identifier == "albumSegueButton" {
+        if segue.identifier == "trackAlbumSegue" {
             let albumViewController = segue.destination as! AlbumViewController
             albumViewController.track = queue.tracks[queue.playIndex]
         }

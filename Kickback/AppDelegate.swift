@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var auth = SPTAuth()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // customize launch screen 
+        // customize launch screen
          if let window = self.window  {
             UIView.animate(withDuration: 1, delay: 2, options: .curveEaseOut,
                                        animations: { () -> Void in
