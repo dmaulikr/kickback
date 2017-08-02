@@ -22,9 +22,11 @@ class AlbumResultCell: UITableViewCell {
             artistNameLabel.text = artistName[0]["name"] as! String
             
             // Set the image of the album
-            let imageDictionary = album.images
-            let url = URL(string: imageDictionary[0]["url"] as! String)
-            albumImageView.af_setImage(withURL: url!)
+            if !album.images.isEmpty {
+                let imageDictionary = album.images
+                let url = URL(string: imageDictionary[0]["url"] as! String)
+                albumImageView.af_setImage(withURL: url!)
+            }
         }
     }
     
