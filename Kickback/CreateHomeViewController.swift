@@ -52,7 +52,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         setProgressBar()
         
         // Set up timer
-        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
             
         self.queue = Queue.current
         self.user = User.current
