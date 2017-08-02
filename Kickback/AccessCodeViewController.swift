@@ -8,16 +8,28 @@
 
 import UIKit
 import Parse
+import SkyFloatingLabelTextField
 
-class AccessCodeViewController: UIViewController {
+class AccessCodeViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var accessCodeTextView: UITextView!
+    @IBOutlet weak var accessCodeTextField: SkyFloatingLabelTextField!
     var user = User.current!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        accessCodeTextField.becomeFirstResponder()
+        accessCodeTextField.delegate = self
+        accessCodeTextField.placeholderFont = UIFont(name: "HKGrotesk-SemiBold", size: 26)
+        accessCodeTextField.placeholderColor = UIColor.lightText
+        accessCodeTextField.selectedTitleColor = UIColor(red:0.42, green:0.11, blue:0.60, alpha:1.0)
+        accessCodeTextField.font = UIFont(name: "HKGrotesk-SemiBold", size: 26)
+        
+        // change the color of the back button in the navigation bar
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +38,8 @@ class AccessCodeViewController: UIViewController {
     }
     
     @IBAction func onTapJoin(_ sender: Any) {
-        if let code = accessCodeTextView.text {
-            tryJoinQueueWith(code: code)
+        if let code = accessCodeTextField.text {
+            tryJoinQueueWith(code: code.lowercased())
         }
     }
     

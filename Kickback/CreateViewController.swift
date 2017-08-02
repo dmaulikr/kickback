@@ -9,7 +9,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class CreateViewController: UIViewController, UITextFieldDelegate {
+class CreateViewController: UIViewController {
     
     var user = User.current!
     
@@ -20,7 +20,6 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         playlistTextField.becomeFirstResponder()
-        playlistTextField.delegate = self
         playlistTextField.placeholderFont = UIFont(name: "HKGrotesk-SemiBold", size: 26)
         playlistTextField.placeholderColor = UIColor.lightText
         playlistTextField.selectedTitleColor = UIColor(red:0.42, green:0.11, blue:0.60, alpha:1.0)
@@ -32,12 +31,6 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.title = "Create Playlist"
     }
-    
-    
-    
-//    func textViewDidChange(_ textView: UITextView) {
-//        placeholderLabel.isHidden = !textView.text.isEmpty
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
