@@ -63,6 +63,12 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
             self.collectionView.reloadData()
         })
         
+        let navBar = self.navigationController!.navigationBar
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+        navBar.tintColor = UIColor.white
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     override func didReceiveMemoryWarning() {

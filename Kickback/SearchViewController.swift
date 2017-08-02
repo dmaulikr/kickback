@@ -46,6 +46,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         segmentedControlBorder(sender: segmentedControl)
         let titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
