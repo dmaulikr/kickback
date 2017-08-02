@@ -26,6 +26,14 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController!.navigationBar
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+        navBar.tintColor = UIColor.white
+        self.navigationController?.view.backgroundColor = .clear
+        
         tableView.dataSource = self
         tableView.delegate = self
         if track != nil {
