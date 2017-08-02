@@ -496,7 +496,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func onTapLeave(_ sender: Any) {
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to leave this playlist?", preferredStyle: .actionSheet)
         let logoutAction = UIAlertAction(title: "Leave Playlist", style: .destructive) { (action) in
-        self.player.playSpotifyURI(self.queue.tracks[self.queue.playIndex].uri, startingWith: 0, startingWithPosition: 0, callback: self.printError(_:))
             Queue.current = nil
             User.leaveQueue()
             self.performSegue(withIdentifier: "leaveSegue", sender: nil)
@@ -518,7 +517,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     @IBAction func didTapTrackTitle(_ sender: Any) {
-        print("tapped the track title")
         if !queue.tracks.isEmpty {
             performSegue(withIdentifier: "trackAlbumSegue", sender: self)
         }
