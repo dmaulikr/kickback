@@ -67,6 +67,6 @@ enum ActionDescriptor {
     }
     
     var color: UIColor {
-        return UIColor.red
+        return UIColor.darkGray
     }
 }

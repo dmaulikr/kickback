@@ -137,7 +137,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Set up Add to Playlist Button
         let button = UIButton()
         button.setTitle("Add to Playlist", for: .normal)
-        button.titleLabel?.font =  UIFont.systemFont(ofSize: 19)
+        button.titleLabel?.font = UIFont(name: "HKGrotesk-SemiBold", size: 20)
         button.frame = CGRect(x: 78, y: 10, width: 219, height: 45)
         button.backgroundColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
         button.layer.cornerRadius = button.frame.width * 0.10
@@ -167,13 +167,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         cell.track = queue.tracks[queue.playIndex + indexPath.row + 1]
         cell.delegate = self
+        
         cell.selectedBackgroundView = createSelectedBackgroundView()
         return cell
     }
     
     func createSelectedBackgroundView() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        view.backgroundColor = UIColor.darkGray
         return view
     }
     
@@ -370,7 +371,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             return
         }
         count = count + 1
-        if count >= 4{
+        if count >= 4 {
             UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseOut, animations: {
                 self.timerLabel.alpha = 0.0
                 self.startTimer.alpha = 0.0
@@ -378,23 +379,17 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                 finished in
                 })
         }
-        
     
-        //This will decrement(count down)the seconds.
+        // decrements the track duration timer
         if trackDuration <= 0 {
             let track = queue.tracks[queue.playIndex]
             self.trackDuration = track.durationMS! / 1000
             self.fullTrackDuration = track.durationMS! / 1000
-
-        }else{
+        } else {
         trackDuration = trackDuration - 1
-        //this makes the progress bar increase.
-
-            if indexProgressBar != 0 && indexProgressBar == Double(fullTrackDuration)
-
-            {
+        // sets progress bar
+            if indexProgressBar != 0 && indexProgressBar == Double(fullTrackDuration) {
                 getNextPoseData()
-                
                 // reset the progress counter
                 indexProgressBar = 0
                 if !tracks.isEmpty {
@@ -412,8 +407,6 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
                         loadAlbumDisplays()
                     }
                 }
-                
-                
             }
             
             // update the display
@@ -422,66 +415,46 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
             
             // increment the counter
             indexProgressBar += 1
-
         }
         
         let (_,m, s) = secondsToHoursMinutesSeconds (seconds: trackDuration)
          let (_,min, sec) = secondsToHoursMinutesSeconds (seconds: Int(indexProgressBar))
         if s < 10  {
-        timerLabel.text = "0\(m):0\(s)" //This will update the label.
-        startTimer.text = "0\(min):0\(sec)"
-        }else{
-        timerLabel.text = "0\(m):\(s)"//This will update the label.
-        startTimer.text = "0\(min):\(sec)"
-
+            timerLabel.text = "0\(m):0\(s)" // updates the label            startTimer.text = "0\(min):0\(sec)"
+        } else {
+            timerLabel.text = "0\(m):\(s)"
+            startTimer.text = "0\(min):\(sec)"
         }
         if sec < 10  {
             startTimer.text = "0\(min):0\(sec)"
-        }else{
+        } else {
             startTimer.text = "0\(min):\(sec)"
-            
         }
-        
-        
-        if (trackDuration <= 0) {
-            print("Hey Im Done ")
-            }
-
     }
+    
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
+    
     func printSecondsToHoursMinutesSeconds (seconds:Int) -> () {
         let (h, m, s) = secondsToHoursMinutesSeconds (seconds: trackDuration)
         print ("\(h) Hours, \(m) Minutes, \(s) Seconds")
     }
     
-    func getNextPoseData()
-    {
-        // do next pose stuff
-        
+    func getNextPoseData() {
         currentPoseIndex += 1
         print(currentPoseIndex)
     }
     
-    func setProgressBar()
-    {
-        if indexProgressBar == Double(trackDuration)
-        {
+    func setProgressBar() {
+        if indexProgressBar == Double(trackDuration) {
             getNextPoseData()
-            
             // reset the progress counter
             indexProgressBar = 0
         }
-        
-        // update the display
-        // use poseDuration - 1 so that you display 20 steps of the the progress bar, from 0...19
-        
-//        progressBar.setProgress(0 , animated: true)
-        // increment the counter
         indexProgressBar += 1
-
     }
+    
     
     func printError(_ error: Error?) {
         if let error = error {
@@ -568,10 +541,12 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
                 let updatedLikeState = !track.isLikedBy(userId: userId)
                 updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
                 self.queue.updateTracksToParse()
-                
                 let cell = tableView.cellForRow(at: indexPath) as! TrackCell
                 cell.setLiked(updatedLikeState, animated: true)
             })
+            like.font = UIFont(name: "HKGrotesk-Medium", size: 14)
+            like.textColor = UIColor.white
+            like.highlightedBackgroundColor = UIColor.red
             like.hidesWhenSelected = true
             let descriptor = !track.isLikedBy(userId: userId) ? ActionDescriptor.like : ActionDescriptor.unlike
             configure(action: like, with: descriptor)
@@ -593,13 +568,14 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
         options.expansionStyle = SwipeExpansionStyle.selection
+        
         return options
     }
     
     func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
         action.title = descriptor.title()
         action.image = descriptor.image()
-        //        action.backgroundColor = descriptor.color
+        action.backgroundColor = descriptor.color
     }
     
     // MARK: - Navigation
