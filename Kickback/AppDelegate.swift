@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // customize launch screen
-         if let window = self.window  {
+         if self.window != nil {
             UIView.animate(withDuration: 1, delay: 2, options: .curveEaseOut,
                                        animations: { () -> Void in
                                         self.customizedLaunchScreenView?.alpha = 0 },
