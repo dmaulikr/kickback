@@ -11,6 +11,8 @@ import MarqueeLabel
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var topBlackGradientImage: UIImageView!
+    @IBOutlet weak var bottomBlackGradientImage: UIImageView!
     @IBOutlet weak var secondbg: UIImageView!
     @IBOutlet weak var bg: UIImageView!
     @IBOutlet weak var startTimer: UILabel!
@@ -138,7 +140,8 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let button = UIButton()
         button.setTitle("Add to Playlist", for: .normal)
         button.titleLabel?.font = UIFont(name: "HKGrotesk-SemiBold", size: 20)
-        button.frame = CGRect(x: 78, y: 10, width: 219, height: 45)
+        let screenWidth = self.view.frame.size.width
+        button.frame = CGRect(x: (screenWidth - 219)/2, y: 10, width: 219, height: 45)
         button.backgroundColor = UIColor(red:0.56, green:0.07, blue:1.00, alpha:1.0)
         button.layer.cornerRadius = button.frame.width * 0.10
         button.layer.masksToBounds = true
@@ -186,11 +189,11 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     }
     
     func renderTracks() {
+        let hasTracks = !queue.tracks.isEmpty
+        trackTitleLabel.isHidden = !hasTracks
+        artistsLabel.isHidden = !hasTracks
+        instructionsLabel.isHidden = hasTracks
         if !isSwiping {
-            let hasTracks = !queue.tracks.isEmpty
-            trackTitleLabel.isHidden = !hasTracks
-            artistsLabel.isHidden = !hasTracks
-            instructionsLabel.isHidden = hasTracks
             queue.updateFromParse()
             queue.sortTracks()
             tableView.reloadData()

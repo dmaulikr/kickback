@@ -13,11 +13,11 @@ import QRCodeReader
 
 class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var emptyInvitesLabel: UILabel!
     @IBOutlet weak var invitesTableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
     var user = User.current!
-    @IBOutlet weak var invitesLabel: UILabel!
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
@@ -87,7 +87,7 @@ class JoinViewController: UIViewController, UITextViewDelegate, QRCodeReaderView
                 for parseInvite in results! {
                     self.invites.append(Invite(parseInvite))
                 }
-                self.invitesLabel.text = "Invites (\(self.invites.count))"
+                self.emptyInvitesLabel.isHidden = !self.invites.isEmpty
                 self.invitesTableView.reloadData()
             }
         }
