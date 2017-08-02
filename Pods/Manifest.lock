@@ -9,6 +9,7 @@ PODS:
   - PopupDialog (0.5.4)
   - QRCode (2.0)
   - QRCodeReader.swift (7.4.3)
+  - SkyFloatingLabelTextField (3.1.0)
   - SwipeCellKit (1.9.0)
 
 DEPENDENCIES:
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - PopupDialog (~> 0.5)
   - QRCode
   - QRCodeReader.swift
+  - SkyFloatingLabelTextField (~> 3.0)
   - SwipeCellKit
 
 SPEC CHECKSUMS:
@@ -30,8 +32,9 @@ SPEC CHECKSUMS:
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: 4a1d46f3057b1b6fc555578b2dc9f2dc99c7ccda
+  SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
   SwipeCellKit: 893661973276ae3512a84ac0a47055923b10731e
 
-PODFILE CHECKSUM: fa484b5f1a0c67596bce65e30b68c3b23c5f90ed
+PODFILE CHECKSUM: 82cbf1cae4f62e08c59c997b4b0ae866fe24b3fa
 
 COCOAPODS: 1.2.1
