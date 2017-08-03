@@ -17,7 +17,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     let segmentBottomBorder = CALayer()
     var searchText = ""
-
     var tracks: [Track] = []
     var artists: [Artist] = []
     var albums: [Album] = []
