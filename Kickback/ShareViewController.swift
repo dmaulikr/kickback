@@ -107,6 +107,9 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
         cell.profileImage.layer.cornerRadius = cell.profileImage.frame.height / 2
         cell.profileImage.layer.masksToBounds = false
         cell.profileImage.clipsToBounds = true
+        cell.defaultProfileView.layer.cornerRadius = cell.defaultProfileView.frame.height / 2
+        cell.defaultProfileView.clipsToBounds = true
+        
         let parseUser = try! PFQuery(className: "SPTUser").whereKey("id", equalTo: memberId).getFirstObject()
         if let url = parseUser["profileImageURL"] {
             cell.profileImage.af_setImage(withURL: URL(string: url as! String)!)

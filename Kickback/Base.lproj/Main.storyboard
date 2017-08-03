@@ -140,7 +140,7 @@
                                     <action selector="didTapCreate:" destination="5To-Vg-COi" eventType="touchUpInside" id="Qs1-JG-VBE"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-Kf-4Kf">
+                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-Kf-4Kf">
                                 <rect key="frame" x="127" y="95" width="120" height="120"/>
                                 <color key="backgroundColor" red="0.29933306574821472" green="0.074969418346881866" blue="0.43601283431053162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -180,7 +180,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Om-LM-mOs">
-                                <rect key="frame" x="127.5" y="95" width="120" height="120"/>
+                                <rect key="frame" x="128" y="95" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Ch6-fE-hoz"/>
                                     <constraint firstAttribute="width" constant="120" id="aWn-lt-CwZ"/>
@@ -924,6 +924,23 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qt2-Ui-aZQ">
+                                                    <rect key="frame" x="11" y="5.5" width="90" height="90"/>
+                                                    <subviews>
+                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleAspectFit" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-aL-RsK">
+                                                            <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="Zgx-GZ-Ehg"/>
+                                                                <constraint firstAttribute="height" constant="70" id="nbr-ZA-UrQ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.29933306570000001" green="0.074969418349999997" blue="0.43601283429999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="apT-g0-DYi"/>
+                                                        <constraint firstAttribute="height" constant="90" id="zae-Bs-GEG"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4BM-Yy-05V">
                                                     <rect key="frame" x="11" y="6" width="90" height="90"/>
                                                     <constraints>
@@ -937,10 +954,15 @@
                                             <constraint firstItem="4BM-Yy-05V" firstAttribute="centerX" secondItem="oMN-Vt-sGP" secondAttribute="centerX" id="0XO-dg-VWK"/>
                                             <constraint firstItem="4BM-Yy-05V" firstAttribute="top" secondItem="oMN-Vt-sGP" secondAttribute="top" constant="6" id="9fA-Sq-1k7"/>
                                             <constraint firstItem="NG3-85-VhV" firstAttribute="centerX" secondItem="4BM-Yy-05V" secondAttribute="centerX" id="AiC-mu-ikF"/>
+                                            <constraint firstItem="SfB-aL-RsK" firstAttribute="centerX" secondItem="4BM-Yy-05V" secondAttribute="centerX" id="Kfe-rF-fUz"/>
                                             <constraint firstItem="NG3-85-VhV" firstAttribute="top" secondItem="4BM-Yy-05V" secondAttribute="bottom" constant="6" id="jzU-7f-xac"/>
+                                            <constraint firstItem="Qt2-Ui-aZQ" firstAttribute="centerX" secondItem="oMN-Vt-sGP" secondAttribute="centerX" id="rId-ae-gis"/>
+                                            <constraint firstItem="SfB-aL-RsK" firstAttribute="centerY" secondItem="4BM-Yy-05V" secondAttribute="centerY" id="wfM-Nm-lbX"/>
+                                            <constraint firstItem="Qt2-Ui-aZQ" firstAttribute="top" secondItem="4BM-Yy-05V" secondAttribute="top" id="wqa-Wu-seG"/>
                                         </constraints>
                                         <size key="customSize" width="112" height="124"/>
                                         <connections>
+                                            <outlet property="defaultProfileView" destination="Qt2-Ui-aZQ" id="vki-5B-afU"/>
                                             <outlet property="profileImage" destination="4BM-Yy-05V" id="E9e-9p-z0l"/>
                                             <outlet property="usernameLabel" destination="NG3-85-VhV" id="JoH-2L-7FI"/>
                                         </connections>
