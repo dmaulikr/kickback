@@ -25,7 +25,9 @@ class TrackCell: SwipeTableViewCell {
                 let name = artists[i]["name"] as! String
                 artistNames.append(name)
             }
-            artistsLabel.text = artistNames.joined(separator: ", ")
+            let artistString = artistNames.joined(separator: ", ")
+            let likeString = track.likes == 1 ? "Like" : "Likes"
+            artistsLabel.text = "\(track.likes) \(likeString) · \(artistString)"
             let imageDictionary = track.album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)
             albumImage.af_setImage(withURL: url!)
