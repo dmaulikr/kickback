@@ -1060,12 +1060,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join"/>
                                 <connections>
-                                    <action selector="didTapCreate:" destination="bHf-5H-k6g" eventType="touchUpInside" id="e7V-hB-8vz"/>
+                                    <action selector="onTapJoin:" destination="qcX-hT-syF" eventType="touchUpInside" id="Dkg-kq-9Br"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="onTapJoin:" destination="qcX-hT-syF" id="oqY-Yu-1ae"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -2228,7 +2225,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="noR-SQ-Xsn"/>
-        <segue reference="bBs-fI-9um"/>
+        <segue reference="nhZ-av-Lie"/>
         <segue reference="Hqv-uq-cde"/>
         <segue reference="vTg-yr-bTs"/>
     </inferredMetricsTieBreakers>
