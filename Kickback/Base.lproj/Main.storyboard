@@ -1328,10 +1328,10 @@
                                 </constraints>
                             </imageView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="lo5-9e-755">
-                                <rect key="frame" x="27" y="20" width="348" height="44"/>
+                                <rect key="frame" x="12" y="20" width="314" height="44"/>
                                 <color key="tintColor" red="0.9882434606552124" green="0.98822498321533203" blue="0.98823750019073486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="barTintColor" red="0.34785416722297668" green="0.1204340010881424" blue="0.5373494029045105" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DQ3-hx-gCx">
                                 <rect key="frame" x="16" y="66" width="343" height="29"/>
@@ -1345,17 +1345,6 @@
                                     <action selector="segmentedControlDidChange:" destination="YV5-Ya-KJv" eventType="valueChanged" id="YZn-xN-pDA"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk2-no-o0U">
-                                <rect key="frame" x="4" y="28" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="fTL-7l-RlX"/>
-                                    <constraint firstAttribute="height" constant="28" id="hdc-g2-Etx"/>
-                                </constraints>
-                                <state key="normal" image="x"/>
-                                <connections>
-                                    <action selector="onTapCancel:" destination="YV5-Ya-KJv" eventType="touchUpInside" id="cNg-pa-hct"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your favorite music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLb-ta-Re5">
                                 <rect key="frame" x="93.5" y="290" width="187.5" height="22"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="18"/>
@@ -1597,21 +1586,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vk2-no-o0U">
+                                <rect key="frame" x="326" y="26" width="37" height="32"/>
+                                <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="16"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onTapCancel:" destination="YV5-Ya-KJv" eventType="touchUpInside" id="cNg-pa-hct"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="lo5-9e-755" firstAttribute="leading" secondItem="Vk2-no-o0U" secondAttribute="trailing" constant="-5" id="1Og-3q-3sx"/>
                             <constraint firstItem="lo5-9e-755" firstAttribute="top" secondItem="gN1-UR-5yU" secondAttribute="bottom" id="6VL-Td-gob"/>
                             <constraint firstAttribute="trailing" secondItem="NdD-Ld-hRC" secondAttribute="trailing" id="9xC-5s-9ea"/>
-                            <constraint firstItem="Vk2-no-o0U" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leadingMargin" constant="-12" id="A0h-Qi-ieN"/>
-                            <constraint firstAttribute="trailing" secondItem="lo5-9e-755" secondAttribute="trailing" id="LMS-c9-R0E"/>
+                            <constraint firstItem="Vk2-no-o0U" firstAttribute="leading" secondItem="lo5-9e-755" secondAttribute="trailing" id="ACl-vC-FWU"/>
+                            <constraint firstAttribute="trailing" secondItem="Vk2-no-o0U" secondAttribute="trailing" constant="12" id="AOT-aj-qlJ"/>
+                            <constraint firstItem="Vk2-no-o0U" firstAttribute="centerY" secondItem="lo5-9e-755" secondAttribute="centerY" id="O5A-hw-DRs"/>
                             <constraint firstItem="NdD-Ld-hRC" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leading" id="Pg9-xa-3bL"/>
                             <constraint firstItem="qvR-kQ-QER" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leadingMargin" constant="24" id="VjY-tx-VJy"/>
                             <constraint firstItem="qvR-kQ-QER" firstAttribute="top" secondItem="yLb-ta-Re5" secondAttribute="bottom" constant="6" id="Wc7-ls-vi1"/>
                             <constraint firstItem="yNL-Nn-z1Y" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leading" id="XWI-FL-r2V"/>
                             <constraint firstAttribute="trailing" secondItem="DQ3-hx-gCx" secondAttribute="trailing" constant="16" id="eIG-Qf-Tfa"/>
                             <constraint firstItem="mbF-uh-YVN" firstAttribute="top" secondItem="lo5-9e-755" secondAttribute="bottom" constant="156" id="eRn-1d-kWR"/>
+                            <constraint firstItem="lo5-9e-755" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leading" constant="12" id="fIQ-Lc-buB"/>
                             <constraint firstItem="yNL-Nn-z1Y" firstAttribute="top" secondItem="DQ3-hx-gCx" secondAttribute="bottom" constant="6" id="fSQ-nC-ZRj"/>
                             <constraint firstItem="mbF-uh-YVN" firstAttribute="centerX" secondItem="ZUB-qJ-fL5" secondAttribute="centerX" id="ibQ-8C-bxn"/>
                             <constraint firstItem="NdD-Ld-hRC" firstAttribute="top" secondItem="ZUB-qJ-fL5" secondAttribute="top" id="itW-T7-clk"/>
@@ -1619,7 +1617,6 @@
                             <constraint firstItem="yLb-ta-Re5" firstAttribute="top" secondItem="mbF-uh-YVN" secondAttribute="bottom" constant="6" id="p7y-eJ-HWi"/>
                             <constraint firstItem="DQ3-hx-gCx" firstAttribute="top" secondItem="lo5-9e-755" secondAttribute="bottom" constant="2" id="qkv-Iq-D0Q"/>
                             <constraint firstItem="yLb-ta-Re5" firstAttribute="centerX" secondItem="mbF-uh-YVN" secondAttribute="centerX" id="ra1-Xv-oub"/>
-                            <constraint firstItem="Vk2-no-o0U" firstAttribute="centerY" secondItem="lo5-9e-755" secondAttribute="centerY" id="sBl-wc-WS6"/>
                             <constraint firstItem="DQ3-hx-gCx" firstAttribute="leading" secondItem="ZUB-qJ-fL5" secondAttribute="leading" constant="16" id="tDW-FP-MXi"/>
                             <constraint firstAttribute="trailing" secondItem="yNL-Nn-z1Y" secondAttribute="trailing" id="vFo-Y6-9CU"/>
                             <constraint firstItem="5Wo-TF-hcv" firstAttribute="top" secondItem="yNL-Nn-z1Y" secondAttribute="bottom" id="wjW-oZ-hFc"/>
@@ -1655,7 +1652,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2071" y="-770"/>
+            <point key="canvasLocation" x="2069.5999999999999" y="-770.46476761619192"/>
         </scene>
         <!--Add Friends View Controller-->
         <scene sceneID="4RO-EP-qqh">
@@ -2148,7 +2145,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2166,7 +2163,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2184,7 +2181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kci-B7-HQP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MFm-1D-y54">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MFm-1D-y54">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2221,13 +2218,12 @@
         <image name="skip-back" width="100" height="100"/>
         <image name="skip-forward" width="100" height="100"/>
         <image name="user-plus" width="30" height="30"/>
-        <image name="x" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bBs-fI-9um"/>
         <segue reference="noR-SQ-Xsn"/>
-        <segue reference="i0u-G1-jKp"/>
-        <segue reference="Hqv-uq-cde"/>
+        <segue reference="A1y-NO-BJJ"/>
+        <segue reference="7GT-5Z-IBe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

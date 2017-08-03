@@ -30,7 +30,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
         tableView.isHidden = true
         segmentedControl.isHidden = true
         
@@ -39,6 +38,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
+        searchBar.keyboardAppearance = .dark
         
         // Set up the segemented control
         segmentBottomBorder.borderColor = UIColor.white.cgColor
@@ -91,6 +91,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -186,16 +190,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 break
             }
         }
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
     }
     
     @IBAction func onTapCancel(_ sender: Any) {
