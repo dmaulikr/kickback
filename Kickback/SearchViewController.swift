@@ -117,17 +117,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             searchCell.track = tracks[indexPath.row]
-            
-            searchCell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                                for: UIControlEvents.touchUpInside)
-            searchCell.addTrackButton.tag = indexPath.row
-            if addedtoQueue[indexPath.row] == true {
-                // disable State Button
-                searchCell.addTrackButton.isEnabled = false
-                
+            if addedtoQueue[indexPath.row] {
+                // indicate track has been added
+             //   searchCell.isSelected = true
             } else {
-                // activate State Button
-                searchCell.addTrackButton.isEnabled = true
+                // indicate track has not been added
+             //   searchCell.isSelected = false
             }
             cell = searchCell as SearchResultCell
         case 1:
@@ -141,21 +136,40 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         default:
             break
         }
-        let backgroundColorView = UIView()
-        backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
-        cell.selectedBackgroundView = backgroundColorView
-        print(backgroundColorView)
+        if segmentedControl.selectedSegmentIndex != 0 {
+            let backgroundColorView = UIView()
+            backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+            cell.selectedBackgroundView = backgroundColorView
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func buttonAction(sender:UIButton!) {
-        let index = sender.tag
-        if addedtoQueue[index] == false {
-            addedtoQueue[index] = true
+        if segmentedControl.selectedSegmentIndex == 0 {
+            if !addedtoQueue[indexPath.row] {
+                let track = tracks[indexPath.row]
+                let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+                searchCell.track = track
+
+                // add track to playlist
+                searchCell.isSelected = true
+                Queue.current!.addTrack(track, user: User.current!)
+                addedtoQueue[indexPath.row] = true
+
+                let backgroundColorView = UIView()
+                backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+                
+                // set up background flash
+                searchCell.selectedBackgroundView = backgroundColorView
+                backgroundColorView.alpha = 0
+                backgroundColorView.isHidden = false
+                UIView.animate(withDuration: 0.5, animations: {
+                    backgroundColorView.alpha = 1.0 }) {
+                        finished in backgroundColorView.isHidden = true
+                }
+            }
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 
@@ -230,7 +244,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let width: CGFloat = sender.frame.size.width / 3
         let x = CGFloat(sender.selectedSegmentIndex) * width
         let y = sender.frame.size.height - (segmentBottomBorder.borderWidth)
-        segmentBottomBorder.frame = CGRect(x: x, y: y, width: width, height: (segmentBottomBorder.borderWidth))
+        segmentBottomBorder.frame = CGRect(x: x, y: y, width: width, height: 1)
         sender.layer.addSublayer(segmentBottomBorder)
     }
     

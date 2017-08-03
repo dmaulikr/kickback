@@ -45,10 +45,10 @@ class SearchResultCell: UITableViewCell {
 //        albumImageView.layer.borderColor = UIColor.white.cgColor
     }
     
-    @IBAction func onAddTrack(_ sender: Any) {
-        Queue.current!.addTrack(track, user: User.current!)
-        addTrackButton.isEnabled = false
-    }
+//    @IBAction func onAddTrack(_ sender: Any) {
+//        Queue.current!.addTrack(track, user: User.current!)
+//        addTrackButton.isEnabled = false
+//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
