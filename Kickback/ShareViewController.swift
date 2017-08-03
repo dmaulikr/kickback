@@ -28,10 +28,8 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         accessCodeLabel.text = accessCode
         
-        members = Queue.current!.members
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.reloadData()
         
         for button in [searchButton, shareButton, scanButton] {
             button!.layer.cornerRadius = button!.frame.height / 2
@@ -41,6 +39,13 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
 
         self.navigationController?.title = "Share"
         self.navigationController?.navigationItem.backBarButtonItem?.title = "Back"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Queue.current!.updateFromParse {
+            self.members = Queue.current!.members
+            self.collectionView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,7 +73,12 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBAction func onScan(_ sender: Any) {
         let title = "Share QR Code"
         let image = QRCode(accessCode)?.image
-        let popup = PopupDialog(title: title, message: nil, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: nil)
+        let popup = PopupDialog(title: title, message: nil, image: image, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: {
+            Queue.current!.updateFromParse {
+                self.members = Queue.current!.members
+                self.collectionView.reloadData()
+            }
+        })
         self.present(popup, animated: true, completion: nil)
     }
     
@@ -82,17 +92,6 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
         let button = sender as! UIButton
         button.alpha = 0.25
     }
-    
-    
-    // MARK: - Table view
-    
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ShareCell") as! ShareCell
-//        let backgroundColorView = UIView()
-//        backgroundColorView.backgroundColor = UIColor(red:0.20, green:0.07, blue:0.31, alpha:1.0)
-//        cell.selectedBackgroundView = backgroundColorView
-
     
     // MARK: - Collection view
     
