@@ -546,15 +546,13 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
         if orientation == .right {
             let userId = self.user.id
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                self.queue.updateFromParse {
-                    let updatedLikeState = !track.isLikedBy(userId: userId)
-                    updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
-                    self.queue.updateTracksToParse()
-                    let cell = tableView.cellForRow(at: indexPath) as! TrackCell
-                    cell.setLiked(updatedLikeState, animated: true)
-                    self.queue.sortTracks()
-                    self.renderTracks()
-                }
+                let updatedLikeState = !track.isLikedBy(userId: userId)
+                updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
+                self.queue.updateTracksToParse()
+                let cell = tableView.cellForRow(at: indexPath) as! TrackCell
+                cell.setLiked(updatedLikeState, animated: true)
+                self.queue.sortTracks()
+                self.renderTracks()
             })
             like.font = UIFont(name: "HKGrotesk-Medium", size: 14)
             like.textColor = UIColor.white

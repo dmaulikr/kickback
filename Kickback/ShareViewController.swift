@@ -14,19 +14,19 @@ import Parse
 class ShareViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var accessCodeLabel: UILabel!
     
-    var members: [String] = Queue.current!.members
+    var members: [String] = []
     let accessCode = Queue.current!.accessCode
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         accessCodeLabel.text = accessCode
+        members = Queue.current!.members
         
         collectionView.dataSource = self
         collectionView.delegate = self
