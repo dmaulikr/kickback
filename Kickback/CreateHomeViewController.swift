@@ -8,6 +8,7 @@
 import UIKit
 import SwipeCellKit
 import MarqueeLabel
+import AVFoundation
 
 class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -94,6 +95,18 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         // Refresh control
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+            print("AVAudioSession Category Playback OK")
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+                print("AVAudioSession is Active")
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
     }
     
     

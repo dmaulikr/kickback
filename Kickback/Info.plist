@@ -49,6 +49,10 @@
 		<string>HKGrotesk-SemiBold.otf</string>
 		<string>HKGrotesk-SemiBoldItalic.otf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
