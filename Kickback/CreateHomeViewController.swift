@@ -47,14 +47,12 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     // variable is  making sure the timer will pause 
     var isPaused = true
     var isSwiping = false
+    var refreshTimer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setProgressBar()
         
-        // Set up timer
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
-            
         self.queue = Queue.current
         self.user = User.current
         let isOwner = queue.ownerId == user.id
@@ -120,7 +118,15 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         navBar.tintColor = UIColor.white
         self.navigationController?.view.backgroundColor = .clear
         
+        // Set up refresh timer
+        let timeInterval: Double = Queue.current!.ownerId == User.current!.id ? 1 : 10
+        refreshTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        
         renderTracks()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        refreshTimer.invalidate()
     }
     
     @IBAction func screenTapped(_ sender: Any) {
@@ -207,10 +213,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         artistsLabel.isHidden = !hasTracks
         instructionsLabel.isHidden = hasTracks
         if !isSwiping {
-            queue.updateFromParse()
-            queue.sortTracks()
-            tableView.reloadData()
-            loadAlbumDisplays()
+            queue.updateFromParse(callback: {
+                self.tableView.reloadData()
+                self.loadAlbumDisplays()
+            })
         }
     }
     
@@ -564,6 +570,8 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
                 self.queue.updateTracksToParse()
                 let cell = tableView.cellForRow(at: indexPath) as! TrackCell
                 cell.setLiked(updatedLikeState, animated: true)
+                self.queue.sortTracks()
+                self.renderTracks()
             })
             like.font = UIFont(name: "HKGrotesk-Medium", size: 14)
             like.textColor = UIColor.white

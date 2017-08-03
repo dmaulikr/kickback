@@ -47,7 +47,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .normal)
         
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +142,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
         cell.selectedBackgroundView = backgroundColorView
-        print(backgroundColorView)
         return cell
     }
     
@@ -176,7 +174,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 })
             case 1:
                 APIManager.current?.searchArtists(query: searchText, user: User.current, callback: { (artists) in
-                    print(artists)
                     self.artists = artists
                     self.tableView.reloadData()
                 })

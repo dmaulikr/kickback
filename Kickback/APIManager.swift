@@ -133,7 +133,7 @@ class APIManager {
                 }
                 callback(results)
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching tracks: \(error.localizedDescription)")
             }
         }
     }
@@ -164,9 +164,8 @@ class APIManager {
                     }
                 }
                 callback(results)
-                
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching artists: \(error.localizedDescription)")
             }
         }
     }
@@ -200,10 +199,9 @@ class APIManager {
                 callback(results)
 
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching albums: \(error.localizedDescription)")
             }
         }
-        refreshToken()
     }
     
     func getTracksInAlbum(albumURI: URL, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
