@@ -18,12 +18,15 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var scanButton: UIButton!
+    @IBOutlet weak var accessCodeLabel: UILabel!
     
     var members: [String]!
     let accessCode = Queue.current!.accessCode
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        accessCodeLabel.text = accessCode
         
         members = Queue.current!.members
         collectionView.dataSource = self
