@@ -20,7 +20,7 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var scanButton: UIButton!
     @IBOutlet weak var accessCodeLabel: UILabel!
     
-    var members: [String] = []
+    var members: [String] = Queue.current!.members
     let accessCode = Queue.current!.accessCode
     
     override func viewDidLoad() {
@@ -30,6 +30,7 @@ class ShareViewController: UIViewController, UICollectionViewDataSource, UIColle
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.reloadData()
         
         for button in [searchButton, shareButton, scanButton] {
             button!.layer.cornerRadius = button!.frame.height / 2
