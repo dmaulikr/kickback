@@ -52,7 +52,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         setProgressBar()
         
         // Set up timer
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
             
         self.queue = Queue.current
         self.user = User.current
@@ -217,26 +217,25 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let tracks = queue.tracks
         let playIndex = queue.playIndex
         if !tracks.isEmpty {
-            trackTitleLabel.text = tracks[playIndex].name
-            let artists = tracks[playIndex].artists
-            var artistNames: [String] = []
+            let track = tracks[playIndex]
+            trackTitleLabel.text = track.name
+            let artists = track.artists
+            var artistArray: [String] = []
             for i in 0..<artists.count {
                 let name = artists[i]["name"] as! String
-                artistNames.append(name)
+                artistArray.append(name)
             }
-            artistsLabel.text = artistNames.joined(separator: ", ")
-            let imageDictionary = tracks[playIndex].album["images"] as! [[String: Any]]
+            artistsLabel.text = artistArray.joined(separator: ", ")
+            
+            let imageDictionary = track.album["images"] as! [[String: Any]]
             let url = URL(string: imageDictionary[0]["url"] as! String)!
         
             currentSongImageView.af_setImage(withURL: url)
             bg.af_setImage(withURL: url)
             secondbg.af_setImage(withURL: url)
-
-            
         }
         // Load previous track
         if playIndex > 0 {
-           
             let prevImageDictionary = tracks[playIndex - 1].album["images"] as! [[String: Any]]
             let prevUrl = URL(string: prevImageDictionary[0]["url"] as! String)!
             previousSongImageView.af_setImage(withURL: prevUrl)
@@ -321,7 +320,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load next track
-            didTapNext(Any)
+            didTapNext((Any).self)
         }
     }
     
@@ -329,7 +328,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         let isOwner = queue.ownerId == user.id
         if isOwner {
             // Load previous track
-            didTapRewind(Any)
+            didTapRewind((Any).self)
         }
     }
     

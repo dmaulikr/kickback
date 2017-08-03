@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import SkyFloatingLabelTextField
 
-class AddFriendsViewController: UIViewController{
+class AddFriendsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var addFriendButton: UIButton!
     @IBOutlet weak var usernameTextField: SkyFloatingLabelTextField!
@@ -24,6 +24,7 @@ class AddFriendsViewController: UIViewController{
         usernameTextField.placeholderColor = UIColor.lightText
         usernameTextField.selectedTitleColor = UIColor(red:0.42, green:0.11, blue:0.60, alpha:1.0)
         usernameTextField.font = UIFont(name: "HKGrotesk-SemiBold", size: 26)
+        usernameTextField.delegate = self
         
         // Change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.barTintColor = UIColor.clear
@@ -42,6 +43,11 @@ class AddFriendsViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        usernameTextField.errorMessage = ""
+        return true
+    }
+    
     @IBAction func onAdd(_ sender: Any) {
         if let userId = usernameTextField.text {
             let userQuery = PFQuery(className: "SPTUser").whereKey("id", equalTo: userId)
@@ -49,12 +55,16 @@ class AddFriendsViewController: UIViewController{
                 let inviteQuery = PFQuery(className: "Invite").whereKey("queueId", equalTo: Queue.current!.id).whereKey("userId", equalTo: userId)
                 if inviteQuery.countObjects(nil) == 0 {
                     Invite.addInvite(queue: Queue.current!, inviteeId: userId, inviter: User.current!)
-                    print("invited user")
+                    usernameTextField.errorColor = UIColor.green
+                    usernameTextField.errorMessage = "Invited friend successfully"
+                    usernameTextField.text = ""
                 } else {
-                    print("user has already been invited")
+                    usernameTextField.errorColor = UIColor.red
+                    usernameTextField.errorMessage = "User already invited"
                 }
             } else {
-                print("user doesn't exist")
+                usernameTextField.errorColor = UIColor.red
+                usernameTextField.errorMessage = "Username not found"
             }
         }
     }

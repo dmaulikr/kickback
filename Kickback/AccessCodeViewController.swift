@@ -43,20 +43,17 @@ class AccessCodeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        accessCodeTextField.errorMessage = ""
+        return true
+    }
+    
     func tryJoinQueueWith(code: String) {
         let query = PFQuery(className: "Queue").whereKey("accessCode", equalTo: code)
         query.getFirstObjectInBackground(block: { (parseQueue: PFObject?, error: Error?) in
             if let error = error {
                 // There is no queue with that access code.
-                
-                // create the alert
-                let alert = UIAlertController(title: "Invalid Playlist Code", message: "We can't find a playlist with this code. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
-                
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
+                self.accessCodeTextField.errorMessage = "Invalid access code"
                 print(error.localizedDescription)
             } else {
                 let queue = Queue(parseQueue!)
