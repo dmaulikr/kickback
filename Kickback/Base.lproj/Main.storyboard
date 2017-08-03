@@ -539,7 +539,7 @@
                                         <rect key="frame" x="0.0" y="257" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Hl-KQ-b3o">
@@ -2230,7 +2230,7 @@
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="bBs-fI-9um"/>
         <segue reference="Hqv-uq-cde"/>
-        <segue reference="i0u-G1-jKp"/>
+        <segue reference="vTg-yr-bTs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
