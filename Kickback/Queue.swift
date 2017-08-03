@@ -86,79 +86,63 @@ class Queue {
         self.playIndex = parseQueue["playIndex"] as! Int
         self.furthestIndex = parseQueue["furthestIndex"] as! Int
     }
-    
-    func updateFromParse() {
-        do {
-            try parseQueue.fetch()
-            self.id = parseQueue.objectId
-            self.ownerId = parseQueue["ownerId"] as! String
-            self.accessCode = parseQueue["accessCode"] as! String
-            self.name = parseQueue["name"] as! String
-            let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
-            self.tracks = []
-            for jsonTrack in jsonTracks {
-                self.tracks.append(Track(jsonTrack))
-            }
-            self.members = parseQueue["members"] as! [String]
-            self.playIndex = parseQueue["playIndex"] as! Int
-            self.furthestIndex = parseQueue["furthestIndex"] as! Int
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func updateFromParse(callback: @escaping () -> Void) {
-        do {
-            try parseQueue.fetch()
-            self.id = parseQueue.objectId
-            self.ownerId = parseQueue["ownerId"] as! String
-            self.accessCode = parseQueue["accessCode"] as! String
-            self.name = parseQueue["name"] as! String
-            let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
-            self.tracks = []
-            for jsonTrack in jsonTracks {
-                self.tracks.append(Track(jsonTrack))
-            }
-            self.members = parseQueue["members"] as! [String]
-            self.playIndex = parseQueue["playIndex"] as! Int
-            self.furthestIndex = parseQueue["furthestIndex"] as! Int
-            callback()
-        } catch {
-            print(error.localizedDescription)
-        }
 
+    func updateFromParse(callback: @escaping () -> Void) {
+        self.parseQueue.fetchInBackground { (result, error) in
+            if let parseQueue = result {
+                self.id = parseQueue.objectId
+                self.ownerId = parseQueue["ownerId"] as! String
+                self.accessCode = parseQueue["accessCode"] as! String
+                self.name = parseQueue["name"] as! String
+                let jsonTracks = parseQueue["jsonTracks"] as! [[String: Any]]
+                self.tracks = []
+                for jsonTrack in jsonTracks {
+                    self.tracks.append(Track(jsonTrack))
+                }
+                self.members = parseQueue["members"] as! [String]
+                self.playIndex = parseQueue["playIndex"] as! Int
+                self.furthestIndex = parseQueue["furthestIndex"] as! Int
+                self.parseQueue = parseQueue
+                callback()
+            } else {
+                print("Error updating from parse \(error!.localizedDescription)")
+            }
+        }
     }
     
     func addMember(userId: String) {
         if !members.contains(userId) {
-            updateFromParse()
-            members.append(userId)
-            parseQueue.add(userId, forKey: "members")
-            parseQueue.saveInBackground()
+            updateFromParse(callback: {
+                self.members.append(userId)
+                self.parseQueue.add(userId, forKey: "members")
+                self.parseQueue.saveInBackground()
+            })
         }
     }
     
     func removeMember(userId: String) {
         if members.contains(userId) {
-            updateFromParse()
-            members = members.filter() {$0 != userId}
-            parseQueue.remove(userId, forKey: "members")
-            parseQueue.saveInBackground()
+            updateFromParse(callback: {
+                self.members = self.members.filter() {$0 != userId}
+                self.parseQueue.remove(userId, forKey: "members")
+                self.parseQueue.saveInBackground()
+            })
         }
     }
     
     func addTrack(_ track: Track, user: User) {
         track.userId = user.id
         track.addedAt = Date()
-        updateFromParse()
-        tracks.append(track)
-        sortTracks()
-        var jsonTracks: [[String: Any]] = []
-        for track in tracks {
-            jsonTracks.append(track.dictionary)
-        }
-        parseQueue["jsonTracks"] = jsonTracks
-        parseQueue.saveInBackground()
+        updateFromParse(callback: {
+            self.tracks.append(track)
+            self.sortTracks()
+            var jsonTracks: [[String: Any]] = []
+            for track in self.tracks {
+                jsonTracks.append(track.dictionary)
+            }
+            self.parseQueue["jsonTracks"] = jsonTracks
+            self.parseQueue.saveInBackground()
+        })
     }
     
     func renameTo(_ newName: String) {

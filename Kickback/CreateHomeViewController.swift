@@ -52,7 +52,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         setProgressBar()
         
         // Set up timer
-        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.renderTracks), userInfo: nil, repeats: true)
             
         self.queue = Queue.current
         self.user = User.current
@@ -194,10 +194,10 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         artistsLabel.isHidden = !hasTracks
         instructionsLabel.isHidden = hasTracks
         if !isSwiping {
-            queue.updateFromParse()
-            queue.sortTracks()
-            tableView.reloadData()
-            loadAlbumDisplays()
+            queue.updateFromParse(callback: {
+                self.tableView.reloadData()
+                self.loadAlbumDisplays()
+            })
         }
     }
     
@@ -546,11 +546,15 @@ extension CreateHomeViewController: SwipeTableViewCellDelegate {
         if orientation == .right {
             let userId = self.user.id
             let like = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                let updatedLikeState = !track.isLikedBy(userId: userId)
-                updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
-                self.queue.updateTracksToParse()
-                let cell = tableView.cellForRow(at: indexPath) as! TrackCell
-                cell.setLiked(updatedLikeState, animated: true)
+                self.queue.updateFromParse {
+                    let updatedLikeState = !track.isLikedBy(userId: userId)
+                    updatedLikeState ? track.like(userId: userId) : track.unlike(userId: userId)
+                    self.queue.updateTracksToParse()
+                    let cell = tableView.cellForRow(at: indexPath) as! TrackCell
+                    cell.setLiked(updatedLikeState, animated: true)
+                    self.queue.sortTracks()
+                    self.renderTracks()
+                }
             })
             like.font = UIFont(name: "HKGrotesk-Medium", size: 14)
             like.textColor = UIColor.white
