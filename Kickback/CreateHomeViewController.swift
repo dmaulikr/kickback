@@ -60,6 +60,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         playButton.isHidden = !isOwner
         nextButton.isHidden = !isOwner
         rewindButton.isHidden = !isOwner
+        progressBar.isHidden = !isOwner
         if isOwner {
             // Initialize Spotify player
             player.playbackDelegate = self
