@@ -62,6 +62,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
                     self.tableView.reloadData()
                 })
             case 1:
@@ -100,7 +101,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            addedtoQueue = [Bool](repeating: false, count: tracks.count)
             return tracks.count
         case 1:
             return artists.count
@@ -155,14 +155,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
                 searchCell.track = track
                 
-                // indicate track has been added
-                searchCell.addTrackImageView.image = UIImage(named: "check")
-//                searchCell.selectionStyle = .none
-                tableView.deselectRow(at: indexPath, animated: true)
-                
-                // add track to playlist
-//                Queue.current!.addTrack(track, user: User.current!)
+                // reload tableview
                 addedtoQueue[indexPath.row] = true
+                tableView.reloadData()
+
+                // add track to playlist
+                Queue.current!.addTrack(track, user: User.current!)
             }
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -183,6 +181,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
                     self.tableView.reloadData()
                 })
             case 1:
@@ -218,6 +217,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
+
                         self.tableView.reloadData()
                 })
             case 1:

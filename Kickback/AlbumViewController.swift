@@ -83,23 +83,18 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         if track == nil {
             cell.track = self.tracks[indexPath.row]
-//            cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-//                                          for: UIControlEvents.touchUpInside)
-//            cell.addTrackButton.tag = indexPath.row
-            
             // Reset the reuse cell
             cell.nameLabel.textColor = UIColor.white
             cell.albumImageView.layer.borderWidth = 1
-//            cell.addTrackButton.isHidden = false
-//            
-//            if addedtoQueue[indexPath.row] == true {
-//                // disable State Button
-//                cell.addTrackButton.isEnabled = false
-//                
-//            } else {
-//                // activate State Button
-//                cell.addTrackButton.isEnabled = true
-//            }
+            cell.addTrackImageView.isHidden = false
+            
+            if addedtoQueue[indexPath.row] {
+                // indicate track has been added
+                cell.addTrackImageView.image = UIImage(named: "check")
+            } else {
+                // indicate track has not been added
+                cell.addTrackImageView.image = UIImage(named: "plus")
+            }
         } else {
             if indexPath.row == 0 {
                 // Setting up the current track
@@ -120,9 +115,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.albumImageView.af_setImage(withURL: url!)
                 cell.albumImageView.layer.borderWidth = 0
                 
-//                cell.addTrackButton.isHidden = true
-//                cell.addTrackButton.isEnabled = false
-                
+                cell.addTrackImageView.isHidden = true                
             } else {
                 self.tracks = tracks.filter({ (dictionary) -> Bool in
                     if let value = dictionary.name as? String {
@@ -131,33 +124,34 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return false
                 })
                 cell.track = self.tracks[indexPath.row]
-//                cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-//                                              for: UIControlEvents.touchUpInside)
-//                cell.addTrackButton.tag = indexPath.row
-                
                 // Reset the reuse cell
                 cell.nameLabel.textColor = UIColor.white
                 cell.albumImageView.layer.borderWidth = 1
-//                cell.addTrackButton.isHidden = false
+                cell.addTrackImageView.isHidden = false
                 
-                if addedtoQueue[indexPath.row] == true {
-                    // disable State Button
-//                    cell.addTrackButton.isEnabled = false
-                    
+                if addedtoQueue[indexPath.row] {
+                    // indicate track has been added
+                    cell.addTrackImageView.image = UIImage(named: "check")
                 } else {
-                    // activate State Button
-//                    cell.addTrackButton.isEnabled = true
+                    // indicate track has not been added
+                    cell.addTrackImageView.image = UIImage(named: "plus")
                 }
             }
         }
         return cell
     }
     
-    func buttonAction(sender:UIButton!) {
-        let index = sender.tag
-        if addedtoQueue[index] == false {
-            addedtoQueue[index] = true
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // get the track
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+        cell.track = tracks[indexPath.row]
+        
+        // reload tableview
+        addedtoQueue[indexPath.row] = true
+        tableView.reloadData()
+        
+        // add track to playlist
+        Queue.current!.addTrack(track, user: User.current!)
     }
        // MARK: - Navigation
     

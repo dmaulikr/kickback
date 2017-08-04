@@ -55,6 +55,7 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         let artistURI = artist.uri
         APIManager.current?.getTopTracks(artistURI: URL(string: artistURI)!, user: User.current, callback: { (topTracks) in
             self.topTracks = topTracks
+            self.addedtoQueue = [Bool](repeating: false, count: topTracks.count)
             self.tableView.reloadData()
         })
         
@@ -77,34 +78,34 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addedtoQueue = [Bool](repeating: false, count: topTracks.count)
         return topTracks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         cell.track = topTracks[indexPath.row]
-        
-//        cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-//                                            for: UIControlEvents.touchUpInside)
-//        cell.addTrackButton.tag = indexPath.row
-        
-        if addedtoQueue[indexPath.row] == true {
-            // disable State Button
-//            cell.addTrackButton.isEnabled = false
-            
+
+        if addedtoQueue[indexPath.row] {
+            // indicate track has been added
+            cell.addTrackImageView.image = UIImage(named: "check")
         } else {
-            // activate State Button
-//            cell.addTrackButton.isEnabled = true
+            // indicate track has not been added
+            cell.addTrackImageView.image = UIImage(named: "plus")
         }
         return cell
     }
     
-    func buttonAction(sender:UIButton!) {
-        let index = sender.tag
-        if addedtoQueue[index] == false {
-            addedtoQueue[index] = true
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // get the track
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+        cell.track = topTracks[indexPath.row]
+        
+        // reload tableview
+        addedtoQueue[indexPath.row] = true
+        tableView.reloadData()
+        
+        // add track to playlist
+        Queue.current!.addTrack(track, user: User.current!)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
