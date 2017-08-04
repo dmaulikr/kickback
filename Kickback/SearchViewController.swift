@@ -117,12 +117,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             searchCell.track = tracks[indexPath.row]
+            
             if addedtoQueue[indexPath.row] {
                 // indicate track has been added
                 searchCell.selectionStyle = .none
                 searchCell.addTrackImageView.image = UIImage(named: "check")
+               // print("\(indexPath.row) check")
             } else {
+                // indicate track has not been added
+                searchCell.selectionStyle = .default
                 searchCell.addTrackImageView.image = UIImage(named: "plus")
+                //print("\(indexPath.row) plus")
             }
             cell = searchCell as SearchResultCell
         case 1:
@@ -136,11 +141,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         default:
             break
         }
-        if segmentedControl.selectedSegmentIndex != 0 {
-            let backgroundColorView = UIView()
-            backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
-            cell.selectedBackgroundView = backgroundColorView
-        }
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+        cell.selectedBackgroundView = backgroundColorView
         return cell
     }
     
@@ -152,29 +155,20 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
                 searchCell.track = track
                 
-                // add track to playlist
+                // indicate track has been added
                 searchCell.addTrackImageView.image = UIImage(named: "check")
-                searchCell.isSelected = true
-                Queue.current!.addTrack(track, user: User.current!)
-                addedtoQueue[indexPath.row] = true
-           
-                // set up background flash
-//                let backgroundColorView = UIView()
-//                backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+//                searchCell.selectionStyle = .none
+                tableView.deselectRow(at: indexPath, animated: true)
                 
-//                searchCell.selectedBackgroundView = backgroundColorView
-//                backgroundColorView.alpha = 0
-//                UIView.animate(withDuration: 0.7, animations: {
-//                    backgroundColorView.alpha = 1.0 }) {
-//                        finished in
-//                        searchCell.selectionStyle = .none
-//                }
+                // add track to playlist
+//                Queue.current!.addTrack(track, user: User.current!)
+                addedtoQueue[indexPath.row] = true
             }
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             self.tableView.isHidden = true

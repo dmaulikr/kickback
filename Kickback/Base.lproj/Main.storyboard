@@ -464,7 +464,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnW-3O-OpJ" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="146" y="200" width="84" height="22"/>
+                                            <rect key="frame" x="147" y="200" width="82.5" height="21"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -488,7 +488,7 @@
                                             </connections>
                                         </label>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsw-m5-1lT" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="168" y="228" width="40" height="17"/>
+                                            <rect key="frame" x="168" y="227" width="40" height="17"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -1788,7 +1788,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHN-eg-38v" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="36" y="204" width="303" height="22"/>
+                                            <rect key="frame" x="36" y="204" width="303" height="21"/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1805,7 +1805,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXl-mo-qxV">
-                                            <rect key="frame" x="36" y="232" width="303" height="17"/>
+                                            <rect key="frame" x="36" y="231" width="303" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="CtR-aR-KpP"/>
                                             </constraints>
