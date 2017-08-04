@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -484,7 +484,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnW-3O-OpJ" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="145.5" y="200" width="84" height="22"/>
+                                            <rect key="frame" x="146" y="200" width="84" height="22"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -559,7 +559,7 @@
                                         <rect key="frame" x="0.0" y="257" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3gb-84-FNP" id="Ic4-AJ-NBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Hl-KQ-b3o">
@@ -847,7 +847,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3J-Dr-9Pj">
-                                <rect key="frame" x="293.5" y="151.5" width="29.5" height="17"/>
+                                <rect key="frame" x="293" y="151.5" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -970,7 +970,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDX-QZ-SwC">
-                                <rect key="frame" x="155" y="26" width="66.5" height="14"/>
+                                <rect key="frame" x="154.5" y="26" width="66.5" height="14"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Medium" family="HK Grotesk" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -1149,7 +1149,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S72-vV-2Rr">
-                                            <rect key="frame" x="165" y="175" width="46.5" height="22"/>
+                                            <rect key="frame" x="164.5" y="175" width="46.5" height="22"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
                                                     <rect key="frame" x="0.0" y="0.0" width="46.5" height="22"/>
@@ -1199,7 +1199,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="txd-wA-ZTE">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-album" translatesAutoresizingMaskIntoConstraints="NO" id="txd-wA-ZTE">
                                                                 <rect key="frame" x="12" y="12" width="76" height="76"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="76" id="GBQ-CC-ePw"/>
@@ -1246,20 +1246,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImA-52-64L">
-                                                    <rect key="frame" x="338" y="18.5" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="R27-4u-luz"/>
-                                                        <constraint firstAttribute="height" constant="25" id="rFi-CN-b4c"/>
-                                                    </constraints>
-                                                    <state key="normal" image="plus"/>
-                                                    <state key="disabled" image="check"/>
-                                                    <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <action selector="onAddTrack:" destination="9op-gw-vw3" eventType="touchUpInside" id="hJw-y3-wld"/>
-                                                    </connections>
-                                                </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nb-TK-hUi">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-album" translatesAutoresizingMaskIntoConstraints="NO" id="5nb-TK-hUi">
                                                     <rect key="frame" x="12" y="6" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="OlW-nP-E47"/>
@@ -1300,14 +1287,21 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-hY-MdG">
+                                                    <rect key="frame" x="338" y="18.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="i5N-3F-0WP"/>
+                                                        <constraint firstAttribute="height" constant="25" id="t2P-Ue-fZ6"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="leading" secondItem="hP1-DH-Q2l" secondAttribute="trailing" constant="6" id="6X7-HS-kNm"/>
                                                 <constraint firstItem="ibi-fT-uWz" firstAttribute="top" secondItem="hP1-DH-Q2l" secondAttribute="bottom" constant="2" id="DgW-sL-0wc"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="leading" secondItem="ibi-fT-uWz" secondAttribute="trailing" constant="6" id="GVc-0k-5J0"/>
-                                                <constraint firstAttribute="trailing" secondItem="ImA-52-64L" secondAttribute="trailing" constant="12" id="Iru-84-cuh"/>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="centerY" secondItem="5nb-TK-hUi" secondAttribute="centerY" id="F8V-Wf-TrL"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="top" secondItem="jPN-Me-4JT" secondAttribute="top" constant="6" id="JfG-nE-oRA"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="centerY" secondItem="jPN-Me-4JT" secondAttribute="centerY" id="RQC-tz-ygg"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="leading" secondItem="hP1-DH-Q2l" secondAttribute="trailing" constant="6" id="V1U-vq-cNd"/>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="leading" secondItem="ibi-fT-uWz" secondAttribute="trailing" constant="6" id="JvA-04-C4V"/>
+                                                <constraint firstAttribute="trailing" secondItem="6PV-hY-MdG" secondAttribute="trailing" constant="12" id="Z48-dS-Zm1"/>
                                                 <constraint firstAttribute="bottom" secondItem="5nb-TK-hUi" secondAttribute="bottom" constant="6" id="ZHF-Mf-8n4"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="leading" secondItem="jPN-Me-4JT" secondAttribute="leading" constant="12" id="eZA-HU-Jew"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="top" secondItem="hP1-DH-Q2l" secondAttribute="bottom" constant="-26" id="iAi-sz-3Hr"/>
@@ -1317,7 +1311,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="addTrackButton" destination="ImA-52-64L" id="uBd-e4-9DE"/>
+                                            <outlet property="addTrackImageView" destination="6PV-hY-MdG" id="1eK-O2-rIF"/>
                                             <outlet property="albumImageView" destination="5nb-TK-hUi" id="V2r-sc-hgK"/>
                                             <outlet property="artistsLabel" destination="ibi-fT-uWz" id="jJS-4p-sdl"/>
                                             <outlet property="nameLabel" destination="hP1-DH-Q2l" id="VvF-Uf-kcy"/>
@@ -1424,21 +1418,8 @@
                                                         <constraint firstAttribute="height" constant="64" id="E4y-ZU-7Ym"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZb-pi-BgV">
-                                                    <rect key="frame" x="338" y="26" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="0gf-ns-9gb"/>
-                                                        <constraint firstAttribute="height" constant="25" id="L9H-eV-eEP"/>
-                                                    </constraints>
-                                                    <state key="normal" image="plus"/>
-                                                    <state key="disabled" image="check"/>
-                                                    <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <action selector="onAddTrack:" destination="134-dg-Hw1" eventType="touchUpInside" id="lBb-jO-3Q5"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEo-Y4-x62" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                    <rect key="frame" x="88" y="43" width="238" height="14"/>
+                                                    <rect key="frame" x="88" y="43" width="244" height="14"/>
                                                     <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1471,23 +1452,31 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="UVn-R9-M3K">
+                                                    <rect key="frame" x="338" y="26" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="CGl-M0-THw"/>
+                                                        <constraint firstAttribute="height" constant="25" id="o6I-Pb-dTn"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="UVn-R9-M3K" firstAttribute="leading" secondItem="JOJ-Lc-nHL" secondAttribute="trailing" constant="6" id="Ajx-lb-Gd6"/>
+                                                <constraint firstItem="UVn-R9-M3K" firstAttribute="centerY" secondItem="uWm-Ud-adH" secondAttribute="centerY" id="CIb-bH-1U6"/>
+                                                <constraint firstAttribute="trailing" secondItem="UVn-R9-M3K" secondAttribute="trailing" constant="12" id="DvB-iE-ILC"/>
                                                 <constraint firstItem="uWm-Ud-adH" firstAttribute="leading" secondItem="0BH-wH-YWt" secondAttribute="leading" constant="12" id="KfG-3g-voi"/>
-                                                <constraint firstAttribute="trailing" secondItem="XZb-pi-BgV" secondAttribute="trailing" constant="12" id="SS8-lF-Bfg"/>
                                                 <constraint firstItem="sEo-Y4-x62" firstAttribute="leading" secondItem="uWm-Ud-adH" secondAttribute="trailing" constant="12" id="Svg-zD-yrs"/>
                                                 <constraint firstItem="uWm-Ud-adH" firstAttribute="centerY" secondItem="0BH-wH-YWt" secondAttribute="centerY" id="T9L-hD-eco"/>
-                                                <constraint firstItem="XZb-pi-BgV" firstAttribute="centerY" secondItem="0BH-wH-YWt" secondAttribute="centerY" id="X2Q-O8-8au"/>
-                                                <constraint firstItem="XZb-pi-BgV" firstAttribute="leading" secondItem="sEo-Y4-x62" secondAttribute="trailing" constant="12" id="b1J-0K-uK3"/>
+                                                <constraint firstItem="UVn-R9-M3K" firstAttribute="leading" secondItem="sEo-Y4-x62" secondAttribute="trailing" constant="6" id="WLL-rp-84Q"/>
                                                 <constraint firstItem="JOJ-Lc-nHL" firstAttribute="leading" secondItem="uWm-Ud-adH" secondAttribute="trailing" constant="12" id="kC6-of-SPB"/>
-                                                <constraint firstItem="XZb-pi-BgV" firstAttribute="leading" secondItem="JOJ-Lc-nHL" secondAttribute="trailing" constant="6" id="xs8-7G-QG6"/>
                                                 <constraint firstItem="uWm-Ud-adH" firstAttribute="top" secondItem="JOJ-Lc-nHL" secondAttribute="top" constant="-18" id="yTl-TY-7JG"/>
                                                 <constraint firstItem="sEo-Y4-x62" firstAttribute="top" secondItem="JOJ-Lc-nHL" secondAttribute="bottom" constant="2" id="z45-ne-9bc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="addTrackButton" destination="XZb-pi-BgV" id="N0t-8x-36m"/>
+                                            <outlet property="addTrackImageView" destination="UVn-R9-M3K" id="abG-g2-1la"/>
                                             <outlet property="albumImageView" destination="uWm-Ud-adH" id="OXa-BU-JqB"/>
                                             <outlet property="artistsLabel" destination="sEo-Y4-x62" id="MuD-RV-iJD"/>
                                             <outlet property="nameLabel" destination="JOJ-Lc-nHL" id="Tis-iZ-IJb"/>
@@ -1879,27 +1868,14 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchResultCell" id="iuX-rP-Z5Q" customClass="SearchResultCell" customModule="Kickback" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="iuX-rP-Z5Q" customClass="SearchResultCell" customModule="Kickback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="283" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iuX-rP-Z5Q" id="OkW-4b-5R5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luw-u5-MAF">
-                                                    <rect key="frame" x="330" y="19" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="3Gd-q6-0B9"/>
-                                                        <constraint firstAttribute="width" constant="25" id="r2Z-K6-jwI"/>
-                                                    </constraints>
-                                                    <state key="normal" image="plus"/>
-                                                    <state key="disabled" image="check"/>
-                                                    <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <action selector="onAddTrack:" destination="iuX-rP-Z5Q" eventType="touchUpInside" id="mUp-qv-bi4"/>
-                                                    </connections>
-                                                </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-LJ-oqi">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-album" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-LJ-oqi">
                                                     <rect key="frame" x="12" y="6" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="Wsa-Wg-bhX"/>
@@ -1907,13 +1883,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psU-sG-eez">
-                                                    <rect key="frame" x="74" y="34" width="250" height="14"/>
+                                                    <rect key="frame" x="74" y="34" width="258" height="14"/>
                                                     <fontDescription key="fontDescription" name="HKGrotesk-Regular" family="HK Grotesk" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttd-Hl-6Dg" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                    <rect key="frame" x="74" y="15" width="250" height="17"/>
+                                                    <rect key="frame" x="74" y="15" width="258" height="17"/>
                                                     <fontDescription key="fontDescription" name="HKGrotesk-Medium" family="HK Grotesk" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1929,23 +1905,30 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="uGu-CY-uNe">
+                                                    <rect key="frame" x="338" y="19" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="fyC-rn-8TV"/>
+                                                        <constraint firstAttribute="width" constant="25" id="veP-DB-GnT"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Luw-u5-MAF" firstAttribute="centerY" secondItem="OkW-4b-5R5" secondAttribute="centerY" id="5ec-SB-ZM5"/>
                                                 <constraint firstItem="psU-sG-eez" firstAttribute="leading" secondItem="Ttd-Hl-6Dg" secondAttribute="leading" id="87B-yQ-iOf"/>
-                                                <constraint firstItem="Luw-u5-MAF" firstAttribute="leading" secondItem="psU-sG-eez" secondAttribute="trailing" constant="6" id="Btd-xx-KDa"/>
                                                 <constraint firstItem="psU-sG-eez" firstAttribute="top" secondItem="Ttd-Hl-6Dg" secondAttribute="bottom" constant="2" id="CWb-D5-g3K"/>
                                                 <constraint firstItem="0dy-LJ-oqi" firstAttribute="leading" secondItem="OkW-4b-5R5" secondAttribute="leading" constant="12" id="GNY-HX-BAi"/>
                                                 <constraint firstItem="0dy-LJ-oqi" firstAttribute="top" secondItem="Ttd-Hl-6Dg" secondAttribute="bottom" constant="-26" id="Vbd-Ij-KKB"/>
                                                 <constraint firstItem="0dy-LJ-oqi" firstAttribute="top" secondItem="OkW-4b-5R5" secondAttribute="top" constant="6" id="XQe-Hi-Gmw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Luw-u5-MAF" secondAttribute="trailing" constant="12" id="Z9r-df-KuH"/>
+                                                <constraint firstAttribute="trailing" secondItem="uGu-CY-uNe" secondAttribute="trailing" constant="12" id="beg-0G-4QE"/>
+                                                <constraint firstItem="uGu-CY-uNe" firstAttribute="centerY" secondItem="0dy-LJ-oqi" secondAttribute="centerY" id="e42-Gh-UU1"/>
+                                                <constraint firstItem="uGu-CY-uNe" firstAttribute="leading" secondItem="psU-sG-eez" secondAttribute="trailing" constant="6" id="f93-tU-20V"/>
                                                 <constraint firstItem="Ttd-Hl-6Dg" firstAttribute="leading" secondItem="0dy-LJ-oqi" secondAttribute="trailing" constant="12" id="rRW-q2-G2t"/>
-                                                <constraint firstItem="Luw-u5-MAF" firstAttribute="leading" secondItem="Ttd-Hl-6Dg" secondAttribute="trailing" constant="6" id="x8k-mn-5Ze"/>
+                                                <constraint firstItem="uGu-CY-uNe" firstAttribute="leading" secondItem="Ttd-Hl-6Dg" secondAttribute="trailing" constant="6" id="xgC-Ff-wCb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="addTrackButton" destination="Luw-u5-MAF" id="ve2-GZ-cHR"/>
+                                            <outlet property="addTrackImageView" destination="uGu-CY-uNe" id="WQN-jW-NhS"/>
                                             <outlet property="albumImageView" destination="0dy-LJ-oqi" id="d5O-CF-n6L"/>
                                             <outlet property="artistsLabel" destination="psU-sG-eez" id="OPD-e5-WTw"/>
                                             <outlet property="nameLabel" destination="Ttd-Hl-6Dg" id="eRN-pm-0B5"/>
@@ -1980,7 +1963,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBq-fO-0JT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="45"/>
+            <point key="canvasLocation" x="1132" y="44.527736131934034"/>
         </scene>
         <!--JoinQViewController-->
         <scene sceneID="wZd-ZR-T79">
@@ -2105,7 +2088,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwr-fp-WMk">
-                                <rect key="frame" x="253" y="95" width="29.5" height="17"/>
+                                <rect key="frame" x="253.5" y="95" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2187,7 +2170,7 @@
             <objects>
                 <navigationController storyboardIdentifier="welcomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="LCD-nB-QIS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uOf-1q-iLh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uOf-1q-iLh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2205,7 +2188,7 @@
             <objects>
                 <navigationController storyboardIdentifier="createNavigation" automaticallyAdjustsScrollViewInsets="NO" id="iVp-Ia-EQV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Axk-cS-DT1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axk-cS-DT1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2223,7 +2206,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kci-B7-HQP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MFm-1D-y54">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MFm-1D-y54">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2240,7 +2223,6 @@
     <resources>
         <image name="blackgradient" width="1149" height="1149"/>
         <image name="camera" width="50" height="50"/>
-        <image name="check" width="28" height="28"/>
         <image name="chevron-right" width="28" height="28"/>
         <image name="control_gradient" width="1413" height="525"/>
         <image name="empty-album" width="220" height="220"/>
@@ -2263,8 +2245,8 @@
         <image name="user-plus" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bBs-fI-9um"/>
         <segue reference="noR-SQ-Xsn"/>
+        <segue reference="bBs-fI-9um"/>
         <segue reference="Owa-LJ-ftL"/>
         <segue reference="vTg-yr-bTs"/>
     </inferredMetricsTieBreakers>

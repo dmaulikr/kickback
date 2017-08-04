@@ -60,6 +60,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
                     self.tableView.reloadData()
                 })
             case 1:
@@ -98,7 +99,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            addedtoQueue = [Bool](repeating: false, count: tracks.count)
             return tracks.count
         case 1:
             return artists.count
@@ -116,16 +116,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
             searchCell.track = tracks[indexPath.row]
             
-            searchCell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                                for: UIControlEvents.touchUpInside)
-            searchCell.addTrackButton.tag = indexPath.row
-            if addedtoQueue[indexPath.row] == true {
-                // disable State Button
-                searchCell.addTrackButton.isEnabled = false
-                
+            if addedtoQueue[indexPath.row] {
+                // indicate track has been added
+                searchCell.selectionStyle = .none
+                searchCell.addTrackImageView.image = UIImage(named: "check")
             } else {
-                // activate State Button
-                searchCell.addTrackButton.isEnabled = true
+                // indicate track has not been added
+                searchCell.selectionStyle = .default
+                searchCell.addTrackImageView.image = UIImage(named: "plus")
             }
             cell = searchCell as SearchResultCell
         case 1:
@@ -146,16 +144,25 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func buttonAction(sender:UIButton!) {
-        let index = sender.tag
-        if addedtoQueue[index] == false {
-            addedtoQueue[index] = true
+        if segmentedControl.selectedSegmentIndex == 0 {
+            if !addedtoQueue[indexPath.row] {
+                // reload tableview
+                addedtoQueue[indexPath.row] = true
+                tableView.reloadData()
+                
+                // get the track
+                let track = tracks[indexPath.row]
+                let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+                searchCell.track = track
+                
+                // add track to playlist
+                Queue.current!.addTrack(track, user: User.current!)
+            }
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             self.tableView.isHidden = true
@@ -170,6 +177,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
                     self.tableView.reloadData()
                 })
             case 1:
@@ -204,6 +212,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             case 0:
                 APIManager.current?.searchTracks(query: searchText, user: User.current, callback: { (tracks) in
                     self.tracks = tracks
+                    self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
+
                         self.tableView.reloadData()
                 })
             case 1:
@@ -226,7 +236,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let width: CGFloat = sender.frame.size.width / 3
         let x = CGFloat(sender.selectedSegmentIndex) * width
         let y = sender.frame.size.height - (segmentBottomBorder.borderWidth)
-        segmentBottomBorder.frame = CGRect(x: x, y: y, width: width, height: (segmentBottomBorder.borderWidth))
+        segmentBottomBorder.frame = CGRect(x: x, y: y, width: width, height: 1)
         sender.layer.addSublayer(segmentBottomBorder)
     }
     

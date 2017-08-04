@@ -62,6 +62,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let albumURI = album.uri
         APIManager.current?.getTracksInAlbum(albumURI: URL(string: albumURI)!, user: User.current, callback: { (tracks) in
             self.tracks = tracks
+            self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
             self.tableView.reloadData()
         })
     }
@@ -72,7 +73,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addedtoQueue = [Bool](repeating: false, count: tracks.count)
         if track == nil {
             return tracks.count
         }
@@ -83,22 +83,19 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         if track == nil {
             cell.track = self.tracks[indexPath.row]
-            cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                          for: UIControlEvents.touchUpInside)
-            cell.addTrackButton.tag = indexPath.row
-            
             // Reset the reuse cell
             cell.nameLabel.textColor = UIColor.white
             cell.albumImageView.layer.borderWidth = 1
-            cell.addTrackButton.isHidden = false
+            cell.addTrackImageView.isHidden = false
             
-            if addedtoQueue[indexPath.row] == true {
-                // disable State Button
-                cell.addTrackButton.isEnabled = false
-                
+            if addedtoQueue[indexPath.row] {
+                // indicate track has been added
+                cell.selectionStyle = .none
+                cell.addTrackImageView.image = UIImage(named: "check")
             } else {
-                // activate State Button
-                cell.addTrackButton.isEnabled = true
+                // indicate track has not been added
+                cell.selectionStyle = .default
+                cell.addTrackImageView.image = UIImage(named: "plus")
             }
         } else {
             if indexPath.row == 0 {
@@ -120,9 +117,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.albumImageView.af_setImage(withURL: url!)
                 cell.albumImageView.layer.borderWidth = 0
                 
-                cell.addTrackButton.isHidden = true
-                cell.addTrackButton.isEnabled = false
-                
+                cell.addTrackImageView.isHidden = true                
             } else {
                 self.tracks = tracks.filter({ (dictionary) -> Bool in
                     if let value = dictionary.name as? String {
@@ -131,32 +126,41 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return false
                 })
                 cell.track = self.tracks[indexPath.row]
-                cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                              for: UIControlEvents.touchUpInside)
-                cell.addTrackButton.tag = indexPath.row
-                
                 // Reset the reuse cell
                 cell.nameLabel.textColor = UIColor.white
                 cell.albumImageView.layer.borderWidth = 1
-                cell.addTrackButton.isHidden = false
+                cell.addTrackImageView.isHidden = false
                 
-                if addedtoQueue[indexPath.row] == true {
-                    // disable State Button
-                    cell.addTrackButton.isEnabled = false
-                    
+                if addedtoQueue[indexPath.row] {
+                    // indicate track has been added
+                    cell.selectionStyle = .none
+                    cell.addTrackImageView.image = UIImage(named: "check")
                 } else {
-                    // activate State Button
-                    cell.addTrackButton.isEnabled = true
+                    // indicate track has not been added
+                    cell.selectionStyle = .default
+                    cell.addTrackImageView.image = UIImage(named: "plus")
                 }
             }
         }
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = backgroundColorView
         return cell
     }
     
-    func buttonAction(sender:UIButton!) {
-        let index = sender.tag
-        if addedtoQueue[index] == false {
-            addedtoQueue[index] = true
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !addedtoQueue[indexPath.row] {
+            // reload tableview
+            addedtoQueue[indexPath.row] = true
+            tableView.reloadData()
+            
+            // get the track
+            let track = tracks[indexPath.row]
+            let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+            searchCell.track = track
+            
+            // add track to playlist
+            Queue.current!.addTrack(track, user: User.current!)
         }
     }
        // MARK: - Navigation
