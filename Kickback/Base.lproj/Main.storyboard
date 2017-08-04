@@ -464,7 +464,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnW-3O-OpJ" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="145.5" y="200" width="84" height="22"/>
+                                            <rect key="frame" x="146" y="200" width="84" height="22"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -827,7 +827,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3J-Dr-9Pj">
-                                <rect key="frame" x="293" y="151.5" width="29.5" height="17"/>
+                                <rect key="frame" x="293.5" y="151.5" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -928,7 +928,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDX-QZ-SwC">
-                                <rect key="frame" x="154.5" y="26" width="66.5" height="14"/>
+                                <rect key="frame" x="155" y="26" width="66.5" height="14"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-Medium" family="HK Grotesk" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -1107,7 +1107,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S72-vV-2Rr">
-                                            <rect key="frame" x="164.5" y="175" width="46.5" height="22"/>
+                                            <rect key="frame" x="165" y="175" width="46.5" height="22"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I74-sQ-wAH">
                                                     <rect key="frame" x="0.0" y="0.0" width="46.5" height="22"/>
@@ -1204,19 +1204,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImA-52-64L">
-                                                    <rect key="frame" x="338" y="18.5" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="R27-4u-luz"/>
-                                                        <constraint firstAttribute="height" constant="25" id="rFi-CN-b4c"/>
-                                                    </constraints>
-                                                    <state key="normal" image="plus"/>
-                                                    <state key="disabled" image="check"/>
-                                                    <state key="selected" image="check"/>
-                                                    <connections>
-                                                        <action selector="onAddTrack:" destination="9op-gw-vw3" eventType="touchUpInside" id="hJw-y3-wld"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nb-TK-hUi">
                                                     <rect key="frame" x="12" y="6" width="50" height="50"/>
                                                     <constraints>
@@ -1258,14 +1245,21 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-hY-MdG">
+                                                    <rect key="frame" x="338" y="18.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="i5N-3F-0WP"/>
+                                                        <constraint firstAttribute="height" constant="25" id="t2P-Ue-fZ6"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="leading" secondItem="hP1-DH-Q2l" secondAttribute="trailing" constant="6" id="6X7-HS-kNm"/>
                                                 <constraint firstItem="ibi-fT-uWz" firstAttribute="top" secondItem="hP1-DH-Q2l" secondAttribute="bottom" constant="2" id="DgW-sL-0wc"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="leading" secondItem="ibi-fT-uWz" secondAttribute="trailing" constant="6" id="GVc-0k-5J0"/>
-                                                <constraint firstAttribute="trailing" secondItem="ImA-52-64L" secondAttribute="trailing" constant="12" id="Iru-84-cuh"/>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="centerY" secondItem="5nb-TK-hUi" secondAttribute="centerY" id="F8V-Wf-TrL"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="top" secondItem="jPN-Me-4JT" secondAttribute="top" constant="6" id="JfG-nE-oRA"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="centerY" secondItem="jPN-Me-4JT" secondAttribute="centerY" id="RQC-tz-ygg"/>
-                                                <constraint firstItem="ImA-52-64L" firstAttribute="leading" secondItem="hP1-DH-Q2l" secondAttribute="trailing" constant="6" id="V1U-vq-cNd"/>
+                                                <constraint firstItem="6PV-hY-MdG" firstAttribute="leading" secondItem="ibi-fT-uWz" secondAttribute="trailing" constant="6" id="JvA-04-C4V"/>
+                                                <constraint firstAttribute="trailing" secondItem="6PV-hY-MdG" secondAttribute="trailing" constant="12" id="Z48-dS-Zm1"/>
                                                 <constraint firstAttribute="bottom" secondItem="5nb-TK-hUi" secondAttribute="bottom" constant="6" id="ZHF-Mf-8n4"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="leading" secondItem="jPN-Me-4JT" secondAttribute="leading" constant="12" id="eZA-HU-Jew"/>
                                                 <constraint firstItem="5nb-TK-hUi" firstAttribute="top" secondItem="hP1-DH-Q2l" secondAttribute="bottom" constant="-26" id="iAi-sz-3Hr"/>
@@ -1275,7 +1269,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <outlet property="addTrackButton" destination="ImA-52-64L" id="uBd-e4-9DE"/>
+                                            <outlet property="addTrackImageView" destination="6PV-hY-MdG" id="1eK-O2-rIF"/>
                                             <outlet property="albumImageView" destination="5nb-TK-hUi" id="V2r-sc-hgK"/>
                                             <outlet property="artistsLabel" destination="ibi-fT-uWz" id="jJS-4p-sdl"/>
                                             <outlet property="nameLabel" destination="hP1-DH-Q2l" id="VvF-Uf-kcy"/>
@@ -1832,7 +1826,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchResultCell" id="iuX-rP-Z5Q" customClass="SearchResultCell" customModule="Kickback" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="iuX-rP-Z5Q" customClass="SearchResultCell" customModule="Kickback" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="283" width="375" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iuX-rP-Z5Q" id="OkW-4b-5R5">
@@ -2052,7 +2046,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwr-fp-WMk">
-                                <rect key="frame" x="253.5" y="95" width="29.5" height="17"/>
+                                <rect key="frame" x="253" y="95" width="29.5" height="17"/>
                                 <fontDescription key="fontDescription" name="HKGrotesk-SemiBold" family="HK Grotesk" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2187,7 +2181,6 @@
     <resources>
         <image name="blackgradient" width="1149" height="1149"/>
         <image name="camera" width="50" height="50"/>
-        <image name="check" width="28" height="28"/>
         <image name="chevron-right" width="28" height="28"/>
         <image name="control_gradient" width="1413" height="525"/>
         <image name="empty-album" width="220" height="220"/>

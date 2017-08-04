@@ -87,25 +87,33 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
 
         if addedtoQueue[indexPath.row] {
             // indicate track has been added
+            cell.selectionStyle = .none
             cell.addTrackImageView.image = UIImage(named: "check")
         } else {
             // indicate track has not been added
+            cell.selectionStyle = .default
             cell.addTrackImageView.image = UIImage(named: "plus")
         }
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = backgroundColorView
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // get the track
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        cell.track = topTracks[indexPath.row]
-        
-        // reload tableview
-        addedtoQueue[indexPath.row] = true
-        tableView.reloadData()
-        
-        // add track to playlist
-        Queue.current!.addTrack(track, user: User.current!)
+        if !addedtoQueue[indexPath.row] {
+            // reload tableview
+            addedtoQueue[indexPath.row] = true
+            tableView.reloadData()
+            
+            // get the track
+            let track = topTracks[indexPath.row]
+            let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+            searchCell.track = track
+            
+            // add track to playlist
+            Queue.current!.addTrack(track, user: User.current!)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

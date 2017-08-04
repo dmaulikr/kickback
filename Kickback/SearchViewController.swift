@@ -122,12 +122,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 // indicate track has been added
                 searchCell.selectionStyle = .none
                 searchCell.addTrackImageView.image = UIImage(named: "check")
-               // print("\(indexPath.row) check")
             } else {
                 // indicate track has not been added
                 searchCell.selectionStyle = .default
                 searchCell.addTrackImageView.image = UIImage(named: "plus")
-                //print("\(indexPath.row) plus")
             }
             cell = searchCell as SearchResultCell
         case 1:
@@ -150,15 +148,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentedControl.selectedSegmentIndex == 0 {
             if !addedtoQueue[indexPath.row] {
+                // reload tableview
+                addedtoQueue[indexPath.row] = true
+                tableView.reloadData()
+                
                 // get the track
                 let track = tracks[indexPath.row]
                 let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
                 searchCell.track = track
                 
-                // reload tableview
-                addedtoQueue[indexPath.row] = true
-                tableView.reloadData()
-
                 // add track to playlist
                 Queue.current!.addTrack(track, user: User.current!)
             }

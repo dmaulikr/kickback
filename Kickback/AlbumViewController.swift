@@ -62,6 +62,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let albumURI = album.uri
         APIManager.current?.getTracksInAlbum(albumURI: URL(string: albumURI)!, user: User.current, callback: { (tracks) in
             self.tracks = tracks
+            self.addedtoQueue = [Bool](repeating: false, count: tracks.count)
             self.tableView.reloadData()
         })
     }
@@ -72,7 +73,6 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        addedtoQueue = [Bool](repeating: false, count: tracks.count)
         if track == nil {
             return tracks.count
         }
@@ -90,9 +90,11 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             if addedtoQueue[indexPath.row] {
                 // indicate track has been added
+                cell.selectionStyle = .none
                 cell.addTrackImageView.image = UIImage(named: "check")
             } else {
                 // indicate track has not been added
+                cell.selectionStyle = .default
                 cell.addTrackImageView.image = UIImage(named: "plus")
             }
         } else {
@@ -131,27 +133,35 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 if addedtoQueue[indexPath.row] {
                     // indicate track has been added
+                    cell.selectionStyle = .none
                     cell.addTrackImageView.image = UIImage(named: "check")
                 } else {
                     // indicate track has not been added
+                    cell.selectionStyle = .default
                     cell.addTrackImageView.image = UIImage(named: "plus")
                 }
             }
         }
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = backgroundColorView
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // get the track
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        cell.track = tracks[indexPath.row]
-        
-        // reload tableview
-        addedtoQueue[indexPath.row] = true
-        tableView.reloadData()
-        
-        // add track to playlist
-        Queue.current!.addTrack(track, user: User.current!)
+        if !addedtoQueue[indexPath.row] {
+            // reload tableview
+            addedtoQueue[indexPath.row] = true
+            tableView.reloadData()
+            
+            // get the track
+            let track = tracks[indexPath.row]
+            let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
+            searchCell.track = track
+            
+            // add track to playlist
+            Queue.current!.addTrack(track, user: User.current!)
+        }
     }
        // MARK: - Navigation
     
