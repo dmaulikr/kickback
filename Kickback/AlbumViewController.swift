@@ -83,23 +83,23 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         if track == nil {
             cell.track = self.tracks[indexPath.row]
-            cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                          for: UIControlEvents.touchUpInside)
-            cell.addTrackButton.tag = indexPath.row
+//            cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+//                                          for: UIControlEvents.touchUpInside)
+//            cell.addTrackButton.tag = indexPath.row
             
             // Reset the reuse cell
             cell.nameLabel.textColor = UIColor.white
             cell.albumImageView.layer.borderWidth = 1
-            cell.addTrackButton.isHidden = false
-            
-            if addedtoQueue[indexPath.row] == true {
-                // disable State Button
-                cell.addTrackButton.isEnabled = false
-                
-            } else {
-                // activate State Button
-                cell.addTrackButton.isEnabled = true
-            }
+//            cell.addTrackButton.isHidden = false
+//            
+//            if addedtoQueue[indexPath.row] == true {
+//                // disable State Button
+//                cell.addTrackButton.isEnabled = false
+//                
+//            } else {
+//                // activate State Button
+//                cell.addTrackButton.isEnabled = true
+//            }
         } else {
             if indexPath.row == 0 {
                 // Setting up the current track
@@ -120,8 +120,8 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cell.albumImageView.af_setImage(withURL: url!)
                 cell.albumImageView.layer.borderWidth = 0
                 
-                cell.addTrackButton.isHidden = true
-                cell.addTrackButton.isEnabled = false
+//                cell.addTrackButton.isHidden = true
+//                cell.addTrackButton.isEnabled = false
                 
             } else {
                 self.tracks = tracks.filter({ (dictionary) -> Bool in
@@ -131,22 +131,22 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
                     return false
                 })
                 cell.track = self.tracks[indexPath.row]
-                cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                              for: UIControlEvents.touchUpInside)
-                cell.addTrackButton.tag = indexPath.row
+//                cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+//                                              for: UIControlEvents.touchUpInside)
+//                cell.addTrackButton.tag = indexPath.row
                 
                 // Reset the reuse cell
                 cell.nameLabel.textColor = UIColor.white
                 cell.albumImageView.layer.borderWidth = 1
-                cell.addTrackButton.isHidden = false
+//                cell.addTrackButton.isHidden = false
                 
                 if addedtoQueue[indexPath.row] == true {
                     // disable State Button
-                    cell.addTrackButton.isEnabled = false
+//                    cell.addTrackButton.isEnabled = false
                     
                 } else {
                     // activate State Button
-                    cell.addTrackButton.isEnabled = true
+//                    cell.addTrackButton.isEnabled = true
                 }
             }
         }

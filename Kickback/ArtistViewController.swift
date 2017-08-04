@@ -85,17 +85,17 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
         cell.track = topTracks[indexPath.row]
         
-        cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
-                                            for: UIControlEvents.touchUpInside)
-        cell.addTrackButton.tag = indexPath.row
+//        cell.addTrackButton.addTarget(self, action: #selector(self.buttonAction(sender:)),
+//                                            for: UIControlEvents.touchUpInside)
+//        cell.addTrackButton.tag = indexPath.row
         
         if addedtoQueue[indexPath.row] == true {
             // disable State Button
-            cell.addTrackButton.isEnabled = false
+//            cell.addTrackButton.isEnabled = false
             
         } else {
             // activate State Button
-            cell.addTrackButton.isEnabled = true
+//            cell.addTrackButton.isEnabled = true
         }
         return cell
     }

@@ -119,10 +119,10 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             searchCell.track = tracks[indexPath.row]
             if addedtoQueue[indexPath.row] {
                 // indicate track has been added
-             //   searchCell.isSelected = true
+                searchCell.selectionStyle = .none
+                searchCell.addTrackImageView.image = UIImage(named: "check")
             } else {
-                // indicate track has not been added
-             //   searchCell.isSelected = false
+                searchCell.addTrackImageView.image = UIImage(named: "plus")
             }
             cell = searchCell as SearchResultCell
         case 1:
@@ -147,26 +147,28 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if segmentedControl.selectedSegmentIndex == 0 {
             if !addedtoQueue[indexPath.row] {
+                // get the track
                 let track = tracks[indexPath.row]
                 let searchCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
                 searchCell.track = track
-
+                
                 // add track to playlist
+                searchCell.addTrackImageView.image = UIImage(named: "check")
                 searchCell.isSelected = true
                 Queue.current!.addTrack(track, user: User.current!)
                 addedtoQueue[indexPath.row] = true
-
-                let backgroundColorView = UIView()
-                backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
-                
+           
                 // set up background flash
-                searchCell.selectedBackgroundView = backgroundColorView
-                backgroundColorView.alpha = 0
-                backgroundColorView.isHidden = false
-                UIView.animate(withDuration: 0.5, animations: {
-                    backgroundColorView.alpha = 1.0 }) {
-                        finished in backgroundColorView.isHidden = true
-                }
+//                let backgroundColorView = UIView()
+//                backgroundColorView.backgroundColor = UIColor(red: 0.20, green: 0.07, blue: 0.31, alpha: 1.0)
+                
+//                searchCell.selectedBackgroundView = backgroundColorView
+//                backgroundColorView.alpha = 0
+//                UIView.animate(withDuration: 0.7, animations: {
+//                    backgroundColorView.alpha = 1.0 }) {
+//                        finished in
+//                        searchCell.selectionStyle = .none
+//                }
             }
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
