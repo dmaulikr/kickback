@@ -1892,6 +1892,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="addTrackImageView" destination="uGu-CY-uNe" id="WQN-jW-NhS"/>
                                             <outlet property="albumImageView" destination="0dy-LJ-oqi" id="d5O-CF-n6L"/>
                                             <outlet property="artistsLabel" destination="psU-sG-eez" id="OPD-e5-WTw"/>
                                             <outlet property="nameLabel" destination="Ttd-Hl-6Dg" id="eRN-pm-0B5"/>
