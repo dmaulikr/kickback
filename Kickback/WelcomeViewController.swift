@@ -13,6 +13,7 @@ import AlamofireImage
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var defaultProfileView: UIView!
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var instructionsLabel: UILabel!
@@ -30,6 +31,8 @@ class WelcomeViewController: UIViewController {
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.layer.masksToBounds = false
         profileImage.clipsToBounds = true
+        defaultProfileView.layer.cornerRadius = defaultProfileView.frame.height / 2
+        defaultProfileView.clipsToBounds = true
      
         // Style Join Playlist Button
         joinPlaylistButton.layer.cornerRadius = joinPlaylistButton.frame.width * 0.10

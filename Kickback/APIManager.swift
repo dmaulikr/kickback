@@ -14,6 +14,7 @@ class APIManager {
     var auth: SPTAuth
     var session: SPTSession!
     var loginURL: URL?
+    var lastRequest: DataRequest?
     
     private static var _current: APIManager?
     
@@ -102,9 +103,13 @@ class APIManager {
     }
     
     func searchTracks(query: String, user: User?, callback: @escaping ([Track]) -> Void) -> Void {
+        if lastRequest != nil {
+            lastRequest!.cancel()
+            lastRequest = nil
+        }
         var results: [Track] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeTrack, accessToken: session.accessToken)
-        Alamofire.request(urlRequest).responseJSON { (response) in
+        lastRequest = Alamofire.request(urlRequest).responseJSON { (response) in
             do {
                 var readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let tracks = readableJSON["tracks"] as? JSON {
@@ -128,16 +133,19 @@ class APIManager {
                 }
                 callback(results)
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching tracks: \(error.localizedDescription)")
             }
         }
-        refreshToken()
     }
     
     func searchArtists(query: String, user: User?, callback: @escaping ([Artist]) -> Void) -> Void {
+        if lastRequest != nil {
+            lastRequest!.cancel()
+            lastRequest = nil
+        }
         var results: [Artist] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeArtist, accessToken: session.accessToken)
-        Alamofire.request(urlRequest).responseJSON { (response) in
+        lastRequest = Alamofire.request(urlRequest).responseJSON { (response) in
             do {
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let artists = readableJSON["artists"] as? JSON {
@@ -156,18 +164,20 @@ class APIManager {
                     }
                 }
                 callback(results)
-                
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching artists: \(error.localizedDescription)")
             }
         }
-        refreshToken()
     }
     
     func searchAlbums(query: String, user: User?, callback: @escaping ([Album]) -> Void) -> Void {
+        if lastRequest != nil {
+            lastRequest!.cancel()
+            lastRequest = nil
+        }
         var results: [Album] = []
         let urlRequest = try! SPTSearch.createRequestForSearch(withQuery: query, queryType: .queryTypeAlbum, accessToken: session.accessToken)
-        Alamofire.request(urlRequest).responseJSON { (response) in
+        lastRequest = Alamofire.request(urlRequest).responseJSON { (response) in
             do {
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! [String: Any]
                 if let albums = readableJSON["albums"] as? JSON {
@@ -189,10 +199,9 @@ class APIManager {
                 callback(results)
 
             } catch {
-                print(error.localizedDescription)
+                print("Error while searching albums: \(error.localizedDescription)")
             }
         }
-        refreshToken()
     }
     
     func getTracksInAlbum(albumURI: URL, user: User?, callback: @escaping ([Track]) -> Void) -> Void {

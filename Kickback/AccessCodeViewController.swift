@@ -25,6 +25,7 @@ class AccessCodeViewController: UIViewController, UITextFieldDelegate {
         accessCodeTextField.placeholderColor = UIColor.lightText
         accessCodeTextField.selectedTitleColor = UIColor(red:0.42, green:0.11, blue:0.60, alpha:1.0)
         accessCodeTextField.font = UIFont(name: "HKGrotesk-SemiBold", size: 26)
+        accessCodeTextField.delegate = self
         
         // change the color of the back button in the navigation bar
         self.navigationController?.navigationBar.barTintColor = UIColor.black
@@ -41,6 +42,11 @@ class AccessCodeViewController: UIViewController, UITextFieldDelegate {
         if let code = accessCodeTextField.text {
             tryJoinQueueWith(code: code.lowercased())
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        onTapJoin(textField)
+        return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
