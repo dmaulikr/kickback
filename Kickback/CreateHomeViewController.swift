@@ -48,6 +48,7 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     var isPaused = true
     var isSwiping = false
     var refreshTimer: Timer!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,9 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
         nextButton.isHidden = !isOwner
         rewindButton.isHidden = !isOwner
         progressBar.isHidden = !isOwner
+        timerLabel.isHidden = !isOwner
+        startTimer.isHidden = !isOwner
+        
         if isOwner {
             // Initialize Spotify player
             player.playbackDelegate = self
