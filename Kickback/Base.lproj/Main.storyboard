@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8L-Ml-Squ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atw-iW-TkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3079.1999999999998" y="-1192.3538230884558"/>
+            <point key="canvasLocation" x="-3790" y="-1192"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="W7A-9j-GnE">
@@ -722,6 +722,7 @@
                         <outlet property="secondbg" destination="RJz-sO-yfA" id="ksa-ph-fQi"/>
                         <outlet property="startTimer" destination="ySG-Pa-a9C" id="I6M-rp-sML"/>
                         <outlet property="tableView" destination="tmy-jA-aqT" id="yO1-Ry-uEe"/>
+                        <outlet property="tableViewBottomConstraint" destination="BJS-7V-mJF" id="8dM-qG-jW8"/>
                         <outlet property="timerLabel" destination="f0l-2J-cSw" id="Fhu-y9-FjI"/>
                         <outlet property="topBlackGradientImage" destination="3y2-PK-QbT" id="igG-DP-aKC"/>
                         <outlet property="trackTitleLabel" destination="CnW-3O-OpJ" id="M3k-CT-OxW"/>
@@ -2247,8 +2248,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="noR-SQ-Xsn"/>
         <segue reference="bBs-fI-9um"/>
-        <segue reference="Owa-LJ-ftL"/>
-        <segue reference="vTg-yr-bTs"/>
+        <segue reference="Hqv-uq-cde"/>
+        <segue reference="i0u-G1-jKp"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
