@@ -137,11 +137,14 @@ class CreateHomeViewController: UIViewController, SPTAudioStreamingDelegate, SPT
     @IBAction func screenTapped(_ sender: Any) {
         count = 0
         // fades in
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
-            self.timerLabel.alpha = 1.0
-            self.startTimer.alpha = 1.0
-        }, completion: nil)
-        startTimer.isHidden = false
+        if queue.ownerId == user.id {
+            UIView.animate(withDuration: 1.0, delay: 0.0, options: .curveEaseIn, animations: {
+                self.timerLabel.alpha = 1.0
+                self.startTimer.alpha = 1.0
+            }, completion: nil)
+            startTimer.isHidden = false
+            timerLabel.isHidden = false
+        }
     }
     
 
